@@ -1,6 +1,8 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import Providers from 'contexts/Providers';
+import { AppContainer } from '../styles/App.styled';
+import NavBar from 'components/NavBar/NavBar';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const date = new Date();
@@ -8,7 +10,10 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
   return (
     <Providers>
-      <Component {...pageProps} />
+      <AppContainer>
+        <NavBar />
+        <Component {...pageProps} />
+      </AppContainer>
     </Providers>
   );
 };

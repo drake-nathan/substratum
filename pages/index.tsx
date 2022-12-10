@@ -7,11 +7,9 @@ const Home: NextPage = () => {
   return (
     <St.AppContainer>
       <Head>
-        <title>Chainlife</title>
-        <meta name="description" content="Chainlife" />
+        <title>substratum</title>
+        <meta name="description" content="substratum" />
       </Head>
-
-      <h1>Substratum</h1>
     </St.AppContainer>
   );
 };

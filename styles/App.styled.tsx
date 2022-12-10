@@ -12,4 +12,5 @@ export const AppContainer = styled.div`
 
   background-color: ${(props) => props.theme.colors.bgMain};
   color: ${(props) => props.theme.colors.textMain};
+  cursor: default;
 `;
