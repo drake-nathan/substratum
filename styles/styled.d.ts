@@ -7,6 +7,7 @@ declare module 'styled-components' {
     isMiniCard?: boolean;
     colors: {
       bgMain: string;
+      bgOffset: string;
       textMain: string;
       textOffset: string;
       hover: string;

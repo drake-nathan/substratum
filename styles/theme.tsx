@@ -5,8 +5,9 @@ export const theme: DefaultTheme = {
 
   colors: {
     bgMain: '#464443',
-    textMain: '#f4f4f4',
+    bgOffset: '#5C5A59',
+    textMain: '#EBEBE8',
     textOffset: '#a9a8a7',
-    hover: '#a9a8a7',
+    hover: '#D7D7D5',
   },
 };

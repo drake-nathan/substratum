@@ -9,7 +9,7 @@ export const Container = styled.div`
   gap: ${({ theme }) => (theme.isMobile ? '3em' : '1.5em')};
 
   .icon {
-    font-size: ${({ theme }) => (theme.isMobile ? '2rem' : '1.5rem')};
+    font-size: ${({ theme }) => (theme.isMobile ? '2rem' : '1.375rem')};
     color: ${(props) => props.theme.colors.textMain};
     vertical-align: bottom;
 

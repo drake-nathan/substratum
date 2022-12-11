@@ -1,25 +1,21 @@
-import React, { useState, useContext } from 'react';
-import { ThemeContext } from 'styled-components';
+import React, { useState } from 'react';
+import { useTheme } from 'styled-components';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Squash as Hamburger } from 'hamburger-react';
-import { useWeb3React } from '@web3-react/core';
-import { useEagerConnect } from 'hooks/useEagerConnect';
 import SocialIcons from './SocialIcons/SocialIcons';
 import NavLinks from './NavLinks/NavLinks';
 import MobileNav from './MobileNav';
 import * as St from './NavBar.styled';
 
 const NavBar: React.FC = () => {
-  useEagerConnect();
-  const { active } = useWeb3React();
-  const { isMobile } = useContext(ThemeContext);
+  const { isMobile } = useTheme();
 
   const [showMobileNav, setShowMobileNav] = useState(false);
 
   return (
     <St.NavContainer>
-      <St.LogoDiv>
+      <St.LeftSection>
         <Image
           src={'/substratum/substratum.png'}
           height={35}
@@ -32,16 +28,22 @@ const NavBar: React.FC = () => {
             <St.NavTitle>substratum</St.NavTitle>
           </Link>
         </St.TitleDiv>
-      </St.LogoDiv>
+      </St.LeftSection>
+
       {!isMobile ? (
-        <St.SocialsAndLinks>
+        <St.RightSection>
           <SocialIcons />
 
-          <NavLinks active={active} setShowMobileNav={setShowMobileNav} />
-        </St.SocialsAndLinks>
+          <NavLinks setShowMobileNav={setShowMobileNav} />
+        </St.RightSection>
       ) : (
         <>
-          <Hamburger color="#3A3A3A" toggle={setShowMobileNav} toggled={showMobileNav} />
+          <Hamburger
+            color="#f4f4f4"
+            size={30}
+            toggle={setShowMobileNav}
+            toggled={showMobileNav}
+          />
 
           <MobileNav isOpen={showMobileNav} setIsOpen={setShowMobileNav} />
         </>
