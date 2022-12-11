@@ -2,13 +2,12 @@ import styled from 'styled-components';
 import { RxCaretDown } from 'react-icons/rx';
 
 export const Container = styled.div`
-  /* border: 2px solid ${({ theme: { colors } }) => colors.hover}; */
-  border-radius: ${({ theme: { borderRadius } }) => borderRadius};
-
+  position: relative;
   display: flex;
   align-items: center;
   ${({ theme }) => theme.isMobile && 'flex-direction: column;'}
 
+  border-radius: ${({ theme: { borderRadius } }) => borderRadius};
   box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
 `;
 
@@ -48,8 +47,13 @@ export const Text = styled.span`
   }
 `;
 
-export const DropdownIcon = styled(RxCaretDown)`
+type IsDropDownOpen = { isDropDownOpen: boolean };
+
+export const DropdownIcon = styled(RxCaretDown)<IsDropDownOpen>`
   font-size: 2.25rem;
   margin: -5px;
   margin-right: -9px;
+  transform: ${({ isDropDownOpen }) =>
+    isDropDownOpen ? 'rotate(180deg)' : 'rotate(0deg)'};
+  transition: transform 0.25s ease-in-out;
 `;
