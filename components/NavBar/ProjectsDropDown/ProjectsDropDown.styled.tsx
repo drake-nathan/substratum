@@ -21,6 +21,7 @@ export const Container = styled.div<ShowDropDown>`
 export const Project = styled.span`
   color: ${({ theme: { colors } }) => colors.bgMain};
   font-weight: 600;
+  letter-spacing: normal;
 
   :hover {
     color: ${({ theme: { colors } }) => colors.textOffset};
