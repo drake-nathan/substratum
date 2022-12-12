@@ -4,7 +4,6 @@ export const AppContainer = styled.div`
   min-height: 100vh;
   width: 100%;
   padding: 0 0.5em;
-  padding-bottom: 150px;
 
   display: flex;
   flex-direction: column;

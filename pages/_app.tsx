@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app';
 import Providers from 'contexts/Providers';
 import { AppContainer } from '../styles/App.styled';
 import NavBar from 'components/NavBar/NavBar';
+import Footer from 'components/Footer/Footer';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const date = new Date();
@@ -12,7 +13,10 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     <Providers>
       <AppContainer>
         <NavBar />
+
         <Component {...pageProps} />
+
+        <Footer />
       </AppContainer>
     </Providers>
   );
