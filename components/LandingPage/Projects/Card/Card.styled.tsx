@@ -36,7 +36,6 @@ export const Overlay = styled.div<Props>`
 
 export const OverlayText = styled.h2<Props>`
   position: absolute;
-  text-transform: uppercase;
   opacity: ${({ isShown }) => (isShown ? 1 : 0)};
   transition: opacity 0.3s ease-in-out;
 `;

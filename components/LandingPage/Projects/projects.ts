@@ -13,7 +13,7 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    name: 'Chainlife',
+    name: 'CHAINLIFE',
     image: '/projects/chainlife.png',
     maxSupply: 4_096,
     mintable: true,
@@ -23,7 +23,7 @@ export const projects: Project[] = [
     url: 'https://chainlife.xyz/',
   },
   {
-    name: 'Blonks',
+    name: 'BLONKS',
     image: '/projects/blonks.png',
     maxSupply: 4_444,
     currentSupply: 4_444,
@@ -34,7 +34,7 @@ export const projects: Project[] = [
     url: '/',
   },
   {
-    name: 'Ensō',
+    name: 'ENSŌ',
     image: '/projects/enso.jpeg',
     maxSupply: 1_000,
     currentSupply: 1_000,
@@ -65,7 +65,7 @@ export const projects: Project[] = [
     url: 'https://matto.xyz/project/defocused/',
   },
   {
-    name: 'Texture and Hues',
+    name: 'TEXTURES',
     image: '/projects/texture.svg',
     maxSupply: 1_000,
     mintable: true,
