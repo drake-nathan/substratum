@@ -9,14 +9,15 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-weight: 200;
+  font-size: 2.375rem;
+  font-weight: 100;
   letter-spacing: 2px;
   margin-bottom: -4px;
 `;
 
 export const Subtitle = styled.h2`
   font-style: italic;
-  font-weight: 300;
+  font-weight: 400;
   margin-bottom: 2px;
 `;
 
