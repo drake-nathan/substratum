@@ -1,7 +1,8 @@
 import React from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import Hero from 'components/LandingPage/Hero';
+import Hero from 'components/LandingPage/Hero/Hero';
+import Projects from 'components/LandingPage/Projects/Grid/Grid';
 import styled from 'styled-components';
 
 const HomeContainer = styled.div`
@@ -10,6 +11,7 @@ const HomeContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 1em;
 `;
 
 const Home: NextPage = () => {
@@ -19,7 +21,9 @@ const Home: NextPage = () => {
         <title>substratum</title>
         <meta name="description" content="substratum" />
       </Head>
+
       <Hero />
+      <Projects />
     </HomeContainer>
   );
 };

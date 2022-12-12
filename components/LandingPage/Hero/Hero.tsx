@@ -11,6 +11,7 @@ const Hero: React.FC = () => {
         <St.ListItem>
           <St.ListText>an underlying layer or substance</St.ListText>
         </St.ListItem>
+
         <St.ListItem>
           <St.ListText>a foundation or basis of something</St.ListText>
         </St.ListItem>
@@ -20,6 +21,7 @@ const Hero: React.FC = () => {
         Substratum is a platform built from the ground up to support dynamic and
         experimental crypto art projects.
       </St.Subtle>
+
       <St.Subtle>(It works great for regular projects, too.)</St.Subtle>
     </St.Container>
   );
