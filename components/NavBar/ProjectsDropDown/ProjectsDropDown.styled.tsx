@@ -9,7 +9,7 @@ export const Container = styled.div<ShowDropDown>`
   width: 100%;
   min-width: 200px;
   height: ${({ showDropDown }) => (showDropDown ? '120px' : '0px')};
-  background-color: ${({ theme: { colors } }) => colors.hover};
+  background-color: ${({ theme: { colors } }) => colors.textMain};
   overflow: ${({ showDropDown }) => (showDropDown ? 'auto' : 'hidden')};
   transition: all 0.3s ease;
   display: grid;

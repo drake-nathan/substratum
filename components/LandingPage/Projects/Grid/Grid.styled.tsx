@@ -8,16 +8,6 @@ export const Container = styled.div`
   margin-top: 5em;
 `;
 
-export const Header = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-
-  @media (max-width: 500px) {
-    justify-content: center;
-  }
-`;
-
 export const Grid = styled.div`
   width: 100%;
   display: flex;
@@ -25,8 +15,4 @@ export const Grid = styled.div`
   align-items: center;
   justify-content: center;
   gap: 21px;
-`;
-
-export const Title = styled.h2`
-  font-weight: 400;
 `;

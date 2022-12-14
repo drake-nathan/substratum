@@ -16,21 +16,21 @@ export const Tab = styled.div`
   align-items: center;
   gap: 0.25em;
   padding: 0.125em 0.5em;
-  background-color: ${({ theme: { colors } }) => colors.hover};
+  background-color: ${({ theme: { colors } }) => colors.textMain};
   color: ${({ theme: { colors } }) => colors.bgMain};
 
   :hover {
-    background-color: ${({ theme: { colors } }) => colors.textOffset};
-    color: ${({ theme: { colors } }) => colors.bgMain};
+    background-color: ${({ theme: { colors } }) => colors.bgOffset};
+    color: ${({ theme: { colors } }) => colors.textMain};
     cursor: pointer;
   }
 
   :nth-child(2) {
-    color: ${({ theme: { colors } }) => colors.textMain};
     background-color: ${({ theme: { colors } }) => colors.bgOffset};
+    color: ${({ theme: { colors } }) => colors.textMain};
 
     :hover {
-      background-color: ${({ theme: { colors } }) => colors.textOffset};
+      background-color: ${({ theme: { colors } }) => colors.textMain};
       color: ${({ theme: { colors } }) => colors.bgMain};
     }
   }

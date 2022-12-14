@@ -44,3 +44,9 @@ export const projects: Project[] = [
     url: '/',
   },
 ];
+
+export enum ProjectSort {
+  all,
+  minting,
+  upcoming,
+}
