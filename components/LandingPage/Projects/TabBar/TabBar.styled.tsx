@@ -28,6 +28,7 @@ export const Tab = styled.div`
   min-width: 75px;
   text-align: center;
   padding: 0 0.75em;
+  transition: all 0.3s ease;
 
   :not(:last-child) {
     border-right: 2px solid ${({ theme: { colors } }) => colors.hover};

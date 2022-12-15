@@ -18,8 +18,8 @@ const NavBar: React.FC = () => {
       <St.LeftSection>
         <Image
           src={'/substratum/substratum.png'}
-          height={35}
-          width={35}
+          height={47}
+          width={47}
           alt="substratum logo"
         />
 
