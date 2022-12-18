@@ -16,7 +16,7 @@ export const Title = styled.h2`
 export const TabsContainer = styled.div`
   display: flex;
   align-items: center;
-  border: 2px solid ${({ theme: { colors } }) => colors.hover};
+  border: 2px solid ${({ theme: { colors } }) => colors.textMain};
 
   .active {
     background-color: ${({ theme: { colors } }) => colors.textMain};
@@ -31,7 +31,7 @@ export const Tab = styled.div`
   transition: all 0.3s ease;
 
   :not(:last-child) {
-    border-right: 2px solid ${({ theme: { colors } }) => colors.hover};
+    border-right: 2px solid ${({ theme: { colors } }) => colors.textMain};
   }
 
   :hover {

@@ -6,19 +6,11 @@ export const NavContainer = styled.div`
   width: 100%;
   min-height: 50px;
   justify-content: space-between;
-  padding: 0 2em;
+  padding: 0 1.5em;
   ${({ theme }) => !theme.isMobile && 'min-height: 100px;'}
 
   h5 {
     color: ${(props) => props.theme.colors.textOffset};
-  }
-
-  @media (max-width: 1030px) {
-    ${({ theme }) => !theme.isMobile && 'flex-direction: column-reverse;'}
-    height: fit-content;
-    margin-bottom: 20px;
-    margin-top: 1.5em;
-    padding: ${({ theme }) => (theme.isMobile ? '0 1em' : '0 1em')};
   }
 `;
 
@@ -26,7 +18,6 @@ export const LeftSection = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  /* gap: 1em; */
 `;
 
 export const RightSection = styled.div`
@@ -54,11 +45,6 @@ export const NavTitle = styled.h1`
   color: #2d1961;
 
   :hover {
-    /* color: ${(props) => props.theme.colors.hover}; */
     cursor: pointer;
-  }
-
-  @media (max-width: 500px) {
-    font-size: 2rem;
   }
 `;
