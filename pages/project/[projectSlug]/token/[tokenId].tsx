@@ -1,33 +1,27 @@
 import React from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import styled from 'styled-components';
 import { useRouter } from 'next/router';
-
-const HomeContainer = styled.div`
-  width: 100%;
-  max-width: 900px;
-  min-height: 75vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 1em;
-`;
+import Token from 'components/Token';
 
 const Home: NextPage = () => {
   const { projectSlug, tokenId } = useRouter().query;
 
   return (
-    <HomeContainer>
+    <>
       <Head>
         <title>substratum</title>
         <meta name="description" content="substratum" />
       </Head>
 
-      <h1>
-        {projectSlug} {tokenId}
-      </h1>
-    </HomeContainer>
+      {projectSlug && tokenId && (
+        <Token
+          projectName="Mathare Memories"
+          projectSlug={projectSlug as string}
+          tokenId={tokenId as string}
+        />
+      )}
+    </>
   );
 };
 

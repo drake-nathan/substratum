@@ -5,7 +5,7 @@ import TabBar from '../TabBar/TabBar';
 import * as St from './Grid.styled';
 
 const Grid: React.FC = () => {
-  const [activeTab, setActiveTab] = useState(ProjectSort.all);
+  const [activeTab, setActiveTab] = useState<ProjectSort>(ProjectSort.all);
   const [filteredProjects, setFilteredProjects] = useState<Project[]>(projects);
 
   useEffect(() => {

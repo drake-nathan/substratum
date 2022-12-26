@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import { MdCopyright } from 'react-icons/md';
 
 export const Container = styled.footer`
+  /* position: absolute;
+  bottom: 0; */
   display: flex;
   flex-direction: column;
   align-items: center;

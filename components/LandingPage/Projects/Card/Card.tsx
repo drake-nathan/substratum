@@ -8,7 +8,9 @@ interface Props {
   project: Project;
 }
 
-const Card: React.FC<Props> = ({ project: { name, image, local, url } }) => {
+const Card: React.FC<Props> = ({
+  project: { name, image, local, externalUrl, projectSlug },
+}) => {
   const [showOverlay, setShowOverlay] = useState(false);
 
   const CardJsx = (
@@ -24,9 +26,9 @@ const Card: React.FC<Props> = ({ project: { name, image, local, url } }) => {
 
   const renderCardWithLink = () =>
     local ? (
-      <Link href={url}>{CardJsx}</Link>
+      <Link href={`project/${projectSlug}`}>{CardJsx}</Link>
     ) : (
-      <a href={url} target="_blank" rel="noreferrer">
+      <a href={externalUrl} target="_blank" rel="noreferrer">
         {CardJsx}
       </a>
     );

@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
+import { Project, projects } from 'components/LandingPage/Projects/projects';
+import ProjectPage from 'components/ProjectPage/ProjectHead';
 
 const HomeContainer = styled.div`
   width: 100%;
-  max-width: 900px;
+  max-width: 2000px;
   min-height: 75vh;
   display: flex;
   flex-direction: column;
@@ -17,6 +19,22 @@ const HomeContainer = styled.div`
 const Home: NextPage = () => {
   const { projectSlug } = useRouter().query;
 
+  const [project, setProject] = useState<Project>();
+  const [error, setError] = useState<string>();
+
+  useEffect(() => {
+    if (projectSlug && typeof projectSlug === 'string') {
+      const project = projects.find((p) => p.projectSlug === projectSlug);
+
+      if (project) {
+        setProject(project);
+      } else {
+        console.error('Project not found');
+        setError('Project not found');
+      }
+    }
+  }, [projectSlug]);
+
   return (
     <HomeContainer>
       <Head>
@@ -24,7 +42,9 @@ const Home: NextPage = () => {
         <meta name="description" content="substratum" />
       </Head>
 
-      <h1>{projectSlug}</h1>
+      {project && <ProjectPage project={project} />}
+
+      {error && <h1>{error}</h1>}
     </HomeContainer>
   );
 };
