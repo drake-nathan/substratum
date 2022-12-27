@@ -3,6 +3,8 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 100%;
   padding: 3em 5em;
+  margin-bottom: 1em;
+  border-bottom: 1px solid ${({ theme: { colors } }) => colors.textMain};
 
   display: flex;
   flex-direction: column;
@@ -18,6 +20,7 @@ export const DescContainer = styled.div`
 export const Title = styled.h1`
   font-size: 2.25rem;
   text-align: center;
+  letter-spacing: 4px;
 `;
 
 export const Image = styled.img`

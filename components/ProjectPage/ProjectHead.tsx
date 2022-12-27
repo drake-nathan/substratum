@@ -6,7 +6,7 @@ interface Props {
   project: Project;
 }
 
-const ProjectPage: React.FC<Props> = ({ project }) => {
+const ProjectHead: React.FC<Props> = ({ project }) => {
   const { name, image, description, interactivity, royalties } = project;
 
   return (
@@ -42,4 +42,4 @@ const ProjectPage: React.FC<Props> = ({ project }) => {
   );
 };
 
-export default ProjectPage;
+export default ProjectHead;

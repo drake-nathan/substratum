@@ -4,7 +4,8 @@ import Head from 'next/head';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 import { Project, projects } from 'components/LandingPage/Projects/projects';
-import ProjectPage from 'components/ProjectPage/ProjectHead';
+import ProjectHead from 'components/ProjectPage/ProjectHead';
+import Tokens from 'components/ProjectPage/Tokens/Tokens';
 
 const HomeContainer = styled.div`
   width: 100%;
@@ -42,7 +43,12 @@ const Home: NextPage = () => {
         <meta name="description" content="substratum" />
       </Head>
 
-      {project && <ProjectPage project={project} />}
+      {projectSlug && project && (
+        <>
+          <ProjectHead project={project} />
+          <Tokens projectSlug={projectSlug as string} />
+        </>
+      )}
 
       {error && <h1>{error}</h1>}
     </HomeContainer>

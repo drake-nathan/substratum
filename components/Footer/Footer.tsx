@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
   return (
     <St.Container>
       <St.Row>
-        <St.CopyrightIcon /> Matto {year}
+        <St.CopyrightIcon /> Substratum {year}
       </St.Row>
       <St.Row>
         <St.Text>
