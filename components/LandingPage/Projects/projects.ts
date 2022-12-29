@@ -63,11 +63,12 @@ export const projects: Project[] = [
     projectSlug: 'textures',
     image: '/projects/texture.svg',
     maxSupply: 1_000,
-    mintable: true,
+    mintable: false,
     upcoming: false,
     local: false,
     openSeaSlug: 'texture-and-hues',
-    externalUrl: 'https://matto.xyz/project/texture-and-hues/',
+    externalUrl:
+      'https://opensea.io/collection/texture-and-hues?search[sortAscending]=true&search[sortBy]=CREATED_DATE',
     description: 'Textures is',
   },
 ];
