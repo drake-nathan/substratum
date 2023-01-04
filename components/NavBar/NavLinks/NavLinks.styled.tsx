@@ -20,8 +20,8 @@ export const Tab = styled.div`
   color: ${({ theme: { colors } }) => colors.bgMain};
 
   :hover {
-    background-color: ${({ theme: { colors } }) => colors.bgOffset};
-    color: ${({ theme: { colors } }) => colors.textMain};
+    background-color: ${({ theme: { colors } }) => colors.teal};
+    color: ${({ theme: { colors } }) => colors.purple};
     cursor: pointer;
   }
 
@@ -30,9 +30,13 @@ export const Tab = styled.div`
     color: ${({ theme: { colors } }) => colors.textMain};
 
     :hover {
-      background-color: ${({ theme: { colors } }) => colors.textMain};
-      color: ${({ theme: { colors } }) => colors.bgMain};
+      background-color: ${({ theme: { colors } }) => colors.teal};
+      color: ${({ theme: { colors } }) => colors.purple};
     }
+  }
+
+  .dropdown-flip {
+    transform: rotate(180deg);
   }
 `;
 
@@ -47,13 +51,9 @@ export const Text = styled.span`
   }
 `;
 
-type IsDropDownOpen = { isDropDownOpen: boolean };
-
-export const DropdownIcon = styled(RxCaretDown)<IsDropDownOpen>`
+export const DropdownIcon = styled(RxCaretDown)`
   font-size: 2.25rem;
   margin: -5px;
   margin-right: -9px;
-  transform: ${({ isDropDownOpen }) =>
-    isDropDownOpen ? 'rotate(180deg)' : 'rotate(0deg)'};
   transition: transform 0.25s ease-in-out;
 `;

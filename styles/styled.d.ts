@@ -11,6 +11,8 @@ declare module 'styled-components' {
       textMain: string;
       textOffset: string;
       hover: string;
+      purple: string;
+      teal: string;
     };
   }
 }

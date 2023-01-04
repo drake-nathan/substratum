@@ -26,7 +26,7 @@ const Card: React.FC<Props> = ({
 
   const renderCardWithLink = () =>
     local ? (
-      <Link href={`project/${projectSlug}`}>{CardJsx}</Link>
+      <Link href={`/project/${projectSlug}`}>{CardJsx}</Link>
     ) : (
       <a href={externalUrl} target="_blank" rel="noreferrer">
         {CardJsx}

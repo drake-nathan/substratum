@@ -9,5 +9,7 @@ export const theme: DefaultTheme = {
     textMain: '#EBEBE8',
     textOffset: '#9e9e9e',
     hover: '#bcbcbc',
+    purple: '#2d1961',
+    teal: '#17c1ad',
   },
 };

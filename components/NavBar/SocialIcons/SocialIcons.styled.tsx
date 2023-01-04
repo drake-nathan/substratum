@@ -14,7 +14,7 @@ export const Container = styled.div`
     vertical-align: bottom;
 
     :hover {
-      color: ${(props) => props.theme.colors.hover};
+      color: ${(props) => props.theme.colors.teal};
       cursor: pointer;
     }
   }

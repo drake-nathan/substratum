@@ -9,26 +9,23 @@ import MobileNav from './MobileNav';
 import * as St from './NavBar.styled';
 
 const NavBar: React.FC = () => {
-  const { isMobile } = useTheme();
+  const { isMobile, colors } = useTheme();
 
   const [showMobileNav, setShowMobileNav] = useState(false);
 
   return (
     <St.NavContainer>
-      <St.LeftSection>
-        <Image
-          src={'/substratum/substratum.png'}
-          height={47}
-          width={47}
-          alt="substratum logo"
-        />
+      <St.TitleSection>
+        <St.LogoDiv>
+          <Image src={'/substratum/substratum.png'} layout="fill" alt="substratum logo" />
+        </St.LogoDiv>
 
         <St.TitleDiv>
           <Link href="/">
             <St.NavTitle>substratum</St.NavTitle>
           </Link>
         </St.TitleDiv>
-      </St.LeftSection>
+      </St.TitleSection>
 
       {!isMobile ? (
         <St.RightSection>
@@ -39,7 +36,7 @@ const NavBar: React.FC = () => {
       ) : (
         <>
           <Hamburger
-            color="#f4f4f4"
+            color={colors.textMain}
             size={30}
             toggle={setShowMobileNav}
             toggled={showMobileNav}
