@@ -13,6 +13,9 @@ export const Grid = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  /* justify-content: center; */
   gap: 21px;
+
+  @media (max-width: 915px) {
+    justify-content: space-evenly;
+  }
 `;

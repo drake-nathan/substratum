@@ -7,6 +7,15 @@ export const Container = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 1em;
+
+  @media (max-width: 915px) {
+    justify-content: space-evenly;
+  }
+`;
+
+export const TitleContainer = styled.div`
+  border-bottom: 1px solid ${({ theme: { colors } }) => colors.textOffset};
+  min-width: 275px;
 `;
 
 export const Title = styled.h2`
@@ -17,6 +26,7 @@ export const TabsContainer = styled.div`
   display: flex;
   align-items: center;
   border: 2px solid ${({ theme: { colors } }) => colors.textMain};
+  max-width: 275px;
 
   .active {
     background-color: ${({ theme: { colors } }) => colors.textMain};
@@ -35,8 +45,8 @@ export const Tab = styled.div`
   }
 
   :hover {
-    background-color: ${({ theme: { colors } }) => colors.hover};
-    color: ${({ theme: { colors } }) => colors.bgOffset};
+    background-color: ${({ theme: { colors } }) => colors.teal};
+    color: ${({ theme: { colors } }) => colors.bgMain};
     cursor: pointer;
   }
 `;

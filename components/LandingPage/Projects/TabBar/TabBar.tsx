@@ -10,7 +10,9 @@ interface Props {
 const TabBar: React.FC<Props> = ({ activeTab, setActiveTab }) => {
   return (
     <St.Container>
-      <St.Title>PROJECTS</St.Title>
+      <St.TitleContainer>
+        <St.Title>PROJECTS</St.Title>
+      </St.TitleContainer>
 
       <St.TabsContainer>
         <St.Tab

@@ -29,6 +29,7 @@ const NavLinks: React.FC<Props> = ({ setShowMobileNav }) => {
         <ProjectsDropDown
           showDropDown={showProjectsDropDown}
           setShowDropDown={setShowProjectsDropDown}
+          setShowMobileNav={setShowMobileNav}
         />
       )}
     </>
@@ -52,6 +53,7 @@ const NavLinks: React.FC<Props> = ({ setShowMobileNav }) => {
         <ProjectsDropDown
           showDropDown={showProjectsDropDown}
           setShowDropDown={setShowProjectsDropDown}
+          setShowMobileNav={setShowMobileNav}
         />
       )}
     </St.Container>

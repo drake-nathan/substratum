@@ -7,13 +7,23 @@ import { useTheme } from 'styled-components';
 interface Props {
   showDropDown: boolean;
   setShowDropDown: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowMobileNav: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const ProjectsDropDown: React.FC<Props> = ({ showDropDown, setShowDropDown }) => {
+const ProjectsDropDown: React.FC<Props> = ({
+  showDropDown,
+  setShowDropDown,
+  setShowMobileNav,
+}) => {
   const { isMobile } = useTheme();
 
+  const closeBothMenus = () => {
+    setShowDropDown(false);
+    setShowMobileNav(false);
+  };
+
   const renderProjectItem = (name: string) => (
-    <St.ProjectLi onClick={() => setShowDropDown(false)}>{name}</St.ProjectLi>
+    <St.ProjectLi onClick={closeBothMenus}>{name}</St.ProjectLi>
   );
 
   const projectsListJsx = projects.map(({ name, local, externalUrl, projectSlug }) =>
