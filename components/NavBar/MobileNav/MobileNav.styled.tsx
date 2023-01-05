@@ -3,11 +3,12 @@ import styled from 'styled-components';
 type IsOpen = { isOpen: boolean };
 
 export const Container = styled.div<IsOpen>`
+  --top-gap: 75px;
   position: fixed;
   z-index: 69;
-  top: 102px;
+  top: var(--top-gap);
   right: 0;
-  height: calc(100vh - 102px);
+  height: calc(100vh - var(--top-gap));
   width: 100%;
 
   display: flex;
@@ -28,3 +29,5 @@ export const Container = styled.div<IsOpen>`
     padding: 2em 2em 7em;
   }
 `;
+
+// export const ProjectsList =

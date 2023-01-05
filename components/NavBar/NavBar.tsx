@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Squash as Hamburger } from 'hamburger-react';
 import SocialIcons from './SocialIcons/SocialIcons';
 import NavLinks from './NavLinks/NavLinks';
-import MobileNav from './MobileNav';
+import MobileNav from './MobileNav/MobileNav';
 import * as St from './NavBar.styled';
 
 const NavBar: React.FC = () => {

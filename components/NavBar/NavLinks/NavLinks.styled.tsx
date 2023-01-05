@@ -5,10 +5,26 @@ export const Container = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  ${({ theme }) => theme.isMobile && 'flex-direction: column;'}
 
   border-radius: ${({ theme: { borderRadius } }) => borderRadius};
-  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+  ${({ theme: { isMobile } }) =>
+    !isMobile && 'box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);'};
+
+  @media (max-width: 775px) {
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    margin-bottom: 1em;
+  }
+`;
+
+export const ProjectsMobileDiv = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1em;
+  width: 100%;
 `;
 
 export const Tab = styled.div`
@@ -16,25 +32,35 @@ export const Tab = styled.div`
   align-items: center;
   gap: 0.25em;
   padding: 0.125em 0.5em;
-  background-color: ${({ theme: { colors } }) => colors.textMain};
-  color: ${({ theme: { colors } }) => colors.bgMain};
 
-  :hover {
-    background-color: ${({ theme: { colors } }) => colors.teal};
-    color: ${({ theme: { colors } }) => colors.purple};
-    cursor: pointer;
-  }
-
-  :nth-child(2) {
-    background-color: ${({ theme: { colors } }) => colors.bgOffset};
-    color: ${({ theme: { colors } }) => colors.textMain};
+  @media (min-width: 775px) {
+    background-color: ${({ theme: { colors } }) => colors.textMain};
+    color: ${({ theme: { colors } }) => colors.bgMain};
 
     :hover {
       background-color: ${({ theme: { colors } }) => colors.teal};
       color: ${({ theme: { colors } }) => colors.purple};
+      cursor: pointer;
+    }
+
+    :nth-child(2) {
+      background-color: ${({ theme: { colors } }) => colors.bgOffset};
+      color: ${({ theme: { colors } }) => colors.textMain};
+
+      :hover {
+        background-color: ${({ theme: { colors } }) => colors.teal};
+        color: ${({ theme: { colors } }) => colors.purple};
+      }
     }
   }
 
+  @media (max-width: 775px) {
+    .underline {
+      text-decoration: underline;
+    }
+  }
+
+  // class name for dropdown icon logic
   .dropdown-flip {
     transform: rotate(180deg);
   }

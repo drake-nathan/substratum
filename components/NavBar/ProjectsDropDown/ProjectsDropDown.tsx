@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { projects } from 'components/LandingPage/Projects/projects';
 import * as St from './ProjectsDropDown.styled';
+import { useTheme } from 'styled-components';
 
 interface Props {
   showDropDown: boolean;
@@ -9,24 +10,28 @@ interface Props {
 }
 
 const ProjectsDropDown: React.FC<Props> = ({ showDropDown, setShowDropDown }) => {
+  const { isMobile } = useTheme();
+
   const renderProjectItem = (name: string) => (
-    <St.Project onClick={() => setShowDropDown(false)}>{name}</St.Project>
+    <St.ProjectLi onClick={() => setShowDropDown(false)}>{name}</St.ProjectLi>
   );
 
-  return (
-    <St.Container showDropDown={showDropDown}>
-      {projects.map(({ name, local, externalUrl, projectSlug }) =>
-        local ? (
-          <Link key={name} href={`/project/${projectSlug}`}>
-            {renderProjectItem(name)}
-          </Link>
-        ) : (
-          <a key={name} href={externalUrl} target="_blank" rel="noreferrer">
-            {renderProjectItem(name)}
-          </a>
-        ),
-      )}
-    </St.Container>
+  const projectsListJsx = projects.map(({ name, local, externalUrl, projectSlug }) =>
+    local ? (
+      <Link key={name} href={`/project/${projectSlug}`}>
+        {renderProjectItem(name)}
+      </Link>
+    ) : (
+      <a key={name} href={externalUrl} target="_blank" rel="noreferrer">
+        {renderProjectItem(name)}
+      </a>
+    ),
+  );
+
+  return !isMobile ? (
+    <St.ContainerUl showDropDown={showDropDown}>{projectsListJsx}</St.ContainerUl>
+  ) : (
+    <St.MobileContainer>{projectsListJsx}</St.MobileContainer>
   );
 };
 

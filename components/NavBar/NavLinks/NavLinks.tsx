@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTheme } from 'styled-components';
 import ProjectsDropDown from '../ProjectsDropDown/ProjectsDropDown';
 import * as St from './NavLinks.styled';
 
@@ -7,10 +8,11 @@ interface Props {
 }
 
 const NavLinks: React.FC<Props> = ({ setShowMobileNav }) => {
+  const { isMobile } = useTheme();
   const [showProjectsDropDown, setShowProjectsDropDown] = useState(false);
 
-  return (
-    <St.Container>
+  const projectsTab = (
+    <>
       <St.Tab onClick={() => setShowProjectsDropDown((prev) => !prev)}>
         <St.Text
           onClick={() => {
@@ -19,8 +21,26 @@ const NavLinks: React.FC<Props> = ({ setShowMobileNav }) => {
         >
           PROJECTS
         </St.Text>
-        <St.DropdownIcon className={showProjectsDropDown ? 'dropdown-flip' : ''} />
+        {!isMobile && (
+          <St.DropdownIcon className={showProjectsDropDown ? 'dropdown-flip' : ''} />
+        )}
       </St.Tab>
+      {isMobile && (
+        <ProjectsDropDown
+          showDropDown={showProjectsDropDown}
+          setShowDropDown={setShowProjectsDropDown}
+        />
+      )}
+    </>
+  );
+
+  return (
+    <St.Container>
+      {!isMobile ? (
+        projectsTab
+      ) : (
+        <St.ProjectsMobileDiv>{projectsTab}</St.ProjectsMobileDiv>
+      )}
 
       <St.Tab>
         <a href="https://docs.chainlife.xyz/" rel="noreferrer" target="_blank">
@@ -28,10 +48,12 @@ const NavLinks: React.FC<Props> = ({ setShowMobileNav }) => {
         </a>
       </St.Tab>
 
-      <ProjectsDropDown
-        showDropDown={showProjectsDropDown}
-        setShowDropDown={setShowProjectsDropDown}
-      />
+      {!isMobile && (
+        <ProjectsDropDown
+          showDropDown={showProjectsDropDown}
+          setShowDropDown={setShowProjectsDropDown}
+        />
+      )}
     </St.Container>
   );
 };

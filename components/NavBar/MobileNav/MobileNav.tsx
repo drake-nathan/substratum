@@ -1,6 +1,6 @@
 import React from 'react';
-import NavLinks from './NavLinks/NavLinks';
-import SocialIcons from './SocialIcons/SocialIcons';
+import NavLinks from '../NavLinks/NavLinks';
+import SocialIcons from '../SocialIcons/SocialIcons';
 import * as St from './MobileNav.styled';
 
 interface Props {
