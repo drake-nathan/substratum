@@ -11,7 +11,9 @@ const ProjectHead: React.FC<Props> = ({ project }) => {
 
   return (
     <St.Container>
-      <St.Title>{name}</St.Title>
+      <St.TitleContainer>
+        <St.Title>{name}</St.Title>
+      </St.TitleContainer>
 
       <St.DescContainer>
         <St.Image src={image} alt={'Project image'} />

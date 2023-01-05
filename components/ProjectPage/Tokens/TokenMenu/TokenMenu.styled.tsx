@@ -64,17 +64,12 @@ export const SortDiv = styled.div`
     }
   }
 
-  /* @media (max-width: 768px) {
-    margin: 0 1em;
-  } */
-
   @media (max-width: 400px) {
     gap: 0.5em;
   }
 `;
 
 export const Title = styled.h2`
-  /* font-size: 1.5rem; */
   margin-bottom: 0.5em;
 `;
 
@@ -106,8 +101,7 @@ export const TextButton = styled.span`
   cursor: pointer;
 
   :hover {
-    color: ${(props) => props.theme.colors.textMain};
-    font-weight: 600;
+    color: ${(props) => props.theme.colors.teal};
   }
 
   @media (max-width: 400px) {
@@ -125,6 +119,7 @@ export const SortButton = styled.div`
   :hover {
     box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2);
     border-radius: 50%;
+    color: ${(props) => props.theme.colors.teal};
   }
 `;
 
