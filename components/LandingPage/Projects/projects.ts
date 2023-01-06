@@ -4,6 +4,7 @@ export interface Project {
   image: string;
   maxSupply: number;
   currentSupply?: number;
+  isZeroIndexed: boolean;
   mintable: boolean;
   upcoming: boolean;
   local: boolean;
@@ -21,6 +22,7 @@ export const projects: Project[] = [
     image: '/projects/mathare-memories.png',
     maxSupply: 68,
     currentSupply: 68,
+    isZeroIndexed: false,
     mintable: false,
     upcoming: true,
     local: true,
@@ -38,6 +40,7 @@ export const projects: Project[] = [
     projectSlug: 'chainlife',
     image: '/projects/chainlife.png',
     maxSupply: 4_096,
+    isZeroIndexed: true,
     mintable: true,
     upcoming: false,
     local: false,
@@ -51,6 +54,7 @@ export const projects: Project[] = [
     image: '/projects/blonks.png',
     maxSupply: 4_444,
     currentSupply: 4_444,
+    isZeroIndexed: true,
     mintable: false,
     upcoming: false,
     local: false,
@@ -63,6 +67,7 @@ export const projects: Project[] = [
     projectSlug: 'textures',
     image: '/projects/texture.svg',
     maxSupply: 1_000,
+    isZeroIndexed: true,
     mintable: false,
     upcoming: false,
     local: false,

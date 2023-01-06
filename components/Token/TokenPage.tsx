@@ -1,24 +1,47 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useQuery } from 'react-query';
+import { fetchToken } from 'services/azureApi/fetches';
 import TokenModule from './Module/TokenModule';
 import { Project } from 'components/LandingPage/Projects/projects';
+import type { IToken } from 'services/azureApi/types';
 import * as St from './TokenPage.styled';
-import { TokenAbbr } from 'services/azureApi/types';
 
 interface Props {
   project: Project;
-  tokenId: string;
+  tokenId: number;
 }
 
 const TokenPage: React.FC<Props> = ({ project, tokenId }) => {
-  const { name } = project;
+  const { name, projectSlug } = project;
 
-  const [token, setToken] = useState<TokenAbbr>();
+  const {
+    isLoading,
+    error,
+    data: token,
+  } = useQuery<IToken, Error>('token', () => fetchToken(projectSlug, tokenId));
+
+  const renderToken = () => {
+    if (isLoading) {
+      return <h1>Loading...</h1>;
+    }
+
+    if (error) {
+      console.error(error);
+      return <p>Error: {error.message}</p>;
+    }
+
+    if (token) {
+      return <TokenModule token={token} />;
+    }
+
+    return <h1>Could not fetch token right now, try again in a moment.</h1>;
+  };
 
   return (
     <St.Container>
       <St.Title>{name}</St.Title>
 
-      {token && <TokenModule token={token} />}
+      {renderToken()}
     </St.Container>
   );
 };

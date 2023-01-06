@@ -10,13 +10,9 @@ if (!rootApiUrl) {
 export const fetchToken = async (projectSlug: string, tokenId: number | string) => {
   const url = `${rootApiUrl}/project/${projectSlug}/token/${tokenId}`;
 
-  try {
-    const { data } = await axios.get<IToken>(url);
+  const { data: token } = await axios.get<IToken>(url);
 
-    return data;
-  } catch (error) {
-    console.error(error);
-  }
+  return token;
 };
 
 export const fetchProject = async (projectSlug: string) => {

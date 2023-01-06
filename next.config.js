@@ -5,6 +5,20 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'mattoapi.blob.core.windows.net',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'arweave.net',
+        pathname: '/dtEayxAD2Aknd8g8WWyErEX37kesMRsJhbopwDYPhdo/**',
+      },
+    ],
+  },
   async redirects() {
     return [
       {
