@@ -9,14 +9,15 @@ interface Props {
 }
 
 const TokenModule: React.FC<Props> = ({ token }) => {
-  const { token_id: tokenId, image, image_mid: imageMid } = token;
+  const { image, image_mid: imageMid } = token;
 
   return (
     <St.Container>
-      <TopBar tokenId={tokenId} />
+      <TopBar token={token} />
 
       <St.MainSection>
-        <Image src={imageMid || image} alt="Token Image" width={500} height={500} />
+        {/* <Image src={imageMid || image} alt="Token Image" width={500} height={500} /> */}
+        <h1>testing</h1>
       </St.MainSection>
     </St.Container>
   );

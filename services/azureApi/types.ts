@@ -32,6 +32,7 @@ export interface IProject {
   artist_address: string;
   royalty_info: IRoyaltyInfo;
   description?: string;
+  appended_description?: string;
   maximum_supply: number;
   starting_index: number;
   current_supply?: number;
@@ -50,6 +51,9 @@ export interface IProject {
   events: string[];
   creation_block: number;
   gen_script?: string;
+  gen_script_world?: string;
+  gen_script_mobile?: string;
+  gen_script_alt?: string;
   devParams: IDevParams;
 }
 
@@ -89,6 +93,8 @@ export interface IToken {
   image_data?: string; // not used for Chainlife
   animation_url: string; // generation script
   generator_url: string; // same as animation_url
+  generator_mobile?: string;
+  generator_alt?: string;
   website: string; // project
   external_url: string; // project
   license: string; // project*

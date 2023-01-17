@@ -1,17 +1,24 @@
 import React from 'react';
+import { IToken } from 'services/azureApi/types';
 import * as St from './TopBar.styled';
 
 interface Props {
-  tokenId: number;
+  token: IToken;
 }
 
-const TopBar: React.FC<Props> = ({ tokenId }) => {
+const TopBar: React.FC<Props> = ({ token }) => {
+  const { token_id: tokenId, generator_url: generatorUrl, image } = token;
+
+  const fullScreenUrl = generatorUrl || image;
+
   return (
     <St.Container>
       <St.TokenId>#{tokenId}</St.TokenId>
 
       <St.IconDiv>
-        <St.FullScreenIcon className="icon" />
+        <a href={fullScreenUrl} target="_blank" rel="noreferrer">
+          <St.FullScreenIcon className="icon" />
+        </a>
 
         <St.MobileIcon className="icon mobile" />
       </St.IconDiv>

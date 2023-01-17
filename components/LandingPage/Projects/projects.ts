@@ -17,14 +17,41 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    name: 'MATHARE MEMORIES',
+    name: 'Crystallized Illusions',
+    projectSlug: 'crystallized-illusions',
+    image: '/projects/crystallized-illusions.png',
+    maxSupply: 99,
+    currentSupply: 99,
+    isZeroIndexed: true,
+    mintable: false,
+    upcoming: false,
+    local: true,
+    openSeaSlug: 'crystallized-illusions',
+    description:
+      "Inspired by Buddhist philosophy, Crystallized Illusions is a collection of 99 pieces created through a generative process. Three variations of this process were made to correspond to the categories of illusions as described by Zhiyi (538-597 CE), the fourth patriarch of the T'ien-t'ai (or Tí Taî) Buddhist tradition. Each process was used to created 33 distinct images.",
+  },
+  {
+    name: 'Negative Carbon',
+    projectSlug: 'negative-carbon',
+    image: '/projects/negative-carbon.png',
+    maxSupply: 128,
+    isZeroIndexed: true,
+    mintable: true,
+    upcoming: false,
+    local: true,
+    openSeaSlug: 'negative-carbon',
+    description:
+      "Each Negative Carbon NFT (NCNFT) offsets more than its carbon footprint using rigorously validated, third-party audited, retired, carbon offsets. Each token is assigned an offset certificate and mint, and that certificate's serial number becomes the token's generative art's entropy. For more information, visit http://immutablecomputer.com/carbon.html.",
+  },
+  {
+    name: 'Mathare Memories',
     projectSlug: 'mathare-memories',
     image: '/projects/mathare-memories.png',
     maxSupply: 68,
     currentSupply: 68,
     isZeroIndexed: false,
     mintable: false,
-    upcoming: true,
+    upcoming: false,
     local: true,
     openSeaSlug: 'mathare-memories',
     description:
@@ -36,7 +63,7 @@ export const projects: Project[] = [
     As a 100% charity project, 10% royalties are expected to be paid on all sales and should be sent to the collection's smart contract address.`,
   },
   {
-    name: 'CHAINLIFE',
+    name: 'Chainlife',
     projectSlug: 'chainlife',
     image: '/projects/chainlife.png',
     maxSupply: 4_096,
@@ -49,7 +76,7 @@ export const projects: Project[] = [
     description: 'Chainlife is',
   },
   {
-    name: 'BLONKS',
+    name: 'Blonks',
     projectSlug: 'blonks',
     image: '/projects/blonks.png',
     maxSupply: 4_444,
@@ -63,7 +90,7 @@ export const projects: Project[] = [
     description: 'BLONKS is',
   },
   {
-    name: 'TEXTURES',
+    name: 'Textures',
     projectSlug: 'textures',
     image: '/projects/texture.svg',
     maxSupply: 1_000,

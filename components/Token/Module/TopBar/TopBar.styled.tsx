@@ -10,6 +10,7 @@ export const Container = styled.div`
 
   .icon {
     font-size: 1.25rem;
+    display: block;
 
     :hover {
       cursor: pointer;
