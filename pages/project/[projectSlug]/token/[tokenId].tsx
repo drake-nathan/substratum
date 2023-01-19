@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import TokenPage from 'components/Token/TokenPage';
+import TokenPage from 'components/TokenPage/TokenPage';
 import { projects } from 'components/LandingPage/Projects/projects';
 
 const Home: NextPage = () => {

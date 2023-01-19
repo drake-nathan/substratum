@@ -5,6 +5,7 @@ import * as St from './TokenMenu.styled';
 
 interface Props {
   projectSlug: string;
+  usesTransfers: boolean;
   sortDir: 'asc' | 'desc';
   setSortDir: React.Dispatch<React.SetStateAction<'asc' | 'desc'>>;
   sortType: 'tokenId' | 'worldLevel';
@@ -16,6 +17,7 @@ interface Props {
 
 const TokenMenu: React.FC<Props> = ({
   projectSlug,
+  usesTransfers,
   sortDir,
   setSortDir,
   sortType,
@@ -43,18 +45,22 @@ const TokenMenu: React.FC<Props> = ({
           >
             Token ID
           </St.TextButton>
-          <St.SubtleText>|</St.SubtleText>
-          <St.TextButton
-            className={sortType === 'worldLevel' ? '' : 'inactive'}
-            onClick={() => {
-              if (sortType === 'tokenId') setSortDir('desc');
-              setSortType('worldLevel');
-            }}
-          >
-            {projectSlug === 'chainlife' || projectSlug === 'chainlife-testnet'
-              ? 'World Level'
-              : 'Transfers'}
-          </St.TextButton>
+          {usesTransfers && (
+            <>
+              <St.SubtleText>|</St.SubtleText>
+              <St.TextButton
+                className={sortType === 'worldLevel' ? '' : 'inactive'}
+                onClick={() => {
+                  if (sortType === 'tokenId') setSortDir('desc');
+                  setSortType('worldLevel');
+                }}
+              >
+                {projectSlug === 'chainlife' || projectSlug === 'chainlife-testnet'
+                  ? 'World Level'
+                  : 'Transfers'}
+              </St.TextButton>
+            </>
+          )}
           <St.SortButton>
             {sortDir === 'asc' ? (
               <St.SortIconAsc className="icon" onClick={() => setSortDir('desc')} />

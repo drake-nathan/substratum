@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { InfiniteData } from 'react-query';
-import { CollectionResponse } from 'services/azureApi/types';
+import { type InfiniteData } from 'react-query';
+import { type CollectionResponse } from 'services/azureApi/types';
 import TokenCard from '../TokenCard/TokenCard';
 import * as St from './TokenGrid.styled';
 

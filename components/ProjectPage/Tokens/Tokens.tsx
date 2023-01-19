@@ -1,7 +1,7 @@
-import { type Project } from 'components/LandingPage/Projects/projects';
 import React, { useEffect, useState } from 'react';
-import { type QueryFunctionContext, useInfiniteQuery } from 'react-query';
 import { fetchCollectionTokens } from 'services/azureApi/fetches';
+import { type Project } from 'components/LandingPage/Projects/projects';
+import { type QueryFunctionContext, useInfiniteQuery } from 'react-query';
 import type { CollectionResponse } from 'services/azureApi/types';
 import TokenGrid from './TokenGrid/TokenGrid';
 import TokenMenu from './TokenMenu/TokenMenu';
@@ -11,7 +11,10 @@ interface Props {
   project: Project;
 }
 
-const Tokens: React.FC<Props> = ({ projectSlug, project: { isTokenIdInTitle } }) => {
+const Tokens: React.FC<Props> = ({
+  projectSlug,
+  project: { isTokenIdInTitle, usesTransfers },
+}) => {
   // api query state
   const [sortDir, setSortDir] = useState<'asc' | 'desc'>('asc');
   const [sortType, setSortType] = useState<'tokenId' | 'worldLevel'>('tokenId');
@@ -51,10 +54,15 @@ const Tokens: React.FC<Props> = ({ projectSlug, project: { isTokenIdInTitle } })
     refetch();
   }, [sortDir, sortType, projectSlug]);
 
+  useEffect(() => {
+    if (tokenSearchId) setHasMore(false);
+  }, [tokenSearchId]);
+
   return (
     <>
       <TokenMenu
         projectSlug={projectSlug}
+        usesTransfers={usesTransfers}
         sortDir={sortDir}
         setSortDir={setSortDir}
         sortType={sortType}

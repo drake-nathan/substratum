@@ -6,6 +6,7 @@ export interface Project {
   currentSupply?: number;
   isZeroIndexed: boolean;
   isTokenIdInTitle: boolean;
+  usesTransfers: boolean;
   mintable: boolean;
   upcoming: boolean;
   local: boolean;
@@ -25,6 +26,7 @@ export const projects: Project[] = [
     currentSupply: 99,
     isZeroIndexed: true,
     isTokenIdInTitle: false,
+    usesTransfers: false,
     mintable: false,
     upcoming: false,
     local: true,
@@ -39,6 +41,7 @@ export const projects: Project[] = [
     maxSupply: 128,
     isZeroIndexed: true,
     isTokenIdInTitle: true,
+    usesTransfers: true,
     mintable: true,
     upcoming: false,
     local: true,
@@ -54,6 +57,7 @@ export const projects: Project[] = [
     currentSupply: 68,
     isZeroIndexed: false,
     isTokenIdInTitle: true,
+    usesTransfers: true,
     mintable: false,
     upcoming: false,
     local: true,
@@ -73,6 +77,7 @@ export const projects: Project[] = [
     maxSupply: 4_096,
     isZeroIndexed: true,
     isTokenIdInTitle: true,
+    usesTransfers: true,
     mintable: true,
     upcoming: false,
     local: false,
@@ -88,6 +93,7 @@ export const projects: Project[] = [
     currentSupply: 4_444,
     isZeroIndexed: true,
     isTokenIdInTitle: true,
+    usesTransfers: true,
     mintable: false,
     upcoming: false,
     local: false,
@@ -102,6 +108,7 @@ export const projects: Project[] = [
     maxSupply: 1_000,
     isZeroIndexed: true,
     isTokenIdInTitle: true,
+    usesTransfers: true,
     mintable: false,
     upcoming: false,
     local: false,
