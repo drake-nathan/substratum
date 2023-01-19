@@ -5,6 +5,7 @@ export interface Project {
   maxSupply: number;
   currentSupply?: number;
   isZeroIndexed: boolean;
+  isTokenIdInTitle: boolean;
   mintable: boolean;
   upcoming: boolean;
   local: boolean;
@@ -23,6 +24,7 @@ export const projects: Project[] = [
     maxSupply: 99,
     currentSupply: 99,
     isZeroIndexed: true,
+    isTokenIdInTitle: false,
     mintable: false,
     upcoming: false,
     local: true,
@@ -36,6 +38,7 @@ export const projects: Project[] = [
     image: '/projects/negative-carbon.png',
     maxSupply: 128,
     isZeroIndexed: true,
+    isTokenIdInTitle: true,
     mintable: true,
     upcoming: false,
     local: true,
@@ -50,6 +53,7 @@ export const projects: Project[] = [
     maxSupply: 68,
     currentSupply: 68,
     isZeroIndexed: false,
+    isTokenIdInTitle: true,
     mintable: false,
     upcoming: false,
     local: true,
@@ -68,6 +72,7 @@ export const projects: Project[] = [
     image: '/projects/chainlife.png',
     maxSupply: 4_096,
     isZeroIndexed: true,
+    isTokenIdInTitle: true,
     mintable: true,
     upcoming: false,
     local: false,
@@ -82,6 +87,7 @@ export const projects: Project[] = [
     maxSupply: 4_444,
     currentSupply: 4_444,
     isZeroIndexed: true,
+    isTokenIdInTitle: true,
     mintable: false,
     upcoming: false,
     local: false,
@@ -95,6 +101,7 @@ export const projects: Project[] = [
     image: '/projects/texture.svg',
     maxSupply: 1_000,
     isZeroIndexed: true,
+    isTokenIdInTitle: true,
     mintable: false,
     upcoming: false,
     local: false,

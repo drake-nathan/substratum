@@ -8,13 +8,14 @@ export const ContainerUl = styled.ul<ShowDropDown>`
   left: 0;
   width: 100%;
   min-width: 200px;
-  height: ${({ showDropDown }) => (showDropDown ? '120px' : '0px')};
+  height: ${({ showDropDown }) => (showDropDown ? '170px' : '0px')};
   background-color: ${({ theme: { colors } }) => colors.textMain};
   transition: all 0.3s ease;
   overflow: ${({ showDropDown }) => (showDropDown ? 'auto' : 'hidden')};
   padding: ${({ showDropDown }) =>
     showDropDown ? '0.75em 0.5em 0.5em 1.5em' : '0 0.5em'};
   overflow-y: hidden;
+  list-style: none;
 `;
 
 export const ProjectLi = styled.li`

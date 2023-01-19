@@ -46,7 +46,7 @@ const Home: NextPage = () => {
       {projectSlug && project && (
         <>
           <ProjectHead project={project} />
-          <Tokens projectSlug={projectSlug as string} />
+          <Tokens projectSlug={projectSlug as string} project={project} />
         </>
       )}
 

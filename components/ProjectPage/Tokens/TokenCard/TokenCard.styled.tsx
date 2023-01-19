@@ -23,8 +23,8 @@ export const Wrapper = styled.div`
 export const PreviewImage = styled.img`
   width: 100%;
   height: auto;
-  aspect-ratio: 1;
-  object-fit: cover;
+  /* aspect-ratio: 1;
+  object-fit: cover; */
   cursor: pointer;
 `;
 

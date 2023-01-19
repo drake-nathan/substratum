@@ -1,3 +1,4 @@
+import { type Project } from 'components/LandingPage/Projects/projects';
 import React, { useEffect, useState } from 'react';
 import { type QueryFunctionContext, useInfiniteQuery } from 'react-query';
 import { fetchCollectionTokens } from 'services/azureApi/fetches';
@@ -7,12 +8,15 @@ import TokenMenu from './TokenMenu/TokenMenu';
 
 interface Props {
   projectSlug: string;
+  project: Project;
 }
 
-const Tokens: React.FC<Props> = ({ projectSlug }) => {
+const Tokens: React.FC<Props> = ({ projectSlug, project: { isTokenIdInTitle } }) => {
+  // api query state
   const [sortDir, setSortDir] = useState<'asc' | 'desc'>('asc');
   const [sortType, setSortType] = useState<'tokenId' | 'worldLevel'>('tokenId');
   const [tokenSearchId, setTokenSearchId] = useState<number | null>(null);
+  // infinite scroll state
   const [currentLength, setCurrentLength] = useState(0);
   const [hasMore, setHasMore] = useState<boolean>(false);
   const limit = 20;
@@ -20,10 +24,18 @@ const Tokens: React.FC<Props> = ({ projectSlug }) => {
   const fetchQuery = ({ pageParam: skip }: QueryFunctionContext) =>
     fetchCollectionTokens(projectSlug, limit, skip, sortDir, sortType, tokenSearchId);
 
-  const { error, data, isLoading, fetchNextPage, refetch } = useInfiniteQuery<
-    CollectionResponse,
-    Error
-  >('tokens', fetchQuery, { getNextPageParam: (lastFetch) => lastFetch.skip + limit });
+  const {
+    error,
+    data,
+    isLoading,
+    isFetching,
+    isFetchingNextPage,
+    fetchNextPage,
+    refetch,
+    remove,
+  } = useInfiniteQuery<CollectionResponse, Error>('tokens', fetchQuery, {
+    getNextPageParam: (lastFetch) => lastFetch.skip + limit,
+  });
 
   useEffect(() => {
     if (error) console.error(error.message);
@@ -35,8 +47,9 @@ const Tokens: React.FC<Props> = ({ projectSlug }) => {
   }, [data, error]);
 
   useEffect(() => {
+    remove();
     refetch();
-  }, [sortDir, sortType]);
+  }, [sortDir, sortType, projectSlug]);
 
   return (
     <>
@@ -57,6 +70,9 @@ const Tokens: React.FC<Props> = ({ projectSlug }) => {
         fetchNextPage={fetchNextPage}
         error={error}
         isLoading={isLoading}
+        isFetching={isFetching}
+        isFetchingNextPage={isFetchingNextPage}
+        isTokenIdInTitle={isTokenIdInTitle}
       />
     </>
   );

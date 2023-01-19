@@ -12,32 +12,49 @@ interface Props {
   fetchNextPage: () => void;
   error: Error | null;
   isLoading: boolean;
+  isFetching: boolean;
+  isFetchingNextPage: boolean;
+  isTokenIdInTitle: boolean;
 }
 
 const TokenGrid: React.FC<Props> = ({
-  data,
+  data: tokens,
   currentLength,
   hasMore,
   fetchNextPage,
   error,
   isLoading,
+  isFetching,
+  isFetchingNextPage,
+  isTokenIdInTitle,
 }) => {
+  if (isLoading) return <St.H1>Loading...</St.H1>;
+
   return (
     <St.Container>
-      {data ? (
-        <InfiniteScroll
-          dataLength={currentLength}
-          next={fetchNextPage}
-          hasMore={hasMore}
-          loader={<h1>Loading...</h1>}
-        >
-          <St.Wrapper>
-            {data.pages.map((page) =>
-              page.tokens.map((token) => <TokenCard token={token} key={token.name} />),
-            )}
-          </St.Wrapper>
-        </InfiniteScroll>
-      ) : error && !isLoading ? (
+      {tokens ? (
+        <>
+          <InfiniteScroll
+            dataLength={currentLength}
+            next={fetchNextPage}
+            hasMore={hasMore}
+            loader={<h1>Loading...</h1>}
+          >
+            <St.Wrapper>
+              {tokens.pages.map((page) =>
+                page.tokens.map((token) => (
+                  <TokenCard
+                    token={token}
+                    key={token.name}
+                    isTokenIdInTitle={isTokenIdInTitle}
+                  />
+                )),
+              )}
+            </St.Wrapper>
+          </InfiniteScroll>
+          {isFetchingNextPage && <h1>Loading more tokens...</h1>}
+        </>
+      ) : error && (!isLoading || !isFetching) ? (
         <St.H1>Unable to fetch tokens right now.</St.H1>
       ) : (
         <St.H1>Loading...</St.H1>

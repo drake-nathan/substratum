@@ -5,35 +5,39 @@ import * as St from './TokenCard.styled';
 
 interface Props {
   token: TokenAbbr;
+  isTokenIdInTitle: boolean;
 }
 
-const TokenCard: React.FC<Props> = ({ token }) => {
+const TokenCard: React.FC<Props> = ({ token, isTokenIdInTitle }) => {
   const {
     name,
     image,
-    image_mid,
-    token_id,
-    project_slug,
-    generator_url,
-    script_inputs: { transfer_count, level_shift },
+    image_mid: imageMid,
+    token_id: tokenId,
+    project_slug: projectSlug,
+    generator_url: generatorUrl,
+    script_inputs: { transfer_count: transferCount, level_shift: levelShift },
   } = token;
 
-  const imgSrc = image_mid || image;
-  const tokenLink = `/project/${project_slug}/token/${token_id}`;
+  const imgSrc = imageMid || image;
+  const tokenLink = `/project/${projectSlug}/token/${tokenId}`;
 
   return (
     <St.Container>
       <St.Wrapper>
-        <a href={generator_url} target="_blank" rel="noreferrer">
+        <a href={generatorUrl} target="_blank" rel="noreferrer">
           <St.PreviewImage src={imgSrc} />
         </a>
 
         <St.DescriptionDiv>
-          <a href={generator_url} target="_blank" rel="noreferrer">
+          <a href={generatorUrl} target="_blank" rel="noreferrer">
             <St.Title>{name}</St.Title>
           </a>
-          {level_shift && <St.Text>Level Shift: {level_shift}</St.Text>}
-          <St.Text>Transfers: {transfer_count}</St.Text>
+          {!isTokenIdInTitle && <St.Text>Token ID: {tokenId}</St.Text>}
+          {levelShift === undefined ? null : <St.Text>Level Shift: {levelShift}</St.Text>}
+          {transferCount === undefined ? null : (
+            <St.Text>Transfers: {transferCount}</St.Text>
+          )}
         </St.DescriptionDiv>
       </St.Wrapper>
     </St.Container>
