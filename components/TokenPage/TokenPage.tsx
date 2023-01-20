@@ -1,9 +1,10 @@
 import React from 'react';
+import Link from 'next/link';
 import { useQuery } from 'react-query';
 import { fetchToken } from 'services/azureApi/fetches';
-import TokenModule from './Module/TokenModule';
-import { Project } from 'components/LandingPage/Projects/projects';
+import { type Project } from 'components/LandingPage/Projects/projects';
 import type { IToken } from 'services/azureApi/types';
+import TokenModule from './Module/TokenModule';
 import * as St from './TokenPage.styled';
 
 interface Props {
@@ -13,6 +14,8 @@ interface Props {
 
 const TokenPage: React.FC<Props> = ({ project, tokenId }) => {
   const { name, projectSlug } = project;
+
+  const projectLink = `/project/${projectSlug}`;
 
   const {
     isLoading,
@@ -39,7 +42,9 @@ const TokenPage: React.FC<Props> = ({ project, tokenId }) => {
 
   return (
     <St.Container>
-      <St.Title>{name}</St.Title>
+      <Link href={projectLink}>
+        <St.Title>{name}</St.Title>
+      </Link>
 
       {renderToken()}
     </St.Container>

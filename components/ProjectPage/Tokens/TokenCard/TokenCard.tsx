@@ -25,14 +25,14 @@ const TokenCard: React.FC<Props> = ({ token, isTokenIdInTitle }) => {
   return (
     <St.Container>
       <St.Wrapper>
-        <a href={generatorUrl} target="_blank" rel="noreferrer">
+        <Link href={tokenLink}>
           <St.PreviewImage src={imgSrc} />
-        </a>
+        </Link>
 
         <St.DescriptionDiv>
-          <a href={generatorUrl} target="_blank" rel="noreferrer">
+          <Link href={tokenLink}>
             <St.Title>{name}</St.Title>
-          </a>
+          </Link>
           {!isTokenIdInTitle && <St.Text>Token ID: {tokenId}</St.Text>}
           {levelShift === undefined ? null : <St.Text>Level Shift: {levelShift}</St.Text>}
           {transferCount === undefined ? null : (

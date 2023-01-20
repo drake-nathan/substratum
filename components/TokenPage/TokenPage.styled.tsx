@@ -15,6 +15,9 @@ export const Container = styled.div`
 
 export const Title = styled.h1`
   font-weight: 400;
-  /* text-transform: uppercase; */
   letter-spacing: 1.5px;
+
+  :hover {
+    cursor: pointer;
+  }
 `;

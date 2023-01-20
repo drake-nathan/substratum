@@ -1,5 +1,5 @@
 import React from 'react';
-import { Project } from 'components/LandingPage/Projects/projects';
+import { type Project } from 'components/LandingPage/Projects/projects';
 import * as St from './ProjectHead.styled';
 
 interface Props {
@@ -7,7 +7,7 @@ interface Props {
 }
 
 const ProjectHead: React.FC<Props> = ({ project }) => {
-  const { name, image, description, interactivity, royalties } = project;
+  const { name, projectSlug, image, description, interactivity, royalties } = project;
 
   return (
     <St.Container>
