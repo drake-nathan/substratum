@@ -31,8 +31,9 @@ const TokenModule: React.FC<Props> = ({ token, project }) => {
     else if (windowWidth <= 1000 && windowWidth > 800) setWidth(600);
     else if (windowWidth <= 800 && windowWidth > 650) setWidth(500);
     else if (windowWidth <= 650 && windowWidth > 550) setWidth(400);
-    else if (windowWidth <= 550 && windowWidth > 450) setWidth(350);
-    else setWidth(300);
+    else if (windowWidth <= 550 && windowWidth > 450) setWidth(375);
+    else if (windowWidth <= 450 && windowWidth > 400) setWidth(350);
+    else setWidth(325);
   }, [windowWidth]);
 
   return (

@@ -9,12 +9,12 @@ export const Container = styled.div`
   gap: 1.5em;
 
   @media (max-width: 1000px) {
-    width: auto;
+    width: min-content;
   }
 `;
 
 export const Title = styled.h1`
-  font-weight: 300;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  font-weight: 400;
+  /* text-transform: uppercase; */
+  letter-spacing: 1.5px;
 `;

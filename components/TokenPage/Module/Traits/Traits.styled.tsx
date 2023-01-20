@@ -17,6 +17,9 @@ export const Container = styled.div`
 
   @media (max-width: 650px) {
     padding: 0;
+    border-top: 1px solid ${({ theme: { colors } }) => colors.textOffset};
+    margin-top: 0.5em;
+    padding-top: 0.5em;
   }
 `;
 
@@ -39,6 +42,7 @@ export const Table = styled.div`
 `;
 
 export const Row = styled.div`
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
   overflow: hidden;
@@ -61,4 +65,8 @@ export const Name = styled.span`
 export const Value = styled.span`
   overflow: hidden;
   white-space: nowrap;
+`;
+
+export const TooltipBox = styled.div`
+  position: relative;
 `;

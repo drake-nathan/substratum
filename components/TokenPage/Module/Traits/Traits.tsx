@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import type { IAttribute } from 'services/azureApi/types';
 import { Tooltip } from 'react-tooltip';
 import * as St from './Traits.styled';
+import { useWindowSize } from 'hooks/useWindowSize';
 
 interface Props {
   traits: IAttribute[];
 }
 
 const Traits: React.FC<Props> = ({ traits }) => {
-  const maxTraitLength = 22;
+  const { windowWidth } = useWindowSize();
+  const [maxTraitLength, setMaxTraitLength] = useState<number>(22);
+
+  useEffect(() => {
+    if (windowWidth > 450) setMaxTraitLength(22);
+    else if (windowWidth <= 450 && windowWidth > 400) setMaxTraitLength(20);
+    else setMaxTraitLength(18);
+  }, [windowWidth]);
 
   const shortenTrait = (trait: string) => {
     if (trait.length > maxTraitLength) {
@@ -38,7 +46,13 @@ const Traits: React.FC<Props> = ({ traits }) => {
               ) : (
                 <St.Value id={name}>{processedValue}</St.Value>
               )}
-              {/* {isTraitShortened && <Tooltip anchorId={name} content={value.toString()} />} */}
+              {isTraitShortened && (
+                <Tooltip
+                  anchorId={name}
+                  content={value.toString()}
+                  positionStrategy="fixed"
+                />
+              )}
             </St.Row>
           );
         })}
