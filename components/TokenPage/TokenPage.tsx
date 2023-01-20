@@ -31,7 +31,7 @@ const TokenPage: React.FC<Props> = ({ project, tokenId }) => {
     }
 
     if (token) {
-      return <TokenModule token={token} />;
+      return <TokenModule token={token} project={project} />;
     }
 
     return <h1>Could not fetch token right now, try again in a moment.</h1>;

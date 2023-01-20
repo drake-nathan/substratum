@@ -12,6 +12,7 @@ const Home: NextPage = () => {
   const [isTokenIdValid, setIsTokenIdValid] = useState<boolean>(false);
 
   const project = projects.find((p) => p.projectSlug === projectSlug);
+  const projectName = project?.name || '';
 
   // this useEffect validates the token id query param as a valid number
   useEffect(() => {
@@ -72,7 +73,7 @@ const Home: NextPage = () => {
   }, [tokenId, project]);
 
   const renderTokenPage = () => {
-    if (project && tokenId && isTokenIdValid) {
+    if (project && tokenId !== null && isTokenIdValid) {
       return <TokenPage project={project} tokenId={tokenId} />;
     }
 
@@ -87,10 +88,12 @@ const Home: NextPage = () => {
     return <h1>Loading...</h1>;
   };
 
+  const title = projectName ? `substratum | ${projectName} #${tokenId}` : 'substratum';
+
   return (
     <>
       <Head>
-        <title>substratum</title>
+        <title>{title}</title>
         <meta name="description" content="substratum" />
       </Head>
 

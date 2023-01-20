@@ -2,14 +2,13 @@ import styled from 'styled-components';
 import { MdCopyright } from 'react-icons/md';
 
 export const Container = styled.footer`
-  /* position: absolute;
-  bottom: 0; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1em;
   margin: 4em 1em 2em;
+  flex-grow: 0;
 `;
 
 export const Row = styled.div`

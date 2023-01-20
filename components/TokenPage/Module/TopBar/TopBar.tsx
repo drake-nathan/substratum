@@ -1,15 +1,21 @@
 import React from 'react';
-import { IToken } from 'services/azureApi/types';
+import type { IToken } from 'services/azureApi/types';
+import { type Project } from 'components/LandingPage/Projects/projects';
 import * as St from './TopBar.styled';
 
 interface Props {
   token: IToken;
+  project: Project;
 }
 
-const TopBar: React.FC<Props> = ({ token }) => {
+const TopBar: React.FC<Props> = ({ token, project }) => {
   const { token_id: tokenId, generator_url: generatorUrl, image } = token;
+  const { isMobileControls } = project;
 
   const fullScreenUrl = generatorUrl || image;
+
+  const mobileUrl = new URL(generatorUrl);
+  mobileUrl.searchParams.set('mobile', 'true');
 
   return (
     <St.Container>
@@ -20,7 +26,11 @@ const TopBar: React.FC<Props> = ({ token }) => {
           <St.FullScreenIcon className="icon" />
         </a>
 
-        <St.MobileIcon className="icon mobile" />
+        {isMobileControls && (
+          <a href={mobileUrl.toString()} target="_blank" rel="noreferrer">
+            <St.MobileIcon className="icon mobile" />
+          </a>
+        )}
       </St.IconDiv>
     </St.Container>
   );

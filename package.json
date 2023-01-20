@@ -32,6 +32,7 @@
     "react-infinite-scroll-component": "^6.1.0",
     "react-is": "^18.2.0",
     "react-query": "^3.39.2",
+    "react-tooltip": "^5.5.2",
     "styled-components": "^5.3.5",
     "web3": "^1.7.5",
     "web3-eth-contract": "^1.7.5",

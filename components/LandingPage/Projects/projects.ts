@@ -7,6 +7,9 @@ export interface Project {
   isZeroIndexed: boolean;
   isTokenIdInTitle: boolean;
   usesTransfers: boolean;
+  isMobileControls?: boolean;
+  isAltGenerator?: boolean;
+  aspectRatio?: number;
   mintable: boolean;
   upcoming: boolean;
   local: boolean;
@@ -41,6 +44,7 @@ export const projects: Project[] = [
     maxSupply: 128,
     isZeroIndexed: true,
     isTokenIdInTitle: true,
+    aspectRatio: 1.777777777777777,
     usesTransfers: true,
     mintable: true,
     upcoming: false,
