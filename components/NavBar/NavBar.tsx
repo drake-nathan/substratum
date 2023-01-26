@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTheme } from 'styled-components';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import Link from 'next/link';
 import { Squash as Hamburger } from 'hamburger-react';
 import SocialIcons from './SocialIcons/SocialIcons';

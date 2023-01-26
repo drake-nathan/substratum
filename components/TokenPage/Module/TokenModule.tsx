@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import type { IToken } from 'services/azureApi/types';
 import { type Project } from 'components/LandingPage/Projects/projects';
 import { useWindowSize } from 'hooks/useWindowSize';
