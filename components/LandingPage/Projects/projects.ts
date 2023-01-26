@@ -1,5 +1,7 @@
 export interface Project {
   name: string;
+  artist: string;
+  website: string;
   projectSlug: string;
   image: string;
   maxSupply: number;
@@ -24,6 +26,8 @@ export interface Project {
 export const projects: Project[] = [
   {
     name: 'Crystallized Illusions',
+    artist: 'Matto',
+    website: 'https://matto.xyz',
     projectSlug: 'crystallized-illusions',
     image: '/projects/crystallized-illusions.png',
     maxSupply: 99,
@@ -41,6 +45,8 @@ export const projects: Project[] = [
   },
   {
     name: 'Negative Carbon',
+    artist: 'Immutable Computer',
+    website: 'http://immutablecomputer.com/carbon.html',
     projectSlug: 'negative-carbon',
     image: '/projects/negative-carbon.png',
     maxSupply: 128,
@@ -57,6 +63,8 @@ export const projects: Project[] = [
   },
   {
     name: 'Mathare Memories',
+    artist: 'Matto',
+    website: 'https://matto.xyz',
     projectSlug: 'mathare-memories',
     image: '/projects/mathare-memories.png',
     maxSupply: 68,
@@ -78,6 +86,8 @@ export const projects: Project[] = [
   },
   {
     name: 'Chainlife',
+    artist: 'Matto',
+    website: 'https://matto.xyz',
     projectSlug: 'chainlife',
     image: '/projects/chainlife.png',
     maxSupply: 4_096,
@@ -93,6 +103,8 @@ export const projects: Project[] = [
   },
   {
     name: 'BLONKS',
+    artist: 'Matto',
+    website: 'https://matto.xyz',
     projectSlug: 'blonks',
     image: '/projects/blonks.png',
     maxSupply: 4_444,
@@ -109,6 +121,8 @@ export const projects: Project[] = [
   },
   {
     name: 'Texture and Hues',
+    artist: 'Matto',
+    website: 'https://matto.xyz',
     projectSlug: 'texture-and-hues',
     image: '/projects/texture.svg',
     maxSupply: 1_000,

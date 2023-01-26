@@ -34,6 +34,8 @@ export const DescContainer = styled.div`
 `;
 
 export const TitleContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   border-bottom: 1px solid ${({ theme: { colors } }) => colors.textOffset};
 
   // for adjusting the border
@@ -44,6 +46,8 @@ export const TitleContainer = styled.div`
 
   @media (max-width: 1250px) {
     text-align: center;
+    align-items: center;
+    gap: 0.5em;
   }
 
   @media (max-width: 615px) {
@@ -53,7 +57,28 @@ export const TitleContainer = styled.div`
 
 export const Title = styled.h1`
   font-size: 2.25rem;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
+`;
+
+export const ArtistDiv = styled.div`
+  display: flex;
+  align-items: baseline;
+  gap: 0.5em;
+
+  h3 {
+    font-size: 1.25rem;
+    letter-spacing: 1.5px;
+  }
+`;
+
+export const By = styled.h3`
+  font-weight: 400;
+`;
+
+export const ArtistName = styled.h3`
+  :hover {
+    color: ${({ theme: { colors } }) => colors.teal};
+  }
 `;
 
 export const Image = styled.img`

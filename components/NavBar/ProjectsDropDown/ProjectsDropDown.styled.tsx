@@ -49,6 +49,7 @@ export const RowLink = styled.a`
 `;
 
 export const OpenInNewIcon = styled(RxOpenInNewWindow)`
-  color: ${({ theme: { colors } }) => colors.bgMain};
+  color: ${({ theme: { isMobile, colors } }) =>
+    !isMobile ? colors.bgMain : colors.textMain};
   font-weight: 500;
 `;

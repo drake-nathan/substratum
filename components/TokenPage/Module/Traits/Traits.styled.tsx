@@ -24,7 +24,8 @@ export const Container = styled.div`
 `;
 
 export const TitleWrapper = styled.div`
-  border-bottom: 1px solid ${({ theme: { colors } }) => colors.textOffset};
+  ${({ theme: { colors, isMobile } }) =>
+    !isMobile && `border-bottom: 1px solid ${colors.textOffset};`}
   margin-right: 1.5em;
 `;
 

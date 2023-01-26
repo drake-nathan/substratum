@@ -7,12 +7,20 @@ interface Props {
 }
 
 const ProjectHead: React.FC<Props> = ({ project }) => {
-  const { name, projectSlug, image, description, interactivity, royalties } = project;
+  const { name, artist, website, image, description, interactivity, royalties } = project;
 
   return (
     <St.Container>
       <St.TitleContainer>
         <St.Title>{name}</St.Title>
+
+        <St.ArtistDiv>
+          <St.By>By</St.By>
+
+          <a href={website} target="_blank" rel="noreferrer">
+            <St.ArtistName>{artist}</St.ArtistName>
+          </a>
+        </St.ArtistDiv>
       </St.TitleContainer>
 
       <St.DescContainer>
