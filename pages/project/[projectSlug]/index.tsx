@@ -36,10 +36,12 @@ const Home: NextPage = () => {
     }
   }, [projectSlug]);
 
+  const title = project?.name ? `substratum | ${project.name}` : 'substratum';
+
   return (
     <HomeContainer>
       <Head>
-        <title>substratum</title>
+        <title>{title}</title>
         <meta name="description" content="substratum" />
       </Head>
 

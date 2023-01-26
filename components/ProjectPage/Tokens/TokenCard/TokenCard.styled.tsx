@@ -20,6 +20,12 @@ export const Wrapper = styled.div`
   }
 `;
 
+export const PreviewImage = styled.img`
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+`;
+
 export const DescriptionDiv = styled.div`
   display: flex;
   flex-direction: column;
