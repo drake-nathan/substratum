@@ -7,6 +7,7 @@ import SocialIcons from './SocialIcons/SocialIcons';
 import NavLinks from './NavLinks/NavLinks';
 import MobileNav from './MobileNav/MobileNav';
 import substratumLogo from 'public/substratum/substratum.png';
+import { bustinJieber } from 'styles/fonts';
 import * as St from './NavBar.styled';
 
 const NavBar: React.FC = () => {
@@ -23,7 +24,7 @@ const NavBar: React.FC = () => {
 
         <St.TitleDiv>
           <Link href="/">
-            <St.NavTitle>substratum</St.NavTitle>
+            <St.NavTitle className={bustinJieber.className}>substratum</St.NavTitle>
           </Link>
         </St.TitleDiv>
       </St.TitleSection>

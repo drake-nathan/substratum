@@ -5,14 +5,12 @@ import Providers from 'contexts/Providers';
 import { AppContainer, BodyContainer } from '../styles/App.styled';
 import NavBar from 'components/NavBar/NavBar';
 import Footer from 'components/Footer/Footer';
+import { kanit } from 'styles/fonts';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
-  const date = new Date();
-  let year = date.getFullYear();
-
   return (
     <Providers>
-      <AppContainer>
+      <AppContainer className={kanit.className}>
         <NavBar />
 
         <BodyContainer>
