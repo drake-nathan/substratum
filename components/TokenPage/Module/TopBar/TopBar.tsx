@@ -9,17 +9,19 @@ interface Props {
 }
 
 const TopBar: React.FC<Props> = ({ token, project }) => {
-  const { token_id: tokenId, generator_url: generatorUrl, image } = token;
-  const { isMobileControls } = project;
+  const { token_id: tokenId, generator_url: generatorUrl, image, name } = token;
+  const { isMobileControls, useTokenName } = project;
 
   const fullScreenUrl = generatorUrl || image;
 
   const mobileUrl = new URL(generatorUrl);
   mobileUrl.searchParams.set('mobile', 'true');
 
+  const titleText = useTokenName ? name : `#${tokenId}`;
+
   return (
     <St.Container>
-      <St.TokenId>#{tokenId}</St.TokenId>
+      <St.TokenId>{titleText}</St.TokenId>
 
       <St.IconDiv>
         <a href={fullScreenUrl} target="_blank" rel="noreferrer">

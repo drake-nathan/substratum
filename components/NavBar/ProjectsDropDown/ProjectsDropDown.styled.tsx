@@ -1,8 +1,11 @@
 import styled from 'styled-components';
+import { IoOpenSharp } from 'react-icons/io5';
+import { MdOpenInNew } from 'react-icons/md';
+import { RxOpenInNewWindow } from 'react-icons/rx';
 
 type ShowDropDown = { showDropDown: boolean };
 
-export const ContainerUl = styled.ul<ShowDropDown>`
+export const Container = styled.div<ShowDropDown>`
   position: absolute;
   top: 31.5px;
   left: 0;
@@ -13,12 +16,11 @@ export const ContainerUl = styled.ul<ShowDropDown>`
   transition: all 0.3s ease;
   overflow: ${({ showDropDown }) => (showDropDown ? 'auto' : 'hidden')};
   padding: ${({ showDropDown }) =>
-    showDropDown ? '0.75em 0.5em 0.5em 1.5em' : '0 0.5em'};
+    showDropDown ? '0.75em 0.5em 0.5em 1.25em' : '0 0.5em'};
   overflow-y: hidden;
-  list-style: none;
 `;
 
-export const ProjectLi = styled.li`
+export const Project = styled.div`
   color: ${({ theme: { isMobile, colors } }) =>
     !isMobile ? colors.bgMain : colors.textMain};
   font-weight: 600;
@@ -35,8 +37,18 @@ export const ProjectLi = styled.li`
   }
 `;
 
-export const MobileContainer = styled.ul`
-  list-style: none;
+export const MobileContainer = styled.div`
   border: 1px solid white;
   padding: 1em 3em;
+`;
+
+export const RowLink = styled.a`
+  display: flex;
+  align-items: center;
+  gap: 0.25em;
+`;
+
+export const OpenInNewIcon = styled(RxOpenInNewWindow)`
+  color: ${({ theme: { colors } }) => colors.bgMain};
+  font-weight: 500;
 `;

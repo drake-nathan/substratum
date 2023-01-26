@@ -9,6 +9,7 @@ export interface Project {
   usesTransfers: boolean;
   isMobileControls?: boolean;
   isAltGenerator?: boolean;
+  useTokenName?: boolean;
   aspectRatio?: number;
   mintable: boolean;
   upcoming: boolean;
@@ -29,6 +30,7 @@ export const projects: Project[] = [
     currentSupply: 99,
     isZeroIndexed: true,
     isTokenIdInTitle: false,
+    useTokenName: true,
     usesTransfers: false,
     mintable: false,
     upcoming: false,
@@ -90,7 +92,7 @@ export const projects: Project[] = [
     description: 'Chainlife is',
   },
   {
-    name: 'Blonks',
+    name: 'BLONKS',
     projectSlug: 'blonks',
     image: '/projects/blonks.png',
     maxSupply: 4_444,
@@ -106,8 +108,8 @@ export const projects: Project[] = [
     description: 'BLONKS is',
   },
   {
-    name: 'Textures',
-    projectSlug: 'textures',
+    name: 'Texture and Hues',
+    projectSlug: 'texture-and-hues',
     image: '/projects/texture.svg',
     maxSupply: 1_000,
     isZeroIndexed: true,
