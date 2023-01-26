@@ -42,9 +42,18 @@ const TokenPage: React.FC<Props> = ({ project, tokenId }) => {
 
   return (
     <St.Container>
-      <Link href={projectLink}>
-        <St.Title>{name}</St.Title>
-      </Link>
+      <St.TitleBar>
+        <Link href={projectLink}>
+          <St.Title>{name}</St.Title>
+        </Link>
+
+        <Link href={projectLink}>
+          <St.BackDiv>
+            <St.BackIcon />
+            <St.BackText>Back to Collection</St.BackText>
+          </St.BackDiv>
+        </Link>
+      </St.TitleBar>
 
       {renderToken()}
     </St.Container>

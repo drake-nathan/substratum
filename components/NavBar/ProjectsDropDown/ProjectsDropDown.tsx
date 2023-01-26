@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
+import { useTheme } from 'styled-components';
 import { projects } from 'components/LandingPage/Projects/projects';
 import * as St from './ProjectsDropDown.styled';
-import { useTheme } from 'styled-components';
 
 interface Props {
   showDropDown: boolean;
@@ -23,7 +23,7 @@ const ProjectsDropDown: React.FC<Props> = ({
   };
 
   const renderProjectItem = (name: string) => (
-    <St.ProjectLi onClick={closeBothMenus}>{name}</St.ProjectLi>
+    <St.Project onClick={closeBothMenus}>{name}</St.Project>
   );
 
   const projectsListJsx = projects.map(({ name, local, externalUrl, projectSlug }) =>
@@ -32,14 +32,15 @@ const ProjectsDropDown: React.FC<Props> = ({
         {renderProjectItem(name)}
       </Link>
     ) : (
-      <a key={name} href={externalUrl} target="_blank" rel="noreferrer">
+      <St.RowLink key={name} href={externalUrl} target="_blank" rel="noreferrer">
+        <St.OpenInNewIcon />
         {renderProjectItem(name)}
-      </a>
+      </St.RowLink>
     ),
   );
 
   return !isMobile ? (
-    <St.ContainerUl showDropDown={showDropDown}>{projectsListJsx}</St.ContainerUl>
+    <St.Container showDropDown={showDropDown}>{projectsListJsx}</St.Container>
   ) : (
     <St.MobileContainer>{projectsListJsx}</St.MobileContainer>
   );

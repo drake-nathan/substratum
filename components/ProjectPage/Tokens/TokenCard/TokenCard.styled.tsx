@@ -10,7 +10,7 @@ export const Container = styled.div`
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: ${(props) => (props.theme.isMiniCard ? '170px' : '300px')};
+  width: ${({ theme: { isMiniCard } }) => (isMiniCard ? '170px' : '300px')};
   box-shadow: 5px 5px 15px 1px rgba(0, 0, 0, 0.2);
   border-radius: 0 0 2px 2px;
   transition-duration: 400ms;
@@ -20,13 +20,11 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const PreviewImage = styled.img`
-  width: 100%;
-  height: auto;
-  /* aspect-ratio: 1;
-  object-fit: cover; */
-  cursor: pointer;
-`;
+// export const PreviewImage = styled.img`
+//   width: 100%;
+//   height: auto;
+//   cursor: pointer;
+// `;
 
 export const DescriptionDiv = styled.div`
   display: flex;
