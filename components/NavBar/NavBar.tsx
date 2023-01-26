@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useTheme } from 'styled-components';
-import Image from "next/legacy/image";
+import Image from 'next/image';
 import Link from 'next/link';
 import { Squash as Hamburger } from 'hamburger-react';
 import SocialIcons from './SocialIcons/SocialIcons';
 import NavLinks from './NavLinks/NavLinks';
 import MobileNav from './MobileNav/MobileNav';
+import substratumLogo from 'public/substratum/substratum.png';
 import * as St from './NavBar.styled';
 
 const NavBar: React.FC = () => {
@@ -17,7 +18,7 @@ const NavBar: React.FC = () => {
     <St.NavContainer>
       <St.TitleSection>
         <St.LogoDiv>
-          <Image src={'/substratum/substratum.png'} layout="fill" alt="substratum logo" />
+          <Image src={substratumLogo} alt="substratum logo" fill />
         </St.LogoDiv>
 
         <St.TitleDiv>

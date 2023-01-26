@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Image from "next/legacy/image";
+import Image from 'next/image';
 import type { IToken } from 'services/azureApi/types';
 import { type Project } from 'components/LandingPage/Projects/projects';
 import { useWindowSize } from 'hooks/useWindowSize';
@@ -44,7 +44,12 @@ const TokenModule: React.FC<Props> = ({ token, project }) => {
         {generatorUrl ? (
           <Generator generatorUrl={generatorUrl} height={height} width={width} />
         ) : (
-          <Image src={imageMid || image} alt="Token Image" width={500} height={500} />
+          <Image
+            src={imageMid || image}
+            alt="Token Image"
+            width={width}
+            height={height}
+          />
         )}
 
         <St.TraitsWrapper>
