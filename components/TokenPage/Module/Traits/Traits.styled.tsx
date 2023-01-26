@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1em;
-  padding: 1em 0 1.5em 2em;
+  padding: 1em 0em 1.5em 2em;
   overflow-y: auto;
 
   ::-webkit-scrollbar {
@@ -21,6 +21,11 @@ export const Container = styled.div`
     margin-top: 0.5em;
     padding-top: 0.5em;
   }
+`;
+
+export const TitleWrapper = styled.div`
+  border-bottom: 1px solid ${({ theme: { colors } }) => colors.textOffset};
+  margin-right: 1.5em;
 `;
 
 export const Title = styled.h2`
@@ -55,7 +60,7 @@ export const Row = styled.div`
 
   @media (max-width: 650px) {
     font-size: 0.875rem;
-  } ;
+  }
 `;
 
 export const Name = styled.span`

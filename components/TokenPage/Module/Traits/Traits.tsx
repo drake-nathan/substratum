@@ -27,7 +27,10 @@ const Traits: React.FC<Props> = ({ traits }) => {
 
   return (
     <St.Container>
-      <St.Title>Traits</St.Title>
+      <St.TitleWrapper>
+        <St.Title>Traits</St.Title>
+      </St.TitleWrapper>
+
       <St.Table>
         {traits.map((trait) => {
           const { trait_type: name, value } = trait;

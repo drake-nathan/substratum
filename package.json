@@ -24,7 +24,7 @@
     "@web3-react/walletlink-connector": "^6.2.14",
     "axios": "^1.2.4",
     "hamburger-react": "^2.5.0",
-    "next": "^13.1.5",
+    "next": "12.3.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.42.1",
