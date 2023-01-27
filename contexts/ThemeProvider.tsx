@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import { useWindowSize } from 'hooks/useWindowSize';
 import { theme } from '../styles/theme';
 
 interface Props {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 const ThemeProvider: React.FC<Props> = ({ children }) => {
@@ -17,7 +17,7 @@ const ThemeProvider: React.FC<Props> = ({ children }) => {
     if (windowWidth < 650 && windowWidth > 390) setIsMiniCard(true);
     else setIsMiniCard(false);
 
-    if (windowWidth < 775) setIsMobile(true);
+    if (windowWidth <= 775) setIsMobile(true);
     else setIsMobile(false);
   }, [windowWidth]);
 

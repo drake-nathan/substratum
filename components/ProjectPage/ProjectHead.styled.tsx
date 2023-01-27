@@ -9,7 +9,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1.5em;
+  gap: ${({ theme: { isMobile } }) => (isMobile ? '1em' : '1.5em')};
 
   @media (max-width: 1250px) {
     align-items: center;
@@ -39,7 +39,7 @@ export const TitleContainer = styled.div`
   border-bottom: 1px solid ${({ theme: { colors } }) => colors.textOffset};
 
   // for adjusting the border
-  @media (min-width: 775px) {
+  @media (min-width: 776px) {
     width: 100%;
     max-width: 695px;
   }
@@ -54,6 +54,10 @@ export const TitleContainer = styled.div`
 export const Title = styled.h1`
   font-size: 2.25rem;
   letter-spacing: 3px;
+
+  @media (max-width: 500px) {
+    font-size: 1.75rem;
+  }
 `;
 
 export const BottomRow = styled.div`
@@ -61,6 +65,12 @@ export const BottomRow = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media (max-width: 775px) {
+    flex-direction: column;
+    gap: 1em;
+    margin-bottom: 0.75em;
+  }
 `;
 
 export const ArtistDiv = styled.div`

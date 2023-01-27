@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  @media (min-width: 650px) {
+  @media (min-width: 651px) {
     width: 100%;
     background-color: ${({ theme: { colors } }) => colors.bgOffset};
     box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1);
@@ -22,7 +22,7 @@ export const InnerContainer = styled.div<Props>`
   max-height: ${({ height }) => height}px;
   background-color: ${({ theme: { colors } }) => colors.bgMain};
 
-  @media (min-width: 650px) {
+  @media (min-width: 651px) {
     box-shadow: inset 0px 2px 10px 0px rgba(0, 0, 0, 0.2);
   }
 

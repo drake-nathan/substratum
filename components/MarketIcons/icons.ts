@@ -10,25 +10,34 @@ export enum Market {
   X2y2,
 }
 
-export enum UrlParam {
+enum UrlParam {
   slug,
   address,
 }
 
-export const MarketRoots = {
+const MarketRootsCollection = {
   [Market.Etherscan]: 'https://etherscan.io/address',
   [Market.OpenSea]: 'https://opensea.io/collection',
   [Market.LooksRare]: 'https://looksrare.org/collections',
   [Market.X2y2]: 'https://x2y2.io/collection',
 } satisfies Record<Market, string>;
 
+const MarketRootsToken = {
+  [Market.Etherscan]: '',
+  [Market.OpenSea]: 'https://opensea.io/assets/ethereum',
+  [Market.LooksRare]: 'https://looksrare.org/collections',
+  [Market.X2y2]: 'https://x2y2.io/eth',
+} satisfies Record<Market, string>;
+
 interface Icon {
   market: Market;
   urlParam: UrlParam;
   src: any;
-  alt: string;
   id: string;
-  tooltip: string;
+  altCollection: string;
+  altToken: string;
+  tooltipCollection: string;
+  tooltipToken: string;
 }
 
 export const getProjectMarketLink = (
@@ -38,10 +47,22 @@ export const getProjectMarketLink = (
 ): string => {
   const { market, urlParam } = icon;
 
-  const root = MarketRoots[market];
+  const root = MarketRootsCollection[market];
   const param = urlParam === UrlParam.slug ? slug : address;
 
   return `${root}/${param}`;
+};
+
+export const getTokenMarketLink = (
+  icon: Icon,
+  address: string,
+  tokenId: string | number,
+): string => {
+  const { market } = icon;
+
+  const root = MarketRootsToken[market];
+
+  return `${root}/${address}/${tokenId}`;
 };
 
 export const icons: Icon[] = [
@@ -49,32 +70,40 @@ export const icons: Icon[] = [
     market: Market.Etherscan,
     urlParam: UrlParam.address,
     src: EtherscanLogo,
-    alt: 'Etherscan external contract link.',
     id: 'Etherscan',
-    tooltip: 'Etherscan contract page',
+    altCollection: 'Etherscan external contract link.',
+    altToken: '',
+    tooltipCollection: 'Etherscan contract page',
+    tooltipToken: '',
   },
   {
     market: Market.OpenSea,
     urlParam: UrlParam.slug,
     src: OpenSeaLogo,
-    alt: 'OpenSea external collection link.',
     id: 'OpenSea',
-    tooltip: 'OpenSea collection page',
+    altCollection: 'OpenSea external collection link.',
+    altToken: 'OpenSea token link.',
+    tooltipCollection: 'OpenSea collection page',
+    tooltipToken: 'OpenSea token page',
   },
   {
     market: Market.LooksRare,
     urlParam: UrlParam.address,
     src: LooksRareLogo,
-    alt: 'LooksRare external collection link.',
     id: 'LooksRare',
-    tooltip: 'LooksRare collection page',
+    altCollection: 'LooksRare external collection link.',
+    altToken: 'LooksRare token link.',
+    tooltipCollection: 'LooksRare collection page',
+    tooltipToken: 'LooksRare token page',
   },
   {
     market: Market.X2y2,
     urlParam: UrlParam.address,
     src: X2y2Logo,
-    alt: 'X2y2 external collection link.',
     id: 'X2y2',
-    tooltip: 'X2y2 collection page',
+    altCollection: 'X2y2 external collection link.',
+    altToken: 'X2y2 token link.',
+    tooltipCollection: 'X2y2 collection page',
+    tooltipToken: 'X2y2 token page',
   },
 ];

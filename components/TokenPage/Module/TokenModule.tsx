@@ -6,6 +6,7 @@ import { useWindowSize } from 'hooks/useWindowSize';
 import TopBar from './TopBar/TopBar';
 import Generator from 'components/Generator/Generator';
 import Traits from './Traits/Traits';
+import TokenIcons from './TokenIcons/TokenIcons';
 import * as St from './TokenModule.styled';
 
 interface Props {
@@ -51,6 +52,8 @@ const TokenModule: React.FC<Props> = ({ token, project }) => {
             height={height}
           />
         )}
+
+        {windowWidth <= 650 && <TokenIcons token={token} project={project} />}
 
         <St.TraitsWrapper>
           <Traits traits={attributes} />

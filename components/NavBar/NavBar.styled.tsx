@@ -26,7 +26,7 @@ export const TitleSection = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.2); */
 `;
 
 export const LogoDiv = styled.div`

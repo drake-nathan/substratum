@@ -1,14 +1,21 @@
-import React from 'react';
-import { type Project } from 'components/LandingPage/Projects/projects';
-import ProjectMarkets from 'components/MarketIcons/ProjectMarkets';
 import * as St from './ProjectHead.styled';
+import MarketIcons from 'components/MarketIcons/MarketIcons';
+import { type Project } from 'components/LandingPage/Projects/projects';
 
 interface Props {
   project: Project;
 }
 
-const ProjectHead: React.FC<Props> = ({ project }) => {
-  const { name, artist, website, image, description, interactivity, royalties } = project;
+const ProjectHead = ({ project }: Props): JSX.Element => {
+  const {
+    name,
+    artist,
+    website,
+    image,
+    description,
+    interactivity,
+    royalties,
+  } = project;
 
   return (
     <St.Container>
@@ -24,7 +31,7 @@ const ProjectHead: React.FC<Props> = ({ project }) => {
             </a>
           </St.ArtistDiv>
 
-          <ProjectMarkets project={project} />
+          <MarketIcons project={project} />
         </St.BottomRow>
       </St.TitleContainer>
 
