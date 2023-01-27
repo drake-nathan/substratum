@@ -9,7 +9,6 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-family: 'Poppins', sans-serif;
   font-size: 2.375rem;
   font-weight: 100;
   letter-spacing: 2px;
@@ -17,7 +16,6 @@ export const Title = styled.h1`
 `;
 
 export const Subtitle = styled.h2`
-  font-family: 'Poppins', sans-serif;
   font-style: italic;
   font-weight: 400;
   margin-bottom: 2px;
@@ -29,7 +27,6 @@ export const List = styled.ul`
 `;
 
 export const ListItem = styled.li`
-  font-family: 'Poppins', sans-serif;
   font-size: 0.75rem;
 `;
 

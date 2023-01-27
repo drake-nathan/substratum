@@ -1,11 +1,12 @@
 import React from 'react';
+import { poppins } from 'styles/fonts';
 import * as St from './Hero.styled';
 
 const Hero: React.FC = () => {
   return (
     <St.Container>
-      <St.Title>sub·stra·tum</St.Title>
-      <St.Subtitle>noun</St.Subtitle>
+      <St.Title className={poppins.className}>sub·stra·tum</St.Title>
+      <St.Subtitle className={poppins.className}>noun</St.Subtitle>
 
       <St.List>
         <St.ListItem>

@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import { IoOpenSharp } from 'react-icons/io5';
-import { MdOpenInNew } from 'react-icons/md';
 import { RxOpenInNewWindow } from 'react-icons/rx';
 
 type ShowDropDown = { showDropDown: boolean };

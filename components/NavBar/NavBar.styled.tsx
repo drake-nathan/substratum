@@ -51,7 +51,6 @@ export const TitleDiv = styled.div`
 `;
 
 export const NavTitle = styled.h1`
-  font-family: 'BustinJieber';
   font-weight: 400;
   font-size: 2.125rem;
   letter-spacing: 2px;

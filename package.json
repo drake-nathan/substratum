@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.20.12",
+    "@next/font": "^13.1.5",
     "@web3-react/core": "^6.1.9",
     "@web3-react/injected-connector": "^6.0.7",
     "@web3-react/walletconnect-connector": "^6.2.13",
@@ -33,6 +34,7 @@
     "react-is": "^18.2.0",
     "react-query": "^3.39.3",
     "react-tooltip": "^5.7.0",
+    "sharp": "^0.31.3",
     "styled-components": "^5.3.6",
     "web3": "^1.8.1",
     "web3-eth-contract": "^1.8.1",
