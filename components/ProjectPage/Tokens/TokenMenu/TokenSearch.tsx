@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useMintDetails } from 'hooks/useMintDetails';
+import { kanit } from 'styles/fonts';
 import * as St from './TokenSearch.styled';
 
 type IToken = { tokenId: number };
@@ -51,6 +52,7 @@ const TokenSearch: React.FC<Props> = ({ tokenId, setTokenId, refetch }) => {
       {errorText && <St.ErrorText>{errorText}</St.ErrorText>}
       <St.Form id="token-page-form" onSubmit={handleSubmit(onSubmit)}>
         <St.Input
+          className={kanit.className}
           type="number"
           {...register('tokenId', {
             valueAsNumber: true,

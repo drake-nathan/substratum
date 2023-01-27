@@ -3,6 +3,7 @@ export interface Project {
   artist: string;
   website: string;
   projectSlug: string;
+  contractAddress: string;
   image: string;
   maxSupply: number;
   currentSupply?: number;
@@ -29,6 +30,7 @@ export const projects: Project[] = [
     artist: 'Matto',
     website: 'https://matto.xyz',
     projectSlug: 'crystallized-illusions',
+    contractAddress: '0x5B17395A9699D2819a9d009bA375a0825b077385',
     image: '/projects/crystallized-illusions.png',
     maxSupply: 99,
     currentSupply: 99,
@@ -48,6 +50,7 @@ export const projects: Project[] = [
     artist: 'Immutable Computer',
     website: 'http://immutablecomputer.com/carbon.html',
     projectSlug: 'negative-carbon',
+    contractAddress: '0xa9132D23886b63D29858Fe541214fEad5815d64A',
     image: '/projects/negative-carbon.png',
     maxSupply: 128,
     isZeroIndexed: true,
@@ -66,6 +69,7 @@ export const projects: Project[] = [
     artist: 'Matto',
     website: 'https://matto.xyz',
     projectSlug: 'mathare-memories',
+    contractAddress: '0x2eEa9f8eb2a3365175c7cb25Db9ae277bE218806',
     image: '/projects/mathare-memories.png',
     maxSupply: 68,
     currentSupply: 68,
@@ -89,6 +93,7 @@ export const projects: Project[] = [
     artist: 'Matto',
     website: 'https://matto.xyz',
     projectSlug: 'chainlife',
+    contractAddress: '0x4E171e0F14a9046e14B93221f31Acd2EC4Af8429',
     image: '/projects/chainlife.png',
     maxSupply: 4_096,
     isZeroIndexed: true,
@@ -106,6 +111,7 @@ export const projects: Project[] = [
     artist: 'Matto',
     website: 'https://matto.xyz',
     projectSlug: 'blonks',
+    contractAddress: '0x7f463b874eC264dC7BD8C780f5790b4Fc371F11f',
     image: '/projects/blonks.png',
     maxSupply: 4_444,
     currentSupply: 4_444,
@@ -124,6 +130,7 @@ export const projects: Project[] = [
     artist: 'Matto',
     website: 'https://matto.xyz',
     projectSlug: 'texture-and-hues',
+    contractAddress: '0x15BF7610a7d50541e865EfA3adad434147a4E1A9',
     image: '/projects/texture.svg',
     maxSupply: 1_000,
     isZeroIndexed: true,

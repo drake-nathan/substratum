@@ -41,7 +41,7 @@ export const TitleContainer = styled.div`
   // for adjusting the border
   @media (min-width: 775px) {
     width: 100%;
-    max-width: 650px;
+    max-width: 695px;
   }
 
   @media (max-width: 1250px) {
@@ -49,15 +49,18 @@ export const TitleContainer = styled.div`
     align-items: center;
     gap: 0.5em;
   }
-
-  @media (max-width: 615px) {
-    padding: 1em 0;
-  }
 `;
 
 export const Title = styled.h1`
   font-size: 2.25rem;
   letter-spacing: 3px;
+`;
+
+export const BottomRow = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 export const ArtistDiv = styled.div`
