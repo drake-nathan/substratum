@@ -6,9 +6,9 @@ interface Props {
   project: Project;
 }
 
-const ProjectHead: React.FC<Props> = ({ project }) => {
-  const { name, artist, website, image, description, interactivity, royalties } = project;
-
+const ProjectHead: React.FC<Props> = ({
+  project: { name, artist, website, image, description, interactivity, royalties },
+}) => {
   return (
     <St.Container>
       <St.TitleContainer>
