@@ -2,7 +2,7 @@ import React from 'react';
 import { poppins } from 'styles/fonts';
 import * as St from './Hero.styled';
 
-const Hero: React.FC = () => {
+const Hero = (): JSX.Element => {
   return (
     <St.Container>
       <St.Title className={poppins.className}>sub·stra·tum</St.Title>

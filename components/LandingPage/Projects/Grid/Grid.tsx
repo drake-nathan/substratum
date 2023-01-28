@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Card from '../Card/Card';
 import { projects, ProjectSort, Project } from '../projects';
 import TabBar from '../TabBar/TabBar';
 import * as St from './Grid.styled';
 
-const Grid: React.FC = () => {
+const Grid = (): JSX.Element => {
   const [activeTab, setActiveTab] = useState<ProjectSort>(ProjectSort.all);
   const [filteredProjects, setFilteredProjects] = useState<Project[]>(projects);
 

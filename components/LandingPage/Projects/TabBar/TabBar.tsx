@@ -1,4 +1,3 @@
-import React from 'react';
 import { ProjectSort } from '../projects';
 import * as St from './TabBar.styled';
 
@@ -7,7 +6,7 @@ interface Props {
   setActiveTab: React.Dispatch<React.SetStateAction<ProjectSort>>;
 }
 
-const TabBar: React.FC<Props> = ({ activeTab, setActiveTab }) => {
+const TabBar = ({ activeTab, setActiveTab }: Props): JSX.Element => {
   return (
     <St.Container>
       <St.TitleContainer>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Project } from '../projects';
@@ -8,9 +8,9 @@ interface Props {
   project: Project;
 }
 
-const Card: React.FC<Props> = ({
+const Card = ({
   project: { name, image, local, externalUrl, projectSlug },
-}) => {
+}: Props): JSX.Element => {
   const [showOverlay, setShowOverlay] = useState(false);
 
   const CardJsx = (

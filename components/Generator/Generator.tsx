@@ -7,7 +7,7 @@ interface Props {
   width: number;
 }
 
-const Generator: React.FC<Props> = ({ generatorUrl, height, width }) => {
+const Generator = ({ generatorUrl, height, width }: Props): JSX.Element => {
   return (
     <St.FrameWrapper height={height} width={width}>
       <iframe src={generatorUrl} title="generator"></iframe>
