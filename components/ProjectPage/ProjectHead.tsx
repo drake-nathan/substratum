@@ -8,6 +8,7 @@ interface Props {
 
 const ProjectHead = ({ project }: Props): JSX.Element => {
   const {
+    projectSlug,
     name,
     artist,
     website,
@@ -42,6 +43,19 @@ const ProjectHead = ({ project }: Props): JSX.Element => {
           <St.DescTitle>Description</St.DescTitle>
 
           <St.Text>{description}</St.Text>
+
+          {projectSlug === 'texture-and-hues' && (
+            <a
+              href="https://mattoapi.blob.core.windows.net/texture-and-hues-images/allSVGs.json"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <St.LinkContainer>
+                <St.Link>All SVGs</St.Link>
+                <St.OpenInNewIcon />
+              </St.LinkContainer>
+            </a>
+          )}
         </St.DescSection>
 
         {interactivity && (

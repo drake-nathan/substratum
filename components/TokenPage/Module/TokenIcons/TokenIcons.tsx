@@ -10,29 +10,39 @@ interface Props {
 }
 
 const TokenIcons = ({ token, project }: Props): JSX.Element => {
-  const { token_id: tokenId, generator_url: generatorUrl, image, name } = token;
+  const {
+    token_id: tokenId,
+    generator_url: generatorUrl,
+    image,
+    svgGen,
+  } = token;
   const { isMobileControls } = project;
 
-  const fullScreenUrl = generatorUrl || image;
+  const fullScreenUrl = generatorUrl || svgGen || null;
 
-  const mobileUrl = new URL(generatorUrl);
-  mobileUrl.searchParams.set('mobile', 'true');
+  const mobileUrl = generatorUrl ? new URL(generatorUrl) : null;
+
+  if (mobileUrl) mobileUrl.searchParams.set('mobile', 'true');
 
   return (
     <St.IconDiv>
       <MarketIcons project={project} tokenId={tokenId} />
 
-      <a href={fullScreenUrl} target="_blank" rel="noreferrer">
-        <St.FullScreenIcon className="icon" id="fullscreen" />
+      {fullScreenUrl && (
+        <a href={fullScreenUrl} target="_blank" rel="noreferrer">
+          <St.FullScreenIcon className="icon" id="fullscreen" />
 
-        <Tooltip
-          anchorId="fullscreen"
-          content="Launch full screen generator"
-          positionStrategy="fixed"
-        />
-      </a>
+          <Tooltip
+            anchorId="fullscreen"
+            content={
+              svgGen ? 'View SVG full screen' : 'Launch full screen generator'
+            }
+            positionStrategy="fixed"
+          />
+        </a>
+      )}
 
-      {isMobileControls && (
+      {isMobileControls && mobileUrl && (
         <a href={mobileUrl.toString()} target="_blank" rel="noreferrer">
           <St.MobileIcon className="icon mobile" id="mobile" />
 

@@ -1,10 +1,9 @@
-import React from 'react';
-import TokenSearch from './TokenSearch';
-import { IProject } from 'services/azureApi/types';
 import * as St from './TokenMenu.styled';
+import TokenSearch from './TokenSearch';
+import { type Project } from 'components/LandingPage/Projects/projects';
 
 interface Props {
-  projectSlug: string;
+  project: Project;
   usesTransfers: boolean;
   sortDir: 'asc' | 'desc';
   setSortDir: React.Dispatch<React.SetStateAction<'asc' | 'desc'>>;
@@ -15,8 +14,8 @@ interface Props {
   refetch: () => void;
 }
 
-const TokenMenu: React.FC<Props> = ({
-  projectSlug,
+const TokenMenu = ({
+  project,
   usesTransfers,
   sortDir,
   setSortDir,
@@ -25,15 +24,19 @@ const TokenMenu: React.FC<Props> = ({
   tokenSearchId,
   setTokenSearchId,
   refetch,
-}) => {
+}: Props): JSX.Element => {
+  const { projectSlug, currentSupply, maxSupply } = project;
+
   return (
     <St.Container>
       <St.RightDiv>
         <TokenSearch
+          project={project}
           tokenId={tokenSearchId}
           setTokenId={setTokenSearchId}
           refetch={refetch}
         />
+
         <St.SortDiv>
           <St.SortText>Sort by:</St.SortText>
           <St.TextButton
@@ -45,6 +48,7 @@ const TokenMenu: React.FC<Props> = ({
           >
             Token ID
           </St.TextButton>
+
           {usesTransfers && (
             <>
               <St.SubtleText>|</St.SubtleText>
@@ -55,17 +59,25 @@ const TokenMenu: React.FC<Props> = ({
                   setSortType('worldLevel');
                 }}
               >
-                {projectSlug === 'chainlife' || projectSlug === 'chainlife-testnet'
+                {projectSlug === 'chainlife' ||
+                projectSlug === 'chainlife-testnet'
                   ? 'World Level'
                   : 'Transfers'}
               </St.TextButton>
             </>
           )}
+
           <St.SortButton>
             {sortDir === 'asc' ? (
-              <St.SortIconAsc className="icon" onClick={() => setSortDir('desc')} />
+              <St.SortIconAsc
+                className="icon"
+                onClick={() => setSortDir('desc')}
+              />
             ) : (
-              <St.SortIconDesc className="icon" onClick={() => setSortDir('asc')} />
+              <St.SortIconDesc
+                className="icon"
+                onClick={() => setSortDir('asc')}
+              />
             )}
           </St.SortButton>
         </St.SortDiv>

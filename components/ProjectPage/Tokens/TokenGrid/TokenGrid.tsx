@@ -15,6 +15,7 @@ interface Props {
   isFetching: boolean;
   isFetchingNextPage: boolean;
   isTokenIdInTitle: boolean;
+  aspectRatio: number;
 }
 
 const TokenGrid: React.FC<Props> = ({
@@ -27,6 +28,7 @@ const TokenGrid: React.FC<Props> = ({
   isFetching,
   isFetchingNextPage,
   isTokenIdInTitle,
+  aspectRatio,
 }) => {
   if (isLoading) return <St.H1>Loading...</St.H1>;
 
@@ -47,6 +49,7 @@ const TokenGrid: React.FC<Props> = ({
                     token={token}
                     key={token.name}
                     isTokenIdInTitle={isTokenIdInTitle}
+                    aspectRatio={aspectRatio}
                   />
                 )),
               )}

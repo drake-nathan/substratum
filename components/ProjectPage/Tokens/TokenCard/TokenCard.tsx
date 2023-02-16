@@ -1,41 +1,38 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-import { useTheme } from 'styled-components';
 import type { TokenAbbr } from 'services/azureApi/types';
 import * as St from './TokenCard.styled';
 
 interface Props {
   token: TokenAbbr;
   isTokenIdInTitle: boolean;
+  aspectRatio: number;
 }
 
-const TokenCard: React.FC<Props> = ({ token, isTokenIdInTitle }) => {
+const TokenCard: React.FC<Props> = ({
+  token,
+  isTokenIdInTitle,
+  aspectRatio,
+}) => {
   const {
     name,
     image,
     image_mid: imageMid,
+    image_small: imageSmall,
     token_id: tokenId,
     project_slug: projectSlug,
-    script_inputs: { transfer_count: transferCount, level_shift: levelShift },
+    script_inputs: scriptInputs,
   } = token;
 
-  const { isMiniCard } = useTheme();
-
-  const imgSrc = imageMid || image;
+  const imgSrc = imageSmall || imageMid || image;
   const tokenLink = `/project/${projectSlug}/token/${tokenId}`;
   const alt = `${name} token`;
-
-  const aspectRatio = projectSlug === 'negative-carbon' ? 1.7777777777777 : 1;
-  const width = isMiniCard ? 170 : 300;
-  const height = width / aspectRatio;
 
   return (
     <St.Container>
       <St.Wrapper>
         <Link href={tokenLink}>
-          {/* <St.PreviewImage src={imgSrc} alt={alt} /> */}
-          <Image src={imgSrc} alt={alt} width={width} height={height} />
+          <St.PreviewImage src={imgSrc} alt={alt} />
         </Link>
 
         <St.DescriptionDiv>
@@ -45,10 +42,12 @@ const TokenCard: React.FC<Props> = ({ token, isTokenIdInTitle }) => {
 
           {!isTokenIdInTitle && <St.Text>Token ID: {tokenId}</St.Text>}
 
-          {levelShift === undefined ? null : <St.Text>Level Shift: {levelShift}</St.Text>}
+          {scriptInputs?.level_shift === undefined ? null : (
+            <St.Text>Level Shift: {scriptInputs.level_shift}</St.Text>
+          )}
 
-          {transferCount === undefined ? null : (
-            <St.Text>Transfers: {transferCount}</St.Text>
+          {scriptInputs?.transfer_count === undefined ? null : (
+            <St.Text>Transfers: {scriptInputs.transfer_count}</St.Text>
           )}
         </St.DescriptionDiv>
       </St.Wrapper>

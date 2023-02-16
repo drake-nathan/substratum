@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { RxOpenInNewWindow } from 'react-icons/rx';
 
 export const Container = styled.div`
   width: 100%;
@@ -21,6 +22,7 @@ export const Container = styled.div`
 `;
 
 export const DescContainer = styled.div`
+  width: 100%;
   display: flex;
   gap: 2em;
 
@@ -107,6 +109,7 @@ export const Image = styled.img`
 `;
 
 export const DescSection = styled.div`
+  width: 100%;
   min-width: 225px;
 
   @media (max-width: 1250px) {
@@ -124,4 +127,24 @@ export const DescTitle = styled.h2`
 
 export const Text = styled.p`
   max-width: 30ch;
+`;
+
+export const LinkContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.25em;
+  margin-top: 1em;
+  font-size: 1.125rem;
+
+  :hover {
+    color: ${({ theme: { colors } }) => colors.teal};
+  }
+`;
+
+export const Link = styled.span`
+  text-decoration: underline;
+`;
+
+export const OpenInNewIcon = styled(RxOpenInNewWindow)`
+  font-weight: 500;
 `;

@@ -6,13 +6,20 @@ const nextConfig = {
     styledComponents: true,
   },
   experimental: {
-    fontLoaders: [{ loader: '@next/font/google', options: { subsets: ['latin'] } }],
+    fontLoaders: [
+      { loader: '@next/font/google', options: { subsets: ['latin'] } },
+    ],
   },
   images: {
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'mattoapi.blob.core.windows.net',
+        pathname: '/**',
+      },
+      {
+        protocol: 'http',
+        hostname: '127.0.0.1',
         pathname: '/**',
       },
       {

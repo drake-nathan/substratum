@@ -13,7 +13,7 @@ export interface Project {
   isMobileControls?: boolean;
   isAltGenerator?: boolean;
   useTokenName?: boolean;
-  aspectRatio?: number;
+  aspectRatio: number;
   mintable: boolean;
   upcoming: boolean;
   local: boolean;
@@ -34,6 +34,7 @@ export const projects: Project[] = [
     image: '/projects/crystallized-illusions.png',
     maxSupply: 99,
     currentSupply: 99,
+    aspectRatio: 1,
     isZeroIndexed: true,
     isTokenIdInTitle: false,
     useTokenName: true,
@@ -73,6 +74,7 @@ export const projects: Project[] = [
     image: '/projects/mathare-memories.png',
     maxSupply: 68,
     currentSupply: 68,
+    aspectRatio: 1,
     isZeroIndexed: false,
     isTokenIdInTitle: true,
     usesTransfers: true,
@@ -96,6 +98,7 @@ export const projects: Project[] = [
     contractAddress: '0x4E171e0F14a9046e14B93221f31Acd2EC4Af8429',
     image: '/projects/chainlife.png',
     maxSupply: 4_096,
+    aspectRatio: 1,
     isZeroIndexed: true,
     isTokenIdInTitle: true,
     usesTransfers: true,
@@ -115,6 +118,7 @@ export const projects: Project[] = [
     image: '/projects/blonks.png',
     maxSupply: 4_444,
     currentSupply: 4_444,
+    aspectRatio: 1,
     isZeroIndexed: true,
     isTokenIdInTitle: true,
     usesTransfers: true,
@@ -132,17 +136,18 @@ export const projects: Project[] = [
     projectSlug: 'texture-and-hues',
     contractAddress: '0x15BF7610a7d50541e865EfA3adad434147a4E1A9',
     image: '/projects/texture.svg',
-    maxSupply: 1_000,
+    maxSupply: 256,
+    currentSupply: 256,
+    aspectRatio: 1,
     isZeroIndexed: true,
     isTokenIdInTitle: true,
-    usesTransfers: true,
+    usesTransfers: false,
     mintable: false,
     upcoming: false,
-    local: false,
+    local: true,
     openSeaSlug: 'texture-and-hues',
-    externalUrl:
-      'https://opensea.io/collection/texture-and-hues?search[sortAscending]=true&search[sortBy]=CREATED_DATE',
-    description: 'Textures is',
+    description:
+      'Texture and Hues is an experimental project in minimalism. Images are vector graphic SVGs, and both the images and metadata are created on-chain. Coded by Matto.',
   },
 ];
 

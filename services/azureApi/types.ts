@@ -1,7 +1,19 @@
 export enum ProjectId {
   chainlifeTestnet,
   chainlifeMainnet,
-  mathare,
+  mathareMemories,
+  negativeCarbon,
+  crystallizedIllusions,
+  textureAndHues,
+}
+
+export enum ProjectSlug {
+  chainlifeTestnet = 'chainlife-testnet',
+  chainlifeMainnet = 'chainlife',
+  mathareMemories = 'mathare-memories',
+  negativeCarbon = 'negative-carbon',
+  crystallizedIllusions = 'crystallized-illusions',
+  textureAndHues = 'texture-and-hues',
 }
 
 export enum Chain {
@@ -17,17 +29,28 @@ export interface IRoyaltyInfo {
   additional_payee_bps?: number;
 }
 
+export interface GenScripts {
+  main?: string;
+  alt?: string;
+  world?: string;
+  painting?: string;
+  mobileControls?: string;
+  preMainScript?: string;
+}
+
 export interface IDevParams {
   useInDev: boolean;
   useInProd: boolean;
-  isBulkMint?: boolean;
-  usesPuppeteer?: boolean;
+  isBulkMint: boolean;
+  usesPuppeteer: boolean;
+  usesScriptInputs: boolean;
+  usesSvgs?: boolean;
 }
 
 export interface IProject {
   _id: ProjectId;
   project_name: string;
-  project_slug: string;
+  project_slug: ProjectSlug;
   artist: string;
   artist_address: string;
   royalty_info: IRoyaltyInfo;
@@ -38,10 +61,10 @@ export interface IProject {
   current_supply?: number;
   tx_count: number;
   collection_name: string;
-  collection_image: string;
+  collection_image?: string;
   collection_description: string;
   mintable: boolean;
-  script_type: string;
+  script_type?: string;
   aspect_ratio: number;
   website: string;
   external_url: string;
@@ -50,10 +73,7 @@ export interface IProject {
   chain: Chain;
   events: string[];
   creation_block: number;
-  gen_script?: string;
-  gen_script_world?: string;
-  gen_script_mobile?: string;
-  gen_script_alt?: string;
+  gen_scripts?: GenScripts;
   devParams: IDevParams;
 }
 
@@ -63,36 +83,46 @@ export interface IAttribute {
 }
 
 export interface IScriptInputs {
-  token_id: number;
-  transfer_count: number;
+  token_id?: number;
+  transfer_count?: number;
   token_entropy?: string;
   current_owner?: string;
   previous_owner?: string;
   custom_rule?: string;
+  custom_data?: string;
   level_shift?: number;
   imageURI_base?: string;
   audioURI_base?: string;
+  media_URI?: string;
+  approved_shuffler?: string;
+  svg_parts?: string;
+  title?: string;
+  description?: string;
 }
 
 export interface IToken {
+  _id?: string; // made by db
   token_id: number; // get from blockchain
   name: string; // projectname + tokenId 'Chainlife 9'
   project_id: number; // project
   project_name: string; // project
-  project_slug: string; // project
+  project_slug: ProjectSlug; // project
   artist: string; // project
   artist_address: string; // project
   description: string; // project
   collection_name: string; // project
   aspect_ratio: number; // project
-  script_type: string; // project
-  script_inputs: IScriptInputs;
+  script_type?: string; // project
+  script_inputs?: IScriptInputs;
   image: string; // generation scripts
   image_mid?: string;
+  image_small?: string;
   thumbnail_url?: string;
+  svg?: string;
+  svgGen?: string;
   image_data?: string; // not used for Chainlife
-  animation_url: string; // generation script
-  generator_url: string; // same as animation_url
+  animation_url?: string; // generation script
+  generator_url?: string; // same as animation_url
   generator_mobile?: string;
   generator_alt?: string;
   website: string; // project
@@ -103,7 +133,8 @@ export interface IToken {
 }
 
 export interface ITransaction {
-  project_id: number;
+  _id?: string;
+  project_id: ProjectId;
   block_number: number;
   transaction_hash: string;
   transaction_date: Date;
@@ -112,6 +143,7 @@ export interface ITransaction {
 }
 
 export interface IThumbnail {
+  _id?: string;
   project_slug: 'focus' | 'enso';
   project_id: 34 | 181;
   token_id: number;
@@ -120,15 +152,16 @@ export interface IThumbnail {
   image_thumbnail: string;
 }
 
-interface ILevel {
+export interface ILevel {
   token_id: number;
-  transfer_count: number;
+  transfer_count: number | undefined;
   level_shift: number;
 }
 
 export interface ILevelSnapshot {
+  _id?: string;
   snapshot_date: Date;
-  project_slug: string;
+  project_slug: ProjectSlug;
   levels: ILevel[];
 }
 
@@ -136,14 +169,16 @@ export interface TokenAbbr {
   token_id: number;
   name: string;
   project_name: string;
-  project_slug: string;
+  project_slug: ProjectSlug;
   artist: string;
   image: string;
   image_mid?: string;
+  image_small?: string;
   thumbnail_url: string;
   generator_url: string;
+  svgGen?: string;
   external_url: string;
-  script_inputs: IScriptInputs;
+  script_inputs?: IScriptInputs;
   world_level?: number;
 }
 

@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 import { useQuery } from 'react-query';
 import { useTheme } from 'styled-components';
@@ -13,7 +12,7 @@ interface Props {
   tokenId: number;
 }
 
-const TokenPage: React.FC<Props> = ({ project, tokenId }) => {
+const TokenPage = ({ project, tokenId }: Props): JSX.Element => {
   const { name, projectSlug, artist, website } = project;
 
   const { isMobile } = useTheme();
