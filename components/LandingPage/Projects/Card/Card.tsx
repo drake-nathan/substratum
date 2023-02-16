@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Project } from '../projects';
 import * as St from './Card.styled';
 
@@ -18,14 +17,7 @@ const Card = ({
       onMouseEnter={() => setShowOverlay(true)}
       onMouseLeave={() => setShowOverlay(false)}
     >
-      <Image
-        src={image}
-        alt={name}
-        fill
-        style={{
-          objectFit: 'cover',
-        }}
-      />
+      <St.Img src={image} alt={name} />
       <St.Overlay isShown={showOverlay} />
       <St.OverlayText isShown={showOverlay}>{name}</St.OverlayText>
     </St.Container>

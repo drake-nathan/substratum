@@ -15,10 +15,10 @@ export const Container = styled.div`
   }
 `;
 
-export const ImageContainer = styled.div`
-  height: 100%;
+export const Img = styled.img`
   width: 100%;
-  position: relative;
+  height: 100%;
+  object-fit: cover;
 `;
 
 type Props = { isShown: boolean };
