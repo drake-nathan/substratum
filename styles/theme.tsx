@@ -1,15 +1,25 @@
-import { DefaultTheme } from 'styled-components';
+import type { DefaultTheme } from 'styled-components';
 
-export const theme: DefaultTheme = {
+export interface Colors {
+  bgMain: string;
+  textMain: string;
+  hover: string;
+}
+
+export const darkColors: Colors = {
+  bgMain: '#0f0f0f',
+  textMain: '#fffcf9',
+  hover: '#b9b7b6',
+};
+
+export const lightColors: Colors = {
+  bgMain: '#fffcf9',
+  textMain: '#0f0f0f',
+  hover: '#b9b7b6',
+};
+
+export const defaultTheme: DefaultTheme = {
   borderRadius: '1px',
 
-  colors: {
-    bgMain: '#464443',
-    bgOffset: '#5C5A59',
-    textMain: '#EBEBE8',
-    textOffset: '#9e9e9e',
-    hover: '#bcbcbc',
-    purple: '#2d1961',
-    teal: '#17c1ad',
-  },
+  colors: lightColors,
 };

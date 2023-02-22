@@ -6,15 +6,16 @@ import { IoLogoYoutube } from 'react-icons/io';
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  gap: ${({ theme }) => (theme.isMobile ? '3em' : '1.5em')};
+  gap: 0.5em;
+  margin-right: 1.5em;
 
   .icon {
-    font-size: ${({ theme }) => (theme.isMobile ? '2rem' : '1.375rem')};
+    font-size: 1rem;
     color: ${(props) => props.theme.colors.textMain};
-    vertical-align: bottom;
+    vertical-align: middle;
 
     :hover {
-      color: ${(props) => props.theme.colors.teal};
+      color: ${(props) => props.theme.colors.hover};
       cursor: pointer;
     }
   }

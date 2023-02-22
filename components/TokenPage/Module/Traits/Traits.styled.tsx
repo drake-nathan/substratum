@@ -8,7 +8,7 @@ export const Container = styled.div`
   overflow-y: auto;
 
   ::-webkit-scrollbar {
-    background-color: ${({ theme: { colors } }) => colors.textOffset};
+    background-color: ${({ theme: { colors } }) => colors.textMain};
   }
 
   ::-webkit-scrollbar-thumb {
@@ -17,7 +17,7 @@ export const Container = styled.div`
 
   @media (max-width: 650px) {
     padding: 0;
-    border-top: 1px solid ${({ theme: { colors } }) => colors.textOffset};
+    border-top: 1px solid ${({ theme: { colors } }) => colors.textMain};
     margin-top: 0.5em;
     padding-top: 0.5em;
   }
@@ -25,7 +25,7 @@ export const Container = styled.div`
 
 export const TitleWrapper = styled.div`
   ${({ theme: { colors, isMobile } }) =>
-    !isMobile && `border-bottom: 1px solid ${colors.textOffset};`}
+    !isMobile && `border-bottom: 1px solid ${colors.textMain};`}
   margin-right: 1.5em;
 `;
 

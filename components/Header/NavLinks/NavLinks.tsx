@@ -19,10 +19,12 @@ const NavLinks: React.FC<Props> = ({ setShowMobileNav }) => {
             setShowMobileNav(false);
           }}
         >
-          PROJECTS
+          Projects
         </St.Text>
         {!isMobile && (
-          <St.DropdownIcon className={showProjectsDropDown ? 'dropdown-flip' : ''} />
+          <St.DropdownIcon
+            className={showProjectsDropDown ? 'dropdown-flip' : ''}
+          />
         )}
       </St.Tab>
       {isMobile && (
@@ -45,7 +47,19 @@ const NavLinks: React.FC<Props> = ({ setShowMobileNav }) => {
 
       <St.Tab>
         <a href="https://docs.chainlife.xyz/" rel="noreferrer" target="_blank">
-          <St.Text onClick={() => setShowMobileNav(false)}>ABOUT</St.Text>
+          <St.Text onClick={() => setShowMobileNav(false)}>Artists</St.Text>
+        </a>
+      </St.Tab>
+
+      <St.Tab>
+        <a href="https://docs.chainlife.xyz/" rel="noreferrer" target="_blank">
+          <St.Text onClick={() => setShowMobileNav(false)}>About</St.Text>
+        </a>
+      </St.Tab>
+
+      <St.Tab>
+        <a href="https://docs.chainlife.xyz/" rel="noreferrer" target="_blank">
+          <St.Text onClick={() => setShowMobileNav(false)}>Docs</St.Text>
         </a>
       </St.Tab>
 

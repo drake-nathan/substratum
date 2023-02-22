@@ -52,7 +52,7 @@ export const SortDiv = styled.div`
 
   .inactive {
     font-weight: 500;
-    color: ${({ theme }) => theme.colors.textOffset};
+    color: ${({ theme }) => theme.colors.textMain};
   }
 
   .icon {
@@ -83,7 +83,7 @@ export const Stat = styled.span`
 export const SubtleText = styled.span`
   font-size: 1.25rem;
   font-weight: 500;
-  color: ${(props) => props.theme.colors.textOffset};
+  color: ${(props) => props.theme.colors.textMain};
 `;
 
 export const SortText = styled.span`
@@ -101,7 +101,7 @@ export const TextButton = styled.span`
   cursor: pointer;
 
   :hover {
-    color: ${(props) => props.theme.colors.teal};
+    color: ${(props) => props.theme.colors.textMain};
   }
 
   @media (max-width: 400px) {
@@ -119,7 +119,7 @@ export const SortButton = styled.div`
   :hover {
     box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2);
     border-radius: 50%;
-    color: ${(props) => props.theme.colors.teal};
+    color: ${(props) => props.theme.colors.textMain};
   }
 `;
 

@@ -2,12 +2,21 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  letter-spacing: 1px;
+  font-family: 'transducer', sans-serif;
 }
 
 html,
 body {
   overflow-x: hidden;
+  font-size: 16px;
+  --mobile-breakpoint: 768px;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
 }
 
 a {
@@ -15,6 +24,45 @@ a {
   text-decoration: none;
 }
 
+svg {
+  vertical-align: bottom;
+}
+
 h1 h2 h3 h4 h5 h6 {
   cursor: default;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 36px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: 28px;
+  text-transform: uppercase;
+}
+
+h4 {
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+h5 {
+  font-size: 20px;
+}
+
+h6 {
+  font-size: 18px;
+}
+
+p {
+  font-family: 'basic-sans', sans-serif;
+  font-size: 20px;
 }

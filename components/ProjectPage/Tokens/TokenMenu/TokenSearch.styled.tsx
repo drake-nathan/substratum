@@ -18,7 +18,7 @@ export const Input = styled.input`
   height: 40px;
   width: 300px;
   padding: 0.5em;
-  border: 3px solid ${(props) => props.theme.colors.textOffset};
+  border: 3px solid ${(props) => props.theme.colors.textMain};
   border-radius: ${(props) => props.theme.borderRadius};
   text-align: left;
   outline: none;
@@ -30,7 +30,7 @@ export const Input = styled.input`
 
   :hover {
     box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2);
-    border-color: ${({ theme: { colors } }) => colors.teal};
+    border-color: ${({ theme: { colors } }) => colors.textMain};
   }
 `;
 

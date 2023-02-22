@@ -14,7 +14,7 @@ export const Container = styled.div`
 `;
 
 export const TitleContainer = styled.div`
-  border-bottom: 1px solid ${({ theme: { colors } }) => colors.textOffset};
+  border-bottom: 1px solid ${({ theme: { colors } }) => colors.textMain};
   min-width: 275px;
 `;
 
@@ -30,7 +30,7 @@ export const TabsContainer = styled.div`
 
   .active {
     background-color: ${({ theme: { colors } }) => colors.textMain};
-    color: ${({ theme: { colors } }) => colors.bgOffset};
+    color: ${({ theme: { colors } }) => colors.bgMain};
   }
 `;
 
@@ -45,7 +45,7 @@ export const Tab = styled.div`
   }
 
   :hover {
-    background-color: ${({ theme: { colors } }) => colors.teal};
+    background-color: ${({ theme: { colors } }) => colors.textMain};
     color: ${({ theme: { colors } }) => colors.bgMain};
     cursor: pointer;
   }

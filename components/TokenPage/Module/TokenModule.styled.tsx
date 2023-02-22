@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   @media (min-width: 651px) {
     width: 100%;
-    background-color: ${({ theme: { colors } }) => colors.bgOffset};
+    background-color: ${({ theme: { colors } }) => colors.bgMain};
     box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1);
     border-radius: ${({ theme }) => theme.borderRadius};
 

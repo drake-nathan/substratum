@@ -5,7 +5,7 @@ export const Container = styled.div`
   width: 100%;
   padding: 3em 5em;
   margin-bottom: 1em;
-  border-bottom: 1px solid ${({ theme: { colors } }) => colors.textOffset};
+  border-bottom: 1px solid ${({ theme: { colors } }) => colors.textMain};
 
   display: flex;
   flex-direction: column;
@@ -38,7 +38,7 @@ export const DescContainer = styled.div`
 export const TitleContainer = styled.div`
   display: flex;
   flex-direction: column;
-  border-bottom: 1px solid ${({ theme: { colors } }) => colors.textOffset};
+  border-bottom: 1px solid ${({ theme: { colors } }) => colors.textMain};
 
   // for adjusting the border
   @media (min-width: 776px) {
@@ -92,7 +92,7 @@ export const By = styled.h3`
 
 export const ArtistName = styled.h3`
   :hover {
-    color: ${({ theme: { colors } }) => colors.teal};
+    color: ${({ theme: { colors } }) => colors.textMain};
   }
 `;
 
@@ -137,7 +137,7 @@ export const LinkContainer = styled.div`
   font-size: 1.125rem;
 
   :hover {
-    color: ${({ theme: { colors } }) => colors.teal};
+    color: ${({ theme: { colors } }) => colors.textMain};
   }
 `;
 

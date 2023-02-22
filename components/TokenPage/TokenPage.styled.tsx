@@ -27,7 +27,7 @@ export const Title = styled.h1`
 
   :hover {
     cursor: pointer;
-    color: ${({ theme: { colors } }) => colors.teal};
+    color: ${({ theme: { colors } }) => colors.textMain};
   }
 `;
 
@@ -53,7 +53,7 @@ export const By = styled.h3`
 
 export const ArtistName = styled.h3`
   :hover {
-    color: ${({ theme: { colors } }) => colors.teal};
+    color: ${({ theme: { colors } }) => colors.textMain};
   }
 `;
 
@@ -64,7 +64,7 @@ export const BackDiv = styled.div`
 
   :hover {
     cursor: pointer;
-    color: ${({ theme: { colors } }) => colors.teal};
+    color: ${({ theme: { colors } }) => colors.textMain};
   }
 `;
 

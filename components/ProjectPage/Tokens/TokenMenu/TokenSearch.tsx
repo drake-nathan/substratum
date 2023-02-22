@@ -2,7 +2,6 @@ import * as St from './TokenSearch.styled';
 import { useEffect, useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { type Project } from 'components/LandingPage/Projects/projects';
-import { kanit } from 'styles/fonts';
 
 type IToken = { tokenId: number };
 
@@ -70,7 +69,6 @@ const TokenSearch = ({
 
       <St.Form id="token-page-form" onSubmit={handleSubmit(onSubmit)}>
         <St.Input
-          className={kanit.className}
           type="number"
           {...register('tokenId', {
             valueAsNumber: true,
