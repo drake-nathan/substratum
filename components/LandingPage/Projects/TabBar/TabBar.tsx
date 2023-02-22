@@ -9,28 +9,35 @@ interface Props {
 const TabBar = ({ activeTab, setActiveTab }: Props): JSX.Element => {
   return (
     <St.Container>
-      <St.TitleContainer>
-        <St.Title>PROJECTS</St.Title>
-      </St.TitleContainer>
+      <St.Title>Projects</St.Title>
 
       <St.TabsContainer>
         <St.Tab
           className={activeTab === ProjectSort.all ? 'active' : ''}
           onClick={() => setActiveTab(ProjectSort.all)}
         >
-          ALL
+          All
         </St.Tab>
+
         <St.Tab
           className={activeTab === ProjectSort.minting ? 'active' : ''}
           onClick={() => setActiveTab(ProjectSort.minting)}
         >
-          MINTING
+          Minting
         </St.Tab>
+
         <St.Tab
           className={activeTab === ProjectSort.upcoming ? 'active' : ''}
           onClick={() => setActiveTab(ProjectSort.upcoming)}
         >
-          UPCOMING
+          Upcoming
+        </St.Tab>
+
+        <St.Tab
+          className={activeTab === ProjectSort.closed ? 'active' : ''}
+          onClick={() => setActiveTab(ProjectSort.closed)}
+        >
+          Closed
         </St.Tab>
       </St.TabsContainer>
     </St.Container>

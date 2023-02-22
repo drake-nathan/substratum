@@ -4,6 +4,8 @@ export const Container = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  padding: 0 90px;
+  margin-top: 5em;
 `;
 
 export const Title = styled.h1`
@@ -23,7 +25,7 @@ export const Subtitle = styled.h4`
 
 export const Line = styled.hr`
   width: 34px;
-  border: 0.5px solid #111111;
+  border: 0.5px solid ${({ theme: { colors } }) => colors.textMain};
   margin: 0.5em 0;
 `;
 

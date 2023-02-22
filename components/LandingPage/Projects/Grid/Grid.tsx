@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react';
-import Card from '../Card/Card';
-import { projects, ProjectSort, Project } from '../projects';
-import TabBar from '../TabBar/TabBar';
 import * as St from './Grid.styled';
+import { useState, useEffect } from 'react';
+import { projects, ProjectSort, type Project } from '../projects';
+import TabBar from '../TabBar/TabBar';
+import Card from '../Card/Card';
 
 const Grid = (): JSX.Element => {
   const [activeTab, setActiveTab] = useState<ProjectSort>(ProjectSort.all);
@@ -21,6 +21,8 @@ const Grid = (): JSX.Element => {
   return (
     <St.Container>
       <TabBar activeTab={activeTab} setActiveTab={setActiveTab} />
+
+      <St.Divider />
 
       <St.Grid>
         {filteredProjects.map((project) => (

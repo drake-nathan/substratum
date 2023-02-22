@@ -15,7 +15,7 @@ export const darkColors: Colors = {
 export const lightColors: Colors = {
   bgMain: '#fffcf9',
   textMain: '#0f0f0f',
-  hover: '#b9b7b6',
+  hover: '#7e7e7e',
 };
 
 export const defaultTheme: DefaultTheme = {

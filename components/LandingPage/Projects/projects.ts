@@ -155,4 +155,5 @@ export enum ProjectSort {
   all,
   minting,
   upcoming,
+  closed,
 }
