@@ -25,8 +25,8 @@ export const InnerContainer = styled.div`
   justify-content: center;
   gap: 0.25em;
   min-height: 100px;
-  background-color: ${({ theme: { colors } }) => colors.textMain};
-  color: ${({ theme: { colors } }) => colors.bgMain};
+  background-color: #0f0f0f;
+  color: #fffcf9;
 `;
 
 export const Row = styled.div`

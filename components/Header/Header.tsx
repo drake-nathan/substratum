@@ -1,5 +1,5 @@
 import * as St from './Header.styled';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useTheme } from 'styled-components';
 import Link from 'next/link';
 import { Squash as Hamburger } from 'hamburger-react';
@@ -9,11 +9,11 @@ import MobileNav from './MobileNav/MobileNav';
 import Substratum from 'public/substratum/substratum.svg';
 
 const Header = (): JSX.Element => {
-  const { isMobile, colors, currentTheme, toggleTheme } = useTheme();
+  const { isMobile, colors, isDark, toggleTheme } = useTheme();
 
   const [showMobileNav, setShowMobileNav] = useState(false);
 
-  const iconSize = !isMobile ? 80 : 45;
+  const iconSize = !isMobile ? 80 : 42;
 
   return (
     <St.OuterContainer>
@@ -33,15 +33,15 @@ const Header = (): JSX.Element => {
             <NavLinks setShowMobileNav={setShowMobileNav} />
 
             <SocialIcons />
-
-            {/* <St.DarkModeButton onClick={toggleTheme}>
-              {currentTheme === 'light' ? (
-                <St.DarkModeIcon className="icon" />
-              ) : (
-                <St.LightModeIcon className="icon" />
-              )}
-            </St.DarkModeButton> */}
           </St.InnerContainer>
+
+          <St.DarkModeButton onClick={toggleTheme}>
+            {!isDark ? (
+              <St.DarkModeIcon className="icon" />
+            ) : (
+              <St.LightModeIcon className="icon" />
+            )}
+          </St.DarkModeButton>
 
           <St.ConnectButton className="hvr-underline-from-right">
             <St.ButtonText>Connect</St.ButtonText>
@@ -56,7 +56,7 @@ const Header = (): JSX.Element => {
           <St.HamburgerDiv>
             <Hamburger
               color={colors.textMain}
-              size={22}
+              size={20}
               toggle={setShowMobileNav}
               toggled={showMobileNav}
               label="Show menu"

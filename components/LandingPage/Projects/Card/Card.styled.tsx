@@ -60,7 +60,7 @@ export const StatusDiv = styled.div`
   right: 0;
   height: 31px;
   width: 104px;
-  background-color: ${({ theme: { colors } }) => colors.textMain};
+  background-color: #0f0f0f;
   border-radius: ${({ theme }) => theme.borderRadius};
   display: flex;
   align-items: center;
@@ -70,5 +70,5 @@ export const StatusDiv = styled.div`
 export const StatusText = styled.p`
   font-family: 'transducer', sans-serif;
   font-size: 15px;
-  color: ${({ theme: { colors } }) => colors.bgMain};
+  color: #fffcf9;
 `;

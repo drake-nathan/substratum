@@ -8,6 +8,6 @@ declare module 'styled-components' {
     isMiniCard?: boolean;
     colors: Colors;
     toggleTheme?: () => void;
-    currentTheme?: string;
+    isDark?: boolean;
   }
 }

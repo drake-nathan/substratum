@@ -1,3 +1,9 @@
+export enum Status {
+  Closed = 'Closed',
+  Upcoming = 'Upcoming',
+  Minting = 'Minting',
+}
+
 export interface Project {
   name: string;
   artist: string;
@@ -14,8 +20,7 @@ export interface Project {
   isAltGenerator?: boolean;
   useTokenName?: boolean;
   aspectRatio: number;
-  mintable: boolean;
-  upcoming: boolean;
+  status: Status;
   local: boolean;
   openSeaSlug: string;
   externalUrl?: string;
@@ -39,8 +44,7 @@ export const projects: Project[] = [
     isTokenIdInTitle: false,
     useTokenName: true,
     usesTransfers: false,
-    mintable: false,
-    upcoming: false,
+    status: Status.Closed,
     local: true,
     openSeaSlug: 'crystallized-illusions',
     description:
@@ -54,12 +58,12 @@ export const projects: Project[] = [
     contractAddress: '0xa9132D23886b63D29858Fe541214fEad5815d64A',
     image: '/projects/negative-carbon.png',
     maxSupply: 128,
+    currentSupply: 12,
     isZeroIndexed: true,
     isTokenIdInTitle: true,
     aspectRatio: 1.777777777777777,
     usesTransfers: true,
-    mintable: true,
-    upcoming: false,
+    status: Status.Minting,
     local: true,
     openSeaSlug: 'negative-carbon',
     description:
@@ -78,8 +82,7 @@ export const projects: Project[] = [
     isZeroIndexed: false,
     isTokenIdInTitle: true,
     usesTransfers: true,
-    mintable: false,
-    upcoming: false,
+    status: Status.Closed,
     local: true,
     openSeaSlug: 'mathare-memories',
     description:
@@ -103,8 +106,7 @@ export const projects: Project[] = [
     isZeroIndexed: true,
     isTokenIdInTitle: true,
     usesTransfers: false,
-    mintable: false,
-    upcoming: false,
+    status: Status.Closed,
     local: true,
     openSeaSlug: 'texture-and-hues',
     description:
@@ -118,12 +120,12 @@ export const projects: Project[] = [
     contractAddress: '0x4E171e0F14a9046e14B93221f31Acd2EC4Af8429',
     image: '/projects/chainlife.png',
     maxSupply: 4_096,
+    currentSupply: 302,
     aspectRatio: 1,
     isZeroIndexed: true,
     isTokenIdInTitle: true,
     usesTransfers: true,
-    mintable: true,
-    upcoming: false,
+    status: Status.Minting,
     local: false,
     openSeaSlug: 'chainlife-by-matto',
     externalUrl: 'https://chainlife.xyz/',
@@ -142,8 +144,7 @@ export const projects: Project[] = [
     isZeroIndexed: true,
     isTokenIdInTitle: true,
     usesTransfers: true,
-    mintable: false,
-    upcoming: false,
+    status: Status.Closed,
     local: false,
     openSeaSlug: 'blonks',
     externalUrl: 'https://blonks.xyz/',
@@ -152,8 +153,8 @@ export const projects: Project[] = [
 ];
 
 export enum ProjectSort {
-  all,
-  minting,
-  upcoming,
-  closed,
+  All,
+  Minting,
+  Upcoming,
+  Closed,
 }

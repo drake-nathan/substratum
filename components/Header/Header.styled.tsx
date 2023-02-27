@@ -9,6 +9,7 @@ export const OuterContainer = styled.header`
   ${({ theme: { isMobile } }) => !isMobile && 'justify-content: space-between;'}
   gap: ${({ theme: { isMobile } }) => (isMobile ? '1em' : '2em')};
   border-bottom: 3px solid ${({ theme: { colors } }) => colors.textMain};
+  ${({ theme: { isMobile } }) => isMobile && 'border-width: 1px;'}
 
   // imported hover effect
   .hvr-underline-from-right {
@@ -28,7 +29,7 @@ export const OuterContainer = styled.header`
     left: 100%;
     right: 0;
     bottom: 0;
-    background: ${({ theme: { colors } }) => colors.bgMain};
+    background: #fffcf9;
     height: 4px;
     -webkit-transition-property: left;
     transition-property: left;
@@ -46,13 +47,14 @@ export const OuterContainer = styled.header`
 `;
 
 export const LogoDiv = styled.div`
-  --size: ${({ theme: { isMobile } }) => (isMobile ? '50px' : '90px')};
+  --size: ${({ theme: { isMobile } }) => (isMobile ? '48px' : '90px')};
   width: var(--size);
   height: var(--size);
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${({ theme: { colors } }) => colors.textMain};
+  background-color: #0f0f0f;
+  border-right: 1px solid #fffcf9;
 `;
 
 export const InnerContainer = styled.div`
@@ -63,7 +65,7 @@ export const InnerContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-  ${({ theme: { isMobile } }) => isMobile && 'font-size: 22px;'};
+  ${({ theme: { isMobile } }) => isMobile && 'font-size: 24px;'};
 
   :hover {
     cursor: pointer;
@@ -78,6 +80,7 @@ export const ConnectButton = styled.button`
   justify-content: center;
   background-color: #0f0f0f;
   color: #fffcf9;
+  border-left: 1px solid #fffcf9;
 `;
 
 export const ButtonText = styled.h3``;
@@ -87,9 +90,14 @@ export const HamburgerDiv = styled.div`
   margin-right: 0.25em;
 `;
 
-export const DarkModeButton = styled.button`
+export const DarkModeButton = styled.div`
   .icon {
-    font-size: 2rem;
+    font-size: 1.25rem;
+
+    :hover {
+      cursor: pointer;
+      color: ${({ theme: { colors } }) => colors.hover};
+    }
   }
 `;
 

@@ -1,29 +1,39 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+type Width = { width: number };
+
+export const Container = styled.div<Width>`
   width: 100%;
+  max-width: ${({ width }) => width}px;
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  padding: 0 90px;
-  flex-wrap: wrap;
+  padding: 0 0.5em;
 
-  /* @media (max-width: 915px) {
-    justify-content: space-evenly;
-  } */
+  @media (max-width: 500px) {
+    padding: 0 1.5em;
+  }
 `;
 
 export const Title = styled.h2`
   padding-bottom: 0.25em;
+
+  @media (max-width: 500px) {
+    font-size: 14px;
+  }
 `;
 
 export const TabsContainer = styled.div`
   display: flex;
   align-items: center;
-  gap: 6em;
+  gap: 3em;
 
   .active {
-    border-bottom: 2px solid ${({ theme: { colors } }) => colors.textMain};
+    border-color: ${({ theme: { colors } }) => colors.textMain};
+  }
+
+  @media (max-width: 500px) {
+    gap: 0.375em;
   }
 `;
 
@@ -35,8 +45,14 @@ export const Tab = styled.div`
   font-size: 24px;
   font-weight: 300;
   font-style: italic;
+  border-bottom: 2px solid transparent;
 
   :hover {
     cursor: pointer;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 14px;
+    padding: 0 0.25em 0.25em;
   }
 `;

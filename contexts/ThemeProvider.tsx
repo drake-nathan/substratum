@@ -19,7 +19,7 @@ const ThemeProvider: React.FC<Props> = ({ children }) => {
   const [isMobile, setIsMobile] = useState(false);
   const [colors, setColors] = useState<Colors>(lightColors);
 
-  const currentTheme = colors === lightColors ? 'light' : 'dark';
+  const isDark = colors === darkColors;
 
   useEffect(() => {
     if (windowWidth < 650 && windowWidth > 390) setIsMiniCard(true);
@@ -30,9 +30,26 @@ const ThemeProvider: React.FC<Props> = ({ children }) => {
   }, [windowWidth]);
 
   const toggleTheme = () => {
-    if (colors === lightColors) setColors(darkColors);
-    else setColors(lightColors);
+    if (colors === lightColors) {
+      setColors(darkColors);
+      sessionStorage.setItem('theme', 'dark');
+    } else {
+      setColors(lightColors);
+      sessionStorage.setItem('theme', 'light');
+    }
   };
+
+  useEffect(() => {
+    const savedTheme = sessionStorage.getItem('theme');
+    const prefersDark =
+      window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (savedTheme && ['dark', 'light'].includes(savedTheme)) {
+      setColors(savedTheme === 'dark' ? darkColors : lightColors);
+    } else if (prefersDark) {
+      setColors(darkColors);
+    }
+  }, []);
 
   return (
     <StyledThemeProvider
@@ -41,7 +58,7 @@ const ThemeProvider: React.FC<Props> = ({ children }) => {
         colors,
         isMobile,
         isMiniCard,
-        currentTheme,
+        isDark,
         toggleTheme,
       }}
     >

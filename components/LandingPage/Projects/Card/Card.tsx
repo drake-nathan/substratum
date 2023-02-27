@@ -17,6 +17,7 @@ const Card = ({ project }: Props): JSX.Element => {
     externalUrl,
     currentSupply,
     maxSupply,
+    status,
   } = project;
 
   const CardJsx = (
@@ -25,7 +26,7 @@ const Card = ({ project }: Props): JSX.Element => {
         <St.Img src={image} alt={name} />
 
         <St.StatusDiv>
-          <St.StatusText>Open</St.StatusText>
+          <St.StatusText>{status}</St.StatusText>
         </St.StatusDiv>
       </St.ImgSection>
 
