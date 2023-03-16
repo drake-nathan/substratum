@@ -36,6 +36,8 @@ const MarketIcons = ({ project, tokenId }: Props): JSX.Element => {
           tooltipToken,
         } = icon;
 
+        console.log(icon);
+
         const alt = isToken ? altToken : altCollection;
         const tooltip = isToken ? tooltipToken : tooltipCollection;
         const link = isToken
@@ -46,8 +48,8 @@ const MarketIcons = ({ project, tokenId }: Props): JSX.Element => {
           <a key={id} href={link} target="_blank" rel="noreferrer">
             <Image
               id={id}
-              src={src}
               alt={alt}
+              src={'../../public/icons/EtherscanLogo.svg'}
               width={iconSize}
               height={iconSize}
             />
