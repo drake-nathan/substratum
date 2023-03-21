@@ -3,10 +3,10 @@ import styled from 'styled-components';
 type GridProps = { width: number; columns: number };
 
 export const Container = styled.div`
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
   margin-top: 5em;
 
   @media (max-width: 500px) {
@@ -20,16 +20,21 @@ export const Divider = styled.hr`
 `;
 
 export const Grid = styled.div<GridProps>`
-  /* max-width: ${({ width }) => width}px; */
+  width: ${({ width }) => width}px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 2em;
-  padding: 1em 90px 0 90px;
-  margin-top: 2em;
   @media (max-width: 1400px) {
     grid-template-columns: 1fr 1fr;
+    width: calc(100% - 180px);
   }
-  @media (max-width: 900px) {
+  @media (max-width: 800px) {
     grid-template-columns: 1fr;
+    width: calc(100% - 180px);
   }
+  @media (max-width: 500px) {
+    width: calc(100% - 3em);
+  }
+  gap: 2em;
+  padding-top: 1em;
+  margin-top: 2em;
 `;

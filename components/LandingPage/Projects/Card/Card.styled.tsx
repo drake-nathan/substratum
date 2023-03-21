@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   --card-size: 400px;
 
-  width: var(--card-size);
+  /* width: var(--card-size); */
   position: relative;
   display: flex;
   flex-direction: column;
@@ -16,13 +16,16 @@ export const Container = styled.div`
 `;
 
 export const ImgSection = styled.div`
-  height: var(--card-size);
+  /* height: var(--card-size); */
+  width: 100%;
+  height: 100%;
   overflow: hidden;
 `;
 
 export const Img = styled.img`
   width: 100%;
   height: 100%;
+  aspect-ratio: 1;
   object-fit: cover;
 
   // if not mobile, zoom image on hover
@@ -41,7 +44,9 @@ export const InfoSection = styled.div`
   padding: 1em;
 `;
 
-export const ProjectTitle = styled.h4``;
+export const ProjectTitle = styled.h4`
+  width: 100%;
+`;
 
 export const ArtistName = styled.p`
   font-size: 18px;

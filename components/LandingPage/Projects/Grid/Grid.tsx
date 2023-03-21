@@ -42,7 +42,6 @@ const Grid = (): JSX.Element => {
       />
 
       <St.Divider />
-
       <St.Grid width={pixelWidth} columns={numOfColumns}>
         {filteredProjects.map((project) => (
           <Card project={project} key={project.name} />
