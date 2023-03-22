@@ -21,18 +21,17 @@ export const Divider = styled.hr`
 
 export const Grid = styled.div<GridProps>`
   width: ${({ width }) => width}px;
+  max-width: calc(100% - 180px);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   @media (max-width: 1400px) {
     grid-template-columns: 1fr 1fr;
-    width: calc(100% - 180px);
   }
   @media (max-width: 800px) {
     grid-template-columns: 1fr;
-    width: calc(100% - 180px);
   }
   @media (max-width: 500px) {
-    width: calc(100% - 3em);
+    max-width: calc(100% - 3em);
   }
   gap: 2em;
   padding-top: 1em;

@@ -6,6 +6,8 @@ import { useRouter } from 'next/router';
 import { Project, projects } from 'components/LandingPage/Projects/projects';
 import ProjectHead from 'components/ProjectPage/ProjectHead';
 import Tokens from 'components/ProjectPage/Tokens/Tokens';
+import ProjectMenuBar from 'components/ProjectPage/ProjectMenuBar';
+import Details from 'components/ProjectPage/Details/Details';
 
 const HomeContainer = styled.div`
   width: 100%;
@@ -22,6 +24,7 @@ const Home: NextPage = () => {
 
   const [project, setProject] = useState<Project>();
   const [error, setError] = useState<string>();
+  const [tab, setTab] = useState<string>('details');
 
   useEffect(() => {
     if (projectSlug && typeof projectSlug === 'string') {
@@ -48,7 +51,12 @@ const Home: NextPage = () => {
       {projectSlug && project && (
         <>
           <ProjectHead project={project} />
-          <Tokens projectSlug={projectSlug as string} project={project} />
+          <ProjectMenuBar tab={tab} setTab={setTab}></ProjectMenuBar>
+          {tab && tab === 'all-outputs' ? (
+            <Tokens projectSlug={projectSlug as string} project={project} />
+          ) : (
+            <Details project={project}></Details>
+          )}
         </>
       )}
 
