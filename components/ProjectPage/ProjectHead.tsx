@@ -12,6 +12,8 @@ const ProjectHead = ({ project }: Props): JSX.Element => {
     name,
     artist,
     website,
+    currentSupply,
+    maxSupply,
     image,
     description,
     interactivity,
@@ -20,21 +22,23 @@ const ProjectHead = ({ project }: Props): JSX.Element => {
 
   return (
     <St.Container>
-      <St.TitleContainer>
-        <St.Title>{name}</St.Title>
+      {/* <St.TitleContainer> */}
+      <St.Title>{name}</St.Title>
 
-        <St.BottomRow>
-          <St.ArtistDiv>
-            <St.By>By</St.By>
+      {/* <St.BottomRow> */}
+      <St.ArtistDiv>
+        <St.By>By</St.By>{' '}
+        <a href={website} target="_blank" rel="noreferrer">
+          <St.ArtistName>{artist}</St.ArtistName>
+        </a>
+      </St.ArtistDiv>
 
-            <a href={website} target="_blank" rel="noreferrer">
-              <St.ArtistName>{artist}</St.ArtistName>
-            </a>
-          </St.ArtistDiv>
-
-          <MarketIcons project={project} />
-        </St.BottomRow>
-      </St.TitleContainer>
+      <MarketIcons project={project} />
+      <St.TokenStatus>
+        {currentSupply}/{maxSupply} Tokens Minted
+      </St.TokenStatus>
+      {/* </St.BottomRow> */}
+      {/* </St.TitleContainer> */}
     </St.Container>
   );
 };

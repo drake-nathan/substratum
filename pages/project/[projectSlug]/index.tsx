@@ -16,7 +16,6 @@ const HomeContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 1em;
 `;
 
 const Home: NextPage = () => {

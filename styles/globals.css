@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   font-family: 'transducer', sans-serif;
+  --tabs: normal normal 300 24px/29px normal 'basic-sans';
 }
 
 html,
