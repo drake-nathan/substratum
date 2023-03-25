@@ -1,5 +1,6 @@
 import { Project } from 'components/LandingPage/Projects/projects';
-import * as St from 'components/ProjectPage/ProjectHead.styled';
+import ExpandIcon from 'public/icons/ExpandIcon.svg';
+import * as St from 'components/ProjectPage/Details/Details.styled';
 
 interface Props {
   project: Project;
@@ -18,8 +19,14 @@ const Details = ({ project }: Props): JSX.Element => {
   } = project;
 
   return (
-    <St.DescContainer>
-      <St.Image src={image} alt={'Project image'} />
+    <St.DetailContainer>
+      <St.ProjectImage>
+        <St.Image src={image} alt={'Project image'} />
+        <St.ProjectImageNameContainer>
+          <St.ProjectImageName>Crystallized Illusions</St.ProjectImageName>
+          <ExpandIcon className="expand"></ExpandIcon>
+        </St.ProjectImageNameContainer>
+      </St.ProjectImage>
 
       <St.DescSection>
         <St.DescTitle>Description</St.DescTitle>
@@ -40,7 +47,9 @@ const Details = ({ project }: Props): JSX.Element => {
         )}
       </St.DescSection>
 
-      {interactivity && (
+      <St.CollectionsContainer>Other Collections</St.CollectionsContainer>
+
+      {/* {interactivity && (
         <St.DescSection>
           <St.DescTitle>Interactivity</St.DescTitle>
 
@@ -54,8 +63,8 @@ const Details = ({ project }: Props): JSX.Element => {
 
           <St.Text>{royalties}</St.Text>
         </St.DescSection>
-      )}
-    </St.DescContainer>
+      )} */}
+    </St.DetailContainer>
   );
 };
 

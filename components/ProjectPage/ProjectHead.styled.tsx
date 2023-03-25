@@ -1,11 +1,9 @@
 import styled from 'styled-components';
-import { RxOpenInNewWindow } from 'react-icons/rx';
 
 export const Container = styled.div`
   width: 100%;
-  padding: 3em 5em;
+  padding: 5em 5em;
   margin-bottom: 1em;
-  border-bottom: 1px solid ${({ theme: { colors } }) => colors.textMain};
 
   display: flex;
   flex-direction: column;
@@ -17,7 +15,7 @@ export const Container = styled.div`
   } */
 
   @media (max-width: 500px) {
-    padding: 1em;
+    padding: 23px;
   }
 `;
 
@@ -86,18 +84,6 @@ export const ArtistName = styled.h3`
   }
 `;
 
-export const Image = styled.img`
-  --size: 350px;
-  max-width: var(--size);
-  max-height: var(--size);
-  aspect-ratio: 1/1;
-  object-fit: cover;
-
-  @media (max-width: 400px) {
-    --size: 325px;
-  }
-`;
-
 export const TokenStatus = styled.div`
   font-family: 'basic-sans', sans-serif;
   font-size: 26px;
@@ -105,59 +91,4 @@ export const TokenStatus = styled.div`
   @media (max-width: 500px) {
     font-size: 18px;
   }
-`;
-
-export const DescContainer = styled.div`
-  width: 100%;
-  display: flex;
-  gap: 2em;
-
-  @media (max-width: 1300px) {
-    flex-wrap: wrap;
-  }
-
-  @media (max-width: 1250px) {
-    justify-content: space-evenly;
-  }
-`;
-
-export const DescSection = styled.div`
-  width: 100%;
-  min-width: 225px;
-
-  @media (max-width: 1250px) {
-    min-width: 350px;
-  }
-
-  @media (max-width: 400px) {
-    min-width: 325px;
-  }
-`;
-
-export const DescTitle = styled.h2`
-  margin-bottom: 0.5em;
-`;
-
-export const Text = styled.p`
-  max-width: 30ch;
-`;
-
-export const LinkContainer = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.25em;
-  margin-top: 1em;
-  font-size: 1.125rem;
-
-  :hover {
-    color: ${({ theme: { colors } }) => colors.textMain};
-  }
-`;
-
-export const Link = styled.span`
-  text-decoration: underline;
-`;
-
-export const OpenInNewIcon = styled(RxOpenInNewWindow)`
-  font-weight: 500;
 `;

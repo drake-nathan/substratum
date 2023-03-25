@@ -2,11 +2,10 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
-  max-width: 1268px; // TODO make this dynamic
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  padding: 0 0.5em;
+  padding: 0 80px;
   margin-bottom: 0.5em;
   border-bottom: 1px solid black;
 
