@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import * as St from './MarketIcons.styled';
 import { Tooltip } from 'react-tooltip';
 import { type Project } from 'components/LandingPage/Projects/projects';
 import {
@@ -7,7 +7,6 @@ import {
   Market,
   getTokenMarketLink,
 } from './icons';
-import * as St from './MarketIcons.styled';
 
 interface Props {
   project: Project;
@@ -28,17 +27,13 @@ const MarketIcons = ({ project, tokenId }: Props): JSX.Element => {
         // skip etherscan for token version
         if (icon.market === Market.Etherscan && isToken) return null;
         const {
-          src,
           id,
           altCollection,
           altToken,
           tooltipCollection,
           tooltipToken,
+          src: Icon,
         } = icon;
-
-        const Svg = src;
-
-        console.log(icon.src.src);
 
         const alt = isToken ? altToken : altCollection;
         const tooltip = isToken ? tooltipToken : tooltipCollection;
@@ -48,14 +43,7 @@ const MarketIcons = ({ project, tokenId }: Props): JSX.Element => {
 
         return (
           <a key={id} href={link} target="_blank" rel="noreferrer">
-            {/* <Image
-              id={id}
-              alt={alt}
-              src={src.src}
-              width={iconSize}
-              height={iconSize}
-            /> */}
-            <Svg id={id} width={iconSize} height={iconSize}></Svg>
+            <Icon alt={alt} className="icon" />
 
             <Tooltip
               anchorId={id}
