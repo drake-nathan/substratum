@@ -19,6 +19,8 @@ export interface Project {
   isMobileControls?: boolean;
   isAltGenerator?: boolean;
   useTokenName?: boolean;
+  license?: string;
+  scriptType?: string;
   aspectRatio: number;
   status: Status;
   local: boolean;
@@ -46,6 +48,8 @@ export const projects: Project[] = [
     usesTransfers: false,
     status: Status.Closed,
     local: true,
+    scriptType: 'p5',
+    license: 'All Rights Reserved',
     openSeaSlug: 'crystallized-illusions',
     description:
       "Inspired by Buddhist philosophy, Crystallized Illusions is a collection of 99 pieces created through a generative process. Three variations of this process were made to correspond to the categories of illusions as described by Zhiyi (538-597 CE), the fourth patriarch of the T'ien-t'ai (or Tí Taî) Buddhist tradition. Each process was used to created 33 distinct images.",
@@ -66,6 +70,8 @@ export const projects: Project[] = [
     status: Status.Minting,
     local: true,
     openSeaSlug: 'negative-carbon',
+    scriptType: 'p5.js',
+    license: 'All Rights Reserved',
     description:
       "Each Negative Carbon NFT (NCNFT) offsets more than its carbon footprint using rigorously validated, third-party audited, retired, carbon offsets. Each token is assigned an offset certificate and mint, and that certificate's serial number becomes the token's generative art's entropy. For more information, visit http://immutablecomputer.com/carbon.html.",
   },
@@ -81,6 +87,8 @@ export const projects: Project[] = [
     aspectRatio: 1,
     isZeroIndexed: false,
     isTokenIdInTitle: true,
+    license: 'All Rights Reserved',
+    scriptType: 'p5.js',
     usesTransfers: true,
     status: Status.Closed,
     local: true,
@@ -108,7 +116,9 @@ export const projects: Project[] = [
     usesTransfers: false,
     status: Status.Closed,
     local: true,
+    license: 'CC BY-NC 4.0',
     openSeaSlug: 'texture-and-hues',
+    scriptType: 'solidity',
     description:
       'Texture and Hues is an experimental project in minimalism. Images are vector graphic SVGs, and both the images and metadata are created on-chain. Coded by Matto.',
   },
@@ -127,9 +137,12 @@ export const projects: Project[] = [
     usesTransfers: true,
     status: Status.Minting,
     local: false,
+    scriptType: 'p5.js',
+    license: 'CC BY-NC 4.0',
     openSeaSlug: 'chainlife-by-matto',
     externalUrl: 'https://chainlife.xyz/',
-    description: 'Chainlife is',
+    description:
+      "**Chainlife tokens:** microcosms of digital life that are interactive, evolving, and aware.\n\n**Chainlife world:** an ever-changing macrocosm that is controlled by you, that is collaborative, (also) on-chain, and extendible.\n\n**Chainlife forest:** growing a healthy forest ecosystem (not on-chain) to fight climate change and keep Chainlife carbon negative.\n\n**Chainlife project:** genesis project of Matto's blockchain interactive NFT platform, GenGames.\n\nLearn more at [chainlife.xyz](https://chainlife.xyz/).",
   },
   {
     name: 'BLONKS',
