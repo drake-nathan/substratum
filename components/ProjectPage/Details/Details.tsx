@@ -2,7 +2,7 @@ import { Project } from 'components/LandingPage/Projects/projects';
 import ExpandIcon from 'public/icons/ExpandIcon.svg';
 import * as St from 'components/ProjectPage/Details/Details.styled';
 import { projects } from 'components/LandingPage/Projects/projects';
-import Card from 'components/LandingPage/Projects/Card/Card';
+import CollectionCard from './OtherCollections/CollectionCard';
 
 interface Props {
   project: Project;
@@ -25,7 +25,10 @@ const getRelatedCollections = (project: Project) => {
   const projectIndex = projects.indexOf(project);
   const initialProjects = projects.slice(projectIndex + 1, projectIndex + 4);
   if (initialProjects.length < 3) {
-    return [...initialProjects, projects.slice(0, 3 - initialProjects.length)];
+    return [
+      ...initialProjects,
+      ...projects.slice(0, 3 - initialProjects.length),
+    ];
   }
   return initialProjects;
 };
@@ -96,7 +99,7 @@ const Details = ({ project }: Props): JSX.Element => {
         <St.OtherCollectionsHeader>Other Collections</St.OtherCollectionsHeader>
         <St.OtherCollections>
           {getRelatedCollections(project).map((p, index) => (
-            <Card key={index} project={project}></Card>
+            <CollectionCard key={index} project={p}></CollectionCard>
           ))}
         </St.OtherCollections>
       </St.OtherCollectionsContainer>

@@ -11,8 +11,6 @@ const Grid = (): JSX.Element => {
   const [pixelWidth, setPixelWidth] = useState<number>(1264);
   const [cardWidth, setCardWidth] = useState<number>(3);
   const [numOfColumns, setNumOfColumns] = useState<number>(3);
-  const windowSize = useWindowSize();
-  // breakpoints should happen once the
 
   useEffect(() => {
     if (activeTab === ProjectSort.Minting) {

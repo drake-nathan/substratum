@@ -10,11 +10,11 @@ export const DetailContainer = styled.div`
 
   gap: 2em;
 
-  /* @media (max-width: 1300px) {
+  @media (max-width: 1400px) {
     flex-wrap: wrap;
   }
 
-  @media (max-width: 1250px) {
+  /* @media (max-width: 1250px) {
     justify-content: space-evenly;
   } */
 
@@ -27,8 +27,10 @@ export const DetailContainer = styled.div`
 export const ProjectImage = styled.div`
   display: flex;
   flex-direction: column;
+  min-width: 400px;
 
   @media (max-width: 800px) {
+    min-width: auto;
     grid-column-start: 1;
     grid-column-end: span 2;
   }
@@ -38,7 +40,6 @@ export const Image = styled.img`
   /* --size: 350px; */
   /* max-width: var(--size); */
   /* max-height: var(--size); */
-  min-width: 350px;
   aspect-ratio: 1/1;
   object-fit: cover;
   width: 100%;
@@ -84,9 +85,17 @@ export const Details = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2em;
+
+  @media (max-width: 800px) {
+    grid-column-start: 1;
+    grid-column-end: span 2;
+  }
 `;
 
-export const OtherInfo = styled.div``;
+export const OtherInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 export const AboutSection = styled.div`
   width: 100%;
@@ -102,7 +111,7 @@ export const AboutSection = styled.div`
 `;
 
 export const DescTitle = styled.h2`
-  margin-bottom: 0.5em;
+  margin-top: 0.5em;
 `;
 
 export const SmallDescTitle = styled.h4`
@@ -113,7 +122,7 @@ export const SmallDescTitle = styled.h4`
 `;
 
 export const Text = styled.p`
-  max-width: 30ch;
+  max-width: 60ch;
 `;
 
 export const LinkContainer = styled.div`

@@ -22,10 +22,7 @@ const ProjectHead = ({ project }: Props): JSX.Element => {
 
   return (
     <St.Container>
-      {/* <St.TitleContainer> */}
       <St.Title>{name}</St.Title>
-
-      {/* <St.BottomRow> */}
       <St.ArtistDiv>
         <St.By>By</St.By>{' '}
         <a href={website} target="_blank" rel="noreferrer">
@@ -37,8 +34,6 @@ const ProjectHead = ({ project }: Props): JSX.Element => {
       <St.TokenStatus>
         {currentSupply}/{maxSupply} Tokens Minted
       </St.TokenStatus>
-      {/* </St.BottomRow> */}
-      {/* </St.TitleContainer> */}
     </St.Container>
   );
 };
