@@ -43,6 +43,7 @@ export const Image = styled.img`
   aspect-ratio: 1/1;
   object-fit: cover;
   width: 100%;
+  border: 1px solid ${({ theme: { colors } }) => colors.textMain};
 
   /* @media (max-width: 400px) {
     --size: 325px;

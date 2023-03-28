@@ -80,18 +80,6 @@ const Details = ({ project }: Props): JSX.Element => {
           <St.Text>{findScriptType(scriptType)}</St.Text>
           <St.SmallDescTitle>License</St.SmallDescTitle>
           <St.Text>{license || 'No information'}</St.Text>
-          {interactivity && (
-            <>
-              <St.DescTitle>Interactivity</St.DescTitle>
-              <St.Text>{interactivity}</St.Text>
-            </>
-          )}
-          {royalties && (
-            <>
-              <St.DescTitle>Royalties</St.DescTitle>
-              <St.Text>{royalties}</St.Text>
-            </>
-          )}
         </St.OtherInfo>
       </St.Details>
 

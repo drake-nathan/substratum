@@ -7,7 +7,7 @@ export const Container = styled.div`
   justify-content: space-between;
   padding: 0 80px;
   margin-bottom: 0.5em;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid ${({ theme: { colors } }) => colors.textMain};
 
   @media (max-width: 500px) {
     padding: 0 1.5em;

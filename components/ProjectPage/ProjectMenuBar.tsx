@@ -17,10 +17,10 @@ const ProjectMenuBar = ({ tab, setTab }: Props): JSX.Element => {
           Details
         </St.Tab>
         <St.Tab
-          className={tab === 'all-outputs' ? 'active' : ''}
-          onClick={() => setTab('all-outputs')}
+          className={tab === 'tokens' ? 'active' : ''}
+          onClick={() => setTab('tokens')}
         >
-          All Outputs
+          Tokens
         </St.Tab>
       </St.TabsContainer>
     </St.Container>

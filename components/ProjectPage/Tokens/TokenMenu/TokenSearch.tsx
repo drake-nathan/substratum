@@ -65,10 +65,9 @@ const TokenSearch = ({
 
   return (
     <>
-      {errorText && <St.ErrorText>{errorText}</St.ErrorText>}
-
       <St.Form id="token-page-form" onSubmit={handleSubmit(onSubmit)}>
         <St.Input
+          className="special-artist-name"
           type="number"
           {...register('tokenId', {
             valueAsNumber: true,
@@ -81,7 +80,7 @@ const TokenSearch = ({
           value={tokenId || tokenId === 0 ? tokenId : ''}
           autoComplete="off"
           onChange={(e) => setTokenId(parseInt(e.target.value))}
-          placeholder="Token ID Search"
+          placeholder="Search By Token ID"
           onBlur={() => {
             if (tokenId === null || (tokenId === undefined && tokenId !== 0)) {
               setTokenId(null);
@@ -90,6 +89,9 @@ const TokenSearch = ({
           }}
         />
       </St.Form>
+      {errorText && (
+        <St.ErrorText className="special-artist-name">{errorText}</St.ErrorText>
+      )}
     </>
   );
 };
