@@ -30,7 +30,7 @@ const TokenGrid: React.FC<Props> = ({
   isTokenIdInTitle,
   aspectRatio,
 }) => {
-  if (isLoading) return <St.H1>Loading...</St.H1>;
+  // if (isLoading) return <St.H1>Loading...</St.H1>;
 
   return (
     <St.Container>
@@ -40,9 +40,9 @@ const TokenGrid: React.FC<Props> = ({
             dataLength={currentLength}
             next={fetchNextPage}
             hasMore={hasMore}
-            loader={<h1>Loading...</h1>}
+            loader={<St.H1>Loading...</St.H1>}
           >
-            <St.Wrapper>
+            <St.Grid>
               {tokens.pages.map((page) =>
                 page.tokens.map((token) => (
                   <TokenCard
@@ -53,9 +53,9 @@ const TokenGrid: React.FC<Props> = ({
                   />
                 )),
               )}
-            </St.Wrapper>
+            </St.Grid>
           </InfiniteScroll>
-          {isFetchingNextPage && <h1>Loading more tokens...</h1>}
+          {/* {isFetchingNextPage && <h1>Loading more tokens...</h1>} */}
         </>
       ) : error && (!isLoading || !isFetching) ? (
         <St.H1>Unable to fetch tokens right now.</St.H1>

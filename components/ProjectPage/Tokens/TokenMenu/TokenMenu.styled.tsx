@@ -4,16 +4,22 @@ import { CgSortZa, CgSortAz } from 'react-icons/cg';
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
+  gap: 1em;
   /* flex-direction: row-reverse; */
-  align-items: flex-end;
+  align-items: center;
   flex-wrap: nowrap;
 
   background-color: #f4f1ed;
   width: 100%;
   padding: 1em 0;
-  gap: 1em;
+  margin: 2em 0 1em;
 
-  @media (max-width: 768px) {
+  @media (max-width: 800px) {
+    padding: 0.5em 0;
+  }
+
+  @media (max-width: 800px) {
+    margin: 1em 0 0.75em;
   }
 `;
 
@@ -44,9 +50,10 @@ export const Container = styled.div`
 // `;
 
 export const SortDiv = styled.div`
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 0.75em;
   margin-right: 15px;
 
@@ -58,8 +65,8 @@ export const SortDiv = styled.div`
     font-size: 2.125rem;
     cursor: pointer;
 
-    @media (max-width: 768px) {
-      font-size: 1.875rem;
+    @media (max-width: 800px) {
+      font-size: 1.5rem;
     }
   }
 
@@ -81,6 +88,7 @@ export const Stat = styled.span`
 
 export const SubtleText = styled.span`
   font-style: normal;
+  font-weight: inherit;
   margin-left: 2px;
   color: ${(props) => props.theme.colors.textMain};
 `;
