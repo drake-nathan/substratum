@@ -12,14 +12,14 @@ export const Container = styled.div`
   background-color: #f4f1ed;
   width: 100%;
   padding: 1em 0;
-  margin: 2em 0 1em;
+  margin: 3em 0;
 
   @media (max-width: 800px) {
     padding: 0.5em 0;
   }
 
   @media (max-width: 800px) {
-    margin: 1em 0 0.75em;
+    margin: 1em 0;
   }
 `;
 
@@ -115,7 +115,6 @@ export const SortButton = styled.div`
   align-items: center;
   justify-content: center;
   padding: 0.25em;
-  margin-left: -0.25em;
 
   :hover {
     box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2);

@@ -6,7 +6,6 @@ export const Container = styled.div`
   align-items: flex-end;
   justify-content: space-between;
   padding: 0 80px;
-  margin-bottom: 0.5em;
   border-bottom: 1px solid ${({ theme: { colors } }) => colors.textMain};
 
   @media (max-width: 500px) {

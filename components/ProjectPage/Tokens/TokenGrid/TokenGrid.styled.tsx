@@ -7,6 +7,10 @@ export const Container = styled.div`
   width: 100%;
   min-height: 500px;
   margin-bottom: 3em;
+
+  .infinite-scroll-component {
+    overflow: visible !important;
+  }
 `;
 
 export const Grid = styled.div`

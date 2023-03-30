@@ -39,6 +39,7 @@ const TokenCard: React.FC<Props> = ({
         <Link href={tokenLink}>
           <St.Title>{name}</St.Title>
           <St.Owner>Owner: 0x1abc7154748d1ce5144478cdeb574ae244b939b5</St.Owner>
+          {/* FIXME - needs real owner data */}
         </Link>
 
         {!isTokenIdInTitle && <St.Text>Token ID: {tokenId}</St.Text>}

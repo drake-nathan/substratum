@@ -76,12 +76,30 @@ const Details = ({ project }: Props): JSX.Element => {
         </St.AboutSection>
         <St.OtherInfo>
           <St.DescTitle>Collection Details</St.DescTitle>
+
+          {/* FIXME needs real detail data from the API*/}
+          <St.Text>Algorithmic edition of 128</St.Text>
+          {/* FIXME needs real detail data from the API*/}
+          <St.Text>March 29, 2023, 9:00pm GMT-4</St.Text>
           <St.SmallDescTitle>Tools</St.SmallDescTitle>
           <St.Text>{findScriptType(scriptType)}</St.Text>
+          <St.SmallDescTitle>Notes</St.SmallDescTitle>
+
+          {/* FIXME needs real detail data from the API*/}
+          <St.Text>
+            25% of all sales will be donated to four organizations that advance
+            creative and career oportunities for under-represented groups in
+            Canada: SCWST, Wapikoni Mobile, Nikamowin, and Pathways to
+            Education.
+          </St.Text>
           <St.SmallDescTitle>License</St.SmallDescTitle>
           <St.Text>{license || 'No information'}</St.Text>
         </St.OtherInfo>
       </St.Details>
+
+      {/* <St.Functionality>
+        {interactivity && }
+      </St.Functionality> */}
 
       <St.OtherCollectionsContainer>
         <St.OtherCollectionsHeader>Other Collections</St.OtherCollectionsHeader>

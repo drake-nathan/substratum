@@ -4,19 +4,10 @@ import { RxOpenInNewWindow } from 'react-icons/rx';
 export const DetailContainer = styled.div`
   width: 100%;
   padding: 0 80px;
-  margin-top: 5em;
+  margin-top: 3em;
   display: grid;
   grid-template-columns: 1fr 1fr;
-
   gap: 2em;
-
-  @media (max-width: 1400px) {
-    flex-wrap: wrap;
-  }
-
-  /* @media (max-width: 1250px) {
-    justify-content: space-evenly;
-  } */
 
   @media (max-width: 500px) {
     padding: 0 23px;
@@ -28,11 +19,13 @@ export const ProjectImage = styled.div`
   display: flex;
   flex-direction: column;
   min-width: 400px;
+  margin-top: 1em;
 
   @media (max-width: 800px) {
     min-width: auto;
     grid-column-start: 1;
     grid-column-end: span 2;
+    margin: 0;
   }
 `;
 
@@ -111,12 +104,10 @@ export const AboutSection = styled.div`
   }
 `;
 
-export const DescTitle = styled.h2`
-  margin-top: 0.5em;
-`;
+export const DescTitle = styled.h2``;
 
 export const SmallDescTitle = styled.h4`
-  margin: 0.5em 0 0.25em;
+  margin: 1em 0 0.25em;
   font-family: 'basic-sans', sans-serif;
   font-weight: bold;
   text-transform: capitalize;
