@@ -30,17 +30,10 @@ export const ProjectImage = styled.div`
 `;
 
 export const Image = styled.img`
-  /* --size: 350px; */
-  /* max-width: var(--size); */
-  /* max-height: var(--size); */
   aspect-ratio: 1/1;
   object-fit: cover;
   width: 100%;
   border: 1px solid ${({ theme: { colors } }) => colors.textMain};
-
-  /* @media (max-width: 400px) {
-    --size: 325px;
-  } */
 `;
 
 export const ProjectImageNameContainer = styled.div`
@@ -135,6 +128,24 @@ export const Link = styled.span`
 
 export const OpenInNewIcon = styled(RxOpenInNewWindow)`
   font-weight: 500;
+`;
+
+export const Functionality = styled.div`
+  grid-column-start: 1;
+  grid-column-end: span 2;
+  display: flex;
+  justify-content: flex-start;
+  gap: 2em;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
+`;
+
+export const FuncSection = styled.div`
+  flex: 0 1 50%;
+  border: 1px solid ${({ theme: { colors } }) => colors.textMain};
+  padding: 0.5em;
 `;
 
 export const OtherCollectionsContainer = styled.div`

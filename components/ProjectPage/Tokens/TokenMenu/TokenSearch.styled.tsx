@@ -1,11 +1,6 @@
 import styled from 'styled-components';
 
 export const Form = styled.form`
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 1em;
-  max-width: 95%; */
   flex: 0 1 100%;
   min-width: 200px;
   height: 100%;
@@ -18,8 +13,6 @@ export const Form = styled.form`
 `;
 
 export const Input = styled.input`
-  /* height: 40px; */
-  /* width: 300px; */
   width: 100%;
   background-color: transparent;
   border: unset;
@@ -27,10 +20,6 @@ export const Input = styled.input`
   border-radius: ${(props) => props.theme.borderRadius};
   text-align: left;
   outline: none;
-
-  /* :focus::placeholder {
-    color: transparent;
-  } */
 
   :hover {
     box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2);

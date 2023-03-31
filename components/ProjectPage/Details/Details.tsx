@@ -52,7 +52,8 @@ const Details = ({ project }: Props): JSX.Element => {
       <St.ProjectImage>
         <St.Image src={image} alt={'Project image'} />
         <St.ProjectImageNameContainer>
-          <St.ProjectImageName>{name}</St.ProjectImageName>
+          {/* FIXME needs real token ID data from the API*/}
+          <St.ProjectImageName>{name + ' #1'}</St.ProjectImageName>
           <ExpandIcon className="expand"></ExpandIcon>
         </St.ProjectImageNameContainer>
       </St.ProjectImage>
@@ -97,9 +98,23 @@ const Details = ({ project }: Props): JSX.Element => {
         </St.OtherInfo>
       </St.Details>
 
-      {/* <St.Functionality>
-        {interactivity && }
-      </St.Functionality> */}
+      <St.Functionality>
+        {interactivity && (
+          <St.FuncSection>
+            <St.DescTitle>Interactivity</St.DescTitle>
+
+            <St.Text>{interactivity}</St.Text>
+          </St.FuncSection>
+        )}
+
+        {royalties && (
+          <St.FuncSection>
+            <St.DescTitle>Royalties</St.DescTitle>
+
+            <St.Text>{royalties}</St.Text>
+          </St.FuncSection>
+        )}
+      </St.Functionality>
 
       <St.OtherCollectionsContainer>
         <St.OtherCollectionsHeader>Other Collections</St.OtherCollectionsHeader>

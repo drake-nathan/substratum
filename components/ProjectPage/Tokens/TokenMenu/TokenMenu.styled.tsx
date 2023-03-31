@@ -23,32 +23,6 @@ export const Container = styled.div`
   }
 `;
 
-// export const StatsDiv = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   gap: 0.25em;
-
-//   @media (max-width: 768px) {
-//     margin: 0 1em;
-//   }
-// `;
-
-// export const RightDiv = styled.div`
-//   display: flex;
-//   align-items: center;
-//   flex-wrap: wrap;
-
-//   @media (max-width: 1100px) {
-//     flex-direction: column;
-//     justify-content: center;
-//     gap: 1em;
-//   }
-
-//   @media (max-width: 768px) {
-//     gap: 1.5em;
-//   }
-// `;
-
 export const SortDiv = styled.div`
   flex: 0 0 auto;
   display: flex;
@@ -90,20 +64,14 @@ export const SubtleText = styled.span`
   font-style: normal;
   font-weight: inherit;
   margin-left: 2px;
-  color: ${(props) => props.theme.colors.textMain};
+  color: #00000079;
+  font-weight: 600;
 `;
-
-// export const SortText = styled.span`
-//   font-size: 1.25rem;
-//   font-weight: 600;
-
-//   @media (max-width: 400px) {
-//     font-size: 1.125rem;
-//   }
-// `;
 
 export const TextButton = styled.span`
   cursor: pointer;
+  color: #00000079;
+  font-weight: 600;
 
   :hover {
     color: ${(props) => props.theme.colors.hover};
@@ -115,6 +83,8 @@ export const SortButton = styled.div`
   align-items: center;
   justify-content: center;
   padding: 0.25em;
+  color: #00000079;
+  font-weight: 600;
 
   :hover {
     box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2);
