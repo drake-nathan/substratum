@@ -120,7 +120,7 @@ const Details = ({ project }: Props): JSX.Element => {
         <St.OtherCollectionsHeader>Other Collections</St.OtherCollectionsHeader>
         <St.OtherCollections>
           {getRelatedCollections(project).map((p, index) => (
-            <CollectionCard key={index} project={p}></CollectionCard>
+            <CollectionCard key={p.name} project={p}></CollectionCard>
           ))}
         </St.OtherCollections>
       </St.OtherCollectionsContainer>
