@@ -13,6 +13,8 @@ const HomeContainer = styled.div`
 `;
 
 const Home: NextPage = () => {
+  const width = 1264;
+
   return (
     <HomeContainer>
       <Head>
@@ -20,8 +22,8 @@ const Home: NextPage = () => {
         <meta name="description" content="substratum" />
       </Head>
 
-      <Hero />
-      <Projects />
+      <Hero width={width} />
+      <Projects width={width} />
     </HomeContainer>
   );
 };

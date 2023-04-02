@@ -46,12 +46,12 @@ const NavLinks: React.FC<Props> = ({ setShowMobileNav }) => {
       )}
 
       <St.Tab>
-        <a href="https://docs.chainlife.xyz/" rel="noreferrer" target="_blank">
-          <St.Text onClick={() => setShowMobileNav(false)}>Artists</St.Text>
+        <a href="https://matto.xyz/" rel="noreferrer" target="_blank">
+          <St.Text onClick={() => setShowMobileNav(false)}>Matto</St.Text>
         </a>
       </St.Tab>
 
-      <St.Tab>
+      {/* <St.Tab>
         <a href="https://docs.chainlife.xyz/" rel="noreferrer" target="_blank">
           <St.Text onClick={() => setShowMobileNav(false)}>About</St.Text>
         </a>
@@ -61,7 +61,7 @@ const NavLinks: React.FC<Props> = ({ setShowMobileNav }) => {
         <a href="https://docs.chainlife.xyz/" rel="noreferrer" target="_blank">
           <St.Text onClick={() => setShowMobileNav(false)}>Docs</St.Text>
         </a>
-      </St.Tab>
+      </St.Tab> */}
 
       {!isMobile && (
         <ProjectsDropDown

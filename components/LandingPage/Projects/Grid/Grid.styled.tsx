@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-type GridProps = { width: number; columns: number };
+type Width = { width: number };
 
 export const Container = styled.div`
   display: flex;
@@ -19,7 +19,7 @@ export const Divider = styled.hr`
   border: 0.5px solid ${({ theme: { colors } }) => colors.textMain};
 `;
 
-export const Grid = styled.div<GridProps>`
+export const Grid = styled.div<Width>`
   width: ${({ width }) => width}px;
   max-width: calc(100% - 180px);
   display: grid;

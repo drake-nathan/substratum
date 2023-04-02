@@ -1,9 +1,12 @@
-import React from 'react';
 import * as St from './Hero.styled';
 
-const Hero = (): JSX.Element => {
+interface Props {
+  width: number;
+}
+
+const Hero = ({ width }: Props): JSX.Element => {
   return (
-    <St.Container>
+    <St.Container width={width}>
       <St.Title>sub·stra·tum</St.Title>
       <St.Subtitle>noun</St.Subtitle>
       <St.Line />

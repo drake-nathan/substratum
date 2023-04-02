@@ -81,6 +81,7 @@ export const ConnectButton = styled.button`
   background-color: #0f0f0f;
   color: #fffcf9;
   border-left: 1px solid #fffcf9;
+  cursor: not-allowed;
 `;
 
 export const ButtonText = styled.h3``;
