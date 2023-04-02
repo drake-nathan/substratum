@@ -43,7 +43,7 @@ const MarketIcons = ({ project, tokenId }: Props): JSX.Element => {
 
         return (
           <a key={id} href={link} target="_blank" rel="noreferrer">
-            <Icon alt={alt} className="icon" />
+            <Icon id={id} alt={alt} className="icon" />
 
             <Tooltip
               anchorId={id}

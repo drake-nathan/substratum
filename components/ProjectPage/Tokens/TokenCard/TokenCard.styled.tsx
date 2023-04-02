@@ -1,22 +1,16 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 1em 0.5em;
-`;
-
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: ${({ theme: { isMiniCard } }) => (isMiniCard ? '170px' : '300px')};
-  box-shadow: 5px 5px 15px 1px rgba(0, 0, 0, 0.2);
+  width: 100%;
   border-radius: 0 0 2px 2px;
+  border: 1px solid ${(props) => props.theme.colors.textMain};
   transition-duration: 400ms;
 
   :hover {
     transform: scale(1.04);
+    box-shadow: 5px 5px 15px 1px rgba(0, 0, 0, 0.2);
   }
 `;
 
@@ -39,10 +33,20 @@ export const Text = styled.span`
   color: ${(props) => props.theme.colors.textMain};
 `;
 
-export const Title = styled(Text)`
+export const Title = styled.h4`
   font-size: 1.25rem;
-  font-weight: 600;
+  color: ${(props) => props.theme.colors.textMain};
   cursor: pointer;
+`;
+
+export const Owner = styled.div`
+  font-style: italic;
+  font-family: 'basic-sans', sans-serif;
+  font-weight: 300;
+  max-width: 150px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const FlexDiv = styled.div`

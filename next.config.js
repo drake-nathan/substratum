@@ -14,13 +14,7 @@ const nextConfig = {
     config.module.rules.push(
       {
         test: /\.svg$/i,
-        type: 'asset',
-        resourceQuery: /url/,
-      },
-      {
-        test: /\.svg$/i,
         issuer: /\.[jt]sx?$/,
-        resourceQuery: {not: [/url/]},
         use: ['@svgr/webpack'],
       }
     );
@@ -28,6 +22,9 @@ const nextConfig = {
     return config;
   },
   images: {
+    // dangerouslyAllowSVG: true,
+    // contentDispositionType: 'attachment',
+    // contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     remotePatterns: [
       {
         protocol: 'https',

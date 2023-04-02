@@ -5,6 +5,7 @@ import { type Project } from 'components/LandingPage/Projects/projects';
 import type { CollectionResponse } from 'services/azureApi/types';
 import TokenGrid from './TokenGrid/TokenGrid';
 import TokenMenu from './TokenMenu/TokenMenu';
+import { TokensContainer } from './Tokens.styled';
 
 interface Props {
   projectSlug: string;
@@ -64,7 +65,7 @@ const Tokens = ({ projectSlug, project }: Props): JSX.Element => {
   }, [tokenSearchId]);
 
   return (
-    <>
+    <TokensContainer>
       <TokenMenu
         project={project}
         usesTransfers={usesTransfers}
@@ -88,7 +89,7 @@ const Tokens = ({ projectSlug, project }: Props): JSX.Element => {
         isTokenIdInTitle={isTokenIdInTitle}
         aspectRatio={aspectRatio}
       />
-    </>
+    </TokensContainer>
   );
 };
 

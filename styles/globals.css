@@ -9,7 +9,7 @@ html,
 body {
   overflow-x: hidden;
   font-size: 16px;
-  --mobile-breakpoint: 768px;
+  --mobile-breakpoint: 800px;
 }
 
 button {
@@ -65,4 +65,10 @@ h6 {
 p {
   font-family: 'basic-sans', sans-serif;
   font-size: 20px;
+}
+
+.special-artist-name {
+  font-family: 'basic-sans', sans-serif;
+  font-style: italic;
+  font-size: 16px;
 }

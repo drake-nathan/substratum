@@ -1,40 +1,36 @@
 import styled from 'styled-components';
 
 export const Form = styled.form`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 1em;
-  max-width: 95%;
+  flex: 0 1 100%;
+  min-width: 200px;
+  height: 100%;
+  margin-left: 15px;
 
-  @media (max-width: 500px) {
+  @media (max-width: 800px) {
     flex-wrap: wrap;
-    gap: 1.5em;
-    width: 100%;
+    width: 150px;
   }
 `;
 
 export const Input = styled.input`
-  height: 40px;
-  width: 300px;
+  width: 100%;
+  background-color: transparent;
+  border: unset;
   padding: 0.5em;
-  border: 3px solid ${(props) => props.theme.colors.textMain};
   border-radius: ${(props) => props.theme.borderRadius};
   text-align: left;
   outline: none;
-  font-size: 1.125rem;
-
-  :focus::placeholder {
-    color: transparent;
-  }
 
   :hover {
     box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2);
     border-color: ${({ theme: { colors } }) => colors.textMain};
   }
+
+  @media (max-width: 800px) {
+    padding: 0.25em;
+  }
 `;
 
 export const ErrorText = styled.span`
-  font-size: 1.125rem;
-  font-weight: 500;
+  font-size: 1em;
 `;

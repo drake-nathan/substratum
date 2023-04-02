@@ -7,12 +7,28 @@ export const Container = styled.div`
   width: 100%;
   min-height: 500px;
   margin-bottom: 3em;
+
+  .infinite-scroll-component {
+    overflow: visible !important;
+  }
 `;
 
-export const Wrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+export const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em;
+
+  @media (max-width: 1400px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const LoadingDiv = styled.div`
@@ -24,7 +40,7 @@ export const LoadingDiv = styled.div`
 `;
 
 export const H1 = styled.h1`
-  margin-top: 1.5em;
+  margin: 1.5em auto 0;
 
   @media (max-width: 768px) {
     font-size: 1.5rem;
