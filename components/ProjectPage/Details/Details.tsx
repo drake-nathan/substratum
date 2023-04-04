@@ -1,7 +1,7 @@
-import { Project } from 'components/LandingPage/Projects/projects';
+import { Project } from 'components/_staticData/projects';
 import ExpandIcon from 'public/icons/ExpandIcon.svg';
 import * as St from 'components/ProjectPage/Details/Details.styled';
-import { projects } from 'components/LandingPage/Projects/projects';
+import { projects } from 'components/_staticData/projects';
 import CollectionCard from './OtherCollections/CollectionCard';
 
 interface Props {

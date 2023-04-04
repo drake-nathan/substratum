@@ -1,6 +1,6 @@
 import * as St from './MarketIcons.styled';
 import { Tooltip } from 'react-tooltip';
-import { type Project } from 'components/LandingPage/Projects/projects';
+import { type Project } from 'components/_staticData/projects';
 import {
   icons,
   getProjectMarketLink,

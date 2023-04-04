@@ -1,18 +1,12 @@
 import * as St from './TokenCard.styled';
-import { IToken } from 'services/azureApi/types';
+import { IToken, TokenAbbr } from 'services/azureApi/types';
 import Link from 'next/link';
 
 interface Props {
-  token: IToken;
-  isTokenIdInTitle: boolean;
-  aspectRatio: number;
+  token: TokenAbbr;
 }
 
-const TokenCard: React.FC<Props> = ({
-  token,
-  isTokenIdInTitle,
-  aspectRatio,
-}) => {
+const TokenCard: React.FC<Props> = ({ token }) => {
   const {
     name,
     image,
@@ -36,11 +30,11 @@ const TokenCard: React.FC<Props> = ({
       <St.DescriptionDiv>
         <Link href={tokenLink}>
           <St.Title>{name}</St.Title>
-          <St.Owner>By</St.Owner>
+          <St.Owner>By: 0x1abc7154748d1ce5144478cdeb574ae244b939b5</St.Owner>
           {/* FIXME - needs real owner data */}
         </Link>
 
-        {!isTokenIdInTitle && <St.Text>Token ID: {tokenId}</St.Text>}
+        <St.Text>Token ID: {tokenId}</St.Text>
 
         {scriptInputs?.level_shift === undefined ? null : (
           <St.Text>Level Shift: {scriptInputs.level_shift}</St.Text>

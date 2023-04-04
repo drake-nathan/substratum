@@ -1,5 +1,5 @@
 import MarketIcons from 'components/MarketIcons/MarketIcons';
-import { type Project } from 'components/LandingPage/Projects/projects';
+import { type Project } from 'components/_staticData/projects';
 import type { IToken } from 'services/azureApi/types';
 import * as St from './TokenIcons.styled';
 import { Tooltip } from 'react-tooltip';

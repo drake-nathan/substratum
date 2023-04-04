@@ -1,7 +1,12 @@
 import * as St from './Grid.styled';
 import { useState, useEffect } from 'react';
 import { useWindowSize } from 'hooks/useWindowSize';
-import { projects, ProjectSort, Status, type Project } from '../projects';
+import {
+  projects,
+  ProjectSort,
+  Status,
+  type Project,
+} from '../../../_staticData/projects';
 import TabBar from '../TabBar/TabBar';
 import Card from '../Card/Card';
 

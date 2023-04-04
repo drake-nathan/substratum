@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import type { IToken } from 'services/azureApi/types';
-import { type Project } from 'components/LandingPage/Projects/projects';
+import { type Project } from 'components/_staticData/projects';
 import { useWindowSize } from 'hooks/useWindowSize';
 import BottomBar from './BottomBar/BottomBar';
 import Generator from 'components/Generator/Generator';
@@ -9,6 +9,7 @@ import Traits from './Traits/Traits';
 import TokenIcons from './TokenIcons/TokenIcons';
 import OtherTokens from './OtherTokens/OtherTokens';
 import * as St from './TokenModule.styled';
+import PriceIcon from 'public/icons/PriceIcon.svg';
 
 interface Props {
   token: IToken;
@@ -21,8 +22,9 @@ const TokenModule: React.FC<Props> = ({ token, project }) => {
     image_mid: imageMid,
     generator_url: generatorUrl,
     attributes,
+    token_id: tokenId,
   } = token;
-  const { aspectRatio } = project;
+  const { aspectRatio, maxSupply, isZeroIndexed } = project;
 
   const { windowWidth } = useWindowSize();
 
@@ -76,14 +78,21 @@ const TokenModule: React.FC<Props> = ({ token, project }) => {
         </St.TraitsWrapper>
 
         <St.StatsSection>
-          <St.TokenIndex></St.TokenIndex>
-          <St.MintDateTime></St.MintDateTime>
+          <St.TokenIndex>
+            {isZeroIndexed ? tokenId + 1 : tokenId} of {maxSupply}
+          </St.TokenIndex>
+          {/* FIXME needs api data for transactions on a token */}
+          <St.MintDateTime>Minted Apr 3, 2023, 9:23pm GMT-5</St.MintDateTime>
         </St.StatsSection>
 
         <St.BuyToken>
           <St.InfoTitle>Price</St.InfoTitle>
-          <St.Price></St.Price>
-          <St.BuyButton>Connect to Buy</St.BuyButton>
+          <St.Price>
+            20<PriceIcon className="coins"></PriceIcon>
+          </St.Price>
+          <St.BuyButton onClick={() => alert('Coming soon!')}>
+            Connect to Buy
+          </St.BuyButton>
         </St.BuyToken>
       </St.InfoGrid>
       <OtherTokens project={project} token={token}></OtherTokens>

@@ -1,6 +1,6 @@
 import { useWindowSize } from 'hooks/useWindowSize';
 import type { IToken } from 'services/azureApi/types';
-import { type Project } from 'components/LandingPage/Projects/projects';
+import { type Project } from 'components/_staticData/projects';
 import TokenIcons from '../TokenIcons/TokenIcons';
 import * as St from './BottomBar.styled';
 

@@ -2,9 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  padding: 1em;
 `;
 
 export const TokenId = styled.h2`

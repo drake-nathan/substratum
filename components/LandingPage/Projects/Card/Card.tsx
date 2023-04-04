@@ -1,6 +1,6 @@
 import * as St from './Card.styled';
 import Link from 'next/link';
-import { Project } from '../projects';
+import { Project } from '../../../_staticData/projects';
 import { intlNumberFormat } from 'utils/helpers';
 
 interface Props {

@@ -19,6 +19,7 @@ export const Container = styled.div`
 
 export const TokenNameAndOwner = styled.div`
   grid-area: token-name;
+  margin-bottom: 5em;
 `;
 
 export const TokenName = styled.h3`
@@ -31,47 +32,82 @@ export const TokenOwner = styled.h6`
 
 export const InfoGrid = styled.div`
   display: grid;
-  gap: 2em;
   grid-template-columns: 1fr 1fr;
+  gap: 0 5em;
 
   grid-template-areas:
     'token-name token-name'
     'generator traits'
-    'generator project-index'
+    'generator stats'
     'generator buy';
 `;
 
 export const Token = styled.div`
   grid-area: generator;
+  border: 1px solid ${(props) => props.theme.colors.textMain};
+  height: max-content;
 `;
 
 export const TokenRibbon = styled.div``;
 
 export const TraitsWrapper = styled.div`
   width: 100%;
-  display: flex;
-  flex-direction: column;
-
+  border-bottom: 1px solid ${({ theme: { colors } }) => colors.textMain};
+  align-self: stretch;
   grid-area: traits;
 `;
 
-export const StatsSection = styled.div``;
-
-export const TokenIndex = styled.h3`
-  grid-area: project-index;
+export const StatsSection = styled.div`
+  border-bottom: 1px solid ${({ theme: { colors } }) => colors.textMain};
+  grid-area: stats;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1em 0;
 `;
+
+export const TokenIndex = styled.h3``;
 
 export const MintDateTime = styled.p``;
 
 export const BuyToken = styled.div`
+  border-bottom: 1px solid ${({ theme: { colors } }) => colors.textMain};
   grid-area: buy;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  padding: 1em 0;
+
+  .coins {
+    color: ${({ theme: { colors } }) => colors.textMain};
+    font-size: 30px;
+  }
 `;
 
 export const InfoTitle = styled.h3``;
 
-export const Price = styled.span``;
+export const Price = styled.span`
+  font-size: 20px;
+  font-family: 'basic-sans', sans-serif;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+`;
 
-export const BuyButton = styled.button``;
+export const BuyButton = styled.button`
+  width: 100%;
+  padding: 0.5em;
+  background-color: ${({ theme: { colors } }) => colors.textMain};
+  color: ${({ theme: { colors } }) => colors.bgMain};
+  font-size: 28px;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  :hover {
+    background-color: ${({ theme: { colors } }) => colors.hover};
+  }
+`;
 
 type Props = { height: number; width: number };
 

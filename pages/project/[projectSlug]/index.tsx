@@ -3,7 +3,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
-import { Project, projects } from 'components/LandingPage/Projects/projects';
+import { Project, projects } from 'components/_staticData/projects';
 import ProjectHead from 'components/ProjectPage/ProjectHead';
 import Tokens from 'components/ProjectPage/Tokens/Tokens';
 import ProjectMenuBar from 'components/ProjectPage/ProjectMenuBar';

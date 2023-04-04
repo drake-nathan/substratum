@@ -4,6 +4,7 @@ import { MdMobileFriendly } from 'react-icons/md';
 
 export const IconDiv = styled.div`
   display: flex;
+  justify-content: space-between;
   align-items: baseline;
   gap: 0.5em;
 
