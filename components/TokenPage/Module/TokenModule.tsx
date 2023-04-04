@@ -6,7 +6,6 @@ import { useWindowSize } from 'hooks/useWindowSize';
 import BottomBar from './BottomBar/BottomBar';
 import Generator from 'components/Generator/Generator';
 import Traits from './Traits/Traits';
-import TokenIcons from './TokenIcons/TokenIcons';
 import OtherTokens from './OtherTokens/OtherTokens';
 import * as St from './TokenModule.styled';
 import PriceIcon from 'public/icons/PriceIcon.svg';
@@ -52,7 +51,7 @@ const TokenModule: React.FC<Props> = ({ token, project }) => {
           <St.TokenName>{token.name}</St.TokenName>
           <St.TokenOwner className="special-artist-name">
             Owner: 0x1abc7154748d1ce5144478cdeb574ae244b939b5
-          </St.TokenOwner>{' '}
+          </St.TokenOwner>
           {/* FIXME */}
         </St.TokenNameAndOwner>
         <St.Token>

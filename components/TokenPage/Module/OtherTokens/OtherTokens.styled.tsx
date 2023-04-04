@@ -11,5 +11,6 @@ export const OtherTokensHeader = styled.h2`
 export const OtherTokens = styled.div`
   width: 100%;
   display: flex;
+  flex-wrap: wrap;
   gap: 2em;
 `;
