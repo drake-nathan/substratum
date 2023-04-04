@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { type QueryFunctionContext, useInfiniteQuery } from 'react-query';
 import { fetchCollectionTokens } from 'services/azureApi/fetches';
-import { type Project } from 'components/LandingPage/Projects/projects';
+import { type Project } from 'components/_staticData/projects';
 import type { CollectionResponse } from 'services/azureApi/types';
 import TokenGrid from './TokenGrid/TokenGrid';
 import TokenMenu from './TokenMenu/TokenMenu';

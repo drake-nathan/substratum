@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { useTheme } from 'styled-components';
-import { projects } from 'components/LandingPage/Projects/projects';
+import { projects } from 'components/_staticData/projects';
 import * as St from './ProjectsDropDown.styled';
 
 interface Props {
@@ -26,17 +26,23 @@ const ProjectsDropDown: React.FC<Props> = ({
     <St.Project onClick={closeBothMenus}>{name}</St.Project>
   );
 
-  const projectsListJsx = projects.map(({ name, local, externalUrl, projectSlug }) =>
-    local ? (
-      <Link key={name} href={`/project/${projectSlug}`}>
-        {renderProjectItem(name)}
-      </Link>
-    ) : (
-      <St.RowLink key={name} href={externalUrl} target="_blank" rel="noreferrer">
-        <St.OpenInNewIcon />
-        {renderProjectItem(name)}
-      </St.RowLink>
-    ),
+  const projectsListJsx = projects.map(
+    ({ name, local, externalUrl, projectSlug }) =>
+      local ? (
+        <Link key={name} href={`/project/${projectSlug}`}>
+          {renderProjectItem(name)}
+        </Link>
+      ) : (
+        <St.RowLink
+          key={name}
+          href={externalUrl}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <St.OpenInNewIcon />
+          {renderProjectItem(name)}
+        </St.RowLink>
+      ),
   );
 
   return !isMobile ? (

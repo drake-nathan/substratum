@@ -2,10 +2,11 @@ import Link from 'next/link';
 import { useQuery } from 'react-query';
 import { useTheme } from 'styled-components';
 import { fetchToken } from 'services/azureApi/fetches';
-import { type Project } from 'components/LandingPage/Projects/projects';
+import { type Project } from 'components/_staticData/projects';
 import type { IToken } from 'services/azureApi/types';
 import TokenModule from './Module/TokenModule';
 import * as St from './TokenPage.styled';
+import MarketIcons from 'components/MarketIcons/MarketIcons';
 
 interface Props {
   project: Project;
@@ -44,31 +45,27 @@ const TokenPage = ({ project, tokenId }: Props): JSX.Element => {
 
   return (
     <St.Container>
-      <St.TitleHeader>
-        <St.TitleDiv>
-          <Link href={projectLink}>
-            <St.Title>{name}</St.Title>
-          </Link>
+      <St.TokenHead>
+        {/* <St.TitleDiv> */}
+        <Link href={projectLink} style={{ width: 'max-content' }}>
+          <St.Title>{name + ' #' + (tokenId + 1)}</St.Title>
+        </Link>
 
-          <St.ArtistDiv>
-            <St.By>By</St.By>
+        <St.ArtistDiv>
+          <St.By>By</St.By>
 
-            <a href={website} target="_blank" rel="noreferrer">
-              <St.ArtistName>{artist}</St.ArtistName>
-            </a>
-          </St.ArtistDiv>
-        </St.TitleDiv>
+          <a href={website} target="_blank" rel="noreferrer">
+            <St.ArtistName>{artist}</St.ArtistName>
+          </a>
+        </St.ArtistDiv>
+        {/* </St.TitleDiv> */}
 
-        {!isMobile && (
-          <Link href={projectLink}>
-            <St.BackDiv>
-              <St.BackIcon />
-
-              <St.BackText>Back to Collection</St.BackText>
-            </St.BackDiv>
-          </Link>
-        )}
-      </St.TitleHeader>
+        <MarketIcons project={project} tokenId={tokenId} />
+        <St.TokenStatus>Token ID: {tokenId}</St.TokenStatus>
+      </St.TokenHead>
+      <St.TokenInfoHeading>
+        <St.Header>Token Information</St.Header>
+      </St.TokenInfoHeading>
 
       {renderToken()}
     </St.Container>

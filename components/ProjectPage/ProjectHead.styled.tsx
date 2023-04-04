@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
-  padding: 5em 5em;
-  margin-bottom: 1em;
+  padding: 5em;
+  margin-top: 1.75em;
 
   display: flex;
   flex-direction: column;
@@ -16,6 +16,7 @@ export const Container = styled.div`
 
   @media (max-width: 500px) {
     padding: 23px;
+    margin-top: 1em;
   }
 `;
 
@@ -61,8 +62,8 @@ export const Title = styled.h1`
 export const ArtistDiv = styled.div`
   display: flex;
   justify-items: flex-start;
-  gap: 0.25em;
-  margin-bottom: 20px;
+  gap: 0.5em;
+  margin-bottom: 1.5em;
   h3 {
     text-transform: capitalize;
     font-family: 'basic-sans', sans-serif;

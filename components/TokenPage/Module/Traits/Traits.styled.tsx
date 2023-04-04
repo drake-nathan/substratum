@@ -4,8 +4,9 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1em;
-  padding: 1em 0em 1.5em 2em;
-  overflow-y: auto;
+  padding-bottom: 4em;
+  /* padding: 1em 0em 1.5em 2em; */
+  /* overflow-y: auto; */
 
   ::-webkit-scrollbar {
     background-color: ${({ theme: { colors } }) => colors.textMain};
@@ -15,25 +16,21 @@ export const Container = styled.div`
     background-color: ${({ theme: { colors } }) => colors.textMain};
   }
 
-  @media (max-width: 650px) {
+  /* @media (max-width: 650px) {
     padding: 0;
     border-top: 1px solid ${({ theme: { colors } }) => colors.textMain};
     margin-top: 0.5em;
     padding-top: 0.5em;
-  }
+  } */
 `;
 
 export const TitleWrapper = styled.div`
-  ${({ theme: { colors, isMobile } }) =>
-    !isMobile && `border-bottom: 1px solid ${colors.textMain};`}
-  margin-right: 1.5em;
+  /* ${({ theme: { colors, isMobile } }) =>
+    !isMobile && `border-bottom: 1px solid ${colors.textMain};`} */
 `;
 
-export const Title = styled.h2`
+export const Title = styled.h3`
   text-transform: uppercase;
-  font-size: 1.375rem;
-  font-weight: 500;
-  letter-spacing: 1.5px;
 
   @media (max-width: 650px) {
     font-size: 1.125rem;
@@ -54,6 +51,7 @@ export const Row = styled.div`
   overflow: hidden;
 
   a {
+    justify-self: end;
     :hover {
       text-decoration: underline;
     }
@@ -66,11 +64,15 @@ export const Row = styled.div`
 
 export const Name = styled.span`
   overflow: hidden;
+  font-weight: 600;
+  font-size: 18px;
 `;
 
 export const Value = styled.span`
   overflow: hidden;
   white-space: nowrap;
+  justify-self: end;
+  font-size: 18px;
 `;
 
 export const TooltipBox = styled.div`

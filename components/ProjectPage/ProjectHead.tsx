@@ -1,6 +1,6 @@
 import * as St from './ProjectHead.styled';
 import MarketIcons from 'components/MarketIcons/MarketIcons';
-import { type Project } from 'components/LandingPage/Projects/projects';
+import { type Project } from 'components/_staticData/projects';
 
 interface Props {
   project: Project;
