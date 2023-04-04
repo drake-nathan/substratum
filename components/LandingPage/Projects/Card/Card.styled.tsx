@@ -29,12 +29,13 @@ export const Img = styled.img`
   object-fit: cover;
 
   // if not mobile, zoom image on hover
-  @media (min-width: 768px) {
+  // NOTE: The reason this is awkward is because the hover CSS is only applied if the cursor as hovered, once it's out, the transition CSS is gone.
+  /* @media (min-width: 768px) {
     :hover {
       transform: scale(1.05);
       transition: transform 0.3s ease;
     }
-  }
+  } */
 `;
 
 export const InfoSection = styled.div`

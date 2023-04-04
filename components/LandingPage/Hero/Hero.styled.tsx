@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+type Width = { width: number };
+
+export const Container = styled.div<Width>`
   width: 100%;
+  max-width: ${({ width }) => width}px;
   display: flex;
   flex-direction: column;
-  padding: 0 90px;
+  padding: 0 0.5em;
   margin-top: 5em;
 
   @media (max-width: 500px) {

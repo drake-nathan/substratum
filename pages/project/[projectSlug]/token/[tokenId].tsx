@@ -88,7 +88,9 @@ const Home: NextPage = () => {
     return <h1>Loading...</h1>;
   };
 
-  const title = projectName ? `substratum | ${projectName} #${tokenId}` : 'substratum';
+  const title = projectName
+    ? `substratum | ${projectName} #${tokenId}`
+    : 'substratum';
 
   return (
     <>
