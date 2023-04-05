@@ -163,6 +163,28 @@ export const projects: Project[] = [
     externalUrl: 'https://blonks.xyz/',
     description: 'BLONKS is',
   },
+  // {
+  //   name: '100x10x1',
+  //   artist: 'Matto',
+  //   website: 'https://matto.xyz',
+  //   projectSlug: '100-10-1',
+  //   contractAddress: '0x5B17395A9699D2819a9d009bA375a0825b077385',
+  //   image: '/projects/crystallized-illusions.png',
+  //   maxSupply: 128,
+  //   currentSupply: 128,
+  //   aspectRatio: 1,
+  //   isZeroIndexed: true,
+  //   isTokenIdInTitle: false,
+  //   useTokenName: true,
+  //   usesTransfers: false,
+  //   status: Status.Closed,
+  //   local: true,
+  //   scriptType: 'p5',
+  //   license: 'All Rights Reserved',
+  //   openSeaSlug: 'crystallized-illusions',
+  //   description:
+  //     "Inspired by Buddhist philosophy, Crystallized Illusions is a collection of 99 pieces created through a generative process. Three variations of this process were made to correspond to the categories of illusions as described by Zhiyi (538-597 CE), the fourth patriarch of the T'ien-t'ai (or Tí Taî) Buddhist tradition. Each process was used to created 33 distinct images.",
+  // },
 ];
 
 export enum ProjectSort {

@@ -4,6 +4,8 @@ import * as St from 'components/ProjectPage/Details/Details.styled';
 import { projects } from 'components/_staticData/projects';
 import CollectionCard from './OtherCollections/CollectionCard';
 
+import Shuffler from '../Shuffler/Shuffler';
+
 interface Props {
   project: Project;
 }
@@ -48,7 +50,7 @@ const Details = ({ project }: Props): JSX.Element => {
   } = project;
 
   return (
-    <St.DetailContainer>
+    <St.DetailGrid>
       <St.ProjectImage>
         <St.Image src={image} alt={'Project image'} />
         <St.ProjectImageNameContainer>
@@ -59,6 +61,8 @@ const Details = ({ project }: Props): JSX.Element => {
       </St.ProjectImage>
 
       <St.Details>
+        {/**FIXME - render shuffler if the project is of a certain class */}
+        {true && <Shuffler></Shuffler>}
         <St.AboutSection>
           <St.DescTitle>About {name}</St.DescTitle>
           <St.Text>{description}</St.Text>
@@ -98,6 +102,8 @@ const Details = ({ project }: Props): JSX.Element => {
         </St.OtherInfo>
       </St.Details>
 
+      {name === '100x10x1' && <St.Legend></St.Legend>}
+
       <St.Functionality>
         {interactivity && (
           <St.FuncSection>
@@ -124,7 +130,7 @@ const Details = ({ project }: Props): JSX.Element => {
           ))}
         </St.OtherCollections>
       </St.OtherCollectionsContainer>
-    </St.DetailContainer>
+    </St.DetailGrid>
   );
 };
 

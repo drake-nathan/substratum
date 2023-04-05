@@ -26,7 +26,7 @@ const TokenPage = ({ project, tokenId }: Props): JSX.Element => {
     data: token,
   } = useQuery<IToken, Error>('token', () => fetchToken(projectSlug, tokenId));
 
-  const renderToken = (): JSX.Element => {
+  const renderToken = (token: IToken | undefined): JSX.Element => {
     if (isLoading) {
       return <h1>Loading...</h1>;
     }
@@ -67,7 +67,7 @@ const TokenPage = ({ project, tokenId }: Props): JSX.Element => {
         <St.Header>Token Information</St.Header>
       </St.TokenInfoHeading>
 
-      {renderToken()}
+      {renderToken(token)}
     </St.Container>
   );
 };
