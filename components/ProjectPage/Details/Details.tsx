@@ -1,7 +1,7 @@
-import { Project } from 'components/_staticData/projects';
+import { Project } from 'components/staticData/projects';
 import ExpandIcon from 'public/icons/ExpandIcon.svg';
 import * as St from 'components/ProjectPage/Details/Details.styled';
-import { projects } from 'components/_staticData/projects';
+import { projects } from 'components/staticData/projects';
 import CollectionCard from './OtherCollections/CollectionCard';
 
 import Shuffler from '../Shuffler/Shuffler';
@@ -52,17 +52,27 @@ const Details = ({ project }: Props): JSX.Element => {
   return (
     <St.DetailGrid>
       <St.ProjectImage>
-        <St.Image src={image} alt={'Project image'} />
-        <St.ProjectImageNameContainer>
-          {/* FIXME needs real token ID data from the API*/}
-          <St.ProjectImageName>{name + ' #1'}</St.ProjectImageName>
-          <ExpandIcon className="expand"></ExpandIcon>
-        </St.ProjectImageNameContainer>
+        {projectSlug === '100x10x1-a' ? (
+          <LayeredCollection
+            project={project}
+            resourceLocation=""
+            order={}
+          ></LayeredCollection>
+        ) : (
+          <>
+            <St.Image src={image} alt={'Project image'} />
+            <St.ProjectImageNameContainer>
+              {/* FIXME needs real token ID data from the API*/}
+              <St.ProjectImageName>{name + ' #1'}</St.ProjectImageName>
+              <ExpandIcon className="expand"></ExpandIcon>
+            </St.ProjectImageNameContainer>
+          </>
+        )}
       </St.ProjectImage>
 
       <St.Details>
         {/**FIXME - render shuffler if the project is of a certain class */}
-        {true && <Shuffler></Shuffler>}
+        {projectSlug === '100x10x1-a' && <Shuffler></Shuffler>}
         <St.AboutSection>
           <St.DescTitle>About {name}</St.DescTitle>
           <St.Text>{description}</St.Text>

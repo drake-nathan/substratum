@@ -1,7 +1,7 @@
 import * as St from './TokenSearch.styled';
 import { useEffect, useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { type Project } from 'components/_staticData/projects';
+import { type Project } from 'components/staticData/projects';
 
 type IToken = { tokenId: number };
 

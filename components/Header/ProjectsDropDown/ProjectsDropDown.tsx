@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { useTheme } from 'styled-components';
-import { projects } from 'components/_staticData/projects';
+import { projects } from 'components/staticData/projects';
 import * as St from './ProjectsDropDown.styled';
 
 interface Props {

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { useQuery } from 'react-query';
 import { useTheme } from 'styled-components';
 import { fetchToken } from 'services/azureApi/fetches';
-import { type Project } from 'components/_staticData/projects';
+import { type Project } from 'components/staticData/projects';
 import type { IToken } from 'services/azureApi/types';
 import TokenModule from './Module/TokenModule';
 import * as St from './TokenPage.styled';

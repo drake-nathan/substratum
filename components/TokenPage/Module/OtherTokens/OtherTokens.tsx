@@ -1,4 +1,4 @@
-import { Project } from 'components/_staticData/projects';
+import { Project } from 'components/staticData/projects';
 import { IToken, TokenAbbr } from 'services/azureApi/types';
 import * as St from './OtherTokens.styled';
 import { fetchCollectionTokens } from 'services/azureApi/fetches';

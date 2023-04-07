@@ -3,7 +3,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import TokenPage from 'components/TokenPage/TokenPage';
-import { projects } from 'components/_staticData/projects';
+import { projects } from 'components/staticData/projects';
 
 const Home: NextPage = () => {
   const { projectSlug, tokenId: tokenIdQuery } = useRouter().query;
