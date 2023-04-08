@@ -15,6 +15,7 @@ export const ActionButton = styled.button`
 `;
 
 export const ButtonGrid = styled.div`
+  margin-top: 1em;
   display: grid;
   grid-template-areas:
     'top top'
@@ -37,6 +38,15 @@ export const TopButton = styled(ActionButton)`
 
 export const IDInput = styled.input`
   width: 100%;
+  background-color: #f4f1ed;
+  font-family: 'basic-sans', sans-serif;
+  padding: 1em;
+  outline: unset;
+  border: none;
+`;
+
+export const ViewButton = styled.div`
+  background-color: #ded8d1;
 `;
 
 export const CutButton = styled(ActionButton)`

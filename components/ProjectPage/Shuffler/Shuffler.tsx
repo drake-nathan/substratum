@@ -1,17 +1,71 @@
+import { useEffect, useState } from 'react';
 import * as St from './Shuffler.styled';
+import * as actions from './tempShuffleFunctions';
 
-const Shuffler = () => {
+interface Props {
+  setDrawOrder: (newOrder: number[]) => void;
+  drawOrder: number[];
+}
+
+const Shuffler = ({ setDrawOrder, drawOrder }: Props): JSX.Element => {
+  const [tokenID, setTokenID] = useState(1);
+
+  const isInRange = (n: number) => {
+    if (n <= 100 && n > 0 && n % 1 === 0) {
+      return n;
+    } else {
+      return n > 100 ? 100 : 1;
+    }
+  };
+
   return (
     <St.ButtonGrid>
       <St.TopAction>
-        <St.TopButton>Top</St.TopButton>
-        <St.IDInput type="number"></St.IDInput>
+        <St.TopButton
+          onClick={() =>
+            tokenID && setDrawOrder(actions.topAction(tokenID, drawOrder))
+          }
+        >
+          Top
+        </St.TopButton>
+        <St.IDInput
+          placeholder="TokenID to Top"
+          onChange={(e) => setTokenID(isInRange(parseInt(e.target.value)))}
+          value={tokenID}
+          type="number"
+          min="1"
+          max="100"
+          step="1"
+        ></St.IDInput>
+        <St.ViewButton></St.ViewButton>
       </St.TopAction>
-      <St.CutButton>Cut</St.CutButton>
-      <St.OverhandButton>Overhand</St.OverhandButton>
-      <St.FaroButton>Faro</St.FaroButton>
-      <St.WashButton>Wash</St.WashButton>
-      <St.ReverseButton>Reverse</St.ReverseButton>
+      <St.CutButton
+        onClick={() => {
+          setDrawOrder(actions.cutAction(drawOrder));
+        }}
+      >
+        Cut
+      </St.CutButton>
+      <St.OverhandButton
+        onClick={() => setDrawOrder(actions.overhandAction(drawOrder))}
+      >
+        Overhand
+      </St.OverhandButton>
+      <St.FaroButton
+        onClick={() => setDrawOrder(actions.faroAction(drawOrder))}
+      >
+        Faro
+      </St.FaroButton>
+      <St.WashButton
+        onClick={() => setDrawOrder(actions.washAction(drawOrder))}
+      >
+        Wash
+      </St.WashButton>
+      <St.ReverseButton
+        onClick={() => setDrawOrder(actions.reverseAction(drawOrder))}
+      >
+        Reverse
+      </St.ReverseButton>
     </St.ButtonGrid>
   );
 };
