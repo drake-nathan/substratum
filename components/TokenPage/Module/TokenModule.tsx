@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import type { IToken } from 'services/azureApi/types';
-import { type Project } from 'components/_staticData/projects';
+import { type Project } from 'components/staticData/projects';
 import { useWindowSize } from 'hooks/useWindowSize';
 import BottomBar from './BottomBar/BottomBar';
 import Generator from 'components/Generator/Generator';

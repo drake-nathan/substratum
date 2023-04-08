@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { RxOpenInNewWindow } from 'react-icons/rx';
 
-export const DetailContainer = styled.div`
+export const DetailGrid = styled.div`
   width: 100%;
   padding: 0 80px;
   margin-top: 3em;
@@ -128,6 +128,14 @@ export const Link = styled.span`
 
 export const OpenInNewIcon = styled(RxOpenInNewWindow)`
   font-weight: 500;
+`;
+
+export const Legend = styled.div`
+  display: grid;
+  width: 100%;
+  grid-template-areas:
+    'top top cut cut faro faro'
+    'overhand overhand wash wash reverse reverse';
 `;
 
 export const Functionality = styled.div`

@@ -6,7 +6,7 @@ import {
   ProjectSort,
   Status,
   type Project,
-} from '../../../_staticData/projects';
+} from '../../../staticData/projects';
 import TabBar from '../TabBar/TabBar';
 import Card from '../Card/Card';
 

@@ -1,4 +1,4 @@
-import { ProjectSort } from '../../../_staticData/projects';
+import { ProjectSort } from '../../../staticData/projects';
 import * as St from './TabBar.styled';
 
 interface Props {

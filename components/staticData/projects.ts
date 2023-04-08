@@ -7,6 +7,7 @@ export enum Status {
 export interface Project {
   name: string;
   artist: string;
+  artistAddress?: string;
   website: string;
   projectSlug: string;
   contractAddress: string;
@@ -162,6 +163,30 @@ export const projects: Project[] = [
     openSeaSlug: 'blonks',
     externalUrl: 'https://blonks.xyz/',
     description: 'BLONKS is',
+  },
+  // FIXME - this is only temporary: once the API is built, this project may come back with different properties than this. The only thing I need it to do right now is be a placeholder.
+  {
+    name: '100x10x1A',
+    projectSlug: '100x10x1-a',
+    image: '',
+    artist: 'Matto',
+    openSeaSlug: '100x10x1A',
+    artistAddress: '0xF8d9056db2C2189155bc25A30269dc5dDeD15d46',
+    currentSupply: 0,
+    maxSupply: 100,
+    isZeroIndexed: true,
+    isTokenIdInTitle: false,
+    status: Status.Upcoming,
+    local: true,
+    description:
+      "100x10x1A is a composite artwork (token 0), made of 100 separate, generative component layers (tokens 1-100). The composite image and all component layers are generated and stored on-chain as SVGs. Component layers are drawn in the order specified by the smart contract.\n\nIndividual owners (and approved 'shufflers') can alter the appearance of the composite artwork by changing the drawing order. These shuffle operations carry a very small fee that is paid to the artist and platform (substratum). The artist can pause shuffling and can set a drawing order.",
+    scriptType: 'Solidity',
+    aspectRatio: 1,
+    usesTransfers: false,
+    website: 'https://matto.xyz/project/100x10x1',
+    externalUrl: 'https://substratum.art/project/100x10x1',
+    license: 'CC BY-NC 4.0',
+    contractAddress: '0x32a1918079034b610c27F43f8cb04EF121DcEeD0',
   },
 ];
 

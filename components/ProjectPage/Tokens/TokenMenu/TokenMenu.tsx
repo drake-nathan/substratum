@@ -1,6 +1,6 @@
 import * as St from './TokenMenu.styled';
 import TokenSearch from './TokenSearch';
-import { type Project } from 'components/_staticData/projects';
+import { type Project } from 'components/staticData/projects';
 
 interface Props {
   project: Project;

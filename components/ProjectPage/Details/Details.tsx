@@ -1,8 +1,14 @@
-import { Project } from 'components/_staticData/projects';
+import { useState } from 'react';
+import { Project } from 'components/staticData/projects';
 import ExpandIcon from 'public/icons/ExpandIcon.svg';
 import * as St from 'components/ProjectPage/Details/Details.styled';
-import { projects } from 'components/_staticData/projects';
+import { projects } from 'components/staticData/projects';
+import { goerliSVG } from 'components/staticData/100x10x1A/goerliSVGData';
+import { drawOrder as dO } from 'components/staticData/100x10x1A/order';
+
 import CollectionCard from './OtherCollections/CollectionCard';
+import Shuffler from '../Shuffler/Shuffler';
+import LayeredCollection from '../LayeredCollection/LayeredCollection';
 
 interface Props {
   project: Project;
@@ -47,18 +53,36 @@ const Details = ({ project }: Props): JSX.Element => {
     royalties,
   } = project;
 
+  const [drawOrder, setDrawOrder] = useState(dO);
+
   return (
-    <St.DetailContainer>
+    <St.DetailGrid>
       <St.ProjectImage>
-        <St.Image src={image} alt={'Project image'} />
-        <St.ProjectImageNameContainer>
-          {/* FIXME needs real token ID data from the API*/}
-          <St.ProjectImageName>{name + ' #1'}</St.ProjectImageName>
-          <ExpandIcon className="expand"></ExpandIcon>
-        </St.ProjectImageNameContainer>
+        {projectSlug === '100x10x1-a' ? (
+          <LayeredCollection
+            project={project}
+            drawOrder={drawOrder}
+          ></LayeredCollection>
+        ) : (
+          <>
+            <St.Image src={image} alt={'Project image'} />
+            <St.ProjectImageNameContainer>
+              {/* FIXME needs real token ID data from the API*/}
+              <St.ProjectImageName>{name + ' #1'}</St.ProjectImageName>
+              <ExpandIcon className="expand"></ExpandIcon>
+            </St.ProjectImageNameContainer>
+          </>
+        )}
       </St.ProjectImage>
 
       <St.Details>
+        {/**FIXME - render shuffler if the project is of a certain class */}
+        {projectSlug === '100x10x1-a' && (
+          <Shuffler
+            setDrawOrder={setDrawOrder}
+            drawOrder={drawOrder}
+          ></Shuffler>
+        )}
         <St.AboutSection>
           <St.DescTitle>About {name}</St.DescTitle>
           <St.Text>{description}</St.Text>
@@ -98,6 +122,8 @@ const Details = ({ project }: Props): JSX.Element => {
         </St.OtherInfo>
       </St.Details>
 
+      {name === '100x10x1' && <St.Legend></St.Legend>}
+
       <St.Functionality>
         {interactivity && (
           <St.FuncSection>
@@ -124,7 +150,7 @@ const Details = ({ project }: Props): JSX.Element => {
           ))}
         </St.OtherCollections>
       </St.OtherCollectionsContainer>
-    </St.DetailContainer>
+    </St.DetailGrid>
   );
 };
 
