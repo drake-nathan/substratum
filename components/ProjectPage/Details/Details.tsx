@@ -3,11 +3,11 @@ import { Project } from 'components/staticData/projects';
 import ExpandIcon from 'public/icons/ExpandIcon.svg';
 import * as St from 'components/ProjectPage/Details/Details.styled';
 import { projects } from 'components/staticData/projects';
-import { goerliSVG } from 'components/staticData/100x10x1A/goerliSVGData';
 import { drawOrder as dO } from 'components/staticData/100x10x1A/order';
+import Legend from '../LayeredCollection/Legend/Legend';
 
 import CollectionCard from './OtherCollections/CollectionCard';
-import Shuffler from '../Shuffler/Shuffler';
+import Shuffler from '../LayeredCollection/Shuffler/Shuffler';
 import LayeredCollection from '../LayeredCollection/LayeredCollection';
 
 interface Props {
@@ -122,7 +122,7 @@ const Details = ({ project }: Props): JSX.Element => {
         </St.OtherInfo>
       </St.Details>
 
-      {name === '100x10x1' && <St.Legend></St.Legend>}
+      {projectSlug === '100x10x1-a' && <Legend></Legend>}
 
       <St.Functionality>
         {interactivity && (
