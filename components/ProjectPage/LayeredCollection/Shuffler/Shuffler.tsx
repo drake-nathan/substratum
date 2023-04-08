@@ -8,7 +8,7 @@ interface Props {
 }
 
 const Shuffler = ({ setDrawOrder, drawOrder }: Props): JSX.Element => {
-  const [tokenID, setTokenID] = useState(1);
+  const [tokenID, setTokenID] = useState(0);
 
   const isInRange = (n: number) => {
     if (n <= 100 && n > 0 && n % 1 === 0) {
@@ -31,7 +31,7 @@ const Shuffler = ({ setDrawOrder, drawOrder }: Props): JSX.Element => {
         <St.IDInput
           placeholder="TokenID to Top"
           onChange={(e) => setTokenID(isInRange(parseInt(e.target.value)))}
-          value={tokenID}
+          value={tokenID || undefined}
           type="number"
           min="1"
           max="100"

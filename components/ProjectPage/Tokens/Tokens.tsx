@@ -77,18 +77,33 @@ const Tokens = ({ projectSlug, project }: Props): JSX.Element => {
         setTokenSearchId={setTokenSearchId}
         refetch={refetch}
       />
-      <TokenGrid
-        data={data}
-        currentLength={currentLength}
-        hasMore={hasMore}
-        fetchNextPage={fetchNextPage}
-        error={error}
-        isLoading={isLoading}
-        isFetching={isFetching}
-        isFetchingNextPage={isFetchingNextPage}
-        isTokenIdInTitle={isTokenIdInTitle}
-        aspectRatio={aspectRatio}
-      />
+      {projectSlug === '100x10x1-a' ? (
+        <TokenGrid
+          data={data}
+          currentLength={currentLength}
+          hasMore={hasMore}
+          fetchNextPage={fetchNextPage}
+          error={error}
+          isLoading={isLoading}
+          isFetching={isFetching}
+          isFetchingNextPage={isFetchingNextPage}
+          isTokenIdInTitle={isTokenIdInTitle}
+          aspectRatio={aspectRatio}
+        />
+      ) : (
+        <TokenGrid
+          data={data}
+          currentLength={currentLength}
+          hasMore={hasMore}
+          fetchNextPage={fetchNextPage}
+          error={error}
+          isLoading={isLoading}
+          isFetching={isFetching}
+          isFetchingNextPage={isFetchingNextPage}
+          isTokenIdInTitle={isTokenIdInTitle}
+          aspectRatio={aspectRatio}
+        />
+      )}
     </TokensContainer>
   );
 };
