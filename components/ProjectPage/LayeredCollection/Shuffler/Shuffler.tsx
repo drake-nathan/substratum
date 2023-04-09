@@ -3,19 +3,25 @@ import * as St from './Shuffler.styled';
 import * as actions from './tempShuffleFunctions';
 
 interface Props {
+  setViewTokenID: (id: number) => void;
   setDrawOrder: (newOrder: number[]) => void;
   drawOrder: number[];
 }
 
-const Shuffler = ({ setDrawOrder, drawOrder }: Props): JSX.Element => {
-  const [tokenID, setTokenID] = useState(0);
+const isInRange = (n: number) => {
+  if (n <= 100 && n > 0) {
+    return n;
+  } else {
+    return n > 100 ? 100 : '';
+  }
+};
 
-  const isInRange = (n: number) => {
-    if (n <= 100 && n > 0 && n % 1 === 0) {
-      return n;
-    }
-    return n > 100 ? 100 : 1;
-  };
+const Shuffler = ({
+  setDrawOrder,
+  drawOrder,
+  setViewTokenID,
+}: Props): JSX.Element => {
+  const [tokenID, setTokenID] = useState<'' | number>('');
 
   return (
     <St.ButtonGrid>
@@ -27,16 +33,19 @@ const Shuffler = ({ setDrawOrder, drawOrder }: Props): JSX.Element => {
         >
           Top
         </St.TopButton>
-        <St.IDInput
-          placeholder="TokenID to Top"
-          onChange={(e) => setTokenID(isInRange(parseInt(e.target.value, 10)))}
-          value={tokenID || undefined}
-          type="number"
-          min="1"
-          max="100"
-          step="1"
-        />
-        <St.ViewButton />
+        <St.ViewLayer>
+          <St.IDInput
+            placeholder="TokenID to Top"
+            onChange={(e) => setTokenID(isInRange(parseInt(e.target.value)))}
+            value={tokenID}
+            type="number"
+            max="100"
+            step="1"
+          ></St.IDInput>
+          <St.ViewButton onClick={() => tokenID && setViewTokenID(tokenID)}>
+            <St.EyeIcon></St.EyeIcon>
+          </St.ViewButton>
+        </St.ViewLayer>
       </St.TopAction>
       <St.CutButton
         onClick={() => {

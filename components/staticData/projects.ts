@@ -168,7 +168,7 @@ export const projects: Project[] = [
   {
     name: '100x10x1A',
     projectSlug: '100x10x1-a',
-    image: '',
+    image: '/projects/100x10x1-a.png',
     artist: 'Matto',
     openSeaSlug: '100x10x1A',
     artistAddress: '0xF8d9056db2C2189155bc25A30269dc5dDeD15d46',

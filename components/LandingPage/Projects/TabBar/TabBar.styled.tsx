@@ -3,15 +3,16 @@ import styled from 'styled-components';
 type Width = { width: number };
 
 export const Container = styled.div<Width>`
-  width: 100%;
-  max-width: ${({ width }) => width}px;
+  width: ${({ width }) => width}px;
+  max-width: calc(100% - 180px);
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   padding: 0 0.5em;
 
   @media (max-width: 500px) {
-    padding: 0 1.5em;
+    padding: 0;
+    max-width: calc(100% - 3em);
   }
 `;
 

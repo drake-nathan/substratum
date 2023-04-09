@@ -51,12 +51,17 @@ const Details = ({ project }: Props): JSX.Element => {
   } = project;
 
   const [drawOrder, setDrawOrder] = useState(dO);
+  const [viewTokenID, setViewTokenID] = useState(0);
 
   return (
     <St.DetailGrid>
       <St.ProjectImage>
         {projectSlug === '100x10x1-a' ? (
-          <LayeredCollection project={project} drawOrder={drawOrder} />
+          <LayeredCollection
+            viewTokenID={viewTokenID}
+            setViewTokenID={setViewTokenID}
+            drawOrder={drawOrder}
+          ></LayeredCollection>
         ) : (
           <>
             <St.Image src={image} alt="Project image" />
@@ -72,7 +77,11 @@ const Details = ({ project }: Props): JSX.Element => {
       <St.Details>
         {/** FIXME - render shuffler if the project is of a certain class */}
         {projectSlug === '100x10x1-a' && (
-          <Shuffler setDrawOrder={setDrawOrder} drawOrder={drawOrder} />
+          <Shuffler
+            setDrawOrder={setDrawOrder}
+            drawOrder={drawOrder}
+            setViewTokenID={setViewTokenID}
+          ></Shuffler>
         )}
         <St.AboutSection>
           <St.DescTitle>
