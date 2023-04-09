@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 export const topAction = (tokenID: number, currentOrder: number[]) => {
   // return an array that is the current order with the token id moved to the top.
 
@@ -45,7 +47,7 @@ export const overhandAction = (currentOrder: number[]) => {
 };
 
 export const faroAction = (currentOrder: number[]) => {
-  let newOrder = [];
+  const newOrder = [];
   let temp = 0;
   for (let i = 0; i < 100; i += 2) {
     newOrder[i] = currentOrder[temp + 50];
@@ -58,7 +60,7 @@ export const faroAction = (currentOrder: number[]) => {
 export const washAction = (currentOrder: number[]) => {
   const newOrder = [...currentOrder];
   for (let i = 0; i < 100; i++) {
-    let n = i + (Math.floor(Math.random() * 10000) % (100 - i));
+    const n = i + (Math.floor(Math.random() * 10000) % (100 - i));
     const temp = newOrder[n];
     newOrder[n] = newOrder[i];
     newOrder[i] = temp;
@@ -70,7 +72,7 @@ export const washAction = (currentOrder: number[]) => {
 export const reverseAction = (currentOrder: number[]) => {
   const newOrder = [...currentOrder];
   for (let i = 0; i < 50; i++) {
-    let temp = newOrder[99 - i];
+    const temp = newOrder[99 - i];
     newOrder[99 - i] = newOrder[i];
     newOrder[i] = temp;
   }

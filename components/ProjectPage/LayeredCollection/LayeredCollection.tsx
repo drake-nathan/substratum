@@ -1,5 +1,3 @@
-import { Project } from 'components/staticData/projects';
-import { Markup } from 'interweave';
 import styled from 'styled-components';
 import {
   goerliSVG,
@@ -56,9 +54,9 @@ const LayeredCollection = ({
   return (
     <Container
       dangerouslySetInnerHTML={{
-        __html: svgStart + renderableSVGString + '</svg>',
+        __html: `${svgStart + renderableSVGString}</svg>`,
       }}
-    ></Container>
+    />
   );
 };
 

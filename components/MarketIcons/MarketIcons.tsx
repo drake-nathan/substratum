@@ -1,6 +1,6 @@
-import * as St from './MarketIcons.styled';
 import { Tooltip } from 'react-tooltip';
 import { type Project } from 'components/staticData/projects';
+import * as St from './MarketIcons.styled';
 import {
   icons,
   getProjectMarketLink,
@@ -15,8 +15,6 @@ interface Props {
 
 const MarketIcons = ({ project, tokenId }: Props): JSX.Element => {
   const { openSeaSlug, contractAddress } = project;
-
-  const iconSize = 20;
 
   // need this since zero is falsy
   const isToken = tokenId !== undefined;

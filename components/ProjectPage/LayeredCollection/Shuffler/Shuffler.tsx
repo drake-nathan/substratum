@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import * as St from './Shuffler.styled';
 import * as actions from './tempShuffleFunctions';
 

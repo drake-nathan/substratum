@@ -1,8 +1,8 @@
 import MarketIcons from 'components/MarketIcons/MarketIcons';
 import { type Project } from 'components/staticData/projects';
 import type { IToken } from 'services/azureApi/types';
-import * as St from './TokenIcons.styled';
 import { Tooltip } from 'react-tooltip';
+import * as St from './TokenIcons.styled';
 
 interface Props {
   token: IToken;
@@ -10,12 +10,7 @@ interface Props {
 }
 
 const TokenIcons = ({ token, project }: Props): JSX.Element => {
-  const {
-    token_id: tokenId,
-    generator_url: generatorUrl,
-    image,
-    svgGen,
-  } = token;
+  const { token_id: tokenId, generator_url: generatorUrl, svgGen } = token;
   const { isMobileControls } = project;
 
   const fullScreenUrl = generatorUrl || svgGen || null;

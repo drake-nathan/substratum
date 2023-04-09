@@ -3,24 +3,22 @@ import '../styles/fonts.css';
 import 'react-tooltip/dist/react-tooltip.css';
 import type { AppProps } from 'next/app';
 import Providers from 'contexts/Providers';
-import { AppContainer, BodyContainer } from '../styles/App.styled';
 import Header from 'components/Header/Header';
 import Footer from 'components/Footer/Footer';
+import { AppContainer, BodyContainer } from '../styles/App.styled';
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
-  return (
-    <Providers>
-      <AppContainer>
-        <Header />
+const MyApp = ({ Component, pageProps }: AppProps) => (
+  <Providers>
+    <AppContainer>
+      <Header />
 
-        <BodyContainer>
-          <Component {...pageProps} />
-        </BodyContainer>
+      <BodyContainer>
+        <Component {...pageProps} />
+      </BodyContainer>
 
-        <Footer />
-      </AppContainer>
-    </Providers>
-  );
-};
+      <Footer />
+    </AppContainer>
+  </Providers>
+);
 
 export default MyApp;

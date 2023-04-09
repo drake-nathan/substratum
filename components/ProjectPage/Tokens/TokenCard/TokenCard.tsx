@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 import type { TokenAbbr } from 'services/azureApi/types';
 import * as St from './TokenCard.styled';
@@ -6,14 +5,9 @@ import * as St from './TokenCard.styled';
 interface Props {
   token: TokenAbbr;
   isTokenIdInTitle: boolean;
-  aspectRatio: number;
 }
 
-const TokenCard: React.FC<Props> = ({
-  token,
-  isTokenIdInTitle,
-  aspectRatio,
-}) => {
+const TokenCard = ({ token, isTokenIdInTitle }: Props): JSX.Element => {
   const {
     name,
     image,
@@ -42,14 +36,25 @@ const TokenCard: React.FC<Props> = ({
           {/* FIXME - needs real owner data */}
         </Link>
 
-        {!isTokenIdInTitle && <St.Text>Token ID: {tokenId}</St.Text>}
+        {!isTokenIdInTitle && (
+          <St.Text>
+            Token ID:
+            {tokenId}
+          </St.Text>
+        )}
 
         {scriptInputs?.level_shift === undefined ? null : (
-          <St.Text>Level Shift: {scriptInputs.level_shift}</St.Text>
+          <St.Text>
+            Level Shift:
+            {scriptInputs.level_shift}
+          </St.Text>
         )}
 
         {scriptInputs?.transfer_count === undefined ? null : (
-          <St.Text>Transfers: {scriptInputs.transfer_count}</St.Text>
+          <St.Text>
+            Transfers:
+            {scriptInputs.transfer_count}
+          </St.Text>
         )}
       </St.DescriptionDiv>
     </St.Wrapper>

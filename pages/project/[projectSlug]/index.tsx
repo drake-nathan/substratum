@@ -27,16 +27,16 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     if (projectSlug && typeof projectSlug === 'string') {
-      const project = projects.find((p) => p.projectSlug === projectSlug);
+      const localProject = projects.find((p) => p.projectSlug === projectSlug);
 
-      if (project) {
-        setProject(project);
+      if (localProject) {
+        setProject(localProject);
       } else {
         console.error('Project not found');
         setError('Project not found');
       }
     }
-  }, [projectSlug]);
+  }, [projectSlug, project]);
 
   const title = project?.name ? `substratum | ${project.name}` : 'substratum';
 
@@ -50,15 +50,11 @@ const Home: NextPage = () => {
       {projectSlug && project && (
         <>
           <ProjectHead project={project} />
-          <ProjectMenuBar
-            projectSlug={projectSlug}
-            tab={tab}
-            setTab={setTab}
-          ></ProjectMenuBar>
+          <ProjectMenuBar projectSlug={projectSlug} tab={tab} setTab={setTab} />
           {tab && tab === 'tokens' ? (
             <Tokens projectSlug={projectSlug as string} project={project} />
           ) : (
-            <Details project={project}></Details>
+            <Details project={project} />
           )}
         </>
       )}

@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { Project } from 'components/staticData/projects';
+import { Project, projects } from 'components/staticData/projects';
 import ExpandIcon from 'public/icons/ExpandIcon.svg';
 import * as St from 'components/ProjectPage/Details/Details.styled';
-import { projects } from 'components/staticData/projects';
 import { drawOrder as dO } from 'components/staticData/100x10x1A/order';
 import Legend from '../LayeredCollection/Legend/Legend';
 
@@ -43,8 +42,6 @@ const Details = ({ project }: Props): JSX.Element => {
   const {
     projectSlug,
     name,
-    artist,
-    website,
     scriptType,
     license,
     image,
@@ -67,18 +64,18 @@ const Details = ({ project }: Props): JSX.Element => {
           ></LayeredCollection>
         ) : (
           <>
-            <St.Image src={image} alt={'Project image'} />
+            <St.Image src={image} alt="Project image" />
             <St.ProjectImageNameContainer>
-              {/* FIXME needs real token ID data from the API*/}
-              <St.ProjectImageName>{name + ' #1'}</St.ProjectImageName>
-              <ExpandIcon className="expand"></ExpandIcon>
+              {/* FIXME needs real token ID data from the API */}
+              <St.ProjectImageName>{`${name} #1`}</St.ProjectImageName>
+              <ExpandIcon className="expand" />
             </St.ProjectImageNameContainer>
           </>
         )}
       </St.ProjectImage>
 
       <St.Details>
-        {/**FIXME - render shuffler if the project is of a certain class */}
+        {/** FIXME - render shuffler if the project is of a certain class */}
         {projectSlug === '100x10x1-a' && (
           <Shuffler
             setDrawOrder={setDrawOrder}
@@ -87,7 +84,10 @@ const Details = ({ project }: Props): JSX.Element => {
           ></Shuffler>
         )}
         <St.AboutSection>
-          <St.DescTitle>About {name}</St.DescTitle>
+          <St.DescTitle>
+            About
+            {name}
+          </St.DescTitle>
           <St.Text>{description}</St.Text>
           {projectSlug === 'texture-and-hues' && (
             <a
@@ -105,15 +105,15 @@ const Details = ({ project }: Props): JSX.Element => {
         <St.OtherInfo>
           <St.DescTitle>Collection Details</St.DescTitle>
 
-          {/* FIXME needs real detail data from the API*/}
+          {/* FIXME needs real detail data from the API */}
           <St.Text>Algorithmic edition of 128</St.Text>
-          {/* FIXME needs real detail data from the API*/}
+          {/* FIXME needs real detail data from the API */}
           <St.Text>March 29, 2023, 9:00pm GMT-4</St.Text>
           <St.SmallDescTitle>Tools</St.SmallDescTitle>
           <St.Text>{findScriptType(scriptType)}</St.Text>
           <St.SmallDescTitle>Notes</St.SmallDescTitle>
 
-          {/* FIXME needs real detail data from the API*/}
+          {/* FIXME needs real detail data from the API */}
           <St.Text>
             25% of all sales will be donated to four organizations that advance
             creative and career oportunities for under-represented groups in
@@ -125,7 +125,7 @@ const Details = ({ project }: Props): JSX.Element => {
         </St.OtherInfo>
       </St.Details>
 
-      {projectSlug === '100x10x1-a' && <Legend></Legend>}
+      {projectSlug === '100x10x1-a' && <Legend />}
 
       <St.Functionality>
         {interactivity && (
@@ -148,8 +148,8 @@ const Details = ({ project }: Props): JSX.Element => {
       <St.OtherCollectionsContainer>
         <St.OtherCollectionsHeader>Other Collections</St.OtherCollectionsHeader>
         <St.OtherCollections>
-          {getRelatedCollections(project).map((p, index) => (
-            <CollectionCard key={p.name} project={p}></CollectionCard>
+          {getRelatedCollections(project).map((p) => (
+            <CollectionCard key={p.projectSlug} project={p} />
           ))}
         </St.OtherCollections>
       </St.OtherCollectionsContainer>

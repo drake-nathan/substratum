@@ -1,12 +1,12 @@
-import * as St from './TokenCard.styled';
-import { IToken, TokenAbbr } from 'services/azureApi/types';
+import { TokenAbbr } from 'services/azureApi/types';
 import Link from 'next/link';
+import * as St from './TokenCard.styled';
 
 interface Props {
   token: TokenAbbr;
 }
 
-const TokenCard: React.FC<Props> = ({ token }) => {
+const TokenCard = ({ token }: Props): JSX.Element => {
   const {
     name,
     image,
@@ -34,14 +34,23 @@ const TokenCard: React.FC<Props> = ({ token }) => {
           {/* FIXME - needs real owner data */}
         </Link>
 
-        <St.Text>Token ID: {tokenId}</St.Text>
+        <St.Text>
+          Token ID:
+          {tokenId}
+        </St.Text>
 
         {scriptInputs?.level_shift === undefined ? null : (
-          <St.Text>Level Shift: {scriptInputs.level_shift}</St.Text>
+          <St.Text>
+            Level Shift:
+            {scriptInputs.level_shift}
+          </St.Text>
         )}
 
         {scriptInputs?.transfer_count === undefined ? null : (
-          <St.Text>Transfers: {scriptInputs.transfer_count}</St.Text>
+          <St.Text>
+            Transfers:
+            {scriptInputs.transfer_count}
+          </St.Text>
         )}
       </St.DescriptionDiv>
     </St.Wrapper>
