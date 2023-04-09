@@ -3,11 +3,17 @@ import * as St from './Legend.styled';
 
 class VisibilityMatrix {
   legend = false;
+
   top = false;
+
   cut = false;
+
   faro = false;
+
   overhand = false;
+
   wash = false;
+
   reverse = false;
 }
 
@@ -22,18 +28,14 @@ const Legend = () => {
     <St.Container>
       <St.LegendHeader onClick={() => toggleMatrixProp('legend')}>
         Legend
-        <St.ExpandSectionIcon
-          className={isVisible.legend ? 'rotated' : ''}
-        ></St.ExpandSectionIcon>
+        <St.ExpandSectionIcon className={isVisible.legend ? 'rotated' : ''} />
       </St.LegendHeader>
       <St.LegendGrid className={isVisible.legend ? '' : 'hide'}>
         <St.Top>
           <St.ActionTitle onClick={() => toggleMatrixProp('top')}>
             <St.Name>Top</St.Name>
             <St.ExpandWrapper>
-              <St.ExpandKeyIcon
-                className={!isVisible.top ? '' : 'rotated'}
-              ></St.ExpandKeyIcon>
+              <St.ExpandKeyIcon className={!isVisible.top ? '' : 'rotated'} />
             </St.ExpandWrapper>
           </St.ActionTitle>
           <St.InfoDropdown className={isVisible.top ? '' : 'hide'}>
@@ -50,9 +52,7 @@ const Legend = () => {
           <St.ActionTitle onClick={() => toggleMatrixProp('cut')}>
             <St.Name>Cut</St.Name>
             <St.ExpandWrapper>
-              <St.ExpandKeyIcon
-                className={isVisible.cut ? 'rotated' : ''}
-              ></St.ExpandKeyIcon>
+              <St.ExpandKeyIcon className={isVisible.cut ? 'rotated' : ''} />
             </St.ExpandWrapper>
           </St.ActionTitle>
           <St.InfoDropdown className={isVisible.cut ? '' : 'hide'}>
@@ -69,9 +69,7 @@ const Legend = () => {
           <St.ActionTitle onClick={() => toggleMatrixProp('faro')}>
             <St.Name>Faro</St.Name>
             <St.ExpandWrapper>
-              <St.ExpandKeyIcon
-                className={isVisible.faro ? 'rotated' : ''}
-              ></St.ExpandKeyIcon>
+              <St.ExpandKeyIcon className={isVisible.faro ? 'rotated' : ''} />
             </St.ExpandWrapper>
           </St.ActionTitle>
           <St.InfoDropdown className={isVisible.faro ? '' : 'hide'}>
@@ -90,7 +88,7 @@ const Legend = () => {
             <St.ExpandWrapper>
               <St.ExpandKeyIcon
                 className={isVisible.overhand ? 'rotated' : ''}
-              ></St.ExpandKeyIcon>
+              />
             </St.ExpandWrapper>
           </St.ActionTitle>
           <St.InfoDropdown className={isVisible.overhand ? '' : 'hide'}>
@@ -107,9 +105,7 @@ const Legend = () => {
           <St.ActionTitle onClick={() => toggleMatrixProp('wash')}>
             <St.Name>Wash</St.Name>
             <St.ExpandWrapper>
-              <St.ExpandKeyIcon
-                className={isVisible.wash ? 'rotated' : ''}
-              ></St.ExpandKeyIcon>
+              <St.ExpandKeyIcon className={isVisible.wash ? 'rotated' : ''} />
             </St.ExpandWrapper>
           </St.ActionTitle>
           <St.InfoDropdown className={isVisible.wash ? '' : 'hide'}>
@@ -128,7 +124,7 @@ const Legend = () => {
             <St.ExpandWrapper>
               <St.ExpandKeyIcon
                 className={isVisible.reverse ? 'rotated' : ''}
-              ></St.ExpandKeyIcon>
+              />
             </St.ExpandWrapper>
           </St.ActionTitle>
           <St.InfoDropdown className={isVisible.reverse ? '' : 'hide'}>

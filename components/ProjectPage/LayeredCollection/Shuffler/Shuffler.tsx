@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import * as St from './Shuffler.styled';
 import * as actions from './tempShuffleFunctions';
 
@@ -13,9 +13,8 @@ const Shuffler = ({ setDrawOrder, drawOrder }: Props): JSX.Element => {
   const isInRange = (n: number) => {
     if (n <= 100 && n > 0 && n % 1 === 0) {
       return n;
-    } else {
-      return n > 100 ? 100 : 1;
     }
+    return n > 100 ? 100 : 1;
   };
 
   return (
@@ -30,14 +29,14 @@ const Shuffler = ({ setDrawOrder, drawOrder }: Props): JSX.Element => {
         </St.TopButton>
         <St.IDInput
           placeholder="TokenID to Top"
-          onChange={(e) => setTokenID(isInRange(parseInt(e.target.value)))}
+          onChange={(e) => setTokenID(isInRange(parseInt(e.target.value, 10)))}
           value={tokenID || undefined}
           type="number"
           min="1"
           max="100"
           step="1"
-        ></St.IDInput>
-        <St.ViewButton></St.ViewButton>
+        />
+        <St.ViewButton />
       </St.TopAction>
       <St.CutButton
         onClick={() => {

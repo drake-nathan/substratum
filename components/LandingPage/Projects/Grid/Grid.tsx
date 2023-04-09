@@ -1,12 +1,6 @@
+import { useState } from 'react';
 import * as St from './Grid.styled';
-import { useState, useEffect } from 'react';
-import { useWindowSize } from 'hooks/useWindowSize';
-import {
-  projects,
-  ProjectSort,
-  Status,
-  type Project,
-} from '../../../staticData/projects';
+import { projects, ProjectSort, Status } from '../../../staticData/projects';
 import TabBar from '../TabBar/TabBar';
 import Card from '../Card/Card';
 
@@ -20,13 +14,14 @@ const Grid = ({ width }: Props): JSX.Element => {
   const filteredProjects = projects.filter((project) => {
     if (activeTab === ProjectSort.Minting) {
       return project.status === Status.Minting;
-    } else if (activeTab === ProjectSort.Upcoming) {
-      return project.status === Status.Upcoming;
-    } else if (activeTab === ProjectSort.Closed) {
-      return project.status === Status.Closed;
-    } else {
-      return true;
     }
+    if (activeTab === ProjectSort.Upcoming) {
+      return project.status === Status.Upcoming;
+    }
+    if (activeTab === ProjectSort.Closed) {
+      return project.status === Status.Closed;
+    }
+    return true;
   });
 
   return (

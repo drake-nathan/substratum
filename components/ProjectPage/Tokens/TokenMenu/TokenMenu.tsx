@@ -1,6 +1,6 @@
+import { type Project } from 'components/staticData/projects';
 import * as St from './TokenMenu.styled';
 import TokenSearch from './TokenSearch';
-import { type Project } from 'components/staticData/projects';
 
 interface Props {
   project: Project;
@@ -25,7 +25,7 @@ const TokenMenu = ({
   setTokenSearchId,
   refetch,
 }: Props): JSX.Element => {
-  const { projectSlug, currentSupply, maxSupply } = project;
+  const { projectSlug } = project;
 
   return (
     <St.Container>
@@ -40,9 +40,9 @@ const TokenMenu = ({
       <St.SortDiv>
         {/* <St.SortText>Sort by:</St.SortText> */}
         <St.TextButton
-          className={
-            (sortType === 'tokenId' ? '' : 'inactive') + ' special-artist-name'
-          }
+          className={`${
+            sortType === 'tokenId' ? '' : 'inactive'
+          } special-artist-name`}
           onClick={() => {
             if (sortType === 'worldLevel') setSortDir('asc');
             setSortType('tokenId');
@@ -55,10 +55,9 @@ const TokenMenu = ({
           <>
             <St.SubtleText className="special-artist-name">|</St.SubtleText>
             <St.TextButton
-              className={
-                (sortType === 'worldLevel' ? '' : 'inactive') +
-                ' special-artist-name'
-              }
+              className={`${
+                sortType === 'worldLevel' ? '' : 'inactive'
+              } special-artist-name`}
               onClick={() => {
                 if (sortType === 'tokenId') setSortDir('desc');
                 setSortType('worldLevel');

@@ -1,12 +1,11 @@
 import Link from 'next/link';
 import { useQuery } from 'react-query';
-import { useTheme } from 'styled-components';
 import { fetchToken } from 'services/azureApi/fetches';
 import { type Project } from 'components/staticData/projects';
 import type { IToken } from 'services/azureApi/types';
+import MarketIcons from 'components/MarketIcons/MarketIcons';
 import TokenModule from './Module/TokenModule';
 import * as St from './TokenPage.styled';
-import MarketIcons from 'components/MarketIcons/MarketIcons';
 
 interface Props {
   project: Project;
@@ -16,8 +15,6 @@ interface Props {
 const TokenPage = ({ project, tokenId }: Props): JSX.Element => {
   const { name, projectSlug, artist, website } = project;
 
-  const { isMobile } = useTheme();
-
   const projectLink = `/project/${projectSlug}`;
 
   const {
@@ -26,14 +23,19 @@ const TokenPage = ({ project, tokenId }: Props): JSX.Element => {
     data: token,
   } = useQuery<IToken, Error>('token', () => fetchToken(projectSlug, tokenId));
 
-  const renderToken = (token: IToken | undefined): JSX.Element => {
+  const renderToken = (): JSX.Element => {
     if (isLoading) {
       return <h1>Loading...</h1>;
     }
 
     if (error) {
       console.error(error);
-      return <p>Error: {error.message}</p>;
+      return (
+        <p>
+          Error:
+          {error.message}
+        </p>
+      );
     }
 
     if (token) {
@@ -48,7 +50,7 @@ const TokenPage = ({ project, tokenId }: Props): JSX.Element => {
       <St.TokenHead>
         {/* <St.TitleDiv> */}
         <Link href={projectLink} style={{ width: 'max-content' }}>
-          <St.Title>{name + ' #' + (tokenId + 1)}</St.Title>
+          <St.Title>{`${name} #${tokenId + 1}`}</St.Title>
         </Link>
 
         <St.ArtistDiv>
@@ -61,13 +63,16 @@ const TokenPage = ({ project, tokenId }: Props): JSX.Element => {
         {/* </St.TitleDiv> */}
 
         <MarketIcons project={project} tokenId={tokenId} />
-        <St.TokenStatus>Token ID: {tokenId}</St.TokenStatus>
+        <St.TokenStatus>
+          Token ID:
+          {tokenId}
+        </St.TokenStatus>
       </St.TokenHead>
       <St.TokenInfoHeading>
         <St.Header>Token Information</St.Header>
       </St.TokenInfoHeading>
 
-      {renderToken(token)}
+      {renderToken()}
     </St.Container>
   );
 };

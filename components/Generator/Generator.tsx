@@ -7,12 +7,10 @@ interface Props {
   width: number;
 }
 
-const Generator = ({ generatorUrl, height, width }: Props): JSX.Element => {
-  return (
-    <St.FrameWrapper height={height} width={width}>
-      <iframe src={generatorUrl} title="generator"></iframe>
-    </St.FrameWrapper>
-  );
-};
+const Generator = ({ generatorUrl, height, width }: Props): JSX.Element => (
+  <St.FrameWrapper height={height} width={width}>
+    <iframe src={generatorUrl} title="generator" />
+  </St.FrameWrapper>
+);
 
 export default Generator;

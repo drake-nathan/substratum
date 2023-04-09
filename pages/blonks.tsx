@@ -12,17 +12,15 @@ const BlonksContainer = styled.div`
   padding: 0 1em;
 `;
 
-const Blonks: NextPage = () => {
-  return (
-    <BlonksContainer>
-      <Head>
-        <title>substratum | BLONKS</title>
-        <meta name="description" content="BLONKS" />
-      </Head>
+const Blonks: NextPage = () => (
+  <BlonksContainer>
+    <Head>
+      <title>substratum | BLONKS</title>
+      <meta name="description" content="BLONKS" />
+    </Head>
 
-      <h1>Blonks</h1>
-    </BlonksContainer>
-  );
-};
+    <h1>Blonks</h1>
+  </BlonksContainer>
+);
 
 export default Blonks;

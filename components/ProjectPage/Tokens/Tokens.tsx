@@ -13,7 +13,7 @@ interface Props {
 }
 
 const Tokens = ({ projectSlug, project }: Props): JSX.Element => {
-  const { isTokenIdInTitle, usesTransfers, aspectRatio } = project;
+  const { isTokenIdInTitle, usesTransfers } = project;
   // api query state
   const [sortDir, setSortDir] = useState<'asc' | 'desc'>('asc');
   const [sortType, setSortType] = useState<'tokenId' | 'worldLevel'>('tokenId');
@@ -33,18 +33,10 @@ const Tokens = ({ projectSlug, project }: Props): JSX.Element => {
       tokenSearchId,
     );
 
-  const {
-    error,
-    data,
-    isLoading,
-    isFetching,
-    isFetchingNextPage,
-    fetchNextPage,
-    refetch,
-    remove,
-  } = useInfiniteQuery<CollectionResponse, Error>('tokens', fetchQuery, {
-    getNextPageParam: (lastFetch) => lastFetch.skip + limit,
-  });
+  const { error, data, isLoading, isFetching, fetchNextPage, refetch, remove } =
+    useInfiniteQuery<CollectionResponse, Error>('tokens', fetchQuery, {
+      getNextPageParam: (lastFetch) => lastFetch.skip + limit,
+    });
 
   useEffect(() => {
     if (error) console.error(error.message);
@@ -58,7 +50,7 @@ const Tokens = ({ projectSlug, project }: Props): JSX.Element => {
   useEffect(() => {
     remove();
     refetch();
-  }, [sortDir, sortType, projectSlug]);
+  }, [sortDir, sortType, projectSlug, refetch, remove]);
 
   useEffect(() => {
     if (tokenSearchId) setHasMore(false);
@@ -86,9 +78,7 @@ const Tokens = ({ projectSlug, project }: Props): JSX.Element => {
           error={error}
           isLoading={isLoading}
           isFetching={isFetching}
-          isFetchingNextPage={isFetchingNextPage}
           isTokenIdInTitle={isTokenIdInTitle}
-          aspectRatio={aspectRatio}
         />
       ) : (
         <TokenGrid
@@ -99,9 +89,7 @@ const Tokens = ({ projectSlug, project }: Props): JSX.Element => {
           error={error}
           isLoading={isLoading}
           isFetching={isFetching}
-          isFetchingNextPage={isFetchingNextPage}
           isTokenIdInTitle={isTokenIdInTitle}
-          aspectRatio={aspectRatio}
         />
       )}
     </TokensContainer>

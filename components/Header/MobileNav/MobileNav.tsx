@@ -8,13 +8,11 @@ interface Props {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const MobileNav: React.FC<Props> = ({ isOpen, setIsOpen }) => {
-  return (
-    <St.Container isOpen={isOpen}>
-      <NavLinks setShowMobileNav={setIsOpen} />
-      <SocialIcons />
-    </St.Container>
-  );
-};
+const MobileNav: React.FC<Props> = ({ isOpen, setIsOpen }) => (
+  <St.Container isOpen={isOpen}>
+    <NavLinks setShowMobileNav={setIsOpen} />
+    <SocialIcons />
+  </St.Container>
+);
 
 export default MobileNav;

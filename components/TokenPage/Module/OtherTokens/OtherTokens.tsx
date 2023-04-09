@@ -1,9 +1,9 @@
 import { Project } from 'components/staticData/projects';
 import { IToken, TokenAbbr } from 'services/azureApi/types';
-import * as St from './OtherTokens.styled';
 import { fetchCollectionTokens } from 'services/azureApi/fetches';
-import TokenCard from './TokenCard';
 import { useEffect, useState } from 'react';
+import * as St from './OtherTokens.styled';
+import TokenCard from './TokenCard';
 
 interface Props {
   token: IToken;
@@ -32,14 +32,14 @@ const OtherTokens = ({ token, project }: Props): JSX.Element => {
 
   useEffect(() => {
     getOtherTokens(project, token).then((data) => setOtherTokens(data));
-  }, []);
+  }, [project, token]);
 
   return (
     <St.OtherTokensContainer>
       <St.OtherTokensHeader>Other Tokens</St.OtherTokensHeader>
       <St.OtherTokens>
         {otherTokens.map((t) => (
-          <TokenCard key={t.name} token={t}></TokenCard>
+          <TokenCard key={t.name} token={t} />
         ))}
       </St.OtherTokens>
     </St.OtherTokensContainer>

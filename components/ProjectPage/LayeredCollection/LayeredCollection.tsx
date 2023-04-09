@@ -1,5 +1,3 @@
-import { Project } from 'components/staticData/projects';
-import { Markup } from 'interweave';
 import styled from 'styled-components';
 import {
   goerliSVG,
@@ -9,7 +7,6 @@ import { useEffect, useState } from 'react';
 
 interface Props {
   drawOrder: number[];
-  project: Project;
 }
 
 const Container = styled.div`
@@ -33,9 +30,9 @@ const LayeredCollection = ({ drawOrder }: Props): JSX.Element => {
   return (
     <Container
       dangerouslySetInnerHTML={{
-        __html: svgStart + renderableSVGString + '</svg>',
+        __html: `${svgStart + renderableSVGString}</svg>`,
       }}
-    ></Container>
+    />
   );
 };
 
