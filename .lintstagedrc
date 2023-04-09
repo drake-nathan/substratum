@@ -1,5 +1,5 @@
 {
   "*.{ts,tsx,js,jsx,json}": ["prettier --write"],
   "*.{ts,tsx,js,jsx}": ["eslint --fix"],
-  "*.{ts,tsx,!(*.d).ts?(x)}": "tsc-files --noEmit"
+  "*.{ts,tsx,!(*.d).ts}": "tsc-files --noEmit"
 }
