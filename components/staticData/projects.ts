@@ -4,9 +4,14 @@ export enum Status {
   Minting = 'Minting',
 }
 
+export enum Artist {
+  Matto = Artist.Matto,
+  ImmutableComputer = 'Immutable Computer',
+}
+
 export interface Project {
   name: string;
-  artist: string;
+  artist: Artist;
   artistAddress?: string;
   website: string;
   projectSlug: string;
@@ -33,9 +38,33 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  // FIXME - this is only temporary: once the API is built, this project may come back with different properties than this. The only thing I need it to do right now is be a placeholder.
+  {
+    name: '100x10x1A',
+    projectSlug: '100x10x1-a',
+    image: '/projects/100x10x1-a.png',
+    artist: Artist.Matto,
+    openSeaSlug: '100x10x1A',
+    artistAddress: '0xF8d9056db2C2189155bc25A30269dc5dDeD15d46',
+    currentSupply: 0,
+    maxSupply: 100,
+    isZeroIndexed: true,
+    isTokenIdInTitle: false,
+    status: Status.Upcoming,
+    local: true,
+    description:
+      "100x10x1A is a composite artwork (token 0), made of 100 separate, generative component layers (tokens 1-100). The composite image and all component layers are generated and stored on-chain as SVGs. Component layers are drawn in the order specified by the smart contract.\n\nIndividual owners (and approved 'shufflers') can alter the appearance of the composite artwork by changing the drawing order. These shuffle operations carry a very small fee that is paid to the artist and platform (substratum). The artist can pause shuffling and can set a drawing order.",
+    scriptType: 'Solidity',
+    aspectRatio: 1,
+    usesTransfers: false,
+    website: 'https://matto.xyz/project/100x10x1',
+    externalUrl: 'https://substratum.art/project/100x10x1',
+    license: 'CC BY-NC 4.0',
+    contractAddress: '0x32a1918079034b610c27F43f8cb04EF121DcEeD0',
+  },
   {
     name: 'Crystallized Illusions',
-    artist: 'Matto',
+    artist: Artist.Matto,
     website: 'https://matto.xyz',
     projectSlug: 'crystallized-illusions',
     contractAddress: '0x5B17395A9699D2819a9d009bA375a0825b077385',
@@ -57,7 +86,7 @@ export const projects: Project[] = [
   },
   {
     name: 'Negative Carbon',
-    artist: 'Immutable Computer',
+    artist: Artist.ImmutableComputer,
     website: 'http://immutablecomputer.com/carbon.html',
     projectSlug: 'negative-carbon',
     contractAddress: '0xa9132D23886b63D29858Fe541214fEad5815d64A',
@@ -78,7 +107,7 @@ export const projects: Project[] = [
   },
   {
     name: 'Mathare Memories',
-    artist: 'Matto',
+    artist: Artist.Matto,
     website: 'https://matto.xyz',
     projectSlug: 'mathare-memories',
     contractAddress: '0x2eEa9f8eb2a3365175c7cb25Db9ae277bE218806',
@@ -104,7 +133,7 @@ export const projects: Project[] = [
   },
   {
     name: 'Texture and Hues',
-    artist: 'Matto',
+    artist: Artist.Matto,
     website: 'https://matto.xyz',
     projectSlug: 'texture-and-hues',
     contractAddress: '0x15BF7610a7d50541e865EfA3adad434147a4E1A9',
@@ -125,7 +154,7 @@ export const projects: Project[] = [
   },
   {
     name: 'Chainlife',
-    artist: 'Matto',
+    artist: Artist.Matto,
     website: 'https://matto.xyz',
     projectSlug: 'chainlife',
     contractAddress: '0x4E171e0F14a9046e14B93221f31Acd2EC4Af8429',
@@ -147,7 +176,7 @@ export const projects: Project[] = [
   },
   {
     name: 'BLONKS',
-    artist: 'Matto',
+    artist: Artist.Matto,
     website: 'https://matto.xyz',
     projectSlug: 'blonks',
     contractAddress: '0x7f463b874eC264dC7BD8C780f5790b4Fc371F11f',
@@ -163,30 +192,6 @@ export const projects: Project[] = [
     openSeaSlug: 'blonks',
     externalUrl: 'https://blonks.xyz/',
     description: 'BLONKS is',
-  },
-  // FIXME - this is only temporary: once the API is built, this project may come back with different properties than this. The only thing I need it to do right now is be a placeholder.
-  {
-    name: '100x10x1A',
-    projectSlug: '100x10x1-a',
-    image: '/projects/100x10x1-a.png',
-    artist: 'Matto',
-    openSeaSlug: '100x10x1A',
-    artistAddress: '0xF8d9056db2C2189155bc25A30269dc5dDeD15d46',
-    currentSupply: 0,
-    maxSupply: 100,
-    isZeroIndexed: true,
-    isTokenIdInTitle: false,
-    status: Status.Upcoming,
-    local: true,
-    description:
-      "100x10x1A is a composite artwork (token 0), made of 100 separate, generative component layers (tokens 1-100). The composite image and all component layers are generated and stored on-chain as SVGs. Component layers are drawn in the order specified by the smart contract.\n\nIndividual owners (and approved 'shufflers') can alter the appearance of the composite artwork by changing the drawing order. These shuffle operations carry a very small fee that is paid to the artist and platform (substratum). The artist can pause shuffling and can set a drawing order.",
-    scriptType: 'Solidity',
-    aspectRatio: 1,
-    usesTransfers: false,
-    website: 'https://matto.xyz/project/100x10x1',
-    externalUrl: 'https://substratum.art/project/100x10x1',
-    license: 'CC BY-NC 4.0',
-    contractAddress: '0x32a1918079034b610c27F43f8cb04EF121DcEeD0',
   },
 ];
 

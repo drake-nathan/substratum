@@ -7,20 +7,22 @@ export const Container = styled.div<ShowDropDown>`
   position: absolute;
   top: 31.5px;
   left: 0;
-  width: 100%;
-  min-width: 200px;
-  height: ${({ showDropDown }) => (showDropDown ? '170px' : '0px')};
-  background-color: ${({ theme: { colors } }) => colors.textMain};
+  height: ${({ showDropDown }) => (showDropDown ? '190px' : '0px')};
+  background-color: ${({ theme: { colors } }) => colors.bgMain};
   transition: all 0.3s ease;
   overflow: ${({ showDropDown }) => (showDropDown ? 'auto' : 'hidden')};
   padding: ${({ showDropDown }) =>
-    showDropDown ? '0.75em 0.5em 0.5em 1.25em' : '0 0.5em'};
+    showDropDown ? '0.75em 1.25em 0.5em 1.25em' : '0 0.5em'};
   overflow-y: hidden;
+  ${({ showDropDown, theme }) =>
+    showDropDown && `outline: 1px solid ${theme.colors.textMain};`}
 `;
+
+export const ContainerArtists = styled(Container)``;
 
 export const Project = styled.div`
   color: ${({ theme: { isMobile, colors } }) =>
-    !isMobile ? colors.bgMain : colors.textMain};
+    !isMobile ? colors.textMain : colors.bgMain};
   font-weight: 600;
   letter-spacing: normal;
 
@@ -48,6 +50,6 @@ export const RowLink = styled.a`
 
 export const OpenInNewIcon = styled(RxOpenInNewWindow)`
   color: ${({ theme: { isMobile, colors } }) =>
-    !isMobile ? colors.bgMain : colors.textMain};
+    !isMobile ? colors.textMain : colors.bgMain};
   font-weight: 500;
 `;

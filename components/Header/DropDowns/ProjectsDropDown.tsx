@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { useTheme } from 'styled-components';
 import { projects } from 'components/staticData/projects';
-import * as St from './ProjectsDropDown.styled';
+import * as St from './DropDowns.styled';
 
 interface Props {
   showDropDown: boolean;
@@ -10,11 +10,11 @@ interface Props {
   setShowMobileNav: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const ProjectsDropDown: React.FC<Props> = ({
+const ProjectsDropDown = ({
   showDropDown,
   setShowDropDown,
   setShowMobileNav,
-}) => {
+}: Props): JSX.Element => {
   const { isMobile } = useTheme();
 
   const closeBothMenus = () => {

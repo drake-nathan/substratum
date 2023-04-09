@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useTheme } from 'styled-components';
-import ProjectsDropDown from '../ProjectsDropDown/ProjectsDropDown';
+import ProjectsDropDown from '../DropDowns/ProjectsDropDown';
 import * as St from './NavLinks.styled';
 
 interface Props {
   setShowMobileNav: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const NavLinks: React.FC<Props> = ({ setShowMobileNav }) => {
+const NavLinks = ({ setShowMobileNav }: Props): JSX.Element => {
   const { isMobile } = useTheme();
   const [showProjectsDropDown, setShowProjectsDropDown] = useState(false);
 
@@ -27,6 +27,7 @@ const NavLinks: React.FC<Props> = ({ setShowMobileNav }) => {
           />
         )}
       </St.Tab>
+
       {isMobile && (
         <ProjectsDropDown
           showDropDown={showProjectsDropDown}
@@ -47,7 +48,7 @@ const NavLinks: React.FC<Props> = ({ setShowMobileNav }) => {
 
       <St.Tab>
         <a href="https://matto.xyz/" rel="noreferrer" target="_blank">
-          <St.Text onClick={() => setShowMobileNav(false)}>Matto</St.Text>
+          <St.Text onClick={() => setShowMobileNav(false)}>Artists</St.Text>
         </a>
       </St.Tab>
 
