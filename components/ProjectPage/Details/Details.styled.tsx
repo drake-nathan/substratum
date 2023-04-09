@@ -108,6 +108,7 @@ export const SmallDescTitle = styled.h4`
 
 export const Text = styled.p`
   max-width: 60ch;
+  white-space: pre-line;
 `;
 
 export const LinkContainer = styled.div`
