@@ -13,7 +13,7 @@ const HomeContainer = styled.div`
 `;
 
 const Home: NextPage = () => {
-  const width = 1264;
+  const width = 1424;
 
   return (
     <HomeContainer>
