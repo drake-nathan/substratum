@@ -130,14 +130,6 @@ export const OpenInNewIcon = styled(RxOpenInNewWindow)`
   font-weight: 500;
 `;
 
-export const Legend = styled.div`
-  display: grid;
-  width: 100%;
-  grid-template-areas:
-    'top top cut cut faro faro'
-    'overhand overhand wash wash reverse reverse';
-`;
-
 export const Functionality = styled.div`
   grid-column-start: 1;
   grid-column-end: span 2;
@@ -159,7 +151,6 @@ export const FuncSection = styled.div`
 export const OtherCollectionsContainer = styled.div`
   grid-column-start: 1;
   grid-column-end: span 2;
-  margin-top: 3em;
 `;
 
 export const OtherCollectionsHeader = styled.h2`
