@@ -18,7 +18,7 @@ export const Container = styled.div<IsOpen>`
   gap: 2em;
   padding: 3em 2em 9em;
 
-  background-color: ${({ theme }) => theme.colors.bgMain};
+  background-color: ${({ theme }) => theme.colors.textMain};
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 
   transform: ${({ isOpen }) =>
