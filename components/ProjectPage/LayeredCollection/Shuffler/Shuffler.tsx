@@ -11,9 +11,8 @@ interface Props {
 const isInRange = (n: number) => {
   if (n <= 100 && n > 0) {
     return n;
-  } else {
-    return n > 100 ? 100 : '';
   }
+  return n > 100 ? 100 : '';
 };
 
 const Shuffler = ({
@@ -36,14 +35,16 @@ const Shuffler = ({
         <St.ViewLayer>
           <St.IDInput
             placeholder="TokenID to Top"
-            onChange={(e) => setTokenID(isInRange(parseInt(e.target.value)))}
+            onChange={(e) =>
+              setTokenID(isInRange(parseInt(e.target.value, 10)))
+            }
             value={tokenID}
             type="number"
             max="100"
             step="1"
-          ></St.IDInput>
+          />
           <St.ViewButton onClick={() => tokenID && setViewTokenID(tokenID)}>
-            <St.EyeIcon></St.EyeIcon>
+            <St.EyeIcon />
           </St.ViewButton>
         </St.ViewLayer>
       </St.TopAction>

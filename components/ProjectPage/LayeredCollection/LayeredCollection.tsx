@@ -48,7 +48,7 @@ const LayeredCollection = ({
         setViewTokenID(0);
       }, 5500);
     }
-  }, [viewTokenID, drawOrder]);
+  }, [viewTokenID, drawOrder, setViewTokenID]);
 
   // TODO - Optimize this rendering method.
   return (

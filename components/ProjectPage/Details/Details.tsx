@@ -61,7 +61,7 @@ const Details = ({ project }: Props): JSX.Element => {
             viewTokenID={viewTokenID}
             setViewTokenID={setViewTokenID}
             drawOrder={drawOrder}
-          ></LayeredCollection>
+          />
         ) : (
           <>
             <St.Image src={image} alt="Project image" />
@@ -81,7 +81,7 @@ const Details = ({ project }: Props): JSX.Element => {
             setDrawOrder={setDrawOrder}
             drawOrder={drawOrder}
             setViewTokenID={setViewTokenID}
-          ></Shuffler>
+          />
         )}
         <St.AboutSection>
           <St.DescTitle>
