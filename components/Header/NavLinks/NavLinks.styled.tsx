@@ -15,7 +15,7 @@ export const Container = styled.div`
   }
 `;
 
-export const ProjectsMobileDiv = styled.div`
+export const DropDownMobileDiv = styled.div`
   position: relative;
   display: flex;
   align-items: center;

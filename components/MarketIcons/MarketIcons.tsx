@@ -2,10 +2,10 @@ import { Tooltip } from 'react-tooltip';
 import { type Project } from 'components/staticData/projects';
 import * as St from './MarketIcons.styled';
 import {
-  icons,
-  getProjectMarketLink,
   Market,
+  getProjectMarketLink,
   getTokenMarketLink,
+  icons,
 } from './icons';
 
 interface Props {

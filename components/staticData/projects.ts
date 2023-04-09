@@ -9,6 +9,11 @@ export enum Artist {
   ImmutableComputer = 'Immutable Computer',
 }
 
+export const artistUrls: Record<Artist, string> = {
+  [Artist.Matto]: 'https://matto.xyz',
+  [Artist.ImmutableComputer]: 'http://immutablecomputer.com/',
+};
+
 export interface Project {
   name: string;
   artist: Artist;
@@ -25,16 +30,22 @@ export interface Project {
   isMobileControls?: boolean;
   isAltGenerator?: boolean;
   useTokenName?: boolean;
-  license?: string;
   scriptType?: string;
   aspectRatio: number;
   status: Status;
   local: boolean;
   openSeaSlug: string;
   externalUrl?: string;
-  description: string;
-  interactivity?: string;
-  royalties?: string;
+  projectPageInfo: {
+    description: string;
+    collectionDetails: string;
+    date: string;
+    tools: string;
+    license: string;
+    notes?: string;
+    interactivity?: string;
+    royalties?: string;
+  };
 }
 
 export const projects: Project[] = [
@@ -52,15 +63,25 @@ export const projects: Project[] = [
     isTokenIdInTitle: false,
     status: Status.Upcoming,
     local: true,
-    description:
-      "100x10x1A is a composite artwork (token 0), made of 100 separate, generative component layers (tokens 1-100). The composite image and all component layers are generated and stored on-chain as SVGs. Component layers are drawn in the order specified by the smart contract.\n\nIndividual owners (and approved 'shufflers') can alter the appearance of the composite artwork by changing the drawing order. These shuffle operations carry a very small fee that is paid to the artist and platform (substratum). The artist can pause shuffling and can set a drawing order.",
     scriptType: 'Solidity',
     aspectRatio: 1,
     usesTransfers: false,
     website: 'https://matto.xyz/project/100x10x1',
     externalUrl: 'https://substratum.art/project/100x10x1',
-    license: 'CC BY-NC 4.0',
     contractAddress: '0x32a1918079034b610c27F43f8cb04EF121DcEeD0',
+    projectPageInfo: {
+      description: `100 component on-chain generative art layers (tokens 1 - 100).
+
+        10 SVG layers in each component token (randomly generated at mint).
+        
+        1 composite artwork (token 0) of stacked layers that component owners rearrange.`,
+      collectionDetails: 'Algorithmic edition of 100 layers',
+      date: 'Apr. 2023',
+      tools: 'Solidity',
+      notes:
+        'Inspired by smart-contract art, long-form generative art, and abstract expressionism, 100x10x1 - Composition A explores new ground in crypto art. It empowers the community of component token owners, giving them control over the composite artwork’s rendering - all on-chain and without dependencies.',
+      license: 'CC BY-NC 4.0',
+    },
   },
   {
     name: 'Crystallized Illusions',
@@ -79,10 +100,17 @@ export const projects: Project[] = [
     status: Status.Closed,
     local: true,
     scriptType: 'p5',
-    license: 'All Rights Reserved',
     openSeaSlug: 'crystallized-illusions',
-    description:
-      "Inspired by Buddhist philosophy, Crystallized Illusions is a collection of 99 pieces created through a generative process. Three variations of this process were made to correspond to the categories of illusions as described by Zhiyi (538-597 CE), the fourth patriarch of the T'ien-t'ai (or Tí Taî) Buddhist tradition. Each process was used to created 33 distinct images.",
+    projectPageInfo: {
+      description:
+        "Inspired by Buddhist philosophy, Crystallized Illusions is a collection of 99 pieces created through a generative process. Three variations of this process were made to correspond to the categories of illusions as described by Zhiyi (538-597 CE), the fourth patriarch of the T'ien-t'ai (or Tí Taî) Buddhist tradition. Each process was used to created 33 distinct images.",
+      collectionDetails: '99 curated 1/1s (three groups of 33)',
+      date: 'Sept. 3, 2021',
+      tools: 'Canon 7D, ActionScript, Photoshop',
+      notes:
+        'Originally minted and sold on Opensea, the upgraded project is now bridging to Substratum.',
+      license: 'CC BY-NC 4.0',
+    },
   },
   {
     name: 'Negative Carbon',
@@ -101,9 +129,16 @@ export const projects: Project[] = [
     local: true,
     openSeaSlug: 'negative-carbon',
     scriptType: 'p5.js',
-    license: 'All Rights Reserved',
-    description:
-      "Each Negative Carbon NFT (NCNFT) offsets more than its carbon footprint using rigorously validated, third-party audited, retired, carbon offsets. Each token is assigned an offset certificate and mint, and that certificate's serial number becomes the token's generative art's entropy. For more information, visit http://immutablecomputer.com/carbon.html.",
+    projectPageInfo: {
+      description:
+        "Each Negative Carbon NFT (NCNFT) offsets more than its carbon footprint using rigorously validated, third-party audited, retired, carbon offsets. Each token is assigned an offset certificate and mint, and that certificate's serial number becomes the token's generative art's entropy. For more information, visit http://immutablecomputer.com/carbon.html.",
+      collectionDetails: 'Algorithmic edition of 128',
+      date: 'Jan. 1, 2023',
+      tools: 'Solidity, p5.js',
+      notes:
+        'Token entropy is determined by its carbon offset serial number, and is not publicly mintable. The artist is minting, giving, and selling tokens as they see fit.',
+      license: 'CC BY-NC 4.0',
+    },
   },
   {
     name: 'Mathare Memories',
@@ -117,19 +152,24 @@ export const projects: Project[] = [
     aspectRatio: 1,
     isZeroIndexed: false,
     isTokenIdInTitle: true,
-    license: 'All Rights Reserved',
     scriptType: 'p5.js',
     usesTransfers: true,
     status: Status.Closed,
     local: true,
     openSeaSlug: 'mathare-memories',
-    description:
-      'Mathare Memories is an interactive, multimedia collection of 68 photographs taken in the Mathare slum of Nairobi, Kenya in 2007. High resolution images and audio files are permanently stored on Arweave, are backed up on Github, and are retrieved for display by on-chain JavaScript running in your browser.',
-    interactivity:
-      "Press 'P' or long press/click & release on an image to play a short audio recording of Matto reading the token's description. Press 'N' or double-click to display the next token in the collection, and press 'R' to return to the token's starting content. Press '<' or '>' to change the brightness of the matte displayed behind the image.",
-    royalties: `100% of all artist proceeds are being transparently directed to charity. 100% of all "creator" secondary fees are being transparently directed to charity. Matto and substratum.art (the platform that powers this multimedia collection) receive no compensation for this project.
+    projectPageInfo: {
+      description:
+        'Mathare Memories is an interactive, multimedia collection of 68 photographs taken in the Mathare slum of Nairobi, Kenya in 2007. High resolution images and audio files are permanently stored on Arweave, are backed up on Github, and are retrieved for display by on-chain JavaScript running in your browser.',
+      collectionDetails: '68 curated 1/1s',
+      date: 'Dec. 19, 2022',
+      tools: 'Canon 300D and A700, p5.js',
+      license: 'All Rights Reserved',
+      interactivity:
+        "Press 'P' or long press/click & release on an image to play a short audio recording of Matto reading the token's description. Press 'N' or double-click to display the next token in the collection, and press 'R' to return to the token's starting content. Press '<' or '>' to change the brightness of the matte displayed behind the image.",
+      royalties: `100% of all artist proceeds are being transparently directed to charity. 100% of all "creator" secondary fees are being transparently directed to charity. Matto and substratum.art (the platform that powers this multimedia collection) receive no compensation for this project.
 
-    As a 100% charity project, 10% royalties are expected to be paid on all sales and should be sent to the collection's smart contract address.`,
+      As a 100% charity project, 10% royalties are expected to be paid on all sales and should be sent to the collection's smart contract address.`,
+    },
   },
   {
     name: 'Texture and Hues',
@@ -146,11 +186,18 @@ export const projects: Project[] = [
     usesTransfers: false,
     status: Status.Closed,
     local: true,
-    license: 'CC BY-NC 4.0',
     openSeaSlug: 'texture-and-hues',
     scriptType: 'solidity',
-    description:
-      'Texture and Hues is an experimental project in minimalism. Images are vector graphic SVGs, and both the images and metadata are created on-chain. Coded by Matto.',
+    projectPageInfo: {
+      description:
+        'Texture and Hues is an experimental project in minimalism. Images are vector graphic SVGs, and both the images and metadata are created on-chain. Coded by Matto.',
+      collectionDetails: 'Algorithmic edition of 256',
+      date: 'Aug. 26, 2022',
+      tools: 'Solidity',
+      notes:
+        'Tokens were freely claimable by all BLONKS mintors who paid a mint fee (50% of which went to charity).',
+      license: 'CC BY-NC 4.0',
+    },
   },
   {
     name: 'Chainlife',
@@ -168,11 +215,18 @@ export const projects: Project[] = [
     status: Status.Minting,
     local: false,
     scriptType: 'p5.js',
-    license: 'CC BY-NC 4.0',
     openSeaSlug: 'chainlife-by-matto',
     externalUrl: 'https://chainlife.xyz/',
-    description:
-      "**Chainlife tokens:** microcosms of digital life that are interactive, evolving, and aware.\n\n**Chainlife world:** an ever-changing macrocosm that is controlled by you, that is collaborative, (also) on-chain, and extendible.\n\n**Chainlife forest:** growing a healthy forest ecosystem (not on-chain) to fight climate change and keep Chainlife carbon negative.\n\n**Chainlife project:** genesis project of Matto's blockchain interactive NFT platform, GenGames.\n\nLearn more at [chainlife.xyz](https://chainlife.xyz/).",
+    projectPageInfo: {
+      description:
+        'Chainlife is an interactive, evolving, collaborative, and extensible project exploring cellular automata. The individual tokens can be rendered in a variety of ways, and they combine together to form an everchanging world of on-chain data.',
+      collectionDetails: 'Algorithmic edition of 4096',
+      date: 'Nov. 6, 2022',
+      tools: 'Solidity, JavaScript, p5.js, Azure',
+      notes:
+        'The project is so complex it has its own website and documentation. Learn more at https://chainlife.xyz.',
+      license: 'CC BY-NC 4.0',
+    },
   },
   {
     name: 'BLONKS',
@@ -191,7 +245,16 @@ export const projects: Project[] = [
     local: false,
     openSeaSlug: 'blonks',
     externalUrl: 'https://blonks.xyz/',
-    description: 'BLONKS is',
+    projectPageInfo: {
+      description:
+        "BLONKS is a collection of 4,444 completely on-chain vector-graphic illustrations with personality and with unique design mechanics. BLONKS token images change their 'base' when transferred between wallets, they're licensed CC0, and they live on Ethereum.",
+      collectionDetails: 'Algorithmic edition of 4444',
+      date: 'May 24, 2022',
+      tools: 'Solidity',
+      notes:
+        "BLONKS are family friendly, have no external dependencies, are completely generative without predefined layers, and they change when they're transferred between wallets.",
+      license: 'CC0',
+    },
   },
 ];
 

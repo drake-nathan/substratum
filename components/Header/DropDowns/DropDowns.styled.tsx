@@ -5,8 +5,10 @@ type ShowDropDown = { showDropDown: boolean };
 
 export const Container = styled.div<ShowDropDown>`
   position: absolute;
+  z-index: 40;
   top: 31.5px;
   left: 0;
+  min-width: 230px;
   height: ${({ showDropDown }) => (showDropDown ? '190px' : '0px')};
   background-color: ${({ theme: { colors } }) => colors.bgMain};
   transition: all 0.3s ease;
@@ -18,7 +20,12 @@ export const Container = styled.div<ShowDropDown>`
     showDropDown && `outline: 1px solid ${theme.colors.textMain};`}
 `;
 
-export const ContainerArtists = styled(Container)``;
+export const ContainerArtists = styled(Container)`
+  left: auto;
+  right: 0;
+  height: ${({ showDropDown }) => (showDropDown ? '75px' : '0px')};
+  min-width: 250px;
+`;
 
 export const Project = styled.div`
   color: ${({ theme: { isMobile, colors } }) =>

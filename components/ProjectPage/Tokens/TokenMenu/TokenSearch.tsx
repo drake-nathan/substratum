@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { type Project } from 'components/staticData/projects';
 import * as St from './TokenSearch.styled';
 

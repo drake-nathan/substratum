@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import * as St from './Grid.styled';
-import { projects, ProjectSort, Status } from '../../../staticData/projects';
+import { ProjectSort, Status, projects } from '../../../staticData/projects';
 import TabBar from '../TabBar/TabBar';
 import Card from '../Card/Card';
 
