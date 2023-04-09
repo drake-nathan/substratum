@@ -4,10 +4,8 @@ export enum Status {
   Minting = 'Minting',
 }
 
-// test lint
-
 export enum Artist {
-  Matto = Artist.Matto,
+  Matto = 'Matto',
   ImmutableComputer = 'Immutable Computer',
 }
 
