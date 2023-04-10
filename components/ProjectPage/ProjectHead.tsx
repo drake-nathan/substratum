@@ -19,7 +19,10 @@ const ProjectHead = ({ project }: Props): JSX.Element => {
         </a>
       </St.ArtistDiv>
 
-      <MarketIcons project={project} />
+      <St.MarketIconsWrapper>
+        <MarketIcons project={project} />
+      </St.MarketIconsWrapper>
+
       <St.TokenStatus>
         {currentSupply}/{maxSupply} Tokens Minted
       </St.TokenStatus>

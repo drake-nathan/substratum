@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { IoReturnUpBackSharp } from 'react-icons/io5';
 
 export const Container = styled.div`
   display: flex;
@@ -110,21 +109,6 @@ export const Header = styled.h2`
   }
 `;
 
-// export const BackDiv = styled.div`
-//   display: flex;
-//   align-items: center;
-//   gap: 0.5em;
-
-//   :hover {
-//     cursor: pointer;
-//     color: ${({ theme: { colors } }) => colors.textMain};
-//   }
-// `;
-
-export const BackText = styled.h4`
-  font-weight: 500;
-`;
-
-export const BackIcon = styled(IoReturnUpBackSharp)`
-  font-size: 1.75rem;
+export const MarketIconsWrapper = styled.div`
+  margin-left: 0.25em;
 `;

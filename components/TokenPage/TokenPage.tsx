@@ -60,9 +60,13 @@ const TokenPage = ({ project, tokenId }: Props): JSX.Element => {
           </a>
         </St.ArtistDiv>
 
-        <MarketIcons project={project} tokenId={tokenId} />
+        <St.MarketIconsWrapper>
+          <MarketIcons project={project} tokenId={tokenId} />
+        </St.MarketIconsWrapper>
+
         <St.TokenStatus>Token ID: {tokenId}</St.TokenStatus>
       </St.TokenHead>
+
       <St.TokenInfoHeading>
         <St.Header>Token Information</St.Header>
       </St.TokenInfoHeading>

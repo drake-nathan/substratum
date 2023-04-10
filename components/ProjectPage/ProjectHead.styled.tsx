@@ -8,35 +8,12 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  /* gap: ${({ theme: { isMobile } }) => (isMobile ? '0' : '0.5em')}; */
-
-  /* @media (max-width: 1250px) {
-    align-items: center;
-  } */
 
   @media (max-width: 500px) {
     padding: 23px;
     margin-top: 1em;
   }
 `;
-
-// export const TitleContainer = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   border-bottom: 1px solid ${({ theme: { colors } }) => colors.textMain};
-
-//   // for adjusting the border
-//   @media (min-width: 776px) {
-//     width: 100%;
-//     max-width: 695px;
-//   }
-
-//   @media (max-width: 1250px) {
-//     text-align: center;
-//     align-items: center;
-//     gap: 0.5em;
-//   }
-// `;
 
 export const Title = styled.h1`
   font-size: 2.25rem;
@@ -45,19 +22,6 @@ export const Title = styled.h1`
     font-size: 1.5rem;
   }
 `;
-
-// export const BottomRow = styled.div`
-//   width: 100%;
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-
-//   @media (max-width: 775px) {
-//     flex-direction: column;
-//     gap: 1em;
-//     margin-bottom: 0.75em;
-//   }
-// `;
 
 export const ArtistDiv = styled.div`
   display: flex;
@@ -92,4 +56,8 @@ export const TokenStatus = styled.div`
   @media (max-width: 500px) {
     font-size: 18px;
   }
+`;
+
+export const MarketIconsWrapper = styled.div`
+  margin-left: 0.25em;
 `;
