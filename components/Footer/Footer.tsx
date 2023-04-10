@@ -10,11 +10,7 @@ const Footer = (): JSX.Element => {
 
       <St.InnerContainer>
         <St.Row>
-          <St.CopyrightIcon />{' '}
-          <St.Text>
-            Substratum
-            {year}
-          </St.Text>
+          <St.CopyrightIcon /> <St.Text>Substratum {year}</St.Text>
         </St.Row>
 
         <St.Row>

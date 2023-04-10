@@ -48,9 +48,8 @@ const TokenPage = ({ project, tokenId }: Props): JSX.Element => {
   return (
     <St.Container>
       <St.TokenHead>
-        {/* <St.TitleDiv> */}
         <Link href={projectLink} style={{ width: 'max-content' }}>
-          <St.Title>{`${name} #${tokenId + 1}`}</St.Title>
+          <St.Title>{`${name} #${tokenId}`}</St.Title>
         </Link>
 
         <St.ArtistDiv>
@@ -60,13 +59,9 @@ const TokenPage = ({ project, tokenId }: Props): JSX.Element => {
             <St.ArtistName>{artist}</St.ArtistName>
           </a>
         </St.ArtistDiv>
-        {/* </St.TitleDiv> */}
 
         <MarketIcons project={project} tokenId={tokenId} />
-        <St.TokenStatus>
-          Token ID:
-          {tokenId}
-        </St.TokenStatus>
+        <St.TokenStatus>Token ID: {tokenId}</St.TokenStatus>
       </St.TokenHead>
       <St.TokenInfoHeading>
         <St.Header>Token Information</St.Header>

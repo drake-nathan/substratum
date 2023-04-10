@@ -30,27 +30,18 @@ const TokenCard = ({ token }: Props): JSX.Element => {
       <St.DescriptionDiv>
         <Link href={tokenLink}>
           <St.Title>{name}</St.Title>
-          <St.Owner>By: 0x1abc7154748d1ce5144478cdeb574ae244b939b5</St.Owner>
+          {/* <St.Owner>By: 0x1abc7154748d1ce5144478cdeb574ae244b939b5</St.Owner> */}
           {/* FIXME - needs real owner data */}
         </Link>
 
-        <St.Text>
-          Token ID:
-          {tokenId}
-        </St.Text>
+        <St.Text>Token ID: {tokenId}</St.Text>
 
         {scriptInputs?.level_shift === undefined ? null : (
-          <St.Text>
-            Level Shift:
-            {scriptInputs.level_shift}
-          </St.Text>
+          <St.Text>Level Shift: {scriptInputs.level_shift}</St.Text>
         )}
 
         {scriptInputs?.transfer_count === undefined ? null : (
-          <St.Text>
-            Transfers:
-            {scriptInputs.transfer_count}
-          </St.Text>
+          <St.Text>Transfers: {scriptInputs.transfer_count}</St.Text>
         )}
       </St.DescriptionDiv>
     </St.Wrapper>

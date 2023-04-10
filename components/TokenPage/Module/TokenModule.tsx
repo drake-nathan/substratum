@@ -4,7 +4,7 @@ import type { IToken } from 'services/azureApi/types';
 import { type Project } from 'components/staticData/projects';
 import { useWindowSize } from 'hooks/useWindowSize';
 import Generator from 'components/Generator/Generator';
-import PriceIcon from 'public/icons/PriceIcon.svg';
+// import PriceIcon from 'public/icons/PriceIcon.svg';
 import BottomBar from './BottomBar/BottomBar';
 import Traits from './Traits/Traits';
 import OtherTokens from './OtherTokens/OtherTokens';
@@ -78,24 +78,22 @@ const TokenModule: React.FC<Props> = ({ token, project }) => {
 
         <St.StatsSection>
           <St.TokenIndex>
-            {isZeroIndexed ? tokenId + 1 : tokenId} of
-            {maxSupply}
+            {isZeroIndexed ? tokenId + 1 : tokenId} of {maxSupply}
           </St.TokenIndex>
           {/* FIXME needs api data for transactions on a token */}
-          <St.MintDateTime>Minted Apr 3, 2023, 9:23pm GMT-5</St.MintDateTime>
+          {/* <St.MintDateTime>Minted Apr 3, 2023, 9:23pm GMT-5</St.MintDateTime> */}
         </St.StatsSection>
 
-        <St.BuyToken>
+        {/* <St.BuyToken>
           <St.InfoTitle>Price</St.InfoTitle>
           <St.Price>
             20
             <PriceIcon className="coins" />
           </St.Price>
-          {/* eslint-disable no-alert */}
           <St.BuyButton onClick={() => alert('Coming soon!')}>
             Connect to Buy
           </St.BuyButton>
-        </St.BuyToken>
+        </St.BuyToken> */}
       </St.InfoGrid>
       <OtherTokens project={project} token={token} />
     </St.Container>

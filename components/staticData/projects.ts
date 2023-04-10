@@ -51,7 +51,7 @@ export interface Project {
 export const projects: Project[] = [
   // FIXME - this is only temporary: once the API is built, this project may come back with different properties than this. The only thing I need it to do right now is be a placeholder.
   {
-    name: '100x10x1A',
+    name: '100x10x1-A',
     projectSlug: '100x10x1-a',
     image: '/projects/100x10x1-a.png',
     artist: Artist.Matto,

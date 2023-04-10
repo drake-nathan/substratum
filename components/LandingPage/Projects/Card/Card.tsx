@@ -32,10 +32,7 @@ const Card = ({ project }: Props): JSX.Element => {
 
       <St.InfoSection>
         <St.ProjectTitle>{name}</St.ProjectTitle>
-        <St.ArtistName>
-          By
-          {artist}
-        </St.ArtistName>
+        <St.ArtistName>By {artist}</St.ArtistName>
 
         <St.SupplyText>
           {currentSupply ? intlNumberFormat(currentSupply) : 0}/
