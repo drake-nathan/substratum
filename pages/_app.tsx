@@ -1,4 +1,5 @@
 import '../styles/globals.css';
+import '../styles/spinner.css';
 import '../styles/fonts.css';
 import 'react-tooltip/dist/react-tooltip.css';
 import type { AppProps } from 'next/app';
