@@ -1,38 +1,55 @@
-import { useState } from 'react';
 import Link from 'next/link';
-import { Project } from '../projects';
+import { intlNumberFormat } from 'utils/helpers';
 import * as St from './Card.styled';
+import { Project } from '../../../staticData/projects';
 
 interface Props {
   project: Project;
 }
 
-const Card = ({
-  project: { name, image, local, externalUrl, projectSlug },
-}: Props): JSX.Element => {
-  const [showOverlay, setShowOverlay] = useState(false);
+const Card = ({ project }: Props): JSX.Element => {
+  const {
+    name,
+    artist,
+    image,
+    local,
+    projectSlug,
+    externalUrl,
+    currentSupply,
+    maxSupply,
+    status,
+  } = project;
 
   const CardJsx = (
-    <St.Container
-      onMouseEnter={() => setShowOverlay(true)}
-      onMouseLeave={() => setShowOverlay(false)}
-    >
-      <St.Img src={image} alt={name} />
-      <St.Overlay isShown={showOverlay} />
-      <St.OverlayText isShown={showOverlay}>{name}</St.OverlayText>
+    <St.Container>
+      <St.ImgSection>
+        <St.Img src={image} alt={name} />
+
+        <St.StatusDiv>
+          <St.StatusText>{status}</St.StatusText>
+        </St.StatusDiv>
+      </St.ImgSection>
+
+      <St.InfoSection>
+        <St.ProjectTitle>{name}</St.ProjectTitle>
+        <St.ArtistName>By {artist}</St.ArtistName>
+
+        <St.SupplyText>
+          {currentSupply ? intlNumberFormat(currentSupply) : 0}/
+          {intlNumberFormat(maxSupply)} Minted
+        </St.SupplyText>
+      </St.InfoSection>
     </St.Container>
   );
 
-  const renderCardWithLink = () =>
-    local ? (
-      <Link href={`/project/${projectSlug}`}>{CardJsx}</Link>
-    ) : (
-      <a href={externalUrl} target="_blank" rel="noreferrer">
-        {CardJsx}
-      </a>
-    );
-
-  return renderCardWithLink();
+  // render a link if the project is local, otherwise render an anchor tag
+  return local ? (
+    <Link href={`/project/${projectSlug}`}>{CardJsx}</Link>
+  ) : (
+    <a href={externalUrl} target="_blank" rel="noreferrer">
+      {CardJsx}
+    </a>
+  );
 };
 
 export default Card;

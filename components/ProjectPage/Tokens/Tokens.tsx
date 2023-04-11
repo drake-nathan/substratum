@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import { type QueryFunctionContext, useInfiniteQuery } from 'react-query';
 import { fetchCollectionTokens } from 'services/azureApi/fetches';
-import { type Project } from 'components/LandingPage/Projects/projects';
+import { type Project } from 'components/staticData/projects';
 import type { CollectionResponse } from 'services/azureApi/types';
 import TokenGrid from './TokenGrid/TokenGrid';
 import TokenMenu from './TokenMenu/TokenMenu';
+import { TokensContainer } from './Tokens.styled';
 
 interface Props {
   projectSlug: string;
@@ -12,7 +13,7 @@ interface Props {
 }
 
 const Tokens = ({ projectSlug, project }: Props): JSX.Element => {
-  const { isTokenIdInTitle, usesTransfers, aspectRatio } = project;
+  const { isTokenIdInTitle, usesTransfers } = project;
   // api query state
   const [sortDir, setSortDir] = useState<'asc' | 'desc'>('asc');
   const [sortType, setSortType] = useState<'tokenId' | 'worldLevel'>('tokenId');
@@ -32,18 +33,10 @@ const Tokens = ({ projectSlug, project }: Props): JSX.Element => {
       tokenSearchId,
     );
 
-  const {
-    error,
-    data,
-    isLoading,
-    isFetching,
-    isFetchingNextPage,
-    fetchNextPage,
-    refetch,
-    remove,
-  } = useInfiniteQuery<CollectionResponse, Error>('tokens', fetchQuery, {
-    getNextPageParam: (lastFetch) => lastFetch.skip + limit,
-  });
+  const { error, data, isLoading, isFetching, fetchNextPage, refetch, remove } =
+    useInfiniteQuery<CollectionResponse, Error>('tokens', fetchQuery, {
+      getNextPageParam: (lastFetch) => lastFetch.skip + limit,
+    });
 
   useEffect(() => {
     if (error) console.error(error.message);
@@ -57,14 +50,14 @@ const Tokens = ({ projectSlug, project }: Props): JSX.Element => {
   useEffect(() => {
     remove();
     refetch();
-  }, [sortDir, sortType, projectSlug]);
+  }, [sortDir, sortType, projectSlug, refetch, remove]);
 
   useEffect(() => {
     if (tokenSearchId) setHasMore(false);
   }, [tokenSearchId]);
 
   return (
-    <>
+    <TokensContainer>
       <TokenMenu
         project={project}
         usesTransfers={usesTransfers}
@@ -76,19 +69,30 @@ const Tokens = ({ projectSlug, project }: Props): JSX.Element => {
         setTokenSearchId={setTokenSearchId}
         refetch={refetch}
       />
-      <TokenGrid
-        data={data}
-        currentLength={currentLength}
-        hasMore={hasMore}
-        fetchNextPage={fetchNextPage}
-        error={error}
-        isLoading={isLoading}
-        isFetching={isFetching}
-        isFetchingNextPage={isFetchingNextPage}
-        isTokenIdInTitle={isTokenIdInTitle}
-        aspectRatio={aspectRatio}
-      />
-    </>
+      {projectSlug === '100x10x1-a' ? (
+        <TokenGrid
+          data={data}
+          currentLength={currentLength}
+          hasMore={hasMore}
+          fetchNextPage={fetchNextPage}
+          error={error}
+          isLoading={isLoading}
+          isFetching={isFetching}
+          isTokenIdInTitle={isTokenIdInTitle}
+        />
+      ) : (
+        <TokenGrid
+          data={data}
+          currentLength={currentLength}
+          hasMore={hasMore}
+          fetchNextPage={fetchNextPage}
+          error={error}
+          isLoading={isLoading}
+          isFetching={isFetching}
+          isTokenIdInTitle={isTokenIdInTitle}
+        />
+      )}
+    </TokensContainer>
   );
 };
 

@@ -3,14 +3,13 @@ import styled from 'styled-components';
 export const AppContainer = styled.div`
   min-height: 100vh;
   width: 100%;
-  padding: 0 0.5em;
 
   display: flex;
   flex-direction: column;
   align-items: stretch;
 
-  background-color: ${(props) => props.theme.colors.bgMain};
-  color: ${(props) => props.theme.colors.textMain};
+  background-color: ${({ theme: { colors } }) => colors.bgMain};
+  color: ${({ theme: { colors } }) => colors.textMain};
   cursor: default;
 `;
 

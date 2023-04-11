@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { useQuery } from 'react-query';
-import { useTheme } from 'styled-components';
 import { fetchToken } from 'services/azureApi/fetches';
-import { type Project } from 'components/LandingPage/Projects/projects';
+import { type Project } from 'components/staticData/projects';
 import type { IToken } from 'services/azureApi/types';
+import MarketIcons from 'components/MarketIcons/MarketIcons';
 import TokenModule from './Module/TokenModule';
 import * as St from './TokenPage.styled';
 
@@ -14,8 +14,6 @@ interface Props {
 
 const TokenPage = ({ project, tokenId }: Props): JSX.Element => {
   const { name, projectSlug, artist, website } = project;
-
-  const { isMobile } = useTheme();
 
   const projectLink = `/project/${projectSlug}`;
 
@@ -32,7 +30,12 @@ const TokenPage = ({ project, tokenId }: Props): JSX.Element => {
 
     if (error) {
       console.error(error);
-      return <p>Error: {error.message}</p>;
+      return (
+        <p>
+          Error:
+          {error.message}
+        </p>
+      );
     }
 
     if (token) {
@@ -44,31 +47,29 @@ const TokenPage = ({ project, tokenId }: Props): JSX.Element => {
 
   return (
     <St.Container>
-      <St.TitleHeader>
-        <St.TitleDiv>
-          <Link href={projectLink}>
-            <St.Title>{name}</St.Title>
-          </Link>
+      <St.TokenHead>
+        <Link href={projectLink} style={{ width: 'max-content' }}>
+          <St.Title>{`${name} #${tokenId}`}</St.Title>
+        </Link>
 
-          <St.ArtistDiv>
-            <St.By>By</St.By>
+        <St.ArtistDiv>
+          <St.By>By</St.By>
 
-            <a href={website} target="_blank" rel="noreferrer">
-              <St.ArtistName>{artist}</St.ArtistName>
-            </a>
-          </St.ArtistDiv>
-        </St.TitleDiv>
+          <a href={website} target="_blank" rel="noreferrer">
+            <St.ArtistName>{artist}</St.ArtistName>
+          </a>
+        </St.ArtistDiv>
 
-        {!isMobile && (
-          <Link href={projectLink}>
-            <St.BackDiv>
-              <St.BackIcon />
+        <St.MarketIconsWrapper>
+          <MarketIcons project={project} tokenId={tokenId} />
+        </St.MarketIconsWrapper>
 
-              <St.BackText>Back to Collection</St.BackText>
-            </St.BackDiv>
-          </Link>
-        )}
-      </St.TitleHeader>
+        <St.TokenStatus>Token ID: {tokenId}</St.TokenStatus>
+      </St.TokenHead>
+
+      <St.TokenInfoHeading>
+        <St.Header>Token Information</St.Header>
+      </St.TokenInfoHeading>
 
       {renderToken()}
     </St.Container>

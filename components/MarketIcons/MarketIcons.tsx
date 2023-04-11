@@ -1,13 +1,12 @@
-import Image from 'next/image';
 import { Tooltip } from 'react-tooltip';
-import { type Project } from 'components/LandingPage/Projects/projects';
-import {
-  icons,
-  getProjectMarketLink,
-  Market,
-  getTokenMarketLink,
-} from './icons';
+import { type Project } from 'components/staticData/projects';
 import * as St from './MarketIcons.styled';
+import {
+  Market,
+  getProjectMarketLink,
+  getTokenMarketLink,
+  icons,
+} from './icons';
 
 interface Props {
   project: Project;
@@ -16,8 +15,6 @@ interface Props {
 
 const MarketIcons = ({ project, tokenId }: Props): JSX.Element => {
   const { openSeaSlug, contractAddress } = project;
-
-  const iconSize = 20;
 
   // need this since zero is falsy
   const isToken = tokenId !== undefined;
@@ -28,12 +25,12 @@ const MarketIcons = ({ project, tokenId }: Props): JSX.Element => {
         // skip etherscan for token version
         if (icon.market === Market.Etherscan && isToken) return null;
         const {
-          src,
           id,
           altCollection,
           altToken,
           tooltipCollection,
           tooltipToken,
+          src: Icon,
         } = icon;
 
         const alt = isToken ? altToken : altCollection;
@@ -44,13 +41,7 @@ const MarketIcons = ({ project, tokenId }: Props): JSX.Element => {
 
         return (
           <a key={id} href={link} target="_blank" rel="noreferrer">
-            <Image
-              id={id}
-              src={src}
-              alt={alt}
-              width={iconSize}
-              height={iconSize}
-            />
+            <Icon id={id} alt={alt} className="icon" />
 
             <Tooltip
               anchorId={id}

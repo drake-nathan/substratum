@@ -20,7 +20,7 @@ const Traits: React.FC<Props> = ({ traits }) => {
 
   const shortenTrait = (trait: string) => {
     if (trait.length > maxTraitLength) {
-      return trait.slice(0, maxTraitLength) + '...';
+      return `${trait.slice(0, maxTraitLength)}...`;
     }
     return trait;
   };
@@ -34,7 +34,8 @@ const Traits: React.FC<Props> = ({ traits }) => {
       <St.Table>
         {traits.map((trait) => {
           const { trait_type: name, value } = trait;
-          const processedValue = typeof value === 'string' ? shortenTrait(value) : value;
+          const processedValue =
+            typeof value === 'string' ? shortenTrait(value) : value;
           const isTraitShortened =
             typeof value === 'string' && value.length > maxTraitLength;
           const isLink = typeof value === 'string' && value.includes('http');

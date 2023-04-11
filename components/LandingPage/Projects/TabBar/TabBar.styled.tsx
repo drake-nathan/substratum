@@ -1,52 +1,59 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1em;
+type Width = { width: number };
 
-  @media (max-width: 915px) {
-    justify-content: space-evenly;
+export const Container = styled.div<Width>`
+  width: ${({ width }) => width}px;
+  max-width: calc(100% - 180px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0 0.5em;
+
+  @media (max-width: 500px) {
+    padding: 0;
+    max-width: calc(100% - 3em);
   }
 `;
 
-export const TitleContainer = styled.div`
-  border-bottom: 1px solid ${({ theme: { colors } }) => colors.textOffset};
-  min-width: 275px;
-`;
-
 export const Title = styled.h2`
-  font-weight: 400;
+  padding-bottom: 0.25em;
+
+  @media (max-width: 500px) {
+    font-size: 14px;
+  }
 `;
 
 export const TabsContainer = styled.div`
   display: flex;
   align-items: center;
-  border: 2px solid ${({ theme: { colors } }) => colors.textMain};
-  max-width: 275px;
+  gap: 3em;
 
   .active {
-    background-color: ${({ theme: { colors } }) => colors.textMain};
-    color: ${({ theme: { colors } }) => colors.bgOffset};
+    border-color: ${({ theme: { colors } }) => colors.textMain};
+  }
+
+  @media (max-width: 500px) {
+    gap: 0.375em;
   }
 `;
 
 export const Tab = styled.div`
-  min-width: 75px;
   text-align: center;
-  padding: 0 0.75em;
+  padding: 0 1em 0.5em;
   transition: all 0.3s ease;
-
-  :not(:last-child) {
-    border-right: 2px solid ${({ theme: { colors } }) => colors.textMain};
-  }
+  font-family: 'basic-sans', sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  font-style: italic;
+  border-bottom: 2px solid transparent;
 
   :hover {
-    background-color: ${({ theme: { colors } }) => colors.teal};
-    color: ${({ theme: { colors } }) => colors.bgMain};
     cursor: pointer;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 14px;
+    padding: 0 0.25em 0.25em;
   }
 `;

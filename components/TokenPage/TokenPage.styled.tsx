@@ -1,49 +1,62 @@
 import styled from 'styled-components';
-import { IoReturnUpBackSharp } from 'react-icons/io5';
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 90%;
-  max-width: 1200px;
-  margin-top: ${({ theme: { isMobile } }) => (isMobile ? '1em' : '2em')};
-  gap: 0.25em;
-
-  @media (max-width: 1000px) {
-    width: min-content;
-  }
+  width: 100%;
 `;
 
-export const TitleHeader = styled.div`
+export const TokenHead = styled.div`
   display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  ${({ theme: { isMobile } }) => isMobile && `margin-bottom: 1em;`}
+  flex-direction: column;
+  width: 100%;
+  padding: 5em;
+  margin-top: 1.75em;
+
+  @media (max-width: 800px) {
+    padding: 3em;
+    margin-top: 1.25em;
+  }
+
+  @media (max-width: 500px) {
+    padding: 23px;
+    margin-top: 1em;
+  }
 `;
 
 export const Title = styled.h1`
-  font-size: ${({ theme: { isMobile } }) => (isMobile ? '2rem' : '2.25rem')};
-  letter-spacing: 3px;
+  @media (max-width: 800px) {
+    font-size: 1.75rem;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 1.5rem;
+  }
 
   :hover {
     cursor: pointer;
-    color: ${({ theme: { colors } }) => colors.teal};
+    color: ${({ theme: { colors } }) => colors.hover};
   }
-`;
-
-export const TitleDiv = styled.div`
-  display: flex;
-  flex-direction: column;
 `;
 
 export const ArtistDiv = styled.div`
   display: flex;
-  align-items: baseline;
   gap: 0.5em;
+  margin-bottom: 1.5em;
 
   h3 {
-    font-size: 1.25rem;
-    letter-spacing: 1.5px;
+    font-family: 'basic-sans', sans-serif !important;
+    font-size: 32px;
+    font-style: italic;
+    text-transform: initial;
+
+    @media (max-width: 800px) {
+      font-size: 26px;
+    }
+
+    @media (max-width: 500px) {
+      font-size: 22px;
+    }
   }
 `;
 
@@ -53,25 +66,49 @@ export const By = styled.h3`
 
 export const ArtistName = styled.h3`
   :hover {
-    color: ${({ theme: { colors } }) => colors.teal};
+    color: ${({ theme: { colors } }) => colors.hover};
   }
 `;
 
-export const BackDiv = styled.div`
+export const TokenStatus = styled.div`
+  font-family: 'basic-sans', sans-serif;
+  font-size: 26px;
+  font-style: italic;
+  @media (max-width: 800px) {
+    font-size: 22px;
+  }
+  @media (max-width: 500px) {
+    font-size: 18px;
+  }
+`;
+
+export const TokenInfoHeading = styled.div`
+  width: 100%;
   display: flex;
-  align-items: center;
-  gap: 0.5em;
+  align-items: flex-start;
+  padding: 0 5em;
+  border-bottom: 1px solid ${({ theme: { colors } }) => colors.textMain};
 
-  :hover {
-    cursor: pointer;
-    color: ${({ theme: { colors } }) => colors.teal};
+  @media (max-width: 800px) {
+    padding: 0 3em;
+  }
+  @media (max-width: 500px) {
+    padding: 0 23px;
   }
 `;
 
-export const BackText = styled.h4`
-  font-weight: 500;
+export const Header = styled.h2`
+  margin-bottom: 0.25em;
+
+  @media (max-width: 800px) {
+    font-size: 1.3em;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 1.2em;
+  }
 `;
 
-export const BackIcon = styled(IoReturnUpBackSharp)`
-  font-size: 1.75rem;
+export const MarketIconsWrapper = styled.div`
+  margin-left: 0.25em;
 `;

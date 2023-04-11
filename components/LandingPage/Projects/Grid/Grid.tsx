@@ -1,28 +1,35 @@
-import { useState, useEffect } from 'react';
-import Card from '../Card/Card';
-import { projects, ProjectSort, Project } from '../projects';
-import TabBar from '../TabBar/TabBar';
+import { useState } from 'react';
 import * as St from './Grid.styled';
+import { ProjectSort, Status, projects } from '../../../staticData/projects';
+import TabBar from '../TabBar/TabBar';
+import Card from '../Card/Card';
 
-const Grid = (): JSX.Element => {
-  const [activeTab, setActiveTab] = useState<ProjectSort>(ProjectSort.all);
-  const [filteredProjects, setFilteredProjects] = useState<Project[]>(projects);
+interface Props {
+  width: number;
+}
 
-  useEffect(() => {
-    if (activeTab === ProjectSort.minting) {
-      setFilteredProjects(projects.filter((project) => project.mintable));
-    } else if (activeTab === ProjectSort.upcoming) {
-      setFilteredProjects(projects.filter((project) => project.upcoming));
-    } else {
-      setFilteredProjects(projects);
+const Grid = ({ width }: Props): JSX.Element => {
+  const [activeTab, setActiveTab] = useState<ProjectSort>(ProjectSort.All);
+
+  const filteredProjects = projects.filter((project) => {
+    if (activeTab === ProjectSort.Minting) {
+      return project.status === Status.Minting;
     }
-  }, [activeTab]);
+    if (activeTab === ProjectSort.Upcoming) {
+      return project.status === Status.Upcoming;
+    }
+    if (activeTab === ProjectSort.Closed) {
+      return project.status === Status.Closed;
+    }
+    return true;
+  });
 
   return (
     <St.Container>
-      <TabBar activeTab={activeTab} setActiveTab={setActiveTab} />
+      <TabBar activeTab={activeTab} setActiveTab={setActiveTab} width={width} />
 
-      <St.Grid>
+      <St.Divider />
+      <St.Grid width={width}>
         {filteredProjects.map((project) => (
           <Card project={project} key={project.name} />
         ))}

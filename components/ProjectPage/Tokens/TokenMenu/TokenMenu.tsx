@@ -1,6 +1,6 @@
+import { type Project } from 'components/staticData/projects';
 import * as St from './TokenMenu.styled';
 import TokenSearch from './TokenSearch';
-import { type Project } from 'components/LandingPage/Projects/projects';
 
 interface Props {
   project: Project;
@@ -25,63 +25,67 @@ const TokenMenu = ({
   setTokenSearchId,
   refetch,
 }: Props): JSX.Element => {
-  const { projectSlug, currentSupply, maxSupply } = project;
+  const { projectSlug } = project;
 
   return (
     <St.Container>
-      <St.RightDiv>
-        <TokenSearch
-          project={project}
-          tokenId={tokenSearchId}
-          setTokenId={setTokenSearchId}
-          refetch={refetch}
-        />
+      {/* <St.RightDiv> */}
+      <TokenSearch
+        project={project}
+        tokenId={tokenSearchId}
+        setTokenId={setTokenSearchId}
+        refetch={refetch}
+      />
 
-        <St.SortDiv>
-          <St.SortText>Sort by:</St.SortText>
-          <St.TextButton
-            className={sortType === 'tokenId' ? '' : 'inactive'}
-            onClick={() => {
-              if (sortType === 'worldLevel') setSortDir('asc');
-              setSortType('tokenId');
-            }}
-          >
-            Token ID
-          </St.TextButton>
+      <St.SortDiv>
+        {/* <St.SortText>Sort by:</St.SortText> */}
+        <St.TextButton
+          className={`${
+            sortType === 'tokenId' ? '' : 'inactive'
+          } special-artist-name`}
+          onClick={() => {
+            if (sortType === 'worldLevel') setSortDir('asc');
+            setSortType('tokenId');
+          }}
+        >
+          ID
+        </St.TextButton>
 
-          {usesTransfers && (
-            <>
-              <St.SubtleText>|</St.SubtleText>
-              <St.TextButton
-                className={sortType === 'worldLevel' ? '' : 'inactive'}
-                onClick={() => {
-                  if (sortType === 'tokenId') setSortDir('desc');
-                  setSortType('worldLevel');
-                }}
-              >
-                {projectSlug === 'chainlife' ||
-                projectSlug === 'chainlife-testnet'
-                  ? 'World Level'
-                  : 'Transfers'}
-              </St.TextButton>
-            </>
+        {usesTransfers && (
+          <>
+            <St.SubtleText className="special-artist-name">|</St.SubtleText>
+            <St.TextButton
+              className={`${
+                sortType === 'worldLevel' ? '' : 'inactive'
+              } special-artist-name`}
+              onClick={() => {
+                if (sortType === 'tokenId') setSortDir('desc');
+                setSortType('worldLevel');
+              }}
+            >
+              {projectSlug === 'chainlife' ||
+              projectSlug === 'chainlife-testnet'
+                ? 'World Level'
+                : 'Transfers'}
+            </St.TextButton>
+          </>
+        )}
+
+        <St.SortButton>
+          {sortDir === 'asc' ? (
+            <St.SortIconAsc
+              className="icon"
+              onClick={() => setSortDir('desc')}
+            />
+          ) : (
+            <St.SortIconDesc
+              className="icon"
+              onClick={() => setSortDir('asc')}
+            />
           )}
-
-          <St.SortButton>
-            {sortDir === 'asc' ? (
-              <St.SortIconAsc
-                className="icon"
-                onClick={() => setSortDir('desc')}
-              />
-            ) : (
-              <St.SortIconDesc
-                className="icon"
-                onClick={() => setSortDir('asc')}
-              />
-            )}
-          </St.SortButton>
-        </St.SortDiv>
-      </St.RightDiv>
+        </St.SortButton>
+      </St.SortDiv>
+      {/* </St.RightDiv> */}
     </St.Container>
   );
 };

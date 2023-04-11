@@ -1,8 +1,7 @@
-import * as St from './TokenSearch.styled';
 import { useEffect, useState } from 'react';
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { type Project } from 'components/LandingPage/Projects/projects';
-import { kanit } from 'styles/fonts';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { type Project } from 'components/staticData/projects';
+import * as St from './TokenSearch.styled';
 
 type IToken = { tokenId: number };
 
@@ -49,7 +48,7 @@ const TokenSearch = ({
 
   useEffect(() => {
     if (currentSupply && tokenId && tokenId > maxToken) {
-      setErrorText('Max Token ID is ' + maxToken);
+      setErrorText(`Max Token ID is ${maxToken}`);
       setTokenId(currentSupply - indexCorrection);
     } else if (!isZeroIndexed && tokenId !== null && tokenId < 1) {
       setErrorText('Min Token ID is 1');
@@ -58,19 +57,24 @@ const TokenSearch = ({
       setErrorText('Min Token ID is 0');
       setTokenId(0);
     } else if (Number.isNaN(tokenId)) setTokenId(null);
-  }, [tokenId]);
+  }, [
+    tokenId,
+    currentSupply,
+    maxToken,
+    isZeroIndexed,
+    indexCorrection,
+    setTokenId,
+  ]);
 
   useEffect(() => {
     setTokenId(null);
-  }, [project]);
+  }, [project, setTokenId]);
 
   return (
     <>
-      {errorText && <St.ErrorText>{errorText}</St.ErrorText>}
-
       <St.Form id="token-page-form" onSubmit={handleSubmit(onSubmit)}>
         <St.Input
-          className={kanit.className}
+          className="special-artist-name"
           type="number"
           {...register('tokenId', {
             valueAsNumber: true,
@@ -82,8 +86,8 @@ const TokenSearch = ({
           id="enter-id"
           value={tokenId || tokenId === 0 ? tokenId : ''}
           autoComplete="off"
-          onChange={(e) => setTokenId(parseInt(e.target.value))}
-          placeholder="Token ID Search"
+          onChange={(e) => setTokenId(parseInt(e.target.value, 10))}
+          placeholder="Search By Token ID"
           onBlur={() => {
             if (tokenId === null || (tokenId === undefined && tokenId !== 0)) {
               setTokenId(null);
@@ -92,6 +96,9 @@ const TokenSearch = ({
           }}
         />
       </St.Form>
+      {errorText && (
+        <St.ErrorText className="special-artist-name">{errorText}</St.ErrorText>
+      )}
     </>
   );
 };

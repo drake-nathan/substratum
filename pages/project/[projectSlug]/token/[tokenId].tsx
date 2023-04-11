@@ -3,7 +3,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import TokenPage from 'components/TokenPage/TokenPage';
-import { projects } from 'components/LandingPage/Projects/projects';
+import { projects } from 'components/staticData/projects';
 
 const Home: NextPage = () => {
   const { projectSlug, tokenId: tokenIdQuery } = useRouter().query;
@@ -88,7 +88,9 @@ const Home: NextPage = () => {
     return <h1>Loading...</h1>;
   };
 
-  const title = projectName ? `substratum | ${projectName} #${tokenId}` : 'substratum';
+  const title = projectName
+    ? `substratum | ${projectName} #${tokenId}`
+    : 'substratum';
 
   return (
     <>

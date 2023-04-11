@@ -7,14 +7,14 @@ import styled from 'styled-components';
 
 const HomeContainer = styled.div`
   width: 100%;
-  max-width: 900px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 1em;
 `;
 
 const Home: NextPage = () => {
+  const width = 1424;
+
   return (
     <HomeContainer>
       <Head>
@@ -22,8 +22,8 @@ const Home: NextPage = () => {
         <meta name="description" content="substratum" />
       </Head>
 
-      <Hero />
-      <Projects />
+      <Hero width={width} />
+      <Projects width={width} />
     </HomeContainer>
   );
 };

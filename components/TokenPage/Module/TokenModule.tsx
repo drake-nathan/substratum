@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import type { IToken } from 'services/azureApi/types';
-import { type Project } from 'components/LandingPage/Projects/projects';
+import { type Project } from 'components/staticData/projects';
 import { useWindowSize } from 'hooks/useWindowSize';
-import TopBar from './TopBar/TopBar';
 import Generator from 'components/Generator/Generator';
+// import PriceIcon from 'public/icons/PriceIcon.svg';
+import BottomBar from './BottomBar/BottomBar';
 import Traits from './Traits/Traits';
-import TokenIcons from './TokenIcons/TokenIcons';
+import OtherTokens from './OtherTokens/OtherTokens';
 import * as St from './TokenModule.styled';
 
 interface Props {
@@ -15,8 +16,14 @@ interface Props {
 }
 
 const TokenModule: React.FC<Props> = ({ token, project }) => {
-  const { image, image_mid: imageMid, generator_url: generatorUrl, attributes } = token;
-  const { aspectRatio } = project;
+  const {
+    image,
+    image_mid: imageMid,
+    generator_url: generatorUrl,
+    attributes,
+    token_id: tokenId,
+  } = token;
+  const { aspectRatio, maxSupply, isZeroIndexed } = project;
 
   const { windowWidth } = useWindowSize();
 
@@ -39,26 +46,56 @@ const TokenModule: React.FC<Props> = ({ token, project }) => {
 
   return (
     <St.Container>
-      <TopBar token={token} project={project} />
-
-      <St.InnerContainer height={height} width={width}>
-        {generatorUrl ? (
-          <Generator generatorUrl={generatorUrl} height={height} width={width} />
-        ) : (
-          <Image
-            src={imageMid || image}
-            alt="Token Image"
-            width={width}
-            height={height}
-          />
-        )}
-
-        {windowWidth <= 650 && <TokenIcons token={token} project={project} />}
+      <St.InfoGrid>
+        <St.TokenNameAndOwner>
+          <St.TokenName>{token.name}</St.TokenName>
+          <St.TokenOwner className="special-artist-name">
+            Owner: 0x1abc7154748d1ce5144478cdeb574ae244b939b5
+          </St.TokenOwner>
+          {/* FIXME */}
+        </St.TokenNameAndOwner>
+        <St.Token>
+          {generatorUrl ? (
+            <Generator
+              generatorUrl={generatorUrl}
+              height={height}
+              width={width}
+            />
+          ) : (
+            <Image
+              src={imageMid || image}
+              alt="Token Image"
+              width={width}
+              height={height}
+            />
+          )}
+          <BottomBar token={token} project={project} />
+        </St.Token>
 
         <St.TraitsWrapper>
           <Traits traits={attributes} />
         </St.TraitsWrapper>
-      </St.InnerContainer>
+
+        <St.StatsSection>
+          <St.TokenIndex>
+            {isZeroIndexed ? tokenId + 1 : tokenId} of {maxSupply}
+          </St.TokenIndex>
+          {/* FIXME needs api data for transactions on a token */}
+          {/* <St.MintDateTime>Minted Apr 3, 2023, 9:23pm GMT-5</St.MintDateTime> */}
+        </St.StatsSection>
+
+        {/* <St.BuyToken>
+          <St.InfoTitle>Price</St.InfoTitle>
+          <St.Price>
+            20
+            <PriceIcon className="coins" />
+          </St.Price>
+          <St.BuyButton onClick={() => alert('Coming soon!')}>
+            Connect to Buy
+          </St.BuyButton>
+        </St.BuyToken> */}
+      </St.InfoGrid>
+      <OtherTokens project={project} token={token} />
     </St.Container>
   );
 };

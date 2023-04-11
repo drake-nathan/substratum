@@ -1,71 +1,51 @@
 import styled from 'styled-components';
-import { CgSortZa, CgSortAz } from 'react-icons/cg';
+import { CgSortAz, CgSortZa } from 'react-icons/cg';
 
 export const Container = styled.div`
   display: flex;
   justify-content: space-between;
-  flex-direction: row-reverse;
-  align-items: flex-end;
-  width: 100%;
-  padding: 1em 3em;
   gap: 1em;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-    padding: 1em;
-    gap: 2em;
-  }
-`;
-
-export const StatsDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.25em;
-
-  @media (max-width: 768px) {
-    margin: 0 1em;
-  }
-`;
-
-export const RightDiv = styled.div`
-  display: flex;
+  /* flex-direction: row-reverse; */
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 
-  @media (max-width: 1100px) {
-    flex-direction: column;
-    justify-content: center;
-    gap: 1em;
+  background-color: #f4f1ed;
+  width: 100%;
+  padding: 1em 0;
+  margin: 3em 0;
+
+  @media (max-width: 800px) {
+    padding: 0.5em 0;
   }
 
-  @media (max-width: 768px) {
-    gap: 1.5em;
+  @media (max-width: 800px) {
+    margin: 1em 0;
   }
 `;
 
 export const SortDiv = styled.div`
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 0.75em;
+  margin-right: 15px;
 
   .inactive {
-    font-weight: 500;
-    color: ${({ theme }) => theme.colors.textOffset};
+    font-weight: 300;
   }
 
   .icon {
     font-size: 2.125rem;
     cursor: pointer;
 
-    @media (max-width: 768px) {
-      font-size: 1.875rem;
+    @media (max-width: 800px) {
+      font-size: 1.5rem;
     }
   }
 
-  @media (max-width: 400px) {
-    gap: 0.5em;
+  @media (max-width: 800px) {
+    gap: 0.2em;
   }
 `;
 
@@ -81,31 +61,20 @@ export const Stat = styled.span`
 `;
 
 export const SubtleText = styled.span`
-  font-size: 1.25rem;
-  font-weight: 500;
-  color: ${(props) => props.theme.colors.textOffset};
-`;
-
-export const SortText = styled.span`
-  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: inherit;
+  margin-left: 2px;
+  color: #00000079;
   font-weight: 600;
-
-  @media (max-width: 400px) {
-    font-size: 1.125rem;
-  }
 `;
 
 export const TextButton = styled.span`
-  font-size: 1.25rem;
-  font-weight: 600;
   cursor: pointer;
+  color: #00000079;
+  font-weight: 600;
 
   :hover {
-    color: ${(props) => props.theme.colors.teal};
-  }
-
-  @media (max-width: 400px) {
-    font-size: 1.125rem;
+    color: ${(props) => props.theme.colors.hover};
   }
 `;
 
@@ -114,15 +83,20 @@ export const SortButton = styled.div`
   align-items: center;
   justify-content: center;
   padding: 0.25em;
-  margin-left: -0.25em;
+  color: #00000079;
+  font-weight: 600;
 
   :hover {
     box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2);
     border-radius: 50%;
-    color: ${(props) => props.theme.colors.teal};
+    color: ${(props) => props.theme.colors.hover};
   }
 `;
 
-export const SortIconAsc = styled(CgSortZa)``;
+export const SortIconAsc = styled(CgSortZa)`
+  font-weight: 300;
+`;
 
-export const SortIconDesc = styled(CgSortAz)``;
+export const SortIconDesc = styled(CgSortAz)`
+  font-weight: 300;
+`;

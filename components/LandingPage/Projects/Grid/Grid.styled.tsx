@@ -1,21 +1,39 @@
 import styled from 'styled-components';
 
+type Width = { width: number };
+
 export const Container = styled.div`
-  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 1em;
+  align-items: center;
+  width: 100%;
   margin-top: 5em;
+
+  @media (max-width: 500px) {
+    margin-top: 1em;
+  }
 `;
 
-export const Grid = styled.div`
+export const Divider = styled.hr`
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 21px;
+  border: 0.5px solid ${({ theme: { colors } }) => colors.textMain};
+`;
 
-  @media (max-width: 915px) {
-    justify-content: space-evenly;
+export const Grid = styled.div<Width>`
+  width: ${({ width }) => width}px;
+  max-width: calc(100% - 180px);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  @media (max-width: 1400px) {
+    grid-template-columns: 1fr 1fr;
   }
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr;
+  }
+  @media (max-width: 500px) {
+    max-width: calc(100% - 3em);
+  }
+  gap: 2em;
+  padding-top: 1em;
+  margin-top: 2em;
 `;
