@@ -110,6 +110,8 @@ export const projects: Project[] = [
       notes:
         'Originally minted and sold on Opensea, the upgraded project is now bridging to Substratum.',
       license: 'CC BY-NC 4.0',
+      interactivity:
+        "Double click on the image to mirror it along one axis, double click again to mirror along the other axis, and double click a third time to see the image mirrored along both axes. A final double-click will return the token to 'normal'.",
     },
   },
   {

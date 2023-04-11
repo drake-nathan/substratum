@@ -11,7 +11,10 @@ const ProjectHead = ({ project }: Props): JSX.Element => {
 
   return (
     <St.Container>
-      <St.Title>{name}</St.Title>
+      <St.Title>
+        {name} {name === '100x10x1-A' && '(Testnet Demo)'}
+      </St.Title>
+
       <St.ArtistDiv>
         <St.By>By</St.By>{' '}
         <a href={website} target="_blank" rel="noreferrer">
