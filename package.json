@@ -11,11 +11,6 @@
     "type": "tsc --pretty --noEmit",
     "prepare": "husky install"
   },
-  "engines": {
-    "node": "^18.14.0",
-    "npm": "^8.15.0",
-    "yarn": "^1.22.15"
-  },
   "dependencies": {
     "@babel/core": "^7.20.12",
     "@next/font": "^13.1.5",
