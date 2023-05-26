@@ -1,3 +1,1 @@
-export const intlNumberFormat = (value: number) => {
-  return new Intl.NumberFormat().format(value);
-};
+export const intlNumberFormat = (value: number) => new Intl.NumberFormat().format(value);
