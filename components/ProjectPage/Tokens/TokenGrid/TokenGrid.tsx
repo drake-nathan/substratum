@@ -26,6 +26,8 @@ const TokenGrid = ({
   isTokenIdInTitle,
 }: Props): JSX.Element => (
   <St.Container>
+    {/* FIXME: */}
+    {/* eslint-disable-next-line no-nested-ternary */}
     {tokens ? (
       <InfiniteScroll
         dataLength={currentLength}
