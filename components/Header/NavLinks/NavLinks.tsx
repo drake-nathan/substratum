@@ -30,9 +30,7 @@ const NavLinks = ({ setShowMobileNav }: Props): JSX.Element => {
           Projects
         </St.Text>
         {!isMobile && (
-          <St.DropdownIcon
-            className={showProjectsDropDown ? 'dropdown-flip' : ''}
-          />
+          <St.DropdownIcon className={showProjectsDropDown ? 'dropdown-flip' : ''} />
         )}
       </St.Tab>
 
@@ -62,9 +60,7 @@ const NavLinks = ({ setShowMobileNav }: Props): JSX.Element => {
           Artists
         </St.Text>
         {!isMobile && (
-          <St.DropdownIcon
-            className={showArtistsDropDown ? 'dropdown-flip' : ''}
-          />
+          <St.DropdownIcon className={showArtistsDropDown ? 'dropdown-flip' : ''} />
         )}
       </St.Tab>
 
@@ -86,23 +82,13 @@ const NavLinks = ({ setShowMobileNav }: Props): JSX.Element => {
         <St.DropDownMobileDiv>{projectsTab}</St.DropDownMobileDiv>
       )}
 
-      {!isMobile ? (
-        artistsTab
-      ) : (
-        <St.DropDownMobileDiv>{artistsTab}</St.DropDownMobileDiv>
-      )}
-
-      {/* <St.Tab>
-        <a href="https://docs.chainlife.xyz/" rel="noreferrer" target="_blank">
-          <St.Text onClick={() => setShowMobileNav(false)}>About</St.Text>
-        </a>
-      </St.Tab>
+      {!isMobile ? artistsTab : <St.DropDownMobileDiv>{artistsTab}</St.DropDownMobileDiv>}
 
       <St.Tab>
-        <a href="https://docs.chainlife.xyz/" rel="noreferrer" target="_blank">
-          <St.Text onClick={() => setShowMobileNav(false)}>Docs</St.Text>
+        <a href="https://market.substratum.art/" rel="noreferrer" target="_blank">
+          <St.Text onClick={() => setShowMobileNav(false)}>Market</St.Text>
         </a>
-      </St.Tab> */}
+      </St.Tab>
 
       {!isMobile && (
         <ProjectsDropDown
