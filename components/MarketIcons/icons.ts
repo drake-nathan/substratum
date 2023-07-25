@@ -1,11 +1,11 @@
-import OpenSeaLogo from 'public/icons/OpenSeaLogo.svg';
+import FirstMateLogo from 'public/icons/FirstMateLogo.svg';
 import LooksRareLogo from 'public/icons/LooksRareLogo.svg';
 import X2y2Logo from 'public/icons/X2y2Logo.svg';
 import EtherscanLogo from 'public/icons/EtherscanLogo.svg';
 
 export enum Market {
   Etherscan,
-  OpenSea,
+  FirstMate,
   LooksRare,
   X2y2,
 }
@@ -17,14 +17,14 @@ enum UrlParam {
 
 const MarketRootsCollection = {
   [Market.Etherscan]: 'https://etherscan.io/address',
-  [Market.OpenSea]: 'https://opensea.io/collection',
+  [Market.FirstMate]: 'https://market.substratum.art/1/collections/',
   [Market.LooksRare]: 'https://looksrare.org/collections',
   [Market.X2y2]: 'https://x2y2.io/collection',
 } satisfies Record<Market, string>;
 
 const MarketRootsToken = {
   [Market.Etherscan]: '',
-  [Market.OpenSea]: 'https://opensea.io/assets/ethereum',
+  [Market.FirstMate]: 'https://market.substratum.art/1/',
   [Market.LooksRare]: 'https://looksrare.org/collections',
   [Market.X2y2]: 'https://x2y2.io/eth',
 } satisfies Record<Market, string>;
@@ -77,14 +77,14 @@ export const icons: Icon[] = [
     tooltipToken: '',
   },
   {
-    market: Market.OpenSea,
-    urlParam: UrlParam.slug,
-    src: OpenSeaLogo,
-    id: 'OpenSea',
-    altCollection: 'OpenSea external collection link.',
-    altToken: 'OpenSea token link.',
-    tooltipCollection: 'OpenSea collection page',
-    tooltipToken: 'OpenSea token page',
+    market: Market.FirstMate,
+    urlParam: UrlParam.address,
+    src: FirstMateLogo,
+    id: 'FirstMate',
+    altCollection: 'Substratum community marketplace external collection link.',
+    altToken: 'Substratum community marketplace token link.',
+    tooltipCollection: 'Substratum community marketplace collection page',
+    tooltipToken: 'Substratum community marketplace token page',
   },
   {
     market: Market.LooksRare,

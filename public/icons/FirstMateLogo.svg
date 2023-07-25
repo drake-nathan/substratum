@@ -1,0 +1,26 @@
+<svg width="1em" height="1em" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1000 1000">
+<style type="text/css">
+	.st0{display:none;}
+	.st1{display:inline;fill:none;stroke:#17C1AD;stroke-width:52;stroke-miterlimit:10;}
+	.st2{fill:none;stroke:#FFFFFF;stroke-width:52;stroke-miterlimit:10;}
+</style>
+<g id="Layer_2">
+	<polygon class="st0" points="1000,1000 0,1000 0,-0.6 1000,0"/>
+	<circle cx="500" cy="500.4" r="497.6"/>
+</g>
+<g id="V1" class="st0">
+	<polygon class="st1" points="750,347.6 352.9,347.6 352.9,449.8 750,449.8 750,755.4 251,755.4 251,653.7 648,653.7 648,552 
+		251,552 251,245.5 750,245.5"/>
+</g>
+<g id="V2" class="st0">
+	<polyline class="st1" points="225,653.7 648,653.7 648,552 251,552 251,245.5 776,245.5"/>
+	<polyline class="st1" points="776,347.6 352.9,347.6 352.9,449.8 750,449.8 750,755.4 225,755.4"/>
+</g>
+<g id="V3">
+	<polyline class="st2" points="708.6,562.3 201.2,562.3 201.2,194.6 831,194.6"/>
+	<line class="st2" x1="292.4" y1="684.3" x2="708.6" y2="684.3"/>
+	<polyline class="st2" points="292.4,439.7 799.8,439.7 799.8,806.3 170,806.3"/>
+	<line class="st2" x1="708.6" y1="317.1" x2="292.4" y2="317.1"/>
+</g>
+</svg>
