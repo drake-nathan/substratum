@@ -11,7 +11,7 @@ export const Container = styled.div`
     font-size: 1.25rem;
     color: ${({ theme }) => theme.colors.textMain};
 
-    :hover {
+    &:hover {
       cursor: pointer;
       color: ${({ theme }) => theme.colors.hover};
     }

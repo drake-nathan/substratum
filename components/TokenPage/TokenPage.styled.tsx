@@ -33,7 +33,7 @@ export const Title = styled.h1`
     font-size: 1.5rem;
   }
 
-  :hover {
+  &:hover {
     cursor: pointer;
     color: ${({ theme: { colors } }) => colors.hover};
   }
@@ -65,7 +65,7 @@ export const By = styled.h3`
 `;
 
 export const ArtistName = styled.h3`
-  :hover {
+  &:hover {
     color: ${({ theme: { colors } }) => colors.hover};
   }
 `;

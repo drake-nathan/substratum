@@ -21,7 +21,7 @@ export const Input = styled.input`
   text-align: left;
   outline: none;
 
-  :hover {
+  &:hover {
     box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2);
     border-color: ${({ theme: { colors } }) => colors.textMain};
   }

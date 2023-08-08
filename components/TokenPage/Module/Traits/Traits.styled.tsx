@@ -52,7 +52,7 @@ export const Row = styled.div`
 
   a {
     justify-self: end;
-    :hover {
+    &:hover {
       text-decoration: underline;
     }
   }

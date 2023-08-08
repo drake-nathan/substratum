@@ -14,7 +14,7 @@ export const Container = styled.div`
     width: var(--card-size);
   } */
 
-  :hover {
+  &:hover {
     cursor: pointer;
   }
 `;
@@ -35,7 +35,7 @@ export const Img = styled.img`
 
   // if not mobile, zoom image on hover
   @media (min-width: 800px) {
-    :hover {
+    &:hover {
       transform: scale(1.05);
       transition: transform 0.3s ease;
     }
