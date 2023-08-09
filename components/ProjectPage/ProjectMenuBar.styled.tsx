@@ -45,7 +45,7 @@ export const Tab = styled.div`
   font-style: italic;
   border-bottom: 2px solid transparent;
 
-  &:hover {
+  :hover {
     cursor: pointer;
   }
 

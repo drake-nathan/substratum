@@ -104,7 +104,7 @@ export const BuyButton = styled.button`
   font-weight: bold;
   text-transform: uppercase;
 
-  &:hover {
+  :hover {
     background-color: ${({ theme: { colors } }) => colors.hover};
   }
 `;

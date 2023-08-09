@@ -6,7 +6,9 @@ const nextConfig = {
     styledComponents: true,
   },
   experimental: {
-    appDir: false,
+    fontLoaders: [
+      { loader: '@next/font/google', options: { subsets: ['latin'] } },
+    ],
   },
   webpack(config) {
     config.module.rules.push({

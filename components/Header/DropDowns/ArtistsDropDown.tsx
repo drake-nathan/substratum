@@ -40,12 +40,9 @@ const ArtistsDropDown = ({
   });
 
   return !isMobile ? (
-    <>
-      {showDropDown && <St.Overlay onClick={closeBothMenus} />}
-      <St.ContainerArtists $showDropDown={showDropDown}>
-        {artistListJsx}
-      </St.ContainerArtists>
-    </>
+    <St.ContainerArtists showDropDown={showDropDown}>
+      {artistListJsx}
+    </St.ContainerArtists>
   ) : (
     <St.MobileContainer>{artistListJsx}</St.MobileContainer>
   );

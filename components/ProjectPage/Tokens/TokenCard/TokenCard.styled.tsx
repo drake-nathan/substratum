@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   border: 1px solid ${(props) => props.theme.colors.textMain};
   transition-duration: 400ms;
 
-  &:hover {
+  :hover {
     transform: scale(1.04);
     box-shadow: 5px 5px 15px 1px rgba(0, 0, 0, 0.2);
   }

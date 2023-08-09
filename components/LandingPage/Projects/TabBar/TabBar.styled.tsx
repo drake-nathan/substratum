@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const Container = styled.div<{ width: number }>`
+type Width = { width: number };
+
+export const Container = styled.div<Width>`
   width: ${({ width }) => width}px;
   max-width: calc(100% - 180px);
   display: flex;
@@ -46,7 +48,7 @@ export const Tab = styled.div`
   font-style: italic;
   border-bottom: 2px solid transparent;
 
-  &:hover {
+  :hover {
     cursor: pointer;
   }
 

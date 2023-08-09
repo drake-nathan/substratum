@@ -1,4 +1,3 @@
-import * as St from './Header.styled';
 import { useState } from 'react';
 import { useTheme } from 'styled-components';
 import Link from 'next/link';
@@ -7,7 +6,7 @@ import Substratum from 'public/substratum/substratum.svg';
 import SocialIcons from './SocialIcons/SocialIcons';
 import NavLinks from './NavLinks/NavLinks';
 import MobileNav from './MobileNav/MobileNav';
-import ConnectButton from './Connect/ConnectButton';
+import * as St from './Header.styled';
 
 const Header = (): JSX.Element => {
   const { isMobile, colors, isDark, toggleTheme } = useTheme();
@@ -44,7 +43,9 @@ const Header = (): JSX.Element => {
             )}
           </St.DarkModeButton>
 
-          <ConnectButton />
+          <St.ConnectButton className="hvr-underline-from-right">
+            <St.ButtonText>Connect</St.ButtonText>
+          </St.ConnectButton>
         </>
       ) : (
         <>
