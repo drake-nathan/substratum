@@ -44,7 +44,7 @@ export const By = styled.h3``;
 
 export const ArtistName = styled.h3`
   font-weight: 600 !important;
-  :hover {
+  &:hover {
     color: ${({ theme: { colors } }) => colors.hover};
   }
 `;

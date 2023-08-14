@@ -1,7 +1,16 @@
 import styled from 'styled-components';
 import { RxOpenInNewWindow } from 'react-icons/rx';
 
-type ShowDropDown = { showDropDown: boolean };
+type ShowDropDown = { $showDropDown: boolean };
+
+export const Overlay = styled.div`
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+`;
 
 export const Container = styled.div<ShowDropDown>`
   position: absolute;
@@ -9,21 +18,21 @@ export const Container = styled.div<ShowDropDown>`
   top: 31.5px;
   left: 0;
   min-width: 230px;
-  height: ${({ showDropDown }) => (showDropDown ? '190px' : '0px')};
+  height: ${({ $showDropDown }) => ($showDropDown ? '190px' : '0px')};
   background-color: ${({ theme: { colors } }) => colors.bgMain};
   transition: all 0.3s ease;
-  overflow: ${({ showDropDown }) => (showDropDown ? 'auto' : 'hidden')};
-  padding: ${({ showDropDown }) =>
-    showDropDown ? '0.75em 1.25em 0.5em 1.25em' : '0 0.5em'};
+  overflow: ${({ $showDropDown }) => ($showDropDown ? 'auto' : 'hidden')};
+  padding: ${({ $showDropDown }) =>
+    $showDropDown ? '0.75em 1.25em 0.5em 1.25em' : '0 0.5em'};
   overflow-y: hidden;
-  ${({ showDropDown, theme }) =>
-    showDropDown && `outline: 1px solid ${theme.colors.textMain};`}
+  ${({ $showDropDown, theme }) =>
+    $showDropDown && `outline: 1px solid ${theme.colors.textMain};`}
 `;
 
 export const ContainerArtists = styled(Container)`
   left: auto;
   right: 0;
-  height: ${({ showDropDown }) => (showDropDown ? '75px' : '0px')};
+  height: ${({ $showDropDown }) => ($showDropDown ? '75px' : '0px')};
   min-width: 250px;
 `;
 
@@ -38,7 +47,7 @@ export const Project = styled.div`
     margin: 0.25em 0;
   }
 
-  :hover {
+  &:hover {
     font-weight: 700;
     cursor: pointer;
   }

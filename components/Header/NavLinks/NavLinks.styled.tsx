@@ -30,7 +30,7 @@ export const Tab = styled.div`
   gap: 0.25em;
   padding: 0.125em 0.5em;
 
-  :hover {
+  &:hover {
     ${({ theme: { isMobile } }) =>
       !isMobile && 'cursor: pointer; text-decoration: underline; '};
   }
@@ -48,8 +48,7 @@ export const Tab = styled.div`
 `;
 
 export const Text = styled.span`
-  ${({ theme: { isMobile, colors } }) =>
-    isMobile ? `color: ${colors.bgMain};` : ''}
+  ${({ theme: { isMobile, colors } }) => (isMobile ? `color: ${colors.bgMain};` : '')}
   font-size: ${({ theme: { isMobile } }) => (isMobile ? '1.75rem' : '18px')};
   font-weight: 400;
   text-transform: uppercase;
