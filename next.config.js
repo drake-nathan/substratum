@@ -37,8 +37,6 @@ const nextConfig = {
       },
     ],
   },
-  trailingSlash: true,
-  output: 'export',
   async redirects() {
     return [
       {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Web3Modal, useWeb3Modal } from '@web3modal/react';
+import { Web3Modal } from '@web3modal/react';
 import { web3ModalClient } from 'services/wagmi';
 import { useTheme } from 'styled-components';
 
@@ -11,7 +11,6 @@ if (!projectId) {
 
 const CustomWeb3Modal = (): JSX.Element => {
   const { colors, isDark } = useTheme();
-  const { isOpen } = useWeb3Modal();
 
   const themeMode = isDark ? 'dark' : 'light';
   const themeVariables = {
