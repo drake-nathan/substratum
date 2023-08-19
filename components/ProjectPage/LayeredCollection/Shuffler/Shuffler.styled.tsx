@@ -10,7 +10,7 @@ export const ActionButton = styled.button`
   font-weight: bold;
   text-transform: uppercase;
 
-  :hover {
+  &:hover {
     background-color: ${({ theme: { colors } }) => colors.hover};
   }
 `;
@@ -69,7 +69,7 @@ export const ViewButton = styled.div`
   justify-content: center;
   cursor: pointer;
 
-  :hover {
+  &:hover {
     background-color: #999795;
   }
 `;

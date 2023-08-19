@@ -10,7 +10,7 @@ export const Container = styled.div`
   border-radius: ${({ theme }) => theme.borderRadius};
   border: 1px solid ${({ theme: { colors } }) => colors.textMain};
 
-  :hover {
+  &:hover {
     cursor: pointer;
   }
 `;
@@ -31,7 +31,7 @@ export const Img = styled.img`
   // if not mobile, zoom image on hover
   // NOTE: The reason this is awkward is because the hover CSS is only applied if the cursor as hovered, once it's out, the transition CSS is gone.
   /* @media (min-width: 768px) {
-    :hover {
+    &:hover {
       transform: scale(1.05);
       transition: transform 0.3s ease;
     }

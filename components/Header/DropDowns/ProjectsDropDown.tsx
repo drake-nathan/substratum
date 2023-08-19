@@ -26,27 +26,24 @@ const ProjectsDropDown = ({
     <St.Project onClick={closeBothMenus}>{name}</St.Project>
   );
 
-  const projectsListJsx = projects.map(
-    ({ name, local, externalUrl, projectSlug }) =>
-      local ? (
-        <Link key={name} href={`/project/${projectSlug}`}>
-          {renderProjectItem(name)}
-        </Link>
-      ) : (
-        <St.RowLink
-          key={name}
-          href={externalUrl}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <St.OpenInNewIcon />
-          {renderProjectItem(name)}
-        </St.RowLink>
-      ),
+  const projectsListJsx = projects.map(({ name, local, externalUrl, projectSlug }) =>
+    local ? (
+      <Link key={name} href={`/project/${projectSlug}`}>
+        {renderProjectItem(name)}
+      </Link>
+    ) : (
+      <St.RowLink key={name} href={externalUrl} target="_blank" rel="noreferrer">
+        <St.OpenInNewIcon />
+        {renderProjectItem(name)}
+      </St.RowLink>
+    ),
   );
 
   return !isMobile ? (
-    <St.Container showDropDown={showDropDown}>{projectsListJsx}</St.Container>
+    <>
+      {showDropDown && <St.Overlay onClick={() => setShowDropDown(false)} />}
+      <St.Container $showDropDown={showDropDown}>{projectsListJsx}</St.Container>
+    </>
   ) : (
     <St.MobileContainer>{projectsListJsx}</St.MobileContainer>
   );

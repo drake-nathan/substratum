@@ -118,7 +118,7 @@ export const LinkContainer = styled.div`
   margin-top: 1em;
   font-size: 1.125rem;
 
-  :hover {
+  &:hover {
     color: ${({ theme: { colors } }) => colors.textMain};
   }
 `;
