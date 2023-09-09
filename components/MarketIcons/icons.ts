@@ -32,7 +32,8 @@ const MarketRootsToken = {
 interface Icon {
   market: Market;
   urlParam: UrlParam;
-  src: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  src: any;
   id: string;
   altCollection: string;
   altToken: string;
