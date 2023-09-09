@@ -1,6 +1,6 @@
-import MarketIcons from 'components/MarketIcons/MarketIcons';
-import { type Project } from 'components/staticData/projects';
-import * as St from './ProjectHead.styled';
+import MarketIcons from "components/MarketIcons/MarketIcons";
+import { type Project } from "components/staticData/projects";
+import * as St from "./ProjectHead.styled";
 
 interface Props {
   project: Project;
@@ -11,12 +11,10 @@ const ProjectHead = ({ project }: Props): JSX.Element => {
 
   return (
     <St.Container>
-      <St.Title>
-        {name} {name === '100x10x1-A' && '(Testnet Demo)'}
-      </St.Title>
+      <St.Title>{name}</St.Title>
 
       <St.ArtistDiv>
-        <St.By>By</St.By>{' '}
+        <St.By>By</St.By>{" "}
         <a href={website} target="_blank" rel="noreferrer">
           <St.ArtistName>{artist}</St.ArtistName>
         </a>

@@ -1,11 +1,9 @@
-import * as St from 'components/ProjectPage/Details/Details.styled';
-import { Project, projects } from 'components/staticData/projects';
-import { drawOrder as dO } from 'components/staticData/100x10x1A/order';
-import { useState } from 'react';
-import CollectionCard from './OtherCollections/CollectionCard';
-import LayeredCollection from '../LayeredCollection/LayeredCollection';
-import Legend from '../LayeredCollection/Legend/Legend';
-import Shuffler from '../LayeredCollection/Shuffler/Shuffler';
+import * as St from "components/ProjectPage/Details/Details.styled";
+import { Project, projects } from "components/staticData/projects";
+import CollectionCard from "./OtherCollections/CollectionCard";
+import OneHundredXImage from "../LayeredCollection/LayeredCollection";
+import Legend from "../LayeredCollection/Legend/Legend";
+import Shuffler from "../LayeredCollection/Shuffler/Shuffler";
 
 interface Props {
   project: Project;
@@ -40,23 +38,15 @@ const Details = ({ project }: Props): JSX.Element => {
     },
   } = project;
 
-  const [drawOrder, setDrawOrder] = useState(dO);
-  const [viewTokenID, setViewTokenID] = useState(0);
-
   return (
     <St.DetailGrid>
       <St.ProjectImage>
-        {projectSlug === '100x10x1-a' ? (
-          <LayeredCollection
-            viewTokenID={viewTokenID}
-            setViewTokenID={setViewTokenID}
-            drawOrder={drawOrder}
-          />
+        {projectSlug === "100x10x1-a" ? (
+          <OneHundredXImage image={image} />
         ) : (
           <>
             <St.Image src={image} alt="Project image" />
             <St.ProjectImageNameContainer>
-              {/* NOTE Can leave out token id here for now */}
               <St.ProjectImageName>{`${name}`}</St.ProjectImageName>
             </St.ProjectImageNameContainer>
           </>
@@ -64,18 +54,12 @@ const Details = ({ project }: Props): JSX.Element => {
       </St.ProjectImage>
 
       <St.Details>
-        {/** FIXME - render shuffler if the project is of a certain class */}
-        {projectSlug === '100x10x1-a' && (
-          <Shuffler
-            setDrawOrder={setDrawOrder}
-            drawOrder={drawOrder}
-            setViewTokenID={setViewTokenID}
-          />
-        )}
+        {projectSlug === "100x10x1-a" && <Shuffler />}
+
         <St.AboutSection>
           <St.DescTitle>About {name}</St.DescTitle>
           <St.Text>{description}</St.Text>
-          {projectSlug === 'texture-and-hues' && (
+          {projectSlug === "texture-and-hues" && (
             <a
               href="https://mattoapi.blob.core.windows.net/texture-and-hues-images/allSVGs.json"
               target="_blank"
@@ -88,6 +72,7 @@ const Details = ({ project }: Props): JSX.Element => {
             </a>
           )}
         </St.AboutSection>
+
         <St.OtherInfo>
           <St.DescTitle>Collection Details</St.DescTitle>
           <St.Text>{collectionDetails}</St.Text>
@@ -122,7 +107,7 @@ const Details = ({ project }: Props): JSX.Element => {
         </St.OtherInfo>
       </St.Details>
 
-      {projectSlug === '100x10x1-a' && <Legend />}
+      {projectSlug === "100x10x1-a" && <Legend />}
 
       <St.OtherCollectionsContainer>
         <St.OtherCollectionsHeader>Other Collections</St.OtherCollectionsHeader>

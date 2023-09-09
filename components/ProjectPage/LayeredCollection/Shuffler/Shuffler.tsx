@@ -1,37 +1,20 @@
-import { useState } from 'react';
-import * as St from './Shuffler.styled';
-import * as actions from './tempShuffleFunctions';
-
-interface Props {
-  setViewTokenID: (id: number) => void;
-  setDrawOrder: (newOrder: number[]) => void;
-  drawOrder: number[];
-}
+import { useState } from "react";
+import * as St from "./Shuffler.styled";
 
 const isInRange = (n: number) => {
   if (n <= 100 && n > 0) {
     return n;
   }
-  return n > 100 ? 100 : '';
+  return n > 100 ? 100 : "";
 };
 
-const Shuffler = ({
-  setDrawOrder,
-  drawOrder,
-  setViewTokenID,
-}: Props): JSX.Element => {
-  const [tokenID, setTokenID] = useState<'' | number>('');
+const Shuffler = (): JSX.Element => {
+  const [tokenID, setTokenID] = useState<"" | number>("");
 
   return (
     <St.ButtonGrid>
       <St.TopAction>
-        <St.TopButton
-          onClick={() =>
-            tokenID && setDrawOrder(actions.topAction(tokenID, drawOrder))
-          }
-        >
-          Top
-        </St.TopButton>
+        <St.TopButton onClick={() => alert("Top")}>Top</St.TopButton>
         <St.ViewLayer>
           <St.IDInput
             placeholder="TokenID to Top"
@@ -43,36 +26,24 @@ const Shuffler = ({
             max="100"
             step="1"
           />
-          <St.ViewButton onClick={() => tokenID && setViewTokenID(tokenID)}>
+          <St.ViewButton onClick={() => alert("View")}>
             <St.EyeIcon />
           </St.ViewButton>
         </St.ViewLayer>
       </St.TopAction>
       <St.CutButton
         onClick={() => {
-          setDrawOrder(actions.cutAction(drawOrder));
+          alert("Cut");
         }}
       >
         Cut
       </St.CutButton>
-      <St.OverhandButton
-        onClick={() => setDrawOrder(actions.overhandAction(drawOrder))}
-      >
+      <St.OverhandButton onClick={() => alert("Overhand")}>
         Overhand
       </St.OverhandButton>
-      <St.FaroButton
-        onClick={() => setDrawOrder(actions.faroAction(drawOrder))}
-      >
-        Faro
-      </St.FaroButton>
-      <St.WashButton
-        onClick={() => setDrawOrder(actions.washAction(drawOrder))}
-      >
-        Wash
-      </St.WashButton>
-      <St.ReverseButton
-        onClick={() => setDrawOrder(actions.reverseAction(drawOrder))}
-      >
+      <St.FaroButton onClick={() => alert("Faro")}>Faro</St.FaroButton>
+      <St.WashButton onClick={() => alert("Wash")}>Wash</St.WashButton>
+      <St.ReverseButton onClick={() => alert("Reverse")}>
         Reverse
       </St.ReverseButton>
     </St.ButtonGrid>
