@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { RxOpenInNewWindow } from 'react-icons/rx';
+import styled from "styled-components";
+import { RxOpenInNewWindow } from "react-icons/rx";
 
 export const DetailGrid = styled.div`
   width: 100%;
@@ -58,7 +58,7 @@ export const ProjectImageNameContainer = styled.div`
 export const ProjectImageName = styled.span`
   flex: 1 1 0;
   text-align: left;
-  font-family: 'basic-sans', sans-serif;
+  font-family: "basic-sans", sans-serif;
   font-style: italic;
   font-size: 28px;
   color: ${({ theme: { colors } }) => colors.textMain};
@@ -101,7 +101,7 @@ export const DescTitle = styled.h2``;
 
 export const SmallDescTitle = styled.h4`
   margin: 1em 0 0.25em;
-  font-family: 'basic-sans', sans-serif;
+  font-family: "basic-sans", sans-serif;
   font-weight: bold;
   text-transform: capitalize;
 `;

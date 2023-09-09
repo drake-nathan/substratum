@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { type Project } from 'components/staticData/projects';
-import * as St from './TokenSearch.styled';
+import { useEffect, useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { type Project } from "components/staticData/projects";
+import * as St from "./TokenSearch.styled";
 
 type IToken = { tokenId: number };
 
@@ -25,7 +25,7 @@ const TokenSearch = ({
     ? currentSupply - indexCorrection
     : maxSupply - indexCorrection;
 
-  const [errorText, setErrorText] = useState('');
+  const [errorText, setErrorText] = useState("");
 
   const {
     register,
@@ -40,9 +40,9 @@ const TokenSearch = ({
   useEffect(() => {
     if (errors.tokenId && errors.tokenId.message) {
       setErrorText(errors.tokenId.message);
-      setTimeout(() => setErrorText(''), 3000);
+      setTimeout(() => setErrorText(""), 3000);
     } else if (errorText) {
-      setTimeout(() => setErrorText(''), 3000);
+      setTimeout(() => setErrorText(""), 3000);
     }
   }, [errors.tokenId, errorText]);
 
@@ -51,10 +51,10 @@ const TokenSearch = ({
       setErrorText(`Max Token ID is ${maxToken}`);
       setTokenId(currentSupply - indexCorrection);
     } else if (!isZeroIndexed && tokenId !== null && tokenId < 1) {
-      setErrorText('Min Token ID is 1');
+      setErrorText("Min Token ID is 1");
       setTokenId(1);
     } else if (tokenId && tokenId < 0) {
-      setErrorText('Min Token ID is 0');
+      setErrorText("Min Token ID is 0");
       setTokenId(0);
     } else if (Number.isNaN(tokenId)) setTokenId(null);
   }, [
@@ -76,15 +76,15 @@ const TokenSearch = ({
         <St.Input
           className="special-artist-name"
           type="number"
-          {...register('tokenId', {
+          {...register("tokenId", {
             valueAsNumber: true,
             max: {
               value: currentSupply ? currentSupply - 1 : maxSupply,
-              message: 'Must be less than current supply.',
+              message: "Must be less than current supply.",
             },
           })}
           id="enter-id"
-          value={tokenId || tokenId === 0 ? tokenId : ''}
+          value={tokenId || tokenId === 0 ? tokenId : ""}
           autoComplete="off"
           onChange={(e) => setTokenId(parseInt(e.target.value, 10))}
           placeholder="Search By Token ID"

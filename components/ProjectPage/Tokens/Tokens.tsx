@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
-import { type QueryFunctionContext, useInfiniteQuery } from 'react-query';
-import { fetchCollectionTokens } from 'services/azureApi/fetches';
-import { type Project } from 'components/staticData/projects';
-import type { CollectionResponse } from 'services/azureApi/types';
-import TokenGrid from './TokenGrid/TokenGrid';
-import TokenMenu from './TokenMenu/TokenMenu';
-import { TokensContainer } from './Tokens.styled';
+import { useEffect, useState } from "react";
+import { type QueryFunctionContext, useInfiniteQuery } from "react-query";
+import { fetchCollectionTokens } from "services/azureApi/fetches";
+import { type Project } from "components/staticData/projects";
+import type { CollectionResponse } from "services/azureApi/types";
+import TokenGrid from "./TokenGrid/TokenGrid";
+import TokenMenu from "./TokenMenu/TokenMenu";
+import { TokensContainer } from "./Tokens.styled";
 
 interface Props {
   projectSlug: string;
@@ -15,8 +15,8 @@ interface Props {
 const Tokens = ({ projectSlug, project }: Props): JSX.Element => {
   const { isTokenIdInTitle, usesTransfers } = project;
   // api query state
-  const [sortDir, setSortDir] = useState<'asc' | 'desc'>('asc');
-  const [sortType, setSortType] = useState<'tokenId' | 'worldLevel'>('tokenId');
+  const [sortDir, setSortDir] = useState<"asc" | "desc">("asc");
+  const [sortType, setSortType] = useState<"tokenId" | "worldLevel">("tokenId");
   const [tokenSearchId, setTokenSearchId] = useState<number | null>(null);
   // infinite scroll state
   const [currentLength, setCurrentLength] = useState(0);
@@ -34,7 +34,7 @@ const Tokens = ({ projectSlug, project }: Props): JSX.Element => {
     );
 
   const { error, data, isLoading, isFetching, fetchNextPage, refetch, remove } =
-    useInfiniteQuery<CollectionResponse, Error>('tokens', fetchQuery, {
+    useInfiniteQuery<CollectionResponse, Error>("tokens", fetchQuery, {
       getNextPageParam: (lastFetch) => lastFetch.skip + limit,
     });
 
@@ -69,7 +69,7 @@ const Tokens = ({ projectSlug, project }: Props): JSX.Element => {
         setTokenSearchId={setTokenSearchId}
         refetch={refetch}
       />
-      {projectSlug === '100x10x1-a' ? (
+      {projectSlug === "100x10x1-a" ? (
         <TokenGrid
           data={data}
           currentLength={currentLength}

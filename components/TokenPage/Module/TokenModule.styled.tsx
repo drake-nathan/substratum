@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
@@ -36,10 +36,10 @@ export const InfoGrid = styled.div`
   gap: 0 5em;
 
   grid-template-areas:
-    'token-name token-name'
-    'generator traits'
-    'generator stats'
-    'generator buy';
+    "token-name token-name"
+    "generator traits"
+    "generator stats"
+    "generator buy";
 `;
 
 export const Token = styled.div`
@@ -89,7 +89,7 @@ export const InfoTitle = styled.h3``;
 
 export const Price = styled.span`
   font-size: 20px;
-  font-family: 'basic-sans', sans-serif;
+  font-family: "basic-sans", sans-serif;
   display: flex;
   gap: 5px;
   align-items: center;

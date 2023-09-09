@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import type { NextPage } from 'next';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
-import TokenPage from 'components/TokenPage/TokenPage';
-import { projects } from 'components/staticData/projects';
+import React, { useEffect, useState } from "react";
+import type { NextPage } from "next";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import TokenPage from "components/TokenPage/TokenPage";
+import { projects } from "components/staticData/projects";
 
 const Home: NextPage = () => {
   const { projectSlug, tokenId: tokenIdQuery } = useRouter().query;
@@ -12,14 +12,14 @@ const Home: NextPage = () => {
   const [isTokenIdValid, setIsTokenIdValid] = useState<boolean>(false);
 
   const project = projects.find((p) => p.projectSlug === projectSlug);
-  const projectName = project?.name || '';
+  const projectName = project?.name || "";
 
   // this useEffect validates the token id query param as a valid number
   useEffect(() => {
     if (!project) return;
     // no need to validate token id if project is not found
 
-    if (tokenIdQuery === '0') {
+    if (tokenIdQuery === "0") {
       setTokenId(0);
       return;
     }
@@ -90,7 +90,7 @@ const Home: NextPage = () => {
 
   const title = projectName
     ? `substratum | ${projectName} #${tokenId}`
-    : 'substratum';
+    : "substratum";
 
   return (
     <>

@@ -1,19 +1,19 @@
-import styled from 'styled-components';
-import { MdOutlineDarkMode } from 'react-icons/md';
-import { CgSun } from 'react-icons/cg';
+import styled from "styled-components";
+import { MdOutlineDarkMode } from "react-icons/md";
+import { CgSun } from "react-icons/cg";
 
 export const OuterContainer = styled.header`
   width: 100%;
   display: flex;
   align-items: center;
-  ${({ theme: { isMobile } }) => !isMobile && 'justify-content: space-between;'}
-  gap: ${({ theme: { isMobile } }) => (isMobile ? '1em' : '2em')};
+  ${({ theme: { isMobile } }) => !isMobile && "justify-content: space-between;"}
+  gap: ${({ theme: { isMobile } }) => (isMobile ? "1em" : "2em")};
   border-bottom: 3px solid ${({ theme: { colors } }) => colors.textMain};
-  ${({ theme: { isMobile } }) => isMobile && 'border-width: 1px;'}
+  ${({ theme: { isMobile } }) => isMobile && "border-width: 1px;"}
 `;
 
 export const LogoDiv = styled.div`
-  --size: ${({ theme: { isMobile } }) => (isMobile ? '48px' : '90px')};
+  --size: ${({ theme: { isMobile } }) => (isMobile ? "48px" : "90px")};
   width: var(--size);
   height: var(--size);
   display: flex;
@@ -31,7 +31,7 @@ export const InnerContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-  ${({ theme: { isMobile } }) => isMobile && 'font-size: 24px;'};
+  ${({ theme: { isMobile } }) => isMobile && "font-size: 24px;"};
 
   &:hover {
     cursor: pointer;

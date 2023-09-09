@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import { useTheme } from 'styled-components';
-import ProjectsDropDown from '../DropDowns/ProjectsDropDown';
-import ArtistsDropDown from '../DropDowns/ArtistsDropDown';
-import * as St from './NavLinks.styled';
+import { useState } from "react";
+import { useTheme } from "styled-components";
+import ProjectsDropDown from "../DropDowns/ProjectsDropDown";
+import ArtistsDropDown from "../DropDowns/ArtistsDropDown";
+import * as St from "./NavLinks.styled";
 
 interface Props {
   setShowMobileNav: React.Dispatch<React.SetStateAction<boolean>>;
@@ -30,7 +30,9 @@ const NavLinks = ({ setShowMobileNav }: Props): JSX.Element => {
           Projects
         </St.Text>
         {!isMobile && (
-          <St.DropdownIcon className={showProjectsDropDown ? 'dropdown-flip' : ''} />
+          <St.DropdownIcon
+            className={showProjectsDropDown ? "dropdown-flip" : ""}
+          />
         )}
       </St.Tab>
 
@@ -60,7 +62,9 @@ const NavLinks = ({ setShowMobileNav }: Props): JSX.Element => {
           Artists
         </St.Text>
         {!isMobile && (
-          <St.DropdownIcon className={showArtistsDropDown ? 'dropdown-flip' : ''} />
+          <St.DropdownIcon
+            className={showArtistsDropDown ? "dropdown-flip" : ""}
+          />
         )}
       </St.Tab>
 
@@ -82,10 +86,18 @@ const NavLinks = ({ setShowMobileNav }: Props): JSX.Element => {
         <St.DropDownMobileDiv>{projectsTab}</St.DropDownMobileDiv>
       )}
 
-      {!isMobile ? artistsTab : <St.DropDownMobileDiv>{artistsTab}</St.DropDownMobileDiv>}
+      {!isMobile ? (
+        artistsTab
+      ) : (
+        <St.DropDownMobileDiv>{artistsTab}</St.DropDownMobileDiv>
+      )}
 
       <St.Tab>
-        <a href="https://market.substratum.art/" rel="noreferrer" target="_blank">
+        <a
+          href="https://market.substratum.art/"
+          rel="noreferrer"
+          target="_blank"
+        >
           <St.Text onClick={() => setShowMobileNav(false)}>Market</St.Text>
         </a>
       </St.Tab>

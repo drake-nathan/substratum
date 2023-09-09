@@ -1,6 +1,6 @@
-import React from 'react';
-import { wagmiConfig } from 'services/wagmi';
-import { WagmiConfig } from 'wagmi';
+import React from "react";
+import { wagmiConfig } from "services/wagmi";
+import { WagmiConfig } from "wagmi";
 
 interface Props {
   children: React.ReactNode;

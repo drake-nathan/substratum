@@ -1,14 +1,14 @@
-import { type Project } from 'components/staticData/projects';
-import * as St from './TokenMenu.styled';
-import TokenSearch from './TokenSearch';
+import { type Project } from "components/staticData/projects";
+import * as St from "./TokenMenu.styled";
+import TokenSearch from "./TokenSearch";
 
 interface Props {
   project: Project;
   usesTransfers: boolean;
-  sortDir: 'asc' | 'desc';
-  setSortDir: React.Dispatch<React.SetStateAction<'asc' | 'desc'>>;
-  sortType: 'tokenId' | 'worldLevel';
-  setSortType: React.Dispatch<React.SetStateAction<'tokenId' | 'worldLevel'>>;
+  sortDir: "asc" | "desc";
+  setSortDir: React.Dispatch<React.SetStateAction<"asc" | "desc">>;
+  sortType: "tokenId" | "worldLevel";
+  setSortType: React.Dispatch<React.SetStateAction<"tokenId" | "worldLevel">>;
   tokenSearchId: number | null;
   setTokenSearchId: React.Dispatch<React.SetStateAction<number | null>>;
   refetch: () => void;
@@ -41,11 +41,11 @@ const TokenMenu = ({
         {/* <St.SortText>Sort by:</St.SortText> */}
         <St.TextButton
           className={`${
-            sortType === 'tokenId' ? '' : 'inactive'
+            sortType === "tokenId" ? "" : "inactive"
           } special-artist-name`}
           onClick={() => {
-            if (sortType === 'worldLevel') setSortDir('asc');
-            setSortType('tokenId');
+            if (sortType === "worldLevel") setSortDir("asc");
+            setSortType("tokenId");
           }}
         >
           ID
@@ -56,31 +56,31 @@ const TokenMenu = ({
             <St.SubtleText className="special-artist-name">|</St.SubtleText>
             <St.TextButton
               className={`${
-                sortType === 'worldLevel' ? '' : 'inactive'
+                sortType === "worldLevel" ? "" : "inactive"
               } special-artist-name`}
               onClick={() => {
-                if (sortType === 'tokenId') setSortDir('desc');
-                setSortType('worldLevel');
+                if (sortType === "tokenId") setSortDir("desc");
+                setSortType("worldLevel");
               }}
             >
-              {projectSlug === 'chainlife' ||
-              projectSlug === 'chainlife-testnet'
-                ? 'World Level'
-                : 'Transfers'}
+              {projectSlug === "chainlife" ||
+              projectSlug === "chainlife-testnet"
+                ? "World Level"
+                : "Transfers"}
             </St.TextButton>
           </>
         )}
 
         <St.SortButton>
-          {sortDir === 'asc' ? (
+          {sortDir === "asc" ? (
             <St.SortIconAsc
               className="icon"
-              onClick={() => setSortDir('desc')}
+              onClick={() => setSortDir("desc")}
             />
           ) : (
             <St.SortIconDesc
               className="icon"
-              onClick={() => setSortDir('asc')}
+              onClick={() => setSortDir("asc")}
             />
           )}
         </St.SortButton>

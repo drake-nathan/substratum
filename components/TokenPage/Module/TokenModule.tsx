@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
-import type { IToken } from 'services/azureApi/types';
-import { type Project } from 'components/staticData/projects';
-import { useWindowSize } from 'hooks/useWindowSize';
-import Generator from 'components/Generator/Generator';
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import type { IToken } from "services/azureApi/types";
+import { type Project } from "components/staticData/projects";
+import { useWindowSize } from "hooks/useWindowSize";
+import Generator from "components/Generator/Generator";
 // import PriceIcon from 'public/icons/PriceIcon.svg';
-import BottomBar from './BottomBar/BottomBar';
-import Traits from './Traits/Traits';
-import OtherTokens from './OtherTokens/OtherTokens';
-import * as St from './TokenModule.styled';
+import BottomBar from "./BottomBar/BottomBar";
+import Traits from "./Traits/Traits";
+import OtherTokens from "./OtherTokens/OtherTokens";
+import * as St from "./TokenModule.styled";
 
 interface Props {
   token: IToken;

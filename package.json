@@ -3,13 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "build": "next build && rm -rf ./.next/cache",
     "dev": "next dev",
     "devstart": "next dev",
-    "build": "next build && rm -rf ./.next/cache",
-    "start": "next start",
     "lint": "next lint",
-    "type": "tsc --pretty --noEmit",
-    "prepare": "husky install"
+    "lint:fix": "next lint --fix",
+    "prettier": "prettier --write .",
+    "prettify": "yarn prettier && yarn lint:fix",
+    "prepare": "husky install",
+    "start": "next start",
+    "type": "tsc --pretty --noEmit"
   },
   "dependencies": {
     "@babel/core": "^7.20.12",

@@ -1,7 +1,7 @@
-import React from 'react';
-import NavLinks from '../NavLinks/NavLinks';
-import SocialIcons from '../SocialIcons/SocialIcons';
-import * as St from './MobileNav.styled';
+import React from "react";
+import NavLinks from "../NavLinks/NavLinks";
+import SocialIcons from "../SocialIcons/SocialIcons";
+import * as St from "./MobileNav.styled";
 
 interface Props {
   isOpen: boolean;

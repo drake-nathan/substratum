@@ -1,7 +1,7 @@
-import 'styled-components';
-import type { Colors } from './theme';
+import "styled-components";
+import type { Colors } from "./theme";
 
-declare module 'styled-components' {
+declare module "styled-components" {
   export interface DefaultTheme {
     borderRadius: string;
     isMobile?: boolean;

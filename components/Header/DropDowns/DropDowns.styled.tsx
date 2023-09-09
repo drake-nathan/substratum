@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { RxOpenInNewWindow } from 'react-icons/rx';
+import styled from "styled-components";
+import { RxOpenInNewWindow } from "react-icons/rx";
 
 type ShowDropDown = { $showDropDown: boolean };
 
@@ -18,12 +18,12 @@ export const Container = styled.div<ShowDropDown>`
   top: 31.5px;
   left: 0;
   min-width: 230px;
-  height: ${({ $showDropDown }) => ($showDropDown ? '190px' : '0px')};
+  height: ${({ $showDropDown }) => ($showDropDown ? "190px" : "0px")};
   background-color: ${({ theme: { colors } }) => colors.bgMain};
   transition: all 0.3s ease;
-  overflow: ${({ $showDropDown }) => ($showDropDown ? 'auto' : 'hidden')};
+  overflow: ${({ $showDropDown }) => ($showDropDown ? "auto" : "hidden")};
   padding: ${({ $showDropDown }) =>
-    $showDropDown ? '0.75em 1.25em 0.5em 1.25em' : '0 0.5em'};
+    $showDropDown ? "0.75em 1.25em 0.5em 1.25em" : "0 0.5em"};
   overflow-y: hidden;
   ${({ $showDropDown, theme }) =>
     $showDropDown && `outline: 1px solid ${theme.colors.textMain};`}
@@ -32,7 +32,7 @@ export const Container = styled.div<ShowDropDown>`
 export const ContainerArtists = styled(Container)`
   left: auto;
   right: 0;
-  height: ${({ $showDropDown }) => ($showDropDown ? '75px' : '0px')};
+  height: ${({ $showDropDown }) => ($showDropDown ? "75px" : "0px")};
   min-width: 250px;
 `;
 

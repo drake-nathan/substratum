@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
@@ -45,7 +45,7 @@ export const ArtistDiv = styled.div`
   margin-bottom: 1.5em;
 
   h3 {
-    font-family: 'basic-sans', sans-serif !important;
+    font-family: "basic-sans", sans-serif !important;
     font-size: 32px;
     font-style: italic;
     text-transform: initial;
@@ -71,7 +71,7 @@ export const ArtistName = styled.h3`
 `;
 
 export const TokenStatus = styled.div`
-  font-family: 'basic-sans', sans-serif;
+  font-family: "basic-sans", sans-serif;
   font-size: 26px;
   font-style: italic;
   @media (max-width: 800px) {
