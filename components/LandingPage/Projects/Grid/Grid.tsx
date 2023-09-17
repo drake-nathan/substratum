@@ -1,8 +1,9 @@
 import { useState } from "react";
-import * as St from "./Grid.styled";
-import { ProjectSort, Status, projects } from "../../../staticData/projects";
-import TabBar from "../TabBar/TabBar";
+
+import { projects, ProjectSort, Status } from "../../../staticData/projects";
 import Card from "../Card/Card";
+import TabBar from "../TabBar/TabBar";
+import * as St from "./Grid.styled";
 
 interface Props {
   width: number;

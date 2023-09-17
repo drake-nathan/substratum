@@ -1,7 +1,7 @@
-import styled from "styled-components";
 import { FaTwitter } from "react-icons/fa";
-import { SiDiscord } from "react-icons/si";
 import { IoLogoYoutube } from "react-icons/io";
+import { SiDiscord } from "react-icons/si";
+import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;

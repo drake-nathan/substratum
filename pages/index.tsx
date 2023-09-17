@@ -1,8 +1,8 @@
-import React from "react";
-import type { NextPage } from "next";
-import Head from "next/head";
 import Hero from "components/LandingPage/Hero/Hero";
 import Projects from "components/LandingPage/Projects/Grid/Grid";
+import type { NextPage } from "next";
+import Head from "next/head";
+import React from "react";
 import styled from "styled-components";
 
 const HomeContainer = styled.div`

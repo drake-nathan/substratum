@@ -1,9 +1,10 @@
-import * as St from "./ConnectButton.styled";
-import { useAccount, useBalance, useEnsName } from "wagmi";
 import { useWeb3Modal } from "@web3modal/react";
-import { shortenAddress, shortenEth, shortenText } from "utils/shorteners";
 import { useIsClient } from "hooks/useIsClient";
 import { useEffect, useState } from "react";
+import { shortenAddress, shortenEth, shortenText } from "utils/shorteners";
+import { useAccount, useBalance, useEnsName } from "wagmi";
+
+import * as St from "./ConnectButton.styled";
 
 const ConnectButton = (): JSX.Element => {
   const { isOpen, open, close } = useWeb3Modal();

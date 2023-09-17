@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
 import { type Project } from "components/staticData/projects";
+import { useEffect, useState } from "react";
+import { type SubmitHandler, useForm } from "react-hook-form";
+
 import * as St from "./TokenSearch.styled";
 
 type IToken = { tokenId: number };

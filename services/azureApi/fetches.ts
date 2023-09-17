@@ -1,5 +1,6 @@
 import axios from "axios";
-import { CollectionResponse, IProject, IToken, TxCounts } from "./types";
+
+import type { CollectionResponse, IProject, IToken, TxCounts } from "./types";
 
 const rootApiUrl = process.env.NEXT_PUBLIC_API_ROOT;
 

@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import { RxCaretDown } from "react-icons/rx";
+import styled from "styled-components";
 
 export const Container = styled.div`
   position: relative;

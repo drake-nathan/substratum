@@ -1,7 +1,8 @@
-import { Project } from "components/staticData/projects";
-import { IToken, TokenAbbr } from "services/azureApi/types";
-import { fetchCollectionTokens } from "services/azureApi/fetches";
+import type { Project } from "components/staticData/projects";
 import { useEffect, useState } from "react";
+import { fetchCollectionTokens } from "services/azureApi/fetches";
+import type { IToken, TokenAbbr } from "services/azureApi/types";
+
 import * as St from "./OtherTokens.styled";
 import TokenCard from "./TokenCard";
 

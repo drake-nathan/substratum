@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useTheme } from "styled-components";
-import ProjectsDropDown from "../DropDowns/ProjectsDropDown";
+
 import ArtistsDropDown from "../DropDowns/ArtistsDropDown";
+import ProjectsDropDown from "../DropDowns/ProjectsDropDown";
 import * as St from "./NavLinks.styled";
 
 interface Props {

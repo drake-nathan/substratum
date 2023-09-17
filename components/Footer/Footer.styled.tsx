@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import { MdCopyright } from "react-icons/md";
+import styled from "styled-components";
 
 export const OuterWrapper = styled.div`
   display: flex;

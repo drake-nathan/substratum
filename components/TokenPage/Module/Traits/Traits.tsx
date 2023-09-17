@@ -1,7 +1,8 @@
+import { useWindowSize } from "hooks/useWindowSize";
 import React, { useEffect, useState } from "react";
 import { Tooltip } from "react-tooltip";
 import type { IAttribute } from "services/azureApi/types";
-import { useWindowSize } from "hooks/useWindowSize";
+
 import * as St from "./Traits.styled";
 
 interface Props {

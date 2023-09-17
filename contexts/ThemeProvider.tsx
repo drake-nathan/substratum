@@ -1,10 +1,11 @@
-import { useEffect, useState, type ReactNode } from "react";
-import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import { useWindowSize } from "hooks/useWindowSize";
+import { type ReactNode, useEffect, useState } from "react";
+import { ThemeProvider as StyledThemeProvider } from "styled-components";
+
 import {
   type Colors,
-  defaultTheme,
   darkColors,
+  defaultTheme,
   lightColors,
 } from "../styles/theme";
 
@@ -12,7 +13,7 @@ interface Props {
   children: ReactNode;
 }
 
-const ThemeProvider: React.FC<Props> = ({ children }) => {
+const ThemeProvider = ({ children }: Props): JSX.Element => {
   const { windowWidth } = useWindowSize();
 
   const [isMiniCard, setIsMiniCard] = useState(false);

@@ -1,12 +1,13 @@
-import { Tooltip } from "react-tooltip";
 import { type Project } from "components/staticData/projects";
-import * as St from "./MarketIcons.styled";
+import { Tooltip } from "react-tooltip";
+
 import {
-  Market,
   getProjectMarketLink,
   getTokenMarketLink,
   icons,
+  Market,
 } from "./icons";
+import * as St from "./MarketIcons.styled";
 
 interface Props {
   project: Project;

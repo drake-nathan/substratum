@@ -5,7 +5,7 @@
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "simple-import-sort"],
   "root": true,
   "parserOptions": {
     "project": "./tsconfig.json"
@@ -26,6 +26,8 @@
         "unnamedComponents": "arrow-function"
       }
     ],
-    "react/require-default-props": "off"
+    "react/require-default-props": "off",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
   }
 }

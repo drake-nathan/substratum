@@ -1,13 +1,14 @@
-import * as St from "./Header.styled";
+import { Squash as Hamburger } from "hamburger-react";
+import Link from "next/link";
+import Substratum from "public/substratum/substratum.svg";
 import { useState } from "react";
 import { useTheme } from "styled-components";
-import Link from "next/link";
-import { Squash as Hamburger } from "hamburger-react";
-import Substratum from "public/substratum/substratum.svg";
-import SocialIcons from "./SocialIcons/SocialIcons";
-import NavLinks from "./NavLinks/NavLinks";
-import MobileNav from "./MobileNav/MobileNav";
+
 import ConnectButton from "./Connect/ConnectButton";
+import * as St from "./Header.styled";
+import MobileNav from "./MobileNav/MobileNav";
+import NavLinks from "./NavLinks/NavLinks";
+import SocialIcons from "./SocialIcons/SocialIcons";
 
 const Header = (): JSX.Element => {
   const { isMobile, colors, isDark, toggleTheme } = useTheme();

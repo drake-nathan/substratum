@@ -1,6 +1,7 @@
+import { artistUrls, projects } from "components/staticData/projects";
 import React from "react";
 import { useTheme } from "styled-components";
-import { artistUrls, projects } from "components/staticData/projects";
+
 import * as St from "./DropDowns.styled";
 
 const artists = projects.map(({ artist }) => artist);

@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import { RxOpenInNewWindow } from "react-icons/rx";
+import styled from "styled-components";
 
 export const DetailGrid = styled.div`
   width: 100%;

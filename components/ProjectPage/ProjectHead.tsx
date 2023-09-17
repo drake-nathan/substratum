@@ -1,5 +1,6 @@
 import MarketIcons from "components/MarketIcons/MarketIcons";
 import { type Project } from "components/staticData/projects";
+
 import * as St from "./ProjectHead.styled";
 
 interface Props {

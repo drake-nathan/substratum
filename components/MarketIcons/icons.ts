@@ -1,7 +1,7 @@
+import EtherscanLogo from "public/icons/EtherscanLogo.svg";
 import FirstMateLogo from "public/icons/FirstMateLogo.svg";
 import LooksRareLogo from "public/icons/LooksRareLogo.svg";
 import X2y2Logo from "public/icons/X2y2Logo.svg";
-import EtherscanLogo from "public/icons/EtherscanLogo.svg";
 
 export enum Market {
   Etherscan,

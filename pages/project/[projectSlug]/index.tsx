@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
+import Details from "components/ProjectPage/Details/Details";
+import ProjectHead from "components/ProjectPage/ProjectHead";
+import ProjectMenuBar from "components/ProjectPage/ProjectMenuBar";
+import Tokens from "components/ProjectPage/Tokens/Tokens";
+import { type Project, projects } from "components/staticData/projects";
 import type { NextPage } from "next";
 import Head from "next/head";
-import styled from "styled-components";
 import { useRouter } from "next/router";
-import { Project, projects } from "components/staticData/projects";
-import ProjectHead from "components/ProjectPage/ProjectHead";
-import Tokens from "components/ProjectPage/Tokens/Tokens";
-import ProjectMenuBar from "components/ProjectPage/ProjectMenuBar";
-import Details from "components/ProjectPage/Details/Details";
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 import { isString } from "utils/helpers";
 
 const HomeContainer = styled.div`
