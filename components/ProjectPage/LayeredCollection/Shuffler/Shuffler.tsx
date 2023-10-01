@@ -11,6 +11,7 @@ import {
   methods,
 } from "./methods";
 import * as St from "./Shuffler.styled";
+import VaultInput from "./VaultInput";
 
 const isInRange = (n: number) => {
   if (n <= 100 && n > 0) {
@@ -22,6 +23,7 @@ const isInRange = (n: number) => {
 const Shuffler = (): JSX.Element => {
   const [tokenID, setTokenID] = useState<"" | number>("");
   const [method, setMethod] = useState<Method>();
+  const [vault, setVault] = useState<string>();
 
   const { launchAlertModal, launchTransactionModal, setTransactionModalData } =
     useModal();
@@ -58,7 +60,7 @@ const Shuffler = (): JSX.Element => {
         <St.TopButton>Top</St.TopButton>
 
         <St.ViewLayer>
-          <St.IDInput
+          <St.Input
             placeholder="TokenID to Top"
             onChange={(e) =>
               setTokenID(isInRange(parseInt(e.target.value, 10)))
@@ -88,6 +90,8 @@ const Shuffler = (): JSX.Element => {
       <St.ReverseButton onClick={() => clickHandler("reverse")}>
         Reverse
       </St.ReverseButton>
+
+      <VaultInput vault={vault} setVault={setVault} />
     </St.ButtonGrid>
   );
 };

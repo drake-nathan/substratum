@@ -1,4 +1,4 @@
-import { FaEye } from "react-icons/fa";
+import { FaEye, FaSearch } from "react-icons/fa";
 import styled from "styled-components";
 
 export const ActionButton = styled.button`
@@ -50,9 +50,10 @@ export const TopButton = styled(ActionButton)`
 
 export const ViewLayer = styled.div`
   display: flex;
+  flex: 1 1 100%;
 `;
 
-export const IDInput = styled.input`
+export const Input = styled.input`
   flex: 1 1 100%;
   background-color: #f4f1ed;
   font-family: "basic-sans", sans-serif;
@@ -61,10 +62,10 @@ export const IDInput = styled.input`
   border: none;
 `;
 
-export const ViewButton = styled.div`
+export const ViewButton = styled.button`
   background-color: #ded8d1;
   height: 100%;
-  width: 3em;
+  width: 50px;
   display: flex;
   justify-content: center;
   cursor: pointer;
@@ -75,6 +76,12 @@ export const ViewButton = styled.div`
 `;
 
 export const EyeIcon = styled(FaEye)`
+  color: #00000076;
+  font-size: 28px;
+  align-self: center;
+`;
+
+export const SearchIcon = styled(FaSearch)`
   color: #00000076;
   font-size: 28px;
   align-self: center;
