@@ -20,9 +20,9 @@ const Card = ({ project }: Props): JSX.Element => {
     status,
   } = project;
 
-  const supplyText = `${currentSupply ? intlNumberFormat(currentSupply) : 0}${
-    maxSupply < 1_000_000 ? `/${intlNumberFormat(maxSupply)}` : ''
-  } Minted`;
+  const supplyText = `${
+    currentSupply ? intlNumberFormat(currentSupply) : 0
+  }/${intlNumberFormat(maxSupply)} Minted`;
 
   const CardJsx = (
     <St.Container>

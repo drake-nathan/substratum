@@ -57,7 +57,7 @@ export const projects: Project[] = [
     contractAddress: '0x74C093fD987Fff140677Aa83B6CC4680B8ef2956',
     image: '/projects/haiku.png',
     maxSupply: 1000000000000,
-    currentSupply: 1,
+    currentSupply: 10,
     aspectRatio: 1,
     isZeroIndexed: false,
     isTokenIdInTitle: false,

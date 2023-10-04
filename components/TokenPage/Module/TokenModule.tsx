@@ -9,6 +9,7 @@ import BottomBar from './BottomBar/BottomBar';
 import Traits from './Traits/Traits';
 import OtherTokens from './OtherTokens/OtherTokens';
 import * as St from './TokenModule.styled';
+import { intlNumberFormat } from 'utils/helpers';
 
 interface Props {
   token: IToken;
@@ -23,7 +24,7 @@ const TokenModule: React.FC<Props> = ({ token, project }) => {
     attributes,
     token_id: tokenId,
   } = token;
-  const { aspectRatio, maxSupply, isZeroIndexed } = project;
+  const { aspectRatio, currentSupply, isZeroIndexed } = project;
 
   const { windowWidth } = useWindowSize();
 
@@ -56,11 +57,7 @@ const TokenModule: React.FC<Props> = ({ token, project }) => {
         </St.TokenNameAndOwner>
         <St.Token>
           {generatorUrl ? (
-            <Generator
-              generatorUrl={generatorUrl}
-              height={height}
-              width={width}
-            />
+            <Generator generatorUrl={generatorUrl} height={height} width={width} />
           ) : (
             <Image
               src={imageMid || image}
@@ -78,7 +75,8 @@ const TokenModule: React.FC<Props> = ({ token, project }) => {
 
         <St.StatsSection>
           <St.TokenIndex>
-            {isZeroIndexed ? tokenId + 1 : tokenId} of {maxSupply}
+            {isZeroIndexed ? tokenId + 1 : tokenId} of{' '}
+            {currentSupply && intlNumberFormat(currentSupply)}
           </St.TokenIndex>
           {/* FIXME needs api data for transactions on a token */}
           {/* <St.MintDateTime>Minted Apr 3, 2023, 9:23pm GMT-5</St.MintDateTime> */}
