@@ -49,7 +49,31 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-  // FIXME - this is only temporary: once the API is built, this project may come back with different properties than this. The only thing I need it to do right now is be a placeholder.
+  {
+    name: 'Freestyle H-ai-ku',
+    artist: Artist.Matto,
+    website: 'https://matto.xyz/project/freestyle-h-ai-ku/',
+    projectSlug: 'haiku',
+    contractAddress: '0x74C093fD987Fff140677Aa83B6CC4680B8ef2956',
+    image: '/projects/haiku.png',
+    maxSupply: 1000000000000,
+    currentSupply: 1,
+    aspectRatio: 1,
+    isZeroIndexed: false,
+    isTokenIdInTitle: false,
+    usesTransfers: false,
+    status: Status.Minting,
+    local: true,
+    openSeaSlug: 'freestyle-h-ai-ku',
+    projectPageInfo: {
+      description:
+        '"Freestyle H-ai-ku" is an AI-enhanced exploration of my Freestyle Haiku poetry (freestylehaiku.com). This project utilizes AI as a collective unconscious that not only intensifies the expressiveness of my poetry but also unveils hidden truths and newfound meanings within my words. Each poem is individually stored in the smart contract, while image media, AI-generated poem interpretations, and attributes metadata is stored on Arweave. The resulting work is more than a poem or a visual, it is also a vehicle for the introspection of the human condition through the lens of early Artificial Intelligence systems.',
+      collectionDetails: '',
+      date: 'Sept. 29, 2023',
+      tools: 'Solidity, Stable Diffusion, Transformer LLM, GAN, CNN',
+      license: 'CC BY-NC 4.0',
+    },
+  },
   {
     name: '100x10x1-A',
     projectSlug: '100x10x1-a',
