@@ -18,7 +18,7 @@ export const Container = styled.div<ShowDropDown>`
   top: 31.5px;
   left: 0;
   min-width: 230px;
-  height: ${({ $showDropDown }) => ($showDropDown ? "190px" : "0px")};
+  height: ${({ $showDropDown }) => ($showDropDown ? "210px" : "0px")};
   background-color: ${({ theme: { colors } }) => colors.bgMain};
   transition: all 0.3s ease;
   overflow: ${({ $showDropDown }) => ($showDropDown ? "auto" : "hidden")};

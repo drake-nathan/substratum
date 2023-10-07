@@ -50,7 +50,7 @@ export const Token = styled.div`
 
 export const TokenRibbon = styled.div``;
 
-export const TraitsWrapper = styled.div`
+export const InfoWrapper = styled.div`
   width: 100%;
   border-bottom: 1px solid ${({ theme: { colors } }) => colors.textMain};
   align-self: stretch;

@@ -6,7 +6,7 @@ import { useWindowSize } from "hooks/useWindowSize";
 import Generator from "components/Generator/Generator";
 // import PriceIcon from 'public/icons/PriceIcon.svg';
 import BottomBar from "./BottomBar/BottomBar";
-import Traits from "./Traits/Traits";
+import TokenInfo from "./TokenInfo/TokenInfo";
 import OtherTokens from "./OtherTokens/OtherTokens";
 import * as St from "./TokenModule.styled";
 import { intlNumberFormat } from "utils/helpers";
@@ -23,6 +23,7 @@ const TokenModule: React.FC<Props> = ({ token, project }) => {
     generator_url: generatorUrl,
     attributes,
     token_id: tokenId,
+    description,
   } = token;
   const { aspectRatio, currentSupply, isZeroIndexed } = project;
 
@@ -73,9 +74,9 @@ const TokenModule: React.FC<Props> = ({ token, project }) => {
           <BottomBar token={token} project={project} />
         </St.Token>
 
-        <St.TraitsWrapper>
-          <Traits traits={attributes} />
-        </St.TraitsWrapper>
+        <St.InfoWrapper>
+          <TokenInfo traits={attributes} description={description} />
+        </St.InfoWrapper>
 
         <St.StatsSection>
           <St.TokenIndex>

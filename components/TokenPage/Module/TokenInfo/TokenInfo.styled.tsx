@@ -5,8 +5,6 @@ export const Container = styled.div`
   flex-direction: column;
   gap: 1em;
   padding-bottom: 4em;
-  /* padding: 1em 0em 1.5em 2em; */
-  /* overflow-y: auto; */
 
   ::-webkit-scrollbar {
     background-color: ${({ theme: { colors } }) => colors.textMain};
@@ -15,25 +13,25 @@ export const Container = styled.div`
   ::-webkit-scrollbar-thumb {
     background-color: ${({ theme: { colors } }) => colors.textMain};
   }
-
-  /* @media (max-width: 650px) {
-    padding: 0;
-    border-top: 1px solid ${({ theme: { colors } }) => colors.textMain};
-    margin-top: 0.5em;
-    padding-top: 0.5em;
-  } */
 `;
 
-export const TitleWrapper = styled.div`
-  /* ${({ theme: { colors, isMobile } }) =>
-    !isMobile && `border-bottom: 1px solid ${colors.textMain};`} */
+export const TabWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
 `;
 
-export const Title = styled.h3`
-  text-transform: uppercase;
+export const Tab = styled.button<{ $active: boolean }>`
+  ${({ $active, theme: { colors } }) =>
+    $active ? `border-bottom: 2px solid ${colors.textMain};` : ""}
 
-  @media (max-width: 650px) {
-    font-size: 1.125rem;
+  h3 {
+    color: ${({ theme: { colors } }) => colors.textMain};
+    text-transform: uppercase;
+
+    @media (max-width: 650px) {
+      font-size: 1.125rem;
+    }
   }
 `;
 
@@ -77,4 +75,15 @@ export const Value = styled.span`
 
 export const TooltipBox = styled.div`
   position: relative;
+`;
+
+export const Description = styled.p`
+  line-height: 1.3;
+  text-align: justify;
+  text-justify: inter-word;
+  margin-bottom: 1em;
+
+  @media (max-width: 650px) {
+    font-size: 0.875rem;
+  }
 `;
