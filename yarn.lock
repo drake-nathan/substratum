@@ -6222,10 +6222,10 @@ react-query@^3.39.3:
     broadcast-channel "^3.4.1"
     match-sorter "^6.0.2"
 
-react-tooltip@^5.7.0:
-  version "5.20.0"
-  resolved "https://registry.yarnpkg.com/react-tooltip/-/react-tooltip-5.20.0.tgz#d8c183f66976fb793ce79d9a35283dd18018f844"
-  integrity sha512-LWBIHEZjwDW9ZJ/Dn2xeZrsz+WKMii61CIsx2XPfs1IiIRnWyvKJXrgy6uEGOXYvrnCd4jiEvurn8Y+zJ1bw5Q==
+react-tooltip@^5.21.5:
+  version "5.21.5"
+  resolved "https://registry.yarnpkg.com/react-tooltip/-/react-tooltip-5.21.5.tgz#3e1bc02a0e674369dea81bb201d6106724dd60cf"
+  integrity sha512-ey70qf6pBGi4U6xpyNlZAHobAhlo2dfxmImR2Bzd/DbLTsAYWz3TEaK+RMFuUZMq6hSPRbUHQSkP2rHBq4uFVg==
   dependencies:
     "@floating-ui/dom" "^1.0.0"
     classnames "^2.3.0"
