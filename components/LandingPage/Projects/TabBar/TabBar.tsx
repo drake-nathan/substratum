@@ -1,5 +1,5 @@
-import { ProjectSort } from '../../../staticData/projects';
-import * as St from './TabBar.styled';
+import { ProjectSort } from "../../../staticData/projects";
+import * as St from "./TabBar.styled";
 
 interface Props {
   activeTab: ProjectSort;
@@ -13,28 +13,28 @@ const TabBar = ({ activeTab, setActiveTab, width }: Props): JSX.Element => (
 
     <St.TabsContainer>
       <St.Tab
-        className={activeTab === ProjectSort.All ? 'active' : ''}
+        className={activeTab === ProjectSort.All ? "active" : ""}
         onClick={() => setActiveTab(ProjectSort.All)}
       >
         All
       </St.Tab>
 
       <St.Tab
-        className={activeTab === ProjectSort.Minting ? 'active' : ''}
+        className={activeTab === ProjectSort.Minting ? "active" : ""}
         onClick={() => setActiveTab(ProjectSort.Minting)}
       >
         Minting
       </St.Tab>
 
       <St.Tab
-        className={activeTab === ProjectSort.Upcoming ? 'active' : ''}
+        className={activeTab === ProjectSort.Upcoming ? "active" : ""}
         onClick={() => setActiveTab(ProjectSort.Upcoming)}
       >
         Upcoming
       </St.Tab>
 
       <St.Tab
-        className={activeTab === ProjectSort.Closed ? 'active' : ''}
+        className={activeTab === ProjectSort.Closed ? "active" : ""}
         onClick={() => setActiveTab(ProjectSort.Closed)}
       >
         Closed

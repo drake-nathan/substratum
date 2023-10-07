@@ -1,6 +1,6 @@
-import { useState } from 'react';
-import * as St from './Shuffler.styled';
-import * as actions from './tempShuffleFunctions';
+import { useState } from "react";
+import * as St from "./Shuffler.styled";
+import * as actions from "./tempShuffleFunctions";
 
 interface Props {
   setViewTokenID: (id: number) => void;
@@ -12,7 +12,7 @@ const isInRange = (n: number) => {
   if (n <= 100 && n > 0) {
     return n;
   }
-  return n > 100 ? 100 : '';
+  return n > 100 ? 100 : "";
 };
 
 const Shuffler = ({
@@ -20,7 +20,7 @@ const Shuffler = ({
   drawOrder,
   setViewTokenID,
 }: Props): JSX.Element => {
-  const [tokenID, setTokenID] = useState<'' | number>('');
+  const [tokenID, setTokenID] = useState<"" | number>("");
 
   return (
     <St.ButtonGrid>

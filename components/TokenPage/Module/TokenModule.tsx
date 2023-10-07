@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
-import type { IToken } from 'services/azureApi/types';
-import { type Project } from 'components/staticData/projects';
-import { useWindowSize } from 'hooks/useWindowSize';
-import Generator from 'components/Generator/Generator';
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import type { IToken } from "services/azureApi/types";
+import { type Project } from "components/staticData/projects";
+import { useWindowSize } from "hooks/useWindowSize";
+import Generator from "components/Generator/Generator";
 // import PriceIcon from 'public/icons/PriceIcon.svg';
-import BottomBar from './BottomBar/BottomBar';
-import Traits from './Traits/Traits';
-import OtherTokens from './OtherTokens/OtherTokens';
-import * as St from './TokenModule.styled';
-import { intlNumberFormat } from 'utils/helpers';
+import BottomBar from "./BottomBar/BottomBar";
+import TokenInfo from "./TokenInfo/TokenInfo";
+import OtherTokens from "./OtherTokens/OtherTokens";
+import * as St from "./TokenModule.styled";
+import { intlNumberFormat } from "utils/helpers";
 
 interface Props {
   token: IToken;
@@ -23,6 +23,7 @@ const TokenModule: React.FC<Props> = ({ token, project }) => {
     generator_url: generatorUrl,
     attributes,
     token_id: tokenId,
+    description,
   } = token;
   const { aspectRatio, currentSupply, isZeroIndexed } = project;
 
@@ -50,14 +51,18 @@ const TokenModule: React.FC<Props> = ({ token, project }) => {
       <St.InfoGrid>
         <St.TokenNameAndOwner>
           <St.TokenName>{token.name}</St.TokenName>
-          <St.TokenOwner className="special-artist-name">
-            Owner: 0x1abc7154748d1ce5144478cdeb574ae244b939b5
-          </St.TokenOwner>
           {/* FIXME */}
+          {/* <St.TokenOwner className="special-artist-name">
+            Owner: 0x1abc7154748d1ce5144478cdeb574ae244b939b5
+          </St.TokenOwner> */}
         </St.TokenNameAndOwner>
         <St.Token>
           {generatorUrl ? (
-            <Generator generatorUrl={generatorUrl} height={height} width={width} />
+            <Generator
+              generatorUrl={generatorUrl}
+              height={height}
+              width={width}
+            />
           ) : (
             <Image
               src={imageMid || image}
@@ -69,13 +74,13 @@ const TokenModule: React.FC<Props> = ({ token, project }) => {
           <BottomBar token={token} project={project} />
         </St.Token>
 
-        <St.TraitsWrapper>
-          <Traits traits={attributes} />
-        </St.TraitsWrapper>
+        <St.InfoWrapper>
+          <TokenInfo traits={attributes} description={description} />
+        </St.InfoWrapper>
 
         <St.StatsSection>
           <St.TokenIndex>
-            {isZeroIndexed ? tokenId + 1 : tokenId} of{' '}
+            {isZeroIndexed ? tokenId + 1 : tokenId} of{" "}
             {currentSupply && intlNumberFormat(currentSupply)}
           </St.TokenIndex>
           {/* FIXME needs api data for transactions on a token */}

@@ -1,6 +1,6 @@
-import { TokenAbbr } from 'services/azureApi/types';
-import Link from 'next/link';
-import * as St from './TokenCard.styled';
+import { TokenAbbr } from "services/azureApi/types";
+import Link from "next/link";
+import * as St from "./TokenCard.styled";
 
 interface Props {
   token: TokenAbbr;

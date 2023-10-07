@@ -1,8 +1,8 @@
-import InfiniteScroll from 'react-infinite-scroll-component';
-import { type InfiniteData } from 'react-query';
-import { type CollectionResponse } from 'services/azureApi/types';
-import TokenCard from '../TokenCard/TokenCard';
-import * as St from './TokenGrid.styled';
+import InfiniteScroll from "react-infinite-scroll-component";
+import { type InfiniteData } from "react-query";
+import { type CollectionResponse } from "services/azureApi/types";
+import TokenCard from "../TokenCard/TokenCard";
+import * as St from "./TokenGrid.styled";
 
 interface Props {
   data: InfiniteData<CollectionResponse> | undefined;
@@ -43,7 +43,7 @@ const TokenGrid = ({
                 key={token.name}
                 isTokenIdInTitle={isTokenIdInTitle}
               />
-            )),
+            ))
           )}
         </St.Grid>
       </InfiniteScroll>

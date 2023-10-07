@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
@@ -30,7 +30,7 @@ export const ArtistDiv = styled.div`
   margin-bottom: 1.5em;
   h3 {
     text-transform: capitalize;
-    font-family: 'basic-sans', sans-serif;
+    font-family: "basic-sans", sans-serif;
     font-style: italic;
     font-weight: 400;
     font-size: 32px;
@@ -50,7 +50,7 @@ export const ArtistName = styled.h3`
 `;
 
 export const TokenStatus = styled.div`
-  font-family: 'basic-sans', sans-serif;
+  font-family: "basic-sans", sans-serif;
   font-size: 26px;
   font-style: italic;
   @media (max-width: 500px) {

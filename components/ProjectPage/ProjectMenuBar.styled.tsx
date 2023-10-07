@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
@@ -39,7 +39,7 @@ export const Tab = styled.div`
   text-align: center;
   padding: 0 1em 0.5em;
   transition: all 0.3s ease;
-  font-family: 'basic-sans', sans-serif;
+  font-family: "basic-sans", sans-serif;
   font-size: 24px;
   font-weight: 300;
   font-style: italic;

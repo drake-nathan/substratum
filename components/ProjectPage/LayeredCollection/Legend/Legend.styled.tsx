@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { FaPlus } from 'react-icons/fa';
+import styled from "styled-components";
+import { FaPlus } from "react-icons/fa";
 
 export const Container = styled.div`
   grid-column: span 2;
@@ -18,27 +18,27 @@ export const LegendGrid = styled.div`
   margin: 1em 0 2em;
   gap: 1em;
   grid-template-areas:
-    'top top cut cut faro faro'
-    'overhand overhand wash wash reverse reverse';
+    "top top cut cut faro faro"
+    "overhand overhand wash wash reverse reverse";
   transition: all 0.3s ease;
   overflow: hidden;
   max-height: 100%;
 
   @media (max-width: 1200px) {
     grid-template-areas:
-      'top top top cut cut cut'
-      'faro faro faro overhand overhand overhand'
-      'wash wash wash reverse reverse reverse';
+      "top top top cut cut cut"
+      "faro faro faro overhand overhand overhand"
+      "wash wash wash reverse reverse reverse";
   }
 
   @media (max-width: 800px) {
     grid-template-areas:
-      'top top top top top top'
-      'cut cut cut cut cut cut'
-      'faro faro faro faro faro faro'
-      'overhand overhand overhand overhand overhand overhand'
-      'wash wash wash wash wash wash'
-      'reverse reverse reverse reverse reverse reverse';
+      "top top top top top top"
+      "cut cut cut cut cut cut"
+      "faro faro faro faro faro faro"
+      "overhand overhand overhand overhand overhand overhand"
+      "wash wash wash wash wash wash"
+      "reverse reverse reverse reverse reverse reverse";
   }
 `;
 
@@ -100,7 +100,7 @@ export const ActionTitle = styled.div`
 export const Name = styled.span`
   font-size: 24px;
   font-weight: bold;
-  font-family: 'basic-sans', sans-serif;
+  font-family: "basic-sans", sans-serif;
 `;
 
 export const InfoDropdown = styled.div`
@@ -122,7 +122,7 @@ export const Description = styled.p`
 
 export const PriceInfo = styled.p`
   font-size: initial;
-  font-family: 'basic-sans', sans-serif;
+  font-family: "basic-sans", sans-serif;
   color: ${({ theme: { colors } }) => colors.hover};
 `;
 

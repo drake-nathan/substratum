@@ -1,8 +1,8 @@
-import MarketIcons from 'components/MarketIcons/MarketIcons';
-import { type Project } from 'components/staticData/projects';
-import type { IToken } from 'services/azureApi/types';
-import { Tooltip } from 'react-tooltip';
-import * as St from './TokenIcons.styled';
+import MarketIcons from "components/MarketIcons/MarketIcons";
+import { type Project } from "components/staticData/projects";
+import type { IToken } from "services/azureApi/types";
+import { Tooltip } from "react-tooltip";
+import * as St from "./TokenIcons.styled";
 
 interface Props {
   token: IToken;
@@ -17,7 +17,7 @@ const TokenIcons = ({ token, project }: Props): JSX.Element => {
 
   const mobileUrl = generatorUrl ? new URL(generatorUrl) : null;
 
-  if (mobileUrl) mobileUrl.searchParams.set('mobile', 'true');
+  if (mobileUrl) mobileUrl.searchParams.set("mobile", "true");
 
   return (
     <St.IconDiv>
@@ -30,7 +30,7 @@ const TokenIcons = ({ token, project }: Props): JSX.Element => {
           <Tooltip
             anchorId="fullscreen"
             content={
-              svgGen ? 'View SVG full screen' : 'Launch full screen generator'
+              svgGen ? "View SVG full screen" : "Launch full screen generator"
             }
             positionStrategy="fixed"
           />

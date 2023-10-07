@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const TokensContainer = styled.div`
   padding: 0 80px;

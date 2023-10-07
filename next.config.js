@@ -12,7 +12,7 @@ const nextConfig = {
     config.module.rules.push({
       test: /\.svg$/i,
       issuer: /\.[jt]sx?$/,
-      use: ['@svgr/webpack'],
+      use: ["@svgr/webpack"],
     });
 
     return config;
@@ -21,32 +21,32 @@ const nextConfig = {
     unoptimized: true,
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'mattoapi.blob.core.windows.net',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "mattoapi.blob.core.windows.net",
+        pathname: "/**",
       },
       {
-        protocol: 'http',
-        hostname: '127.0.0.1',
-        pathname: '/**',
+        protocol: "http",
+        hostname: "127.0.0.1",
+        pathname: "/**",
       },
       {
-        protocol: 'https',
-        hostname: 'arweave.net',
-        pathname: '/dtEayxAD2Aknd8g8WWyErEX37kesMRsJhbopwDYPhdo/**',
+        protocol: "https",
+        hostname: "arweave.net",
+        pathname: "/dtEayxAD2Aknd8g8WWyErEX37kesMRsJhbopwDYPhdo/**",
       },
     ],
   },
   async redirects() {
     return [
       {
-        source: '/project',
-        destination: '/',
+        source: "/project",
+        destination: "/",
         permanent: true,
       },
       {
-        source: '/project/:slug/token',
-        destination: '/project/:slug',
+        source: "/project/:slug/token",
+        destination: "/project/:slug",
         permanent: true,
       },
     ];

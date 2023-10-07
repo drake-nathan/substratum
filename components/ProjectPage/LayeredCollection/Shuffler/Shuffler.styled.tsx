@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { FaEye } from 'react-icons/fa';
+import styled from "styled-components";
+import { FaEye } from "react-icons/fa";
 
 export const ActionButton = styled.button`
   width: 100%;
@@ -19,21 +19,21 @@ export const ButtonGrid = styled.div`
   margin-top: 1em;
   display: grid;
   grid-template-areas:
-    'top top'
-    'cut overhand'
-    'faro wash'
-    'reverse reverse';
+    "top top"
+    "cut overhand"
+    "faro wash"
+    "reverse reverse";
 
   gap: 1.25em 1em;
 
   @media (max-width: 800px) {
     grid-template-areas:
-      'top top'
-      'cut cut'
-      'overhand overhand'
-      'faro faro'
-      'wash wash'
-      'reverse reverse';
+      "top top"
+      "cut cut"
+      "overhand overhand"
+      "faro faro"
+      "wash wash"
+      "reverse reverse";
   }
 `;
 
@@ -55,7 +55,7 @@ export const ViewLayer = styled.div`
 export const IDInput = styled.input`
   flex: 1 1 100%;
   background-color: #f4f1ed;
-  font-family: 'basic-sans', sans-serif;
+  font-family: "basic-sans", sans-serif;
   padding: 1em;
   outline: unset;
   border: none;
