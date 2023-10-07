@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import { intlNumberFormat } from 'utils/helpers';
-import * as St from './Card.styled';
-import { Project } from '../../../staticData/projects';
+import Link from "next/link";
+import { intlNumberFormat } from "utils/helpers";
+import * as St from "./Card.styled";
+import { Project } from "../../../staticData/projects";
 
 interface Props {
   project: Project;

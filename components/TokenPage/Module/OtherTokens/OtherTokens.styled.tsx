@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const OtherTokensContainer = styled.div`
   margin-top: 3em;

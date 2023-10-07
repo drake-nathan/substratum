@@ -1,5 +1,5 @@
-import React from 'react';
-import * as St from './SocialIcons.styled';
+import React from "react";
+import * as St from "./SocialIcons.styled";
 
 const SocialIcons: React.FC = () => (
   <St.Container>

@@ -1,15 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
-import type { IToken } from 'services/azureApi/types';
-import { type Project } from 'components/staticData/projects';
-import { useWindowSize } from 'hooks/useWindowSize';
-import Generator from 'components/Generator/Generator';
+import React, { useEffect, useState } from "react";
+import Image from "next/image";
+import type { IToken } from "services/azureApi/types";
+import { type Project } from "components/staticData/projects";
+import { useWindowSize } from "hooks/useWindowSize";
+import Generator from "components/Generator/Generator";
 // import PriceIcon from 'public/icons/PriceIcon.svg';
-import BottomBar from './BottomBar/BottomBar';
-import Traits from './Traits/Traits';
-import OtherTokens from './OtherTokens/OtherTokens';
-import * as St from './TokenModule.styled';
-import { intlNumberFormat } from 'utils/helpers';
+import BottomBar from "./BottomBar/BottomBar";
+import Traits from "./Traits/Traits";
+import OtherTokens from "./OtherTokens/OtherTokens";
+import * as St from "./TokenModule.styled";
+import { intlNumberFormat } from "utils/helpers";
 
 interface Props {
   token: IToken;
@@ -57,7 +57,11 @@ const TokenModule: React.FC<Props> = ({ token, project }) => {
         </St.TokenNameAndOwner>
         <St.Token>
           {generatorUrl ? (
-            <Generator generatorUrl={generatorUrl} height={height} width={width} />
+            <Generator
+              generatorUrl={generatorUrl}
+              height={height}
+              width={width}
+            />
           ) : (
             <Image
               src={imageMid || image}
@@ -75,7 +79,7 @@ const TokenModule: React.FC<Props> = ({ token, project }) => {
 
         <St.StatsSection>
           <St.TokenIndex>
-            {isZeroIndexed ? tokenId + 1 : tokenId} of{' '}
+            {isZeroIndexed ? tokenId + 1 : tokenId} of{" "}
             {currentSupply && intlNumberFormat(currentSupply)}
           </St.TokenIndex>
           {/* FIXME needs api data for transactions on a token */}

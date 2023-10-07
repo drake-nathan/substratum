@@ -1,12 +1,12 @@
-import { Tooltip } from 'react-tooltip';
-import { type Project } from 'components/staticData/projects';
-import * as St from './MarketIcons.styled';
+import { Tooltip } from "react-tooltip";
+import { type Project } from "components/staticData/projects";
+import * as St from "./MarketIcons.styled";
 import {
   Market,
   getProjectMarketLink,
   getTokenMarketLink,
   icons,
-} from './icons';
+} from "./icons";
 
 interface Props {
   project: Project;
@@ -47,7 +47,7 @@ const MarketIcons = ({ project, tokenId }: Props): JSX.Element => {
               anchorId={id}
               content={tooltip}
               positionStrategy="fixed"
-              place={isToken ? 'top' : 'bottom'}
+              place={isToken ? "top" : "bottom"}
             />
           </a>
         );

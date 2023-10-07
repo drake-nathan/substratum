@@ -1,13 +1,16 @@
-import axios from 'axios';
-import { CollectionResponse, IProject, IToken, TxCounts } from './types';
+import axios from "axios";
+import { CollectionResponse, IProject, IToken, TxCounts } from "./types";
 
 const rootApiUrl = process.env.NEXT_PUBLIC_API_ROOT;
 
 if (!rootApiUrl) {
-  throw new Error('NEXT_PUBLIC_API_ROOT env var is not defined');
+  throw new Error("NEXT_PUBLIC_API_ROOT env var is not defined");
 }
 
-export const fetchToken = async (projectSlug: string, tokenId: number | string) => {
+export const fetchToken = async (
+  projectSlug: string,
+  tokenId: number | string
+) => {
   const url = `${rootApiUrl}/project/${projectSlug}/token/${tokenId}`;
 
   const { data: token } = await axios.get<IToken>(url);
@@ -27,9 +30,9 @@ export const fetchCollectionTokens = async (
   projectSlug: string,
   limit: number,
   skip: number,
-  sortDir: 'asc' | 'desc',
-  sortType: 'tokenId' | 'worldLevel',
-  tokenId: number | null,
+  sortDir: "asc" | "desc",
+  sortType: "tokenId" | "worldLevel",
+  tokenId: number | null
 ) => {
   const url = `${rootApiUrl}/project/${projectSlug}/all-tokens`;
 

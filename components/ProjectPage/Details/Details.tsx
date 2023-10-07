@@ -1,11 +1,11 @@
-import * as St from 'components/ProjectPage/Details/Details.styled';
-import { Project, projects } from 'components/staticData/projects';
-import { drawOrder as dO } from 'components/staticData/100x10x1A/order';
-import { useState } from 'react';
-import CollectionCard from './OtherCollections/CollectionCard';
-import LayeredCollection from '../LayeredCollection/LayeredCollection';
-import Legend from '../LayeredCollection/Legend/Legend';
-import Shuffler from '../LayeredCollection/Shuffler/Shuffler';
+import * as St from "components/ProjectPage/Details/Details.styled";
+import { Project, projects } from "components/staticData/projects";
+import { drawOrder as dO } from "components/staticData/100x10x1A/order";
+import { useState } from "react";
+import CollectionCard from "./OtherCollections/CollectionCard";
+import LayeredCollection from "../LayeredCollection/LayeredCollection";
+import Legend from "../LayeredCollection/Legend/Legend";
+import Shuffler from "../LayeredCollection/Shuffler/Shuffler";
 
 interface Props {
   project: Project;
@@ -46,7 +46,7 @@ const Details = ({ project }: Props): JSX.Element => {
   return (
     <St.DetailGrid>
       <St.ProjectImage>
-        {projectSlug === '100x10x1-a' ? (
+        {projectSlug === "100x10x1-a" ? (
           <LayeredCollection
             viewTokenID={viewTokenID}
             setViewTokenID={setViewTokenID}
@@ -65,7 +65,7 @@ const Details = ({ project }: Props): JSX.Element => {
 
       <St.Details>
         {/** FIXME - render shuffler if the project is of a certain class */}
-        {projectSlug === '100x10x1-a' && (
+        {projectSlug === "100x10x1-a" && (
           <Shuffler
             setDrawOrder={setDrawOrder}
             drawOrder={drawOrder}
@@ -75,7 +75,7 @@ const Details = ({ project }: Props): JSX.Element => {
         <St.AboutSection>
           <St.DescTitle>About {name}</St.DescTitle>
           <St.Text>{description}</St.Text>
-          {projectSlug === 'texture-and-hues' && (
+          {projectSlug === "texture-and-hues" && (
             <a
               href="https://mattoapi.blob.core.windows.net/texture-and-hues-images/allSVGs.json"
               target="_blank"
@@ -122,7 +122,7 @@ const Details = ({ project }: Props): JSX.Element => {
         </St.OtherInfo>
       </St.Details>
 
-      {projectSlug === '100x10x1-a' && <Legend />}
+      {projectSlug === "100x10x1-a" && <Legend />}
 
       <St.OtherCollectionsContainer>
         <St.OtherCollectionsHeader>Other Collections</St.OtherCollectionsHeader>

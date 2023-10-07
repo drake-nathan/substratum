@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { RxCaretDown } from 'react-icons/rx';
+import styled from "styled-components";
+import { RxCaretDown } from "react-icons/rx";
 
 export const Container = styled.div`
   position: relative;
@@ -32,7 +32,7 @@ export const Tab = styled.div`
 
   &:hover {
     ${({ theme: { isMobile } }) =>
-      !isMobile && 'cursor: pointer; text-decoration: underline; '};
+      !isMobile && "cursor: pointer; text-decoration: underline; "};
   }
 
   @media (max-width: 775px) {
@@ -48,8 +48,9 @@ export const Tab = styled.div`
 `;
 
 export const Text = styled.span`
-  ${({ theme: { isMobile, colors } }) => (isMobile ? `color: ${colors.bgMain};` : '')}
-  font-size: ${({ theme: { isMobile } }) => (isMobile ? '1.75rem' : '18px')};
+  ${({ theme: { isMobile, colors } }) =>
+    isMobile ? `color: ${colors.bgMain};` : ""}
+  font-size: ${({ theme: { isMobile } }) => (isMobile ? "1.75rem" : "18px")};
   font-weight: 400;
   text-transform: uppercase;
 

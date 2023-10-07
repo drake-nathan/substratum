@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -41,7 +41,7 @@ export const Title = styled.h4`
 
 export const Owner = styled.div`
   font-style: italic;
-  font-family: 'basic-sans', sans-serif;
+  font-family: "basic-sans", sans-serif;
   font-weight: 300;
   max-width: 150px;
   white-space: nowrap;

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
@@ -26,7 +26,7 @@ export const LoadingCircle = styled.div`
     border: solid 20px #f0ede9;
     border-bottom-color: #101010;
     border-radius: 50%;
-    content: '';
+    content: "";
     height: 80px;
     width: 80px;
     position: absolute;

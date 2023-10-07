@@ -1,4 +1,4 @@
-import * as St from './Hero.styled';
+import * as St from "./Hero.styled";
 
 interface Props {
   width: number;

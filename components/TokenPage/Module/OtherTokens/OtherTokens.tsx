@@ -1,9 +1,9 @@
-import { Project } from 'components/staticData/projects';
-import { IToken, TokenAbbr } from 'services/azureApi/types';
-import { fetchCollectionTokens } from 'services/azureApi/fetches';
-import { useEffect, useState } from 'react';
-import * as St from './OtherTokens.styled';
-import TokenCard from './TokenCard';
+import { Project } from "components/staticData/projects";
+import { IToken, TokenAbbr } from "services/azureApi/types";
+import { fetchCollectionTokens } from "services/azureApi/fetches";
+import { useEffect, useState } from "react";
+import * as St from "./OtherTokens.styled";
+import TokenCard from "./TokenCard";
 
 interface Props {
   token: IToken;
@@ -19,9 +19,9 @@ const getOtherTokens = async (project: Project, token: IToken) => {
     project.projectSlug,
     3,
     tokenNumber,
-    'asc',
-    'tokenId',
-    null,
+    "asc",
+    "tokenId",
+    null
   );
 
   return data.tokens;

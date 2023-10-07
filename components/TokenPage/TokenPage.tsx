@@ -1,11 +1,11 @@
-import Link from 'next/link';
-import { useQuery } from 'react-query';
-import { fetchToken } from 'services/azureApi/fetches';
-import { type Project } from 'components/staticData/projects';
-import type { IToken } from 'services/azureApi/types';
-import MarketIcons from 'components/MarketIcons/MarketIcons';
-import TokenModule from './Module/TokenModule';
-import * as St from './TokenPage.styled';
+import Link from "next/link";
+import { useQuery } from "react-query";
+import { fetchToken } from "services/azureApi/fetches";
+import { type Project } from "components/staticData/projects";
+import type { IToken } from "services/azureApi/types";
+import MarketIcons from "components/MarketIcons/MarketIcons";
+import TokenModule from "./Module/TokenModule";
+import * as St from "./TokenPage.styled";
 
 interface Props {
   project: Project;
@@ -21,7 +21,7 @@ const TokenPage = ({ project, tokenId }: Props): JSX.Element => {
     isLoading,
     error,
     data: token,
-  } = useQuery<IToken, Error>('token', () => fetchToken(projectSlug, tokenId));
+  } = useQuery<IToken, Error>("token", () => fetchToken(projectSlug, tokenId));
 
   const renderToken = (): JSX.Element => {
     if (isLoading) {
@@ -48,7 +48,7 @@ const TokenPage = ({ project, tokenId }: Props): JSX.Element => {
   return (
     <St.Container>
       <St.TokenHead>
-        <Link href={projectLink} style={{ width: 'max-content' }}>
+        <Link href={projectLink} style={{ width: "max-content" }}>
           <St.Title>{`${name} #${tokenId}`}</St.Title>
         </Link>
 

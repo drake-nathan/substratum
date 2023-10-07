@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { MdCopyright } from 'react-icons/md';
+import styled from "styled-components";
+import { MdCopyright } from "react-icons/md";
 
 export const OuterWrapper = styled.div`
   display: flex;
@@ -45,7 +45,7 @@ export const SmallText = styled.p`
 `;
 
 export const Link = styled.a`
-  font-family: 'basic-sans', sans-serif;
+  font-family: "basic-sans", sans-serif;
   font-size: 14px;
   font-weight: 500;
   text-decoration: underline;

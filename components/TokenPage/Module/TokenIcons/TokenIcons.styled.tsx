@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { BsArrowsFullscreen } from 'react-icons/bs';
-import { MdMobileFriendly } from 'react-icons/md';
+import styled from "styled-components";
+import { BsArrowsFullscreen } from "react-icons/bs";
+import { MdMobileFriendly } from "react-icons/md";
 
 export const IconDiv = styled.div`
   display: flex;

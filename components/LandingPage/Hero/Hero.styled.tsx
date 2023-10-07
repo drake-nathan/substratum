@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 type Width = { width: number };
 
@@ -16,7 +16,7 @@ export const Container = styled.div<Width>`
 `;
 
 export const Title = styled.h1`
-  font-family: 'Exo', sans-serif;
+  font-family: "Exo", sans-serif;
   font-size: 2.75rem;
   font-weight: 200;
   letter-spacing: 1px;

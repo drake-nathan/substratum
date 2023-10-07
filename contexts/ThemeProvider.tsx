@@ -1,12 +1,12 @@
-import { useEffect, useState, type ReactNode } from 'react';
-import { ThemeProvider as StyledThemeProvider } from 'styled-components';
-import { useWindowSize } from 'hooks/useWindowSize';
+import { useEffect, useState, type ReactNode } from "react";
+import { ThemeProvider as StyledThemeProvider } from "styled-components";
+import { useWindowSize } from "hooks/useWindowSize";
 import {
   type Colors,
   defaultTheme,
   darkColors,
   lightColors,
-} from '../styles/theme';
+} from "../styles/theme";
 
 interface Props {
   children: ReactNode;
@@ -32,20 +32,20 @@ const ThemeProvider: React.FC<Props> = ({ children }) => {
   const toggleTheme = () => {
     if (colors === lightColors) {
       setColors(darkColors);
-      sessionStorage.setItem('theme', 'dark');
+      sessionStorage.setItem("theme", "dark");
     } else {
       setColors(lightColors);
-      sessionStorage.setItem('theme', 'light');
+      sessionStorage.setItem("theme", "light");
     }
   };
 
   useEffect(() => {
-    const savedTheme = sessionStorage.getItem('theme');
+    const savedTheme = sessionStorage.getItem("theme");
     const prefersDark =
       window.matchMedia &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (savedTheme && ['dark', 'light'].includes(savedTheme)) {
-      setColors(savedTheme === 'dark' ? darkColors : lightColors);
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    if (savedTheme && ["dark", "light"].includes(savedTheme)) {
+      setColors(savedTheme === "dark" ? darkColors : lightColors);
     } else if (prefersDark) {
       setColors(darkColors);
     }

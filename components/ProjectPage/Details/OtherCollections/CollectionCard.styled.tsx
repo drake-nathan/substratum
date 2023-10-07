@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   --card-size: 400px;
@@ -78,7 +78,7 @@ export const StatusDiv = styled.div`
 `;
 
 export const StatusText = styled.p`
-  font-family: 'transducer', sans-serif;
+  font-family: "transducer", sans-serif;
   font-size: 15px;
   color: #fffcf9;
 `;

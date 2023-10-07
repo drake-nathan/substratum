@@ -1,5 +1,5 @@
-import React from 'react';
-import * as St from './Generator.styled';
+import React from "react";
+import * as St from "./Generator.styled";
 
 interface Props {
   generatorUrl: string;

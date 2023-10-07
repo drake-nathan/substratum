@@ -1,4 +1,4 @@
-import * as St from './Footer.styled';
+import * as St from "./Footer.styled";
 
 const Footer = (): JSX.Element => {
   const year = new Date().getFullYear();
@@ -15,7 +15,7 @@ const Footer = (): JSX.Element => {
 
         <St.Row>
           <St.SmallText>
-            By interacting with this website you agree to the{' '}
+            By interacting with this website you agree to the{" "}
             <St.Link
               href="https://chainlife.gitbook.io/docs/legal/terms"
               target="_blank"
