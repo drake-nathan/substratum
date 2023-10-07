@@ -21,7 +21,7 @@ const getOtherTokens = async (project: Project, token: IToken) => {
     tokenNumber,
     "asc",
     "tokenId",
-    null
+    null,
   );
 
   return data.tokens;

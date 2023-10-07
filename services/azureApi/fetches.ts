@@ -9,7 +9,7 @@ if (!rootApiUrl) {
 
 export const fetchToken = async (
   projectSlug: string,
-  tokenId: number | string
+  tokenId: number | string,
 ) => {
   const url = `${rootApiUrl}/project/${projectSlug}/token/${tokenId}`;
 
@@ -32,7 +32,7 @@ export const fetchCollectionTokens = async (
   skip: number,
   sortDir: "asc" | "desc",
   sortType: "tokenId" | "worldLevel",
-  tokenId: number | null
+  tokenId: number | null,
 ) => {
   const url = `${rootApiUrl}/project/${projectSlug}/all-tokens`;
 

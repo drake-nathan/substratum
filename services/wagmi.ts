@@ -11,7 +11,7 @@ if (!projectId) {
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
   [mainnet, goerli],
-  [publicProvider()]
+  [publicProvider()],
 );
 
 export const wagmiConfig = createConfig({

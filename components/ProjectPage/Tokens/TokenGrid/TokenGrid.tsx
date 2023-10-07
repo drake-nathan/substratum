@@ -43,7 +43,7 @@ const TokenGrid = ({
                 key={token.name}
                 isTokenIdInTitle={isTokenIdInTitle}
               />
-            ))
+            )),
           )}
         </St.Grid>
       </InfiniteScroll>
