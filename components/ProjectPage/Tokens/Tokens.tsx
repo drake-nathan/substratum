@@ -30,7 +30,7 @@ const Tokens = ({ projectSlug, project }: Props): JSX.Element => {
       skip,
       sortDir,
       sortType,
-      tokenSearchId
+      tokenSearchId,
     );
 
   const { error, data, isLoading, isFetching, fetchNextPage, refetch, remove } =

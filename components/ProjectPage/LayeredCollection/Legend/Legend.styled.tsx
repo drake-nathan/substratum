@@ -112,7 +112,9 @@ export const InfoDropdown = styled.div`
   padding: 1em;
   overflow: hidden;
   /* transition: padding 0.2s ease-in-out; */
-  transition: all 0.3s, padding-top 0.3s;
+  transition:
+    all 0.3s,
+    padding-top 0.3s;
   transition-timing-function: ease;
 `;
 

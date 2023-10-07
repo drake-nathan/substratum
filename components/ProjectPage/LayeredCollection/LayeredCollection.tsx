@@ -17,7 +17,7 @@ const LayeredCollection = ({
   setViewTokenID,
 }: Props): JSX.Element => {
   const [renderableSVGString, setRenderableSVGString] = useState(
-    goerliSVG.join("")
+    goerliSVG.join(""),
   );
 
   const [pngData, setPngData] = useState("/projects/100x10x1-a.png");
@@ -40,8 +40,8 @@ const LayeredCollection = ({
         setRenderableSVGString(
           drawOrder.reduce(
             (svgString, tokenID) => svgString + goerliSVG[tokenID],
-            ""
-          )
+            "",
+          ),
         );
         // reset view ID as well
         setViewTokenID(0);
@@ -54,7 +54,7 @@ const LayeredCollection = ({
     const svgUrl = URL.createObjectURL(
       new Blob([`${svgStart + renderableSVGString}</svg>`], {
         type: "image/svg+xml",
-      })
+      }),
     );
     const svgImage = document.createElement("img");
     const canvas = document.createElement("canvas");

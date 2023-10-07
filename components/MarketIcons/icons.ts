@@ -44,7 +44,7 @@ interface Icon {
 export const getProjectMarketLink = (
   icon: Icon,
   slug: string,
-  address: string
+  address: string,
 ): string => {
   const { market, urlParam } = icon;
 
@@ -57,7 +57,7 @@ export const getProjectMarketLink = (
 export const getTokenMarketLink = (
   icon: Icon,
   address: string,
-  tokenId: string | number
+  tokenId: string | number,
 ): string => {
   const { market } = icon;
 

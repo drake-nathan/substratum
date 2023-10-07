@@ -42,7 +42,7 @@ const ProjectsDropDown = ({
           <St.OpenInNewIcon />
           {renderProjectItem(name)}
         </St.RowLink>
-      )
+      ),
   );
 
   return !isMobile ? (
