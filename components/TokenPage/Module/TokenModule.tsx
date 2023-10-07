@@ -50,10 +50,10 @@ const TokenModule: React.FC<Props> = ({ token, project }) => {
       <St.InfoGrid>
         <St.TokenNameAndOwner>
           <St.TokenName>{token.name}</St.TokenName>
-          <St.TokenOwner className="special-artist-name">
-            Owner: 0x1abc7154748d1ce5144478cdeb574ae244b939b5
-          </St.TokenOwner>
           {/* FIXME */}
+          {/* <St.TokenOwner className="special-artist-name">
+            Owner: 0x1abc7154748d1ce5144478cdeb574ae244b939b5
+          </St.TokenOwner> */}
         </St.TokenNameAndOwner>
         <St.Token>
           {generatorUrl ? (
