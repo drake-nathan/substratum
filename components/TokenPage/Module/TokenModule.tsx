@@ -105,6 +105,7 @@ const TokenModule = ({ token, project }: Props): JSX.Element => {
           </St.BuyButton>
         </St.BuyToken> */}
       </St.InfoGrid>
+
       <OtherTokens project={project} token={token} />
     </St.Container>
   );

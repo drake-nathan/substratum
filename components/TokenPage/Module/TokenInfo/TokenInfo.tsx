@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { Tooltip } from "react-tooltip";
-import type { IAttribute } from "services/azureApi/types";
-import { useWindowSize } from "hooks/useWindowSize";
 import * as St from "./TokenInfo.styled";
-import { InfoTab } from "./types";
+import type { IAttribute } from "services/azureApi/types";
+import type { InfoTab } from "./types";
 import Info from "./Info";
+import { useQueryParam } from "hooks/useQueryParam";
+import { z } from "zod";
 
 interface Props {
   projectSlug: string;
@@ -14,30 +13,18 @@ interface Props {
   additionalDescription: string | undefined;
 }
 
-const TokenInfo: React.FC<Props> = ({
+const TokenInfo = ({
   projectSlug,
   traits,
   description,
   poem,
   additionalDescription,
-}) => {
-  const { windowWidth } = useWindowSize();
+}: Props): JSX.Element => {
+  const [tabQuery, setTab] = useQueryParam("tab", "description");
 
-  const [maxTraitLength, setMaxTraitLength] = useState<number>(22);
-  const [tab, setTab] = useState<InfoTab>("description");
+  const infoTabSchema = z.enum(["description", "more-info", "traits"]);
 
-  useEffect(() => {
-    if (windowWidth > 450) setMaxTraitLength(22);
-    else if (windowWidth <= 450 && windowWidth > 400) setMaxTraitLength(20);
-    else setMaxTraitLength(18);
-  }, [windowWidth]);
-
-  const shortenTrait = (trait: string) => {
-    if (trait.length > maxTraitLength) {
-      return `${trait.slice(0, maxTraitLength)}...`;
-    }
-    return trait;
-  };
+  const tab = (infoTabSchema.parse(tabQuery) as InfoTab) ?? "description";
 
   return (
     <St.Container>
