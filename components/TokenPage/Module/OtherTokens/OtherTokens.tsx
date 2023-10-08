@@ -1,47 +1,48 @@
-import { Project } from "components/staticData/projects";
-import { IToken, TokenAbbr } from "services/azureApi/types";
-import { fetchCollectionTokens } from "services/azureApi/fetches";
-import { useEffect, useState } from "react";
 import * as St from "./OtherTokens.styled";
+import { useEffect } from "react";
+import type { Project } from "components/staticData/projects";
+import type { CollectionResponse, IToken } from "services/azureApi/types";
+import { fetchCollectionTokens } from "services/azureApi/fetches";
 import TokenCard from "./TokenCard";
+import { useQuery } from "react-query";
 
 interface Props {
   token: IToken;
   project: Project;
 }
 
-const getOtherTokens = async (project: Project, token: IToken) => {
-  const tokenNumber = project.isZeroIndexed
-    ? token.token_id + 1
-    : token.token_id;
+const OtherTokens = ({ token, project }: Props): JSX.Element => {
+  const { projectSlug, currentSupply } = project;
+  const { token_id: tokenId } = token;
 
-  const data = await fetchCollectionTokens(
-    project.projectSlug,
-    3,
-    tokenNumber,
-    "asc",
-    "tokenId",
-    null,
+  const skip =
+    currentSupply && currentSupply < tokenId + 3 ? currentSupply - 3 : tokenId;
+
+  const {
+    isLoading,
+    error,
+    data: response,
+    refetch,
+  } = useQuery<CollectionResponse, Error>("tokens", () =>
+    fetchCollectionTokens(projectSlug, 3, skip, "asc", "tokenId", null),
   );
 
-  return data.tokens;
-};
-
-const OtherTokens = ({ token, project }: Props): JSX.Element => {
-  const [otherTokens, setOtherTokens] = useState<TokenAbbr[]>([]);
-
   useEffect(() => {
-    getOtherTokens(project, token).then((data) => setOtherTokens(data));
-  }, [project, token]);
+    refetch();
+  }, [refetch, tokenId]);
 
   return (
     <St.OtherTokensContainer>
-      <St.OtherTokensHeader>Other Tokens</St.OtherTokensHeader>
-      <St.OtherTokens>
-        {otherTokens.map((t) => (
-          <TokenCard key={t.name} token={t} />
-        ))}
-      </St.OtherTokens>
+      {(!isLoading && error) || !response?.tokens.length ? null : (
+        <>
+          <St.OtherTokensHeader>Other Tokens</St.OtherTokensHeader>
+          <St.OtherTokens>
+            {response?.tokens.length
+              ? response.tokens.map((t) => <TokenCard key={t.name} token={t} />)
+              : null}
+          </St.OtherTokens>
+        </>
+      )}
     </St.OtherTokensContainer>
   );
 };
