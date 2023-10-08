@@ -111,6 +111,8 @@ export interface IToken {
   artist_address: string; // project
   description: string; // project
   collection_name: string; // project
+  width_ratio?: number; // project
+  height_ratio?: number; // project
   aspect_ratio: number; // project
   script_type?: string; // project
   script_inputs?: IScriptInputs;
@@ -130,6 +132,13 @@ export interface IToken {
   license: string; // project*
   royalty_info: IRoyaltyInfo; // project
   attributes: IAttribute[]; // script
+  transfer_count?: number;
+  last_transfer_block?: number;
+  token_data_frozen?: boolean;
+  additional_info?: {
+    poem?: string;
+    additional_description?: string;
+  };
 }
 
 export interface ITransaction {

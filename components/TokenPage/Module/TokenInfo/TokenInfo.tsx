@@ -3,17 +3,28 @@ import { Tooltip } from "react-tooltip";
 import type { IAttribute } from "services/azureApi/types";
 import { useWindowSize } from "hooks/useWindowSize";
 import * as St from "./TokenInfo.styled";
+import { InfoTab } from "./types";
+import Info from "./Info";
 
 interface Props {
+  projectSlug: string;
   traits: IAttribute[];
   description: string;
+  poem: string | undefined;
+  additionalDescription: string | undefined;
 }
 
-const TokenInfo: React.FC<Props> = ({ traits, description }) => {
+const TokenInfo: React.FC<Props> = ({
+  projectSlug,
+  traits,
+  description,
+  poem,
+  additionalDescription,
+}) => {
   const { windowWidth } = useWindowSize();
 
   const [maxTraitLength, setMaxTraitLength] = useState<number>(22);
-  const [tab, setTab] = useState<"traits" | "description">("description");
+  const [tab, setTab] = useState<InfoTab>("description");
 
   useEffect(() => {
     if (windowWidth > 450) setMaxTraitLength(22);
@@ -35,48 +46,31 @@ const TokenInfo: React.FC<Props> = ({ traits, description }) => {
           onClick={() => setTab("description")}
           $active={tab === "description"}
         >
-          <h3>Description</h3>
+          <h3>{projectSlug === "haiku" ? "Poem" : "Description"}</h3>
         </St.Tab>
+
+        {additionalDescription && (
+          <St.Tab
+            onClick={() => setTab("more-info")}
+            $active={tab === "more-info"}
+          >
+            <h3>More Info</h3>
+          </St.Tab>
+        )}
 
         <St.Tab onClick={() => setTab("traits")} $active={tab === "traits"}>
           <h3>Traits</h3>
         </St.Tab>
       </St.TabWrapper>
 
-      {tab === "traits" ? (
-        <St.Table>
-          {traits.map((trait) => {
-            const { trait_type: name, value } = trait;
-            const processedValue =
-              typeof value === "string" ? shortenTrait(value) : value;
-            const isTraitShortened =
-              typeof value === "string" && value.length > maxTraitLength;
-            const isLink = typeof value === "string" && value.includes("http");
-
-            return (
-              <St.Row key={name}>
-                <St.Name>{name}</St.Name>
-                {isLink ? (
-                  <a id={name} href={value} target="_blank" rel="noreferrer">
-                    <St.Value>{processedValue}</St.Value>
-                  </a>
-                ) : (
-                  <St.Value id={name}>{processedValue}</St.Value>
-                )}
-                {isTraitShortened && (
-                  <Tooltip
-                    anchorId={name}
-                    content={value.toString()}
-                    positionStrategy="fixed"
-                  />
-                )}
-              </St.Row>
-            );
-          })}
-        </St.Table>
-      ) : (
-        <St.Description>{description}</St.Description>
-      )}
+      <Info
+        additionalDescription={additionalDescription}
+        description={description}
+        poem={poem}
+        projectSlug={projectSlug}
+        tab={tab}
+        traits={traits}
+      />
     </St.Container>
   );
 };

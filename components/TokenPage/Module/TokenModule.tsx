@@ -16,7 +16,7 @@ interface Props {
   project: Project;
 }
 
-const TokenModule: React.FC<Props> = ({ token, project }) => {
+const TokenModule = ({ token, project }: Props): JSX.Element => {
   const {
     image,
     image_mid: imageMid,
@@ -24,8 +24,9 @@ const TokenModule: React.FC<Props> = ({ token, project }) => {
     attributes,
     token_id: tokenId,
     description,
+    additional_info,
   } = token;
-  const { aspectRatio, currentSupply, isZeroIndexed } = project;
+  const { projectSlug, aspectRatio, currentSupply, isZeroIndexed } = project;
 
   const { windowWidth } = useWindowSize();
 
@@ -75,7 +76,13 @@ const TokenModule: React.FC<Props> = ({ token, project }) => {
         </St.Token>
 
         <St.InfoWrapper>
-          <TokenInfo traits={attributes} description={description} />
+          <TokenInfo
+            projectSlug={projectSlug}
+            traits={attributes}
+            description={description}
+            poem={additional_info?.poem}
+            additionalDescription={additional_info?.additional_description}
+          />
         </St.InfoWrapper>
 
         <St.StatsSection>
