@@ -41,7 +41,7 @@ const TokenInfo = ({
             onClick={() => setTab("more-info")}
             $active={tab === "more-info"}
           >
-            <h3>More Info</h3>
+            <h3>{projectSlug === "haiku" ? "AI Analysis" : "More Info"}</h3>
           </St.Tab>
         )}
 

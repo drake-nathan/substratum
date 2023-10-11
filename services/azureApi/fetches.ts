@@ -1,5 +1,6 @@
 import axios from "axios";
-import { CollectionResponse, IProject, IToken, TxCounts } from "./types";
+import { z } from "zod";
+import type { CollectionResponse, IProject, IToken, TxCounts } from "./types";
 
 const rootApiUrl = process.env.NEXT_PUBLIC_API_ROOT;
 
@@ -49,4 +50,45 @@ export const fetchTxCounts = async (projectSlug: string): Promise<TxCounts> => {
   const { data } = await axios.get<TxCounts>(url);
 
   return data;
+};
+
+export const fetchCurrentSupplies = async (): Promise<
+  Record<string, number>
+> => {
+  const url = `${rootApiUrl}/projects`;
+
+  let projects: unknown;
+  try {
+    projects = (await axios.get<unknown>(url)).data;
+  } catch (error) {
+    throw new Error(`Error fetching current supplies`, {
+      cause: error,
+    });
+  }
+
+  const schema = z.array(
+    z.object({
+      project_slug: z.string(),
+      current_supply: z.number(),
+    }),
+  );
+
+  let currentSupplies: Record<string, number>;
+  try {
+    const parsedProjects = schema.parse(projects);
+
+    currentSupplies = parsedProjects.reduce(
+      (acc, project) => ({
+        ...acc,
+        [project.project_slug]: project.current_supply,
+      }),
+      {},
+    );
+  } catch (error) {
+    throw new Error(`Error parsing current supplies`, {
+      cause: error,
+    });
+  }
+
+  return currentSupplies;
 };

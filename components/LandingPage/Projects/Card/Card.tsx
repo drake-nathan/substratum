@@ -2,6 +2,7 @@ import Link from "next/link";
 import { intlNumberFormat } from "utils/helpers";
 import * as St from "./Card.styled";
 import { Project } from "../../../staticData/projects";
+import { useCurrentSupply } from "hooks/useCurrentSupply";
 
 interface Props {
   project: Project;
@@ -15,10 +16,11 @@ const Card = ({ project }: Props): JSX.Element => {
     local,
     projectSlug,
     externalUrl,
-    currentSupply,
     maxSupply,
     status,
   } = project;
+
+  const currentSupply = useCurrentSupply(projectSlug);
 
   const supplyText = `${
     currentSupply ? intlNumberFormat(currentSupply) : 0

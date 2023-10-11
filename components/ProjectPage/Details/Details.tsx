@@ -56,8 +56,7 @@ const Details = ({ project }: Props): JSX.Element => {
           <>
             <St.Image src={image} alt="Project image" />
             <St.ProjectImageNameContainer>
-              {/* NOTE Can leave out token id here for now */}
-              <St.ProjectImageName>{`${name}`}</St.ProjectImageName>
+              <St.ProjectImageName>{name}</St.ProjectImageName>
             </St.ProjectImageNameContainer>
           </>
         )}
