@@ -131,3 +131,10 @@ export const InnerContainer = styled.div<Props>`
     width: auto;
   }
 `;
+
+export const Image = styled.img<{ $aspectRatio: number }>`
+  aspect-ratio: ${({ $aspectRatio }) => $aspectRatio};
+  object-fit: cover;
+  width: 100%;
+  border: 1px solid ${({ theme: { colors } }) => colors.textMain};
+`;

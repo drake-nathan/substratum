@@ -65,11 +65,10 @@ const TokenModule = ({ token, project }: Props): JSX.Element => {
               width={width}
             />
           ) : (
-            <Image
+            <St.Image
               src={imageMid || image}
               alt="Token Image"
-              width={width}
-              height={height}
+              $aspectRatio={aspectRatio}
             />
           )}
           <BottomBar token={token} project={project} />
