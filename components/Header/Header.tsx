@@ -10,7 +10,7 @@ import MobileNav from "./MobileNav/MobileNav";
 import ConnectButton from "./Connect/ConnectButton";
 
 const Header = (): JSX.Element => {
-  const { isMobile, colors, isDark, toggleTheme } = useTheme();
+  const { isMobileNav, isMobile, colors, isDark, toggleTheme } = useTheme();
 
   const [showMobileNav, setShowMobileNav] = useState(false);
 
@@ -24,7 +24,7 @@ const Header = (): JSX.Element => {
         </St.LogoDiv>
       </Link>
 
-      {!isMobile ? (
+      {!isMobileNav ? (
         <>
           <St.InnerContainer>
             <Link href="/">
@@ -55,7 +55,7 @@ const Header = (): JSX.Element => {
           <St.HamburgerDiv>
             <Hamburger
               color={colors.textMain}
-              size={20}
+              size={isMobile ? 20 : 36}
               toggle={setShowMobileNav}
               toggled={showMobileNav}
               label="Show menu"

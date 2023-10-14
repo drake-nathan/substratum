@@ -50,14 +50,15 @@ const TokenModule = ({ token, project }: Props): JSX.Element => {
   return (
     <St.Container>
       <St.InfoGrid>
-        <St.TokenNameAndOwner>
+        <St.TitleSection>
           <St.TokenName>{token.name}</St.TokenName>
           {/* FIXME */}
           {/* <St.TokenOwner className="special-artist-name">
             Owner: 0x1abc7154748d1ce5144478cdeb574ae244b939b5
           </St.TokenOwner> */}
-        </St.TokenNameAndOwner>
-        <St.Token>
+        </St.TitleSection>
+
+        <St.ImageSection>
           {generatorUrl ? (
             <Generator
               generatorUrl={generatorUrl}
@@ -72,9 +73,9 @@ const TokenModule = ({ token, project }: Props): JSX.Element => {
             />
           )}
           <BottomBar token={token} project={project} />
-        </St.Token>
+        </St.ImageSection>
 
-        <St.InfoWrapper>
+        <St.InfoSection>
           <TokenInfo
             projectSlug={projectSlug}
             traits={attributes}
@@ -82,7 +83,7 @@ const TokenModule = ({ token, project }: Props): JSX.Element => {
             poem={additional_info?.poem}
             additionalDescription={additional_info?.additional_description}
           />
-        </St.InfoWrapper>
+        </St.InfoSection>
 
         <St.StatsSection>
           <St.TokenIndex>

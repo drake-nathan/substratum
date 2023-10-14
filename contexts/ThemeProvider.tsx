@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode, type ReactElement } from "react";
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import { useWindowSize } from "hooks/useWindowSize";
 import {
@@ -12,11 +12,12 @@ interface Props {
   children: ReactNode;
 }
 
-const ThemeProvider: React.FC<Props> = ({ children }) => {
+const ThemeProvider = ({ children }: Props): ReactElement => {
   const { windowWidth } = useWindowSize();
 
   const [isMiniCard, setIsMiniCard] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isMobileNav, setIsMobileNav] = useState(false);
   const [colors, setColors] = useState<Colors>(lightColors);
 
   const isDark = colors === darkColors;
@@ -27,6 +28,9 @@ const ThemeProvider: React.FC<Props> = ({ children }) => {
 
     if (windowWidth <= 768) setIsMobile(true);
     else setIsMobile(false);
+
+    if (windowWidth <= 1200) setIsMobileNav(true);
+    else setIsMobileNav(false);
   }, [windowWidth]);
 
   const toggleTheme = () => {
@@ -41,9 +45,11 @@ const ThemeProvider: React.FC<Props> = ({ children }) => {
 
   useEffect(() => {
     const savedTheme = sessionStorage.getItem("theme");
+
     const prefersDark =
       window.matchMedia &&
       window.matchMedia("(prefers-color-scheme: dark)").matches;
+
     if (savedTheme && ["dark", "light"].includes(savedTheme)) {
       setColors(savedTheme === "dark" ? darkColors : lightColors);
     } else if (prefersDark) {
@@ -57,6 +63,7 @@ const ThemeProvider: React.FC<Props> = ({ children }) => {
         ...defaultTheme,
         colors,
         isMobile,
+        isMobileNav,
         isMiniCard,
         isDark,
         toggleTheme,

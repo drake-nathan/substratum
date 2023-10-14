@@ -37,8 +37,6 @@ export const ContainerArtists = styled(Container)`
 `;
 
 export const Project = styled.div`
-  color: ${({ theme: { isMobile, colors } }) =>
-    !isMobile ? colors.textMain : colors.bgMain};
   font-weight: 600;
   letter-spacing: normal;
 
@@ -54,7 +52,7 @@ export const Project = styled.div`
 `;
 
 export const MobileContainer = styled.div`
-  border: 1px solid white;
+  border: 1px solid ${({ theme }) => theme.colors.textMain};
   padding: 1em 3em;
 `;
 
@@ -65,7 +63,5 @@ export const RowLink = styled.a`
 `;
 
 export const OpenInNewIcon = styled(RxOpenInNewWindow)`
-  color: ${({ theme: { isMobile, colors } }) =>
-    !isMobile ? colors.textMain : colors.bgMain};
   font-weight: 500;
 `;

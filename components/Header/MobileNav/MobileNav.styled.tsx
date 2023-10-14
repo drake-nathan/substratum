@@ -3,7 +3,7 @@ import styled from "styled-components";
 type IsOpen = { isOpen: boolean };
 
 export const Container = styled.div<IsOpen>`
-  --top-gap: 75px;
+  --top-gap: 90px;
   position: fixed;
   z-index: 69;
   top: var(--top-gap);
@@ -18,7 +18,7 @@ export const Container = styled.div<IsOpen>`
   gap: 2em;
   padding: 3em 2em 9em;
 
-  background-color: ${({ theme }) => theme.colors.textMain};
+  background-color: ${({ theme }) => theme.colors.bgMain};
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 
   transform: ${({ isOpen }) =>
@@ -29,6 +29,8 @@ export const Container = styled.div<IsOpen>`
   @media (max-height: 700px) {
     padding: 2em 2em 7em;
   }
-`;
 
-// export const ProjectsList =
+  @media (max-width: 786px) {
+    --top-gap: 47px;
+  }
+`;

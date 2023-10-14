@@ -48,8 +48,6 @@ export const Tab = styled.div`
 `;
 
 export const Text = styled.span`
-  ${({ theme: { isMobile, colors } }) =>
-    isMobile ? `color: ${colors.bgMain};` : ""}
   font-size: ${({ theme: { isMobile } }) => (isMobile ? "1.75rem" : "18px")};
   font-weight: 400;
   text-transform: uppercase;
