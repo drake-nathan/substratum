@@ -10,10 +10,15 @@ interface Props {
 }
 
 const TokenIcons = ({ token, project }: Props): JSX.Element => {
-  const { token_id: tokenId, generator_url: generatorUrl, svgGen } = token;
+  const {
+    token_id: tokenId,
+    generator_url: generatorUrl,
+    svgGen,
+    image,
+  } = token;
   const { isMobileControls } = project;
 
-  const fullScreenUrl = generatorUrl || svgGen || null;
+  const fullScreenUrl = generatorUrl || svgGen || image;
 
   const mobileUrl = generatorUrl ? new URL(generatorUrl) : null;
 
@@ -29,9 +34,7 @@ const TokenIcons = ({ token, project }: Props): JSX.Element => {
 
           <Tooltip
             anchorId="fullscreen"
-            content={
-              svgGen ? "View SVG full screen" : "Launch full screen generator"
-            }
+            content="View full screen"
             positionStrategy="fixed"
           />
         </a>
