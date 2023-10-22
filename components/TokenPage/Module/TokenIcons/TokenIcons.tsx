@@ -1,8 +1,7 @@
 import MarketIcons from "components/MarketIcons/MarketIcons";
 import { type Project } from "components/staticData/projects";
-import { Tooltip } from "react-tooltip";
 import type { IToken } from "services/azureApi/types";
-
+import { Tooltip } from "react-tooltip";
 import * as St from "./TokenIcons.styled";
 
 interface Props {
@@ -11,10 +10,15 @@ interface Props {
 }
 
 const TokenIcons = ({ token, project }: Props): JSX.Element => {
-  const { token_id: tokenId, generator_url: generatorUrl, svgGen } = token;
+  const {
+    token_id: tokenId,
+    generator_url: generatorUrl,
+    svgGen,
+    image,
+  } = token;
   const { isMobileControls } = project;
 
-  const fullScreenUrl = generatorUrl || svgGen || null;
+  const fullScreenUrl = generatorUrl || svgGen || image;
 
   const mobileUrl = generatorUrl ? new URL(generatorUrl) : null;
 
@@ -30,9 +34,7 @@ const TokenIcons = ({ token, project }: Props): JSX.Element => {
 
           <Tooltip
             anchorId="fullscreen"
-            content={
-              svgGen ? "View SVG full screen" : "Launch full screen generator"
-            }
+            content="View full screen"
             positionStrategy="fixed"
           />
         </a>

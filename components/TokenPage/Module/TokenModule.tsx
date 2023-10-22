@@ -1,30 +1,31 @@
-import Generator from "components/Generator/Generator";
-import { type Project } from "components/staticData/projects";
-import { useWindowSize } from "hooks/useWindowSize";
-import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import type { IToken } from "services/azureApi/types";
-
+import { type Project } from "components/staticData/projects";
+import { useWindowSize } from "hooks/useWindowSize";
+import Generator from "components/Generator/Generator";
 // import PriceIcon from 'public/icons/PriceIcon.svg';
 import BottomBar from "./BottomBar/BottomBar";
+import TokenInfo from "./TokenInfo/TokenInfo";
 import OtherTokens from "./OtherTokens/OtherTokens";
 import * as St from "./TokenModule.styled";
-import Traits from "./Traits/Traits";
+import { intlNumberFormat } from "utils/helpers";
 
 interface Props {
   token: IToken;
   project: Project;
 }
 
-const TokenModule: React.FC<Props> = ({ token, project }) => {
+const TokenModule = ({ token, project }: Props): JSX.Element => {
   const {
     image,
     image_mid: imageMid,
     generator_url: generatorUrl,
     attributes,
     token_id: tokenId,
+    description,
+    additional_info,
   } = token;
-  const { aspectRatio, maxSupply, isZeroIndexed } = project;
+  const { projectSlug, aspectRatio, currentSupply, isZeroIndexed } = project;
 
   const { windowWidth } = useWindowSize();
 
@@ -48,14 +49,15 @@ const TokenModule: React.FC<Props> = ({ token, project }) => {
   return (
     <St.Container>
       <St.InfoGrid>
-        <St.TokenNameAndOwner>
+        <St.TitleSection>
           <St.TokenName>{token.name}</St.TokenName>
-          <St.TokenOwner className="special-artist-name">
-            Owner: 0x1abc7154748d1ce5144478cdeb574ae244b939b5
-          </St.TokenOwner>
           {/* FIXME */}
-        </St.TokenNameAndOwner>
-        <St.Token>
+          {/* <St.TokenOwner className="special-artist-name">
+            Owner: 0x1abc7154748d1ce5144478cdeb574ae244b939b5
+          </St.TokenOwner> */}
+        </St.TitleSection>
+
+        <St.ImageSection>
           {generatorUrl ? (
             <Generator
               generatorUrl={generatorUrl}
@@ -63,23 +65,29 @@ const TokenModule: React.FC<Props> = ({ token, project }) => {
               width={width}
             />
           ) : (
-            <Image
+            <St.Image
               src={imageMid || image}
               alt="Token Image"
-              width={width}
-              height={height}
+              $aspectRatio={aspectRatio}
             />
           )}
           <BottomBar token={token} project={project} />
-        </St.Token>
+        </St.ImageSection>
 
-        <St.TraitsWrapper>
-          <Traits traits={attributes} />
-        </St.TraitsWrapper>
+        <St.InfoSection>
+          <TokenInfo
+            projectSlug={projectSlug}
+            traits={attributes}
+            description={description}
+            poem={additional_info?.poem}
+            additionalDescription={additional_info?.additional_description}
+          />
+        </St.InfoSection>
 
         <St.StatsSection>
           <St.TokenIndex>
-            {isZeroIndexed ? tokenId + 1 : tokenId} of {maxSupply}
+            {isZeroIndexed ? tokenId + 1 : tokenId} of{" "}
+            {currentSupply && intlNumberFormat(currentSupply)}
           </St.TokenIndex>
           {/* FIXME needs api data for transactions on a token */}
           {/* <St.MintDateTime>Minted Apr 3, 2023, 9:23pm GMT-5</St.MintDateTime> */}
@@ -96,6 +104,7 @@ const TokenModule: React.FC<Props> = ({ token, project }) => {
           </St.BuyButton>
         </St.BuyToken> */}
       </St.InfoGrid>
+
       <OtherTokens project={project} token={token} />
     </St.Container>
   );

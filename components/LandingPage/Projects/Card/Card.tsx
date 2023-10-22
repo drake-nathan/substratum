@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { intlNumberFormat } from "utils/helpers";
-
-import type { Project } from "../../../staticData/projects";
 import * as St from "./Card.styled";
+import type { Project } from "../../../staticData/projects";
+import { useCurrentSupply } from "hooks/useCurrentSupply";
 
 interface Props {
   project: Project;
@@ -16,10 +16,15 @@ const Card = ({ project }: Props): JSX.Element => {
     local,
     projectSlug,
     externalUrl,
-    currentSupply,
     maxSupply,
     status,
   } = project;
+
+  const currentSupply = useCurrentSupply(projectSlug);
+
+  const supplyText = `${
+    currentSupply ? intlNumberFormat(currentSupply) : 0
+  }/${intlNumberFormat(maxSupply)} Minted`;
 
   const CardJsx = (
     <St.Container>
@@ -33,12 +38,10 @@ const Card = ({ project }: Props): JSX.Element => {
 
       <St.InfoSection>
         <St.ProjectTitle>{name}</St.ProjectTitle>
+
         <St.ArtistName>By {artist}</St.ArtistName>
 
-        <St.SupplyText>
-          {currentSupply ? intlNumberFormat(currentSupply) : 0}/
-          {intlNumberFormat(maxSupply)} Minted
-        </St.SupplyText>
+        <St.SupplyText>{supplyText}</St.SupplyText>
       </St.InfoSection>
     </St.Container>
   );

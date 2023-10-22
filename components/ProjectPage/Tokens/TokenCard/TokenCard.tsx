@@ -24,7 +24,6 @@ const TokenCard = ({ token, isTokenIdInTitle }: Props): JSX.Element => {
   const alt = `${name} token`;
 
   return (
-    // <St.Container>
     <St.Wrapper>
       <Link href={tokenLink}>
         <St.PreviewImage src={imgSrc} alt={alt} />
@@ -33,8 +32,8 @@ const TokenCard = ({ token, isTokenIdInTitle }: Props): JSX.Element => {
       <St.DescriptionDiv>
         <Link href={tokenLink}>
           <St.Title>{name}</St.Title>
-          <St.Owner>Owner: 0x1abc7154748d1ce5144478cdeb574ae244b939b5</St.Owner>
           {/* FIXME - needs real owner data */}
+          {/* <St.Owner>Owner: 0x1abc7154748d1ce5144478cdeb574ae244b939b5</St.Owner> */}
         </Link>
 
         {!isTokenIdInTitle && (
@@ -59,7 +58,6 @@ const TokenCard = ({ token, isTokenIdInTitle }: Props): JSX.Element => {
         )}
       </St.DescriptionDiv>
     </St.Wrapper>
-    // </St.Container>
   );
 };
 

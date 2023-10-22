@@ -1,17 +1,16 @@
-import { Squash as Hamburger } from "hamburger-react";
-import Link from "next/link";
-import Substratum from "public/substratum/substratum.svg";
+import * as St from "./Header.styled";
 import { useState } from "react";
 import { useTheme } from "styled-components";
-
-import ConnectButton from "./Connect/ConnectButton";
-import * as St from "./Header.styled";
-import MobileNav from "./MobileNav/MobileNav";
-import NavLinks from "./NavLinks/NavLinks";
+import Link from "next/link";
+import { Squash as Hamburger } from "hamburger-react";
+import Substratum from "public/substratum/substratum.svg";
 import SocialIcons from "./SocialIcons/SocialIcons";
+import NavLinks from "./NavLinks/NavLinks";
+import MobileNav from "./MobileNav/MobileNav";
+import ConnectButton from "./Connect/ConnectButton";
 
 const Header = (): JSX.Element => {
-  const { isMobile, colors, isDark, toggleTheme } = useTheme();
+  const { isMobileNav, isMobile, colors, isDark, toggleTheme } = useTheme();
 
   const [showMobileNav, setShowMobileNav] = useState(false);
 
@@ -25,7 +24,7 @@ const Header = (): JSX.Element => {
         </St.LogoDiv>
       </Link>
 
-      {!isMobile ? (
+      {!isMobileNav ? (
         <>
           <St.InnerContainer>
             <Link href="/">
@@ -56,7 +55,7 @@ const Header = (): JSX.Element => {
           <St.HamburgerDiv>
             <Hamburger
               color={colors.textMain}
-              size={20}
+              size={isMobile ? 20 : 36}
               toggle={setShowMobileNav}
               toggled={showMobileNav}
               label="Show menu"

@@ -49,16 +49,38 @@ export interface Project {
 }
 
 export const projects: Project[] = [
-  // FIXME - this is only temporary: once the API is built, this project may come back with different properties than this. The only thing I need it to do right now is be a placeholder.
   {
-    name: "100x10x1-a",
+    name: "Freestyle H-ai-ku",
+    artist: Artist.Matto,
+    website: "https://matto.xyz/project/freestyle-h-ai-ku/",
+    projectSlug: "haiku",
+    contractAddress: "0x74C093fD987Fff140677Aa83B6CC4680B8ef2956",
+    image: "/projects/haiku.png",
+    maxSupply: 1000000000000,
+    currentSupply: 10,
+    aspectRatio: 1,
+    isZeroIndexed: false,
+    isTokenIdInTitle: false,
+    usesTransfers: false,
+    status: Status.Minting,
+    local: true,
+    openSeaSlug: "freestyle-h-ai-ku",
+    projectPageInfo: {
+      description:
+        '"Freestyle H-ai-ku" is an AI-enhanced exploration of my Freestyle Haiku poetry (freestylehaiku.com). This project utilizes AI as a collective unconscious that not only intensifies the expressiveness of my poetry but also unveils hidden truths and newfound meanings within my words. Each poem is individually stored in the smart contract, while image media, AI-generated poem interpretations, and attributes metadata is stored on Arweave. The resulting work is more than a poem or a visual, it is also a vehicle for the introspection of the human condition through the lens of early Artificial Intelligence systems.',
+      collectionDetails: "",
+      date: "Sept. 29, 2023",
+      tools: "Solidity, Stable Diffusion, Transformer LLM, GAN, CNN",
+      license: "CC BY-NC 4.0",
+    },
+  },
+  {
+    name: "100x10x1-A",
     projectSlug: "100x10x1-a",
-    image:
-      "https://mattoapi.blob.core.windows.net/images/100x10x1-a-goerli_0.png",
+    image: "/projects/100x10x1-a.png",
     artist: Artist.Matto,
     openSeaSlug: "100x10x1A",
     artistAddress: "0xF8d9056db2C2189155bc25A30269dc5dDeD15d46",
-    contractAddress: "0x0D257B5Eeebf30eF9Eb05589Bb5F94b1AA5D6dd6",
     currentSupply: 0,
     maxSupply: 100,
     isZeroIndexed: true,
@@ -70,6 +92,7 @@ export const projects: Project[] = [
     usesTransfers: false,
     website: "https://matto.xyz/project/100x10x1",
     externalUrl: "https://substratum.art/project/100x10x1",
+    contractAddress: "0x32a1918079034b610c27F43f8cb04EF121DcEeD0",
     projectPageInfo: {
       description: `100 component on-chain generative art layers (tokens 1 - 100).
 
@@ -80,7 +103,7 @@ export const projects: Project[] = [
       date: "Apr. 2023",
       tools: "Solidity",
       notes:
-        "Inspired by smart-contract art, long-form generative art, and abstract expressionism, 100x10x1 - Composition A explores new ground in crypto art. It empowers the community of component token owners, giving them control over the composite artwork's rendering - all on-chain and without dependencies.",
+        "Inspired by smart-contract art, long-form generative art, and abstract expressionism, 100x10x1 - Composition A explores new ground in crypto art. It empowers the community of component token owners, giving them control over the composite artwork’s rendering - all on-chain and without dependencies.",
       license: "CC BY-NC 4.0",
     },
   },

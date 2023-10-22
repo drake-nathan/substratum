@@ -1,16 +1,30 @@
-import { useWindowSize } from "hooks/useWindowSize";
-import React, { useEffect, useState } from "react";
+import * as St from "./TokenInfo.styled";
+import { useEffect, useState } from "react";
 import { Tooltip } from "react-tooltip";
+import { useWindowSize } from "hooks/useWindowSize";
+import type { InfoTab } from "./types";
 import type { IAttribute } from "services/azureApi/types";
-
-import * as St from "./Traits.styled";
+import { formatNewLines, shortenTrait } from "./utils";
 
 interface Props {
+  additionalDescription: string | undefined;
+  description: string;
+  poem: string | undefined;
+  projectSlug: string;
+  tab: InfoTab;
   traits: IAttribute[];
 }
 
-const Traits: React.FC<Props> = ({ traits }) => {
+const Info = ({
+  additionalDescription,
+  description,
+  poem,
+  projectSlug,
+  tab,
+  traits,
+}: Props): JSX.Element => {
   const { windowWidth } = useWindowSize();
+
   const [maxTraitLength, setMaxTraitLength] = useState<number>(22);
 
   useEffect(() => {
@@ -19,24 +33,21 @@ const Traits: React.FC<Props> = ({ traits }) => {
     else setMaxTraitLength(18);
   }, [windowWidth]);
 
-  const shortenTrait = (trait: string) => {
-    if (trait.length > maxTraitLength) {
-      return `${trait.slice(0, maxTraitLength)}...`;
-    }
-    return trait;
-  };
-
-  return (
-    <St.Container>
-      <St.TitleWrapper>
-        <St.Title>Traits</St.Title>
-      </St.TitleWrapper>
-
+  const infoSection: Record<InfoTab, JSX.Element> = {
+    description: (
+      <St.Description>
+        {projectSlug === "haiku" && poem ? formatNewLines(poem) : description}
+      </St.Description>
+    ),
+    "more-info": <St.Description>{additionalDescription}</St.Description>,
+    traits: (
       <St.Table>
         {traits.map((trait) => {
           const { trait_type: name, value } = trait;
           const processedValue =
-            typeof value === "string" ? shortenTrait(value) : value;
+            typeof value === "string"
+              ? shortenTrait(value, maxTraitLength)
+              : value;
           const isTraitShortened =
             typeof value === "string" && value.length > maxTraitLength;
           const isLink = typeof value === "string" && value.includes("http");
@@ -62,8 +73,10 @@ const Traits: React.FC<Props> = ({ traits }) => {
           );
         })}
       </St.Table>
-    </St.Container>
-  );
+    ),
+  };
+
+  return infoSection[tab];
 };
 
-export default Traits;
+export default Info;

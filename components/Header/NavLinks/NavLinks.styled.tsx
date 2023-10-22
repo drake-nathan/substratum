@@ -48,16 +48,9 @@ export const Tab = styled.div`
 `;
 
 export const Text = styled.span`
-  ${({ theme: { isMobile, colors } }) =>
-    isMobile ? `color: ${colors.bgMain};` : ""}
   font-size: ${({ theme: { isMobile } }) => (isMobile ? "1.75rem" : "18px")};
   font-weight: 400;
   text-transform: uppercase;
-
-  /* @media (max-height: 700px) and (max-width: 500px) {
-    font-size: 1.5rem;
-    font-weight: 500;
-  } */
 `;
 
 export const DropdownIcon = styled(RxCaretDown)`

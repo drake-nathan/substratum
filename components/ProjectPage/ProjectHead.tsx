@@ -1,7 +1,7 @@
 import MarketIcons from "components/MarketIcons/MarketIcons";
 import { type Project } from "components/staticData/projects";
-
 import * as St from "./ProjectHead.styled";
+import { intlNumberFormat } from "utils/helpers";
 
 interface Props {
   project: Project;
@@ -26,7 +26,7 @@ const ProjectHead = ({ project }: Props): JSX.Element => {
       </St.MarketIconsWrapper>
 
       <St.TokenStatus>
-        {currentSupply}/{maxSupply} Tokens Minted
+        {currentSupply}/{intlNumberFormat(maxSupply)} Tokens Minted
       </St.TokenStatus>
     </St.Container>
   );

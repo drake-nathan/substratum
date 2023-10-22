@@ -4,22 +4,26 @@ export const Container = styled.div`
   width: 100%;
   padding: 3em 5em;
 
-  /* @media (min-width: 651px) {
-    width: 100%;
-    background-color: ${({ theme: { colors } }) => colors.bgMain};
-    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1);
-    border-radius: ${({ theme }) => theme.borderRadius};
+  @media (max-width: 1200px) {
+    padding: 2em 5em;
+  }
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1.75em 3em 4em;
-  } */
+  @media (max-width: 800px) {
+    padding: 2em 3em;
+  }
+
+  @media (max-width: 500px) {
+    padding: 1.5em 2em;
+  }
 `;
 
-export const TokenNameAndOwner = styled.div`
+export const TitleSection = styled.div`
   grid-area: token-name;
   margin-bottom: 5em;
+
+  @media (max-width: 1200px) {
+    margin-bottom: 2em;
+  }
 `;
 
 export const TokenName = styled.h3`
@@ -40,17 +44,30 @@ export const InfoGrid = styled.div`
     "generator traits"
     "generator stats"
     "generator buy";
+
+  @media (max-width: 1200px) {
+    grid-template-areas:
+      "token-name token-name"
+      "generator generator"
+      "traits traits"
+      "stats stats"
+      "buy buy";
+  }
 `;
 
-export const Token = styled.div`
+export const ImageSection = styled.div`
   grid-area: generator;
   border: 1px solid ${(props) => props.theme.colors.textMain};
   height: max-content;
+
+  @media (max-width: 1200px) {
+    margin-bottom: 2em;
+  }
 `;
 
 export const TokenRibbon = styled.div``;
 
-export const TraitsWrapper = styled.div`
+export const InfoSection = styled.div`
   width: 100%;
   border-bottom: 1px solid ${({ theme: { colors } }) => colors.textMain};
   align-self: stretch;
@@ -58,8 +75,8 @@ export const TraitsWrapper = styled.div`
 `;
 
 export const StatsSection = styled.div`
-  border-bottom: 1px solid ${({ theme: { colors } }) => colors.textMain};
   grid-area: stats;
+  border-bottom: 1px solid ${({ theme: { colors } }) => colors.textMain};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -130,4 +147,11 @@ export const InnerContainer = styled.div<Props>`
     max-height: none;
     width: auto;
   }
+`;
+
+export const Image = styled.img<{ $aspectRatio: number }>`
+  aspect-ratio: ${({ $aspectRatio }) => $aspectRatio};
+  object-fit: cover;
+  width: 100%;
+  border: 1px solid ${({ theme: { colors } }) => colors.textMain};
 `;

@@ -72,7 +72,7 @@ const Home: NextPage = () => {
     setIsTokenIdValid(true);
   }, [tokenId, project]);
 
-  const renderTokenPage = () => {
+  const renderTokenPage = (): JSX.Element => {
     if (project && tokenId !== null && isTokenIdValid) {
       return <TokenPage project={project} tokenId={tokenId} />;
     }
@@ -88,9 +88,10 @@ const Home: NextPage = () => {
     return <h1>Loading...</h1>;
   };
 
-  const title = projectName
-    ? `substratum | ${projectName} #${tokenId}`
-    : "substratum";
+  const title =
+    projectName && tokenId
+      ? `substratum | ${projectName} #${tokenId}`
+      : "substratum";
 
   return (
     <>
