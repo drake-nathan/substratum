@@ -1,12 +1,13 @@
+import MarketIcons from "components/MarketIcons/MarketIcons";
+import { type Project } from "components/staticData/projects";
 import Link from "next/link";
+import { useEffect } from "react";
 import { useQuery } from "react-query";
 import { fetchToken } from "services/azureApi/fetches";
-import { type Project } from "components/staticData/projects";
 import type { IToken } from "services/azureApi/types";
-import MarketIcons from "components/MarketIcons/MarketIcons";
+
 import TokenModule from "./Module/TokenModule";
 import * as St from "./TokenPage.styled";
-import { useEffect } from "react";
 
 interface Props {
   project: Project;

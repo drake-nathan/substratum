@@ -1,5 +1,5 @@
-import React from "react";
 import { Web3Modal } from "@web3modal/react";
+import React from "react";
 import { web3ModalClient } from "services/wagmi";
 import { useTheme } from "styled-components";
 

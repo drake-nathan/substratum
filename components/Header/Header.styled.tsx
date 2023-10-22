@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { MdOutlineDarkMode } from "react-icons/md";
 import { CgSun } from "react-icons/cg";
+import { MdOutlineDarkMode } from "react-icons/md";
+import styled from "styled-components";
 
 export const OuterContainer = styled.header`
   width: 100%;

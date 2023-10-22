@@ -1,10 +1,11 @@
-import * as St from "./OtherTokens.styled";
-import { useEffect } from "react";
 import type { Project } from "components/staticData/projects";
-import type { CollectionResponse, IToken } from "services/azureApi/types";
-import { fetchCollectionTokens } from "services/azureApi/fetches";
-import TokenCard from "./TokenCard";
+import { useEffect } from "react";
 import { useQuery } from "react-query";
+import { fetchCollectionTokens } from "services/azureApi/fetches";
+import type { CollectionResponse, IToken } from "services/azureApi/types";
+
+import * as St from "./OtherTokens.styled";
+import TokenCard from "./TokenCard";
 
 interface Props {
   token: IToken;

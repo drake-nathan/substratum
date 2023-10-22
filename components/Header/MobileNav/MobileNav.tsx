@@ -1,8 +1,9 @@
 import React from "react";
+
+import ConnectButton from "../Connect/ConnectButton";
 import NavLinks from "../NavLinks/NavLinks";
 import SocialIcons from "../SocialIcons/SocialIcons";
 import * as St from "./MobileNav.styled";
-import ConnectButton from "../Connect/ConnectButton";
 
 interface Props {
   isOpen: boolean;
