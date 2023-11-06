@@ -15,10 +15,9 @@ const TokenOwnerOfModal = ({
   tokenId,
   setShowModal,
 }: Props): JSX.Element => {
-  const { ownerAddress, isError } = useTokenOwnerOf(Number(tokenId));
+  const { ownerAddress } = useTokenOwnerOf(Number(tokenId));
 
   const getText = () => {
-    if (isError) return "Error fetching token owner.";
     if (!ownerAddress) return "Loading token owner...";
 
     return `Token ${tokenId} is owned by ${shortenAddress(ownerAddress)}, ${
