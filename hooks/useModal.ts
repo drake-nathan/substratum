@@ -1,13 +1,11 @@
-import { ModalContext } from "contexts/ModalProvider";
+import { type IModalContext, ModalContext } from "contexts/ModalProvider";
 import { useContext } from "react";
 
-export const useModal = () => {
-  const { launchAlertModal, launchTransactionModal, setTransactionModalData } =
-    useContext(ModalContext);
+export const useModal = (): IModalContext => {
+  const { launchAlertModal, launchSuccessModal } = useContext(ModalContext);
 
   return {
     launchAlertModal,
-    launchTransactionModal,
-    setTransactionModalData,
+    launchSuccessModal,
   };
 };

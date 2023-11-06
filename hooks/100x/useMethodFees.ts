@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-import { useOneHundredXGetMethodFees } from "../wagmi/generated";
+import { useOneHundredXGetMethodFees } from "../../wagmi/generated";
 
 export const useMethodFees = () => {
   const { data, error } = useOneHundredXGetMethodFees();
@@ -11,7 +11,7 @@ export const useMethodFees = () => {
 
   const schema = z.array(z.bigint());
 
-  const methodFees = schema.parse(data ?? []);
+  const zodResult = schema.safeParse(data);
 
-  return { methodFees };
+  return { methodFees: zodResult.success ? zodResult.data : undefined };
 };

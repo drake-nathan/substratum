@@ -1,9 +1,9 @@
 import * as St from "components/ProjectPage/Details/Details.styled";
 import { type Project, projects } from "components/staticData/projects";
 
-import OneHundredXImage from "../LayeredCollection/LayeredCollection";
-import Legend from "../LayeredCollection/Legend/Legend";
-import Shuffler from "../LayeredCollection/Shuffler/Shuffler";
+import Legend from "../100x/Legend/Legend";
+import OneHundredXImage from "../100x/OneHundredXImage";
+import Shuffler from "../100x/Shuffler/Shuffler";
 import CollectionCard from "./OtherCollections/CollectionCard";
 
 interface Props {

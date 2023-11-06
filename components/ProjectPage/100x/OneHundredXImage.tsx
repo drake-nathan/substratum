@@ -1,4 +1,4 @@
-import * as St from "./LayeredCollection.styled";
+import * as St from "./OneHundredXImage.styled";
 
 interface Props {
   image: string;

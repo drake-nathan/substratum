@@ -1,27 +1,16 @@
 import AlertModal from "components/Modals/AlertModal";
-import TransactionModal from "components/Modals/TransactionModal";
+import SuccessModal from "components/Modals/SuccessModal";
 import { createContext, useState } from "react";
-import type { SetState } from "utils/types";
+import type { Hash } from "viem";
 
-interface IModalContext {
+export interface IModalContext {
   launchAlertModal: (text: string) => void;
-  launchTransactionModal: (
-    header: string,
-    text: string,
-    subText: string,
-  ) => void;
-  setTransactionModalData: SetState<{
-    loading: boolean;
-    header: string;
-    text: string;
-    subText: string;
-  }>;
+  launchSuccessModal: (text: string, hash: Hash) => void;
 }
 
 export const ModalContext = createContext<IModalContext>({
   launchAlertModal: () => {},
-  launchTransactionModal: () => {},
-  setTransactionModalData: () => {},
+  launchSuccessModal: () => {},
 });
 
 interface Props {
@@ -32,45 +21,26 @@ const ModalProvider = ({ children }: Props): JSX.Element => {
   const [showAlertModal, setShowAlertModal] = useState(false);
   const [alertText, setAlertText] = useState("");
 
-  const [showTransactionModal, setShowTransactionModal] = useState(false);
-  const [transactionModalData, setTransactionModalData] = useState({
-    loading: false,
-    header: "",
-    text: "",
-    subText: "",
-  });
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [successText, setSuccessText] = useState("");
+  const [hash, setHash] = useState<Hash>();
 
   const launchAlertModal = (text: string) => {
     setAlertText(text);
-    setShowTransactionModal(false);
     setShowAlertModal(true);
   };
 
-  const launchTransactionModal = (
-    header: string,
-    text: string,
-    subText: string,
-  ) => {
-    setTransactionModalData({
-      loading: true,
-      header,
-      text,
-      subText,
-    });
-    setShowTransactionModal(true);
-
-    // setTimeout(() => {
-    //   setTransactionModalData((prev) => ({ ...prev, loading: false }));
-    //   launchAlertModal("Transaction timed out. :-(");
-    // }, 10000);
+  const launchSuccessModal = (text: string, hash: Hash) => {
+    setSuccessText(text);
+    setHash(hash);
+    setShowSuccessModal(true);
   };
 
   return (
     <ModalContext.Provider
       value={{
         launchAlertModal,
-        launchTransactionModal,
-        setTransactionModalData,
+        launchSuccessModal,
       }}
     >
       {children}
@@ -79,10 +49,11 @@ const ModalProvider = ({ children }: Props): JSX.Element => {
         <AlertModal setShowModal={setShowAlertModal} text={alertText} />
       )}
 
-      {showTransactionModal && (
-        <TransactionModal
-          setShowModal={setShowTransactionModal}
-          transactionModalData={transactionModalData}
+      {hash && showSuccessModal && (
+        <SuccessModal
+          setShowModal={setShowSuccessModal}
+          text={successText}
+          hash={hash}
         />
       )}
     </ModalContext.Provider>

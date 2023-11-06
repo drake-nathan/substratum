@@ -42,9 +42,23 @@ export const Text = styled.p`
   font-weight: 600;
 `;
 
+export const Error = styled(Text)`
+  text-decoration: underline;
+`;
+
 export const SubText = styled.p`
   text-align: center;
   color: ${(props) => props.theme.colors.hover};
+`;
+
+export const Link = styled.a`
+  font-weight: 500;
+  font-size: 1.125rem;
+
+  &:hover {
+    text-decoration: underline;
+    color: ${(props) => props.theme.colors.hover};
+  }
 `;
 
 export const ButtonWrapper = styled.div`

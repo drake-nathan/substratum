@@ -14,9 +14,9 @@ const CustomWeb3Modal = (): JSX.Element => {
 
   const themeMode = isDark ? "dark" : "light";
   const themeVariables = {
-    "--w3m-background-color": isDark ? colors.hover : colors.textMain,
     "--w3m-accent-color": isDark ? colors.hover : colors.textMain,
     "--w3m-accent-fill-color": isDark ? colors.textMain : colors.bgMain,
+    "--w3m-background-color": isDark ? colors.hover : colors.textMain,
   };
 
   return (

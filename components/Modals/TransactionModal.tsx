@@ -1,13 +1,15 @@
-import { PuffLoader } from "react-spinners";
-import { useTheme } from "styled-components";
+import React from "react";
 import type { SetState } from "utils/types";
 
+import ActionArea from "./ActionArea";
 import ModalBase from "./ModalBase";
 import * as St from "./Modals.styled";
 
 interface Props {
+  onProceed: () => void;
   setShowModal: SetState<boolean>;
   transactionModalData: {
+    error?: string;
     loading: boolean;
     header: string;
     text: string;
@@ -16,12 +18,13 @@ interface Props {
 }
 
 const TransactionModal = ({
+  onProceed,
   setShowModal,
-  transactionModalData,
-}: Props): JSX.Element => {
-  const { loading, header, text, subText } = transactionModalData;
-
-  const { colors } = useTheme();
+  transactionModalData: { error, loading, header, text, subText },
+}: Props): React.JSX.Element => {
+  const handleClick = () => {
+    onProceed();
+  };
 
   return (
     <ModalBase setShowModal={setShowModal}>
@@ -29,13 +32,7 @@ const TransactionModal = ({
       <St.Text>{text}</St.Text>
       <St.SubText>{subText}</St.SubText>
       <St.ButtonWrapper>
-        {loading ? (
-          <PuffLoader color={colors.textMain} />
-        ) : (
-          <St.Button onClick={() => setShowModal(false)}>
-            <h4>Proceed</h4>
-          </St.Button>
-        )}
+        <ActionArea error={error} loading={loading} handleClick={handleClick} />
       </St.ButtonWrapper>
     </ModalBase>
   );

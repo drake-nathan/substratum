@@ -3,6 +3,9 @@ import styled from "styled-components";
 
 export const ActionButton = styled.button`
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 0.5em;
   background-color: ${({ theme: { colors } }) => colors.textMain};
   color: ${({ theme: { colors } }) => colors.bgMain};
@@ -18,11 +21,13 @@ export const ActionButton = styled.button`
 export const ButtonGrid = styled.div`
   margin-top: 1em;
   display: grid;
+  grid-template-columns: 1fr 1fr;
   grid-template-areas:
     "top top"
     "cut overhand"
     "faro wash"
-    "reverse reverse";
+    "reverse reverse"
+    "vault vault";
 
   gap: 1.25em 1em;
 
@@ -33,7 +38,8 @@ export const ButtonGrid = styled.div`
       "overhand overhand"
       "faro faro"
       "wash wash"
-      "reverse reverse";
+      "reverse reverse"
+      "vault vault";
   }
 `;
 
@@ -44,11 +50,12 @@ export const TopAction = styled.div`
   gap: 0.1em;
 `;
 
-export const TopButton = styled(ActionButton)`
-  width: 100%;
+export const ViewLayer = styled.div`
+  display: flex;
+  flex: 1 1 100%;
 `;
 
-export const ViewLayer = styled.div`
+export const VaultForm = styled.form`
   display: flex;
   flex: 1 1 100%;
 `;
@@ -87,22 +94,6 @@ export const SearchIcon = styled(FaSearch)`
   align-self: center;
 `;
 
-export const CutButton = styled(ActionButton)`
-  grid-area: cut;
-`;
-
-export const OverhandButton = styled(ActionButton)`
-  grid-area: overhand;
-`;
-
-export const FaroButton = styled(ActionButton)`
-  grid-area: faro;
-`;
-
-export const WashButton = styled(ActionButton)`
-  grid-area: wash;
-`;
-
-export const ReverseButton = styled(ActionButton)`
-  grid-area: reverse;
+export const ErrorText = styled.p`
+  color: red;
 `;

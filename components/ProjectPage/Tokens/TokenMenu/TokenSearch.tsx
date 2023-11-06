@@ -78,11 +78,11 @@ const TokenSearch = ({
           className="special-artist-name"
           type="number"
           {...register("tokenId", {
-            valueAsNumber: true,
             max: {
-              value: currentSupply ? currentSupply - 1 : maxSupply,
               message: "Must be less than current supply.",
+              value: currentSupply ? currentSupply - 1 : maxSupply,
             },
+            valueAsNumber: true,
           })}
           id="enter-id"
           value={tokenId || tokenId === 0 ? tokenId : ""}

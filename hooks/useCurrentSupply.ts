@@ -4,7 +4,7 @@ import { fetchCurrentSupplies } from "services/azureApi/fetches";
 export const useCurrentSupply = (projectSlug: string): number | undefined => {
   const { data: currentSupplies } = useQuery<Record<string, number>, Error>(
     "currentSupplies",
-    () => fetchCurrentSupplies(),
+    fetchCurrentSupplies,
   );
 
   return currentSupplies?.[projectSlug];

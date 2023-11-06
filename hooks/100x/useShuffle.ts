@@ -1,29 +1,28 @@
 import {
   type Method,
   methods,
-} from "components/ProjectPage/LayeredCollection/Shuffler/methods";
-import { SetState } from "utils/types";
-import type { Address } from "viem";
+} from "components/ProjectPage/100x/Shuffler/methods";
+import type { Address, Hash } from "viem";
 import type { WriteContractResult } from "wagmi/dist/actions";
 
 import {
   useOneHundredXShuffle,
   usePrepareOneHundredXShuffle,
-} from "../wagmi/generated";
+} from "../../wagmi/generated";
 
 interface Params {
-  handleError: (error: string) => void;
+  handleError: (error: Error) => void;
+  handleSuccess: (hash: Hash) => void;
   payableAmount: bigint;
   method: Method | undefined;
-  setMethod: SetState<Method | undefined>;
   vault?: Address;
 }
 
 export const useShuffle = ({
   handleError,
+  handleSuccess,
   payableAmount,
   method,
-  setMethod,
   vault,
 }: Params): {
   write: (() => void) | undefined;
@@ -33,25 +32,25 @@ export const useShuffle = ({
     args: vault
       ? [BigInt(method ? methods[method] : 0), vault]
       : [BigInt(method ? methods[method] : 0)],
-    value: payableAmount,
     onError: (error) => {
       if (method) {
-        handleError(`Error preparing ${method} shuffle`);
-        setMethod(undefined);
+        handleError(error);
         console.error(error);
       }
     },
+    value: payableAmount,
   });
 
   const { write, data } = useOneHundredXShuffle({
     ...config,
     onError: (error) => {
       if (method) {
-        handleError(`Error executing ${method} shuffle`);
+        handleError(error);
         console.error(error);
       }
     },
+    onSuccess: (data) => handleSuccess(data.hash),
   });
 
-  return { write: method ? write : undefined, data };
+  return { data, write: method ? write : undefined };
 };
