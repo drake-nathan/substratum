@@ -33,7 +33,7 @@ const TopModal = ({
   const { ownerAddress, isSuccess } = useTokenOwnerOf(tokenId);
 
   const isTokenOwner = ownerAddress
-    ? isAddressEqual(address, ownerAddress)
+    ? isAddressEqual(vault ?? address, ownerAddress)
     : null;
 
   const [error, setError] = useState<string | undefined>();
