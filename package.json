@@ -16,9 +16,6 @@
     "start": "next start",
     "type": "tsc --pretty --noEmit"
   },
-  "engines": {
-    "yarn": "1.22.19"
-  },
   "dependencies": {
     "@babel/core": "^7.23.2",
     "@hookform/resolvers": "^3.3.2",
