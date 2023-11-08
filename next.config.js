@@ -6,10 +6,6 @@ const nextConfig = {
   compiler: {
     styledComponents: true,
   },
-  experimental: {
-    appDir: false,
-  },
-  trailingSlash: true,
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,
