@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: "standalone",
+  output: "export",
   reactStrictMode: true,
   swcMinify: true,
   compiler: {
@@ -38,20 +38,20 @@ const nextConfig = {
       },
     ],
   },
-  async redirects() {
-    return [
-      {
-        source: "/project",
-        destination: "/",
-        permanent: true,
-      },
-      {
-        source: "/project/:slug/token",
-        destination: "/project/:slug",
-        permanent: true,
-      },
-    ];
-  },
+  // async redirects() {
+  //   return [
+  //     {
+  //       source: "/project",
+  //       destination: "/",
+  //       permanent: true,
+  //     },
+  //     {
+  //       source: "/project/:slug/token",
+  //       destination: "/project/:slug",
+  //       permanent: true,
+  //     },
+  //   ];
+  // },
 };
 
 export default nextConfig;
