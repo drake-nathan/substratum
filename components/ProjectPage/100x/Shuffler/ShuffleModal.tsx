@@ -29,7 +29,7 @@ const ShuffleModal = ({
   vault,
 }: Props): JSX.Element => {
   const { launchAlertModal, launchSuccessModal } = useModal();
-  const { tokensOwned, isSuccess } = useTokensOwned(address);
+  const { tokensOwned, isSuccess } = useTokensOwned(address, vault);
 
   const [error, setError] = useState<string | undefined>();
   const [loading, setLoading] = useState<boolean>(true);

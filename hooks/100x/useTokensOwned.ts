@@ -3,9 +3,9 @@ import { z } from "zod";
 
 import { useOneHundredXTokensOwned } from "../../wagmi/generated";
 
-export const useTokensOwned = (wallet: Address) => {
+export const useTokensOwned = (wallet: Address, vault: Address | undefined) => {
   const { data, error, isError, isSuccess } = useOneHundredXTokensOwned({
-    args: [wallet],
+    args: [vault ?? wallet],
   });
 
   if (error) {
