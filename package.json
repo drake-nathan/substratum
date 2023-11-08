@@ -3,8 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
-    "build": "next build && rm -rf ./.next/cache",
+    "build": "next build",
     "predev": "yarn wagmi generate",
     "dev": "next dev",
     "devstart": "next dev",
