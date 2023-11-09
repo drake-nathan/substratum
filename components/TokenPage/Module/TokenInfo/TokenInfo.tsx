@@ -3,7 +3,7 @@ import type { IAttribute } from "services/azureApi/types";
 
 import Info from "./Info";
 import * as St from "./TokenInfo.styled";
-import { InfoTab } from "./types";
+import type { InfoTab } from "./types";
 
 interface Props {
   projectSlug: string;
