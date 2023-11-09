@@ -3,6 +3,7 @@ import type { IAttribute } from "services/azureApi/types";
 
 import Info from "./Info";
 import * as St from "./TokenInfo.styled";
+import { InfoTab } from "./types";
 
 interface Props {
   projectSlug: string;
@@ -21,9 +22,11 @@ const TokenInfo = ({
 }: Props): JSX.Element => {
   const [tab, setTab] = useQueryState(
     "tab",
-    parseAsStringEnum(["description", "more-info", "traits"]).withDefault(
+    parseAsStringEnum<InfoTab>([
       "description",
-    ),
+      "more-info",
+      "traits",
+    ]).withDefault("description"),
   );
 
   return (
