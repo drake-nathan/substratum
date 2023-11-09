@@ -6,6 +6,7 @@ import { type Project, projects } from "components/staticData/projects";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { parseAsStringEnum, useQueryState } from "next-usequerystate";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { isString } from "utils/helpers";
@@ -24,7 +25,10 @@ const Home: NextPage = () => {
 
   const [project, setProject] = useState<Project>();
   const [error, setError] = useState<string>();
-  const [tab, setTab] = useState<"details" | "tokens">("details");
+  const [tab, setTab] = useQueryState(
+    "tab",
+    parseAsStringEnum(["details", "tokens"]).withDefault("details"),
+  );
 
   useEffect(() => {
     if (projectSlug && isString(projectSlug)) {
@@ -51,7 +55,7 @@ const Home: NextPage = () => {
       {projectSlug && project && isString(projectSlug) && (
         <>
           <ProjectHead project={project} />
-          <ProjectMenuBar projectSlug={projectSlug} tab={tab} setTab={setTab} />
+          <ProjectMenuBar tab={tab} setTab={setTab} />
 
           {tab === "tokens" ? (
             <Tokens projectSlug={projectSlug} project={project} />

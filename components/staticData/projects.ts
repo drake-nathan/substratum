@@ -101,7 +101,7 @@ export const projects: Project[] = [
         "Inspired by smart-contract art, long-form generative art, and abstract expressionism, 100x10x1 - Composition A explores new ground in crypto art. It empowers the community of component token owners, giving them control over the composite artwork’s rendering - all on-chain and without dependencies.",
       tools: "Solidity",
     },
-    projectSlug: "100x10x1-a",
+    projectSlug: "100x10x1-a-goerli",
     scriptType: "Solidity",
     status: Status.Upcoming,
     usesTransfers: false,
