@@ -3,6 +3,7 @@ import "../styles/spinner.css";
 import "../styles/fonts.css";
 import "react-tooltip/dist/react-tooltip.css";
 
+import { Analytics } from "@vercel/analytics/react";
 import Footer from "components/Footer/Footer";
 import Header from "components/Header/Header";
 import Providers from "contexts/Providers";
@@ -23,6 +24,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
         <Footer />
       </AppContainer>
     </Providers>
+    <Analytics />
   </>
 );
 

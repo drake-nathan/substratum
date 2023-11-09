@@ -19,6 +19,7 @@
   "dependencies": {
     "@babel/core": "^7.23.2",
     "@hookform/resolvers": "^3.3.2",
+    "@vercel/analytics": "^1.1.1",
     "@wagmi/cli": "^1.5.2",
     "@wagmi/core": "^1.4.6",
     "@web3modal/ethereum": "^2.7.1",
