@@ -1,6 +1,5 @@
-import { useQueryParam } from "hooks/useQueryParam";
+import { parseAsStringEnum, useQueryState } from "next-usequerystate";
 import type { IAttribute } from "services/azureApi/types";
-import { z } from "zod";
 
 import Info from "./Info";
 import * as St from "./TokenInfo.styled";
@@ -21,11 +20,14 @@ const TokenInfo = ({
   poem,
   additionalDescription,
 }: Props): JSX.Element => {
-  const [tabQuery, setTab] = useQueryParam("tab", "description");
-
-  const infoTabSchema = z.enum(["description", "more-info", "traits"]);
-
-  const tab = (infoTabSchema.parse(tabQuery) as InfoTab) ?? "description";
+  const [tab, setTab] = useQueryState(
+    "tab",
+    parseAsStringEnum<InfoTab>([
+      "description",
+      "more-info",
+      "traits",
+    ]).withDefault("description"),
+  );
 
   return (
     <St.Container>
