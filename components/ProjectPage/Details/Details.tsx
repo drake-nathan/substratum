@@ -42,7 +42,7 @@ const Details = ({ project }: Props): JSX.Element => {
   return (
     <St.DetailGrid>
       <St.ProjectImage>
-        {projectSlug === "100x10x1-a" ? (
+        {projectSlug === "100x10x1-a" || projectSlug === "100x10x1-a-goerli" ? (
           <OneHundredXImage image={image} />
         ) : (
           <>
@@ -55,7 +55,8 @@ const Details = ({ project }: Props): JSX.Element => {
       </St.ProjectImage>
 
       <St.Details>
-        {projectSlug === "100x10x1-a" && <Shuffler />}
+        {projectSlug === "100x10x1-a" ||
+          (projectSlug === "100x10x1-a-goerli" && <Shuffler />)}
 
         <St.AboutSection>
           <St.DescTitle>About {name}</St.DescTitle>
@@ -108,7 +109,8 @@ const Details = ({ project }: Props): JSX.Element => {
         </St.OtherInfo>
       </St.Details>
 
-      {projectSlug === "100x10x1-a" && <Legend />}
+      {projectSlug === "100x10x1-a" ||
+        (projectSlug === "100x10x1-a-goerli" && <Legend />)}
 
       <St.OtherCollectionsContainer>
         <St.OtherCollectionsHeader>Other Collections</St.OtherCollectionsHeader>
