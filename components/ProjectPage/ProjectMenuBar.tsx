@@ -3,7 +3,7 @@ import * as St from "./ProjectMenuBar.styled";
 interface Props {
   projectSlug: string | string[];
   tab: string;
-  setTab: (tab: string) => void;
+  setTab: (tab: "details" | "tokens") => void;
 }
 
 const ProjectMenuBar = ({ projectSlug, tab, setTab }: Props): JSX.Element => (
@@ -24,6 +24,6 @@ const ProjectMenuBar = ({ projectSlug, tab, setTab }: Props): JSX.Element => (
       </St.Tab>
     </St.TabsContainer>
   </St.Container>
-); // TODO make an enum for the tabs
+);
 
 export default ProjectMenuBar;

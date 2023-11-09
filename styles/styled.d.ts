@@ -1,4 +1,5 @@
 import "styled-components";
+
 import type { Colors } from "./theme";
 
 declare module "styled-components" {

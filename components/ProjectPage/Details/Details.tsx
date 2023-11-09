@@ -1,11 +1,10 @@
 import * as St from "components/ProjectPage/Details/Details.styled";
-import { Project, projects } from "components/staticData/projects";
-import { drawOrder as dO } from "components/staticData/100x10x1A/order";
-import { useState } from "react";
+import { type Project, projects } from "components/staticData/projects";
+
+import Legend from "../100x/Legend/Legend";
+import OneHundredXImage from "../100x/OneHundredXImage";
+import Shuffler from "../100x/Shuffler/Shuffler";
 import CollectionCard from "./OtherCollections/CollectionCard";
-import LayeredCollection from "../LayeredCollection/LayeredCollection";
-import Legend from "../LayeredCollection/Legend/Legend";
-import Shuffler from "../LayeredCollection/Shuffler/Shuffler";
 
 interface Props {
   project: Project;
@@ -40,37 +39,24 @@ const Details = ({ project }: Props): JSX.Element => {
     },
   } = project;
 
-  const [drawOrder, setDrawOrder] = useState(dO);
-  const [viewTokenID, setViewTokenID] = useState(0);
-
   return (
     <St.DetailGrid>
       <St.ProjectImage>
         {projectSlug === "100x10x1-a" ? (
-          <LayeredCollection
-            viewTokenID={viewTokenID}
-            setViewTokenID={setViewTokenID}
-            drawOrder={drawOrder}
-          />
+          <OneHundredXImage image={image} />
         ) : (
           <>
             <St.Image src={image} alt="Project image" />
             <St.ProjectImageNameContainer>
-              <St.ProjectImageName>{name}</St.ProjectImageName>
+              <St.ProjectImageName>{`${name}`}</St.ProjectImageName>
             </St.ProjectImageNameContainer>
           </>
         )}
       </St.ProjectImage>
 
       <St.Details>
-        {/** FIXME - render shuffler if the project is of a certain class */}
-        {projectSlug === "100x10x1-a" && (
-          <Shuffler
-            setDrawOrder={setDrawOrder}
-            drawOrder={drawOrder}
-            setViewTokenID={setViewTokenID}
-          />
-        )}
+        {projectSlug === "100x10x1-a" && <Shuffler />}
+
         <St.AboutSection>
           <St.DescTitle>About {name}</St.DescTitle>
           <St.Text>{description}</St.Text>
@@ -87,6 +73,7 @@ const Details = ({ project }: Props): JSX.Element => {
             </a>
           )}
         </St.AboutSection>
+
         <St.OtherInfo>
           <St.DescTitle>Collection Details</St.DescTitle>
           <St.Text>{collectionDetails}</St.Text>

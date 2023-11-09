@@ -1,9 +1,10 @@
-import * as St from "./TokenInfo.styled";
-import type { IAttribute } from "services/azureApi/types";
-import type { InfoTab } from "./types";
-import Info from "./Info";
 import { useQueryParam } from "hooks/useQueryParam";
+import type { IAttribute } from "services/azureApi/types";
 import { z } from "zod";
+
+import Info from "./Info";
+import * as St from "./TokenInfo.styled";
+import type { InfoTab } from "./types";
 
 interface Props {
   projectSlug: string;

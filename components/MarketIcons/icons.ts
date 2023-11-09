@@ -1,7 +1,7 @@
+import EtherscanLogo from "public/icons/EtherscanLogo.svg";
 import FirstMateLogo from "public/icons/FirstMateLogo.svg";
 import LooksRareLogo from "public/icons/LooksRareLogo.svg";
 import X2y2Logo from "public/icons/X2y2Logo.svg";
-import EtherscanLogo from "public/icons/EtherscanLogo.svg";
 
 export enum Market {
   Etherscan,
@@ -68,43 +68,43 @@ export const getTokenMarketLink = (
 
 export const icons: Icon[] = [
   {
-    market: Market.Etherscan,
-    urlParam: UrlParam.address,
-    src: EtherscanLogo,
-    id: "Etherscan",
     altCollection: "Etherscan external contract link.",
     altToken: "",
+    id: "Etherscan",
+    market: Market.Etherscan,
+    src: EtherscanLogo,
     tooltipCollection: "Etherscan contract page",
     tooltipToken: "",
+    urlParam: UrlParam.address,
   },
   {
-    market: Market.FirstMate,
-    urlParam: UrlParam.address,
-    src: FirstMateLogo,
-    id: "FirstMate",
     altCollection: "Substratum community marketplace external collection link.",
     altToken: "Substratum community marketplace token link.",
+    id: "FirstMate",
+    market: Market.FirstMate,
+    src: FirstMateLogo,
     tooltipCollection: "Substratum community marketplace collection page",
     tooltipToken: "Substratum community marketplace token page",
+    urlParam: UrlParam.address,
   },
   {
-    market: Market.LooksRare,
-    urlParam: UrlParam.address,
-    src: LooksRareLogo,
-    id: "LooksRare",
     altCollection: "LooksRare external collection link.",
     altToken: "LooksRare token link.",
+    id: "LooksRare",
+    market: Market.LooksRare,
+    src: LooksRareLogo,
     tooltipCollection: "LooksRare collection page",
     tooltipToken: "LooksRare token page",
+    urlParam: UrlParam.address,
   },
   {
-    market: Market.X2y2,
-    urlParam: UrlParam.address,
-    src: X2y2Logo,
-    id: "X2y2",
     altCollection: "X2y2 external collection link.",
     altToken: "X2y2 token link.",
+    id: "X2y2",
+    market: Market.X2y2,
+    src: X2y2Logo,
     tooltipCollection: "X2y2 collection page",
     tooltipToken: "X2y2 token page",
+    urlParam: UrlParam.address,
   },
 ];

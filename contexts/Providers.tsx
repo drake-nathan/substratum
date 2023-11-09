@@ -1,8 +1,10 @@
+import CustomWeb3Modal from "components/CustomWeb3Modal/CustomWeb3Modal";
 import React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
+
+import ModalProvider from "./ModalProvider";
 import ThemeProvider from "./ThemeProvider";
 import WagmiProvider from "./WagmiProvider";
-import CustomWeb3Modal from "components/CustomWeb3Modal/CustomWeb3Modal";
 
 interface Props {
   children: React.ReactNode;
@@ -15,7 +17,7 @@ const Providers = ({ children }: Props): JSX.Element => {
     <ThemeProvider>
       <WagmiProvider>
         <QueryClientProvider client={queryClient}>
-          {children}
+          <ModalProvider>{children}</ModalProvider>
         </QueryClientProvider>
       </WagmiProvider>
 

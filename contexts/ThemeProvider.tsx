@@ -3,8 +3,8 @@ import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import { useWindowSize } from "hooks/useWindowSize";
 import {
   type Colors,
-  defaultTheme,
   darkColors,
+  defaultTheme,
   lightColors,
 } from "../styles/theme";
 

@@ -1,12 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "standalone",
   reactStrictMode: true,
   swcMinify: true,
   compiler: {
     styledComponents: true,
-  },
-  experimental: {
-    appDir: false,
   },
   webpack(config) {
     config.module.rules.push({
@@ -53,4 +51,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+export default nextConfig;

@@ -1,4 +1,5 @@
 import { type Project } from "components/staticData/projects";
+
 import * as St from "./TokenMenu.styled";
 import TokenSearch from "./TokenSearch";
 

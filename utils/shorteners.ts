@@ -1,6 +1,4 @@
-import type { Address } from "viem";
-
-export const shortenAddress = (address: Address, chars = 4) => {
+export const shortenAddress = (address: string, chars = 4) => {
   const parsed = address ? address.toLowerCase() : "";
 
   return `${parsed.substring(0, chars + 2)}...${parsed.substring(42 - chars)}`;

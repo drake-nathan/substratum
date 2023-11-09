@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { projects } from "components/staticData/projects";
+import TokenPage from "components/TokenPage/TokenPage";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import TokenPage from "components/TokenPage/TokenPage";
-import { projects } from "components/staticData/projects";
+import React, { useEffect, useState } from "react";
 
 const Home: NextPage = () => {
   const { projectSlug, tokenId: tokenIdQuery } = useRouter().query;

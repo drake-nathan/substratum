@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import { RxCaretDown } from "react-icons/rx";
+import styled from "styled-components";
 
 export const Container = styled.div`
   position: relative;
@@ -51,11 +51,6 @@ export const Text = styled.span`
   font-size: ${({ theme: { isMobile } }) => (isMobile ? "1.75rem" : "18px")};
   font-weight: 400;
   text-transform: uppercase;
-
-  /* @media (max-height: 700px) and (max-width: 500px) {
-    font-size: 1.5rem;
-    font-weight: 500;
-  } */
 `;
 
 export const DropdownIcon = styled(RxCaretDown)`

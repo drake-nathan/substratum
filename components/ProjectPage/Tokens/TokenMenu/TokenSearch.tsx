@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
 import { type Project } from "components/staticData/projects";
+import { useEffect, useState } from "react";
+import { type SubmitHandler, useForm } from "react-hook-form";
+
 import * as St from "./TokenSearch.styled";
 
 type IToken = { tokenId: number };
@@ -77,11 +78,11 @@ const TokenSearch = ({
           className="special-artist-name"
           type="number"
           {...register("tokenId", {
-            valueAsNumber: true,
             max: {
-              value: currentSupply ? currentSupply - 1 : maxSupply,
               message: "Must be less than current supply.",
+              value: currentSupply ? currentSupply - 1 : maxSupply,
             },
+            valueAsNumber: true,
           })}
           id="enter-id"
           value={tokenId || tokenId === 0 ? tokenId : ""}

@@ -1,8 +1,11 @@
+import { FaEye, FaSearch } from "react-icons/fa";
 import styled from "styled-components";
-import { FaEye } from "react-icons/fa";
 
 export const ActionButton = styled.button`
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 0.5em;
   background-color: ${({ theme: { colors } }) => colors.textMain};
   color: ${({ theme: { colors } }) => colors.bgMain};
@@ -18,11 +21,13 @@ export const ActionButton = styled.button`
 export const ButtonGrid = styled.div`
   margin-top: 1em;
   display: grid;
+  grid-template-columns: 1fr 1fr;
   grid-template-areas:
     "top top"
     "cut overhand"
     "faro wash"
-    "reverse reverse";
+    "reverse reverse"
+    "vault vault";
 
   gap: 1.25em 1em;
 
@@ -33,7 +38,8 @@ export const ButtonGrid = styled.div`
       "overhand overhand"
       "faro faro"
       "wash wash"
-      "reverse reverse";
+      "reverse reverse"
+      "vault vault";
   }
 `;
 
@@ -44,15 +50,17 @@ export const TopAction = styled.div`
   gap: 0.1em;
 `;
 
-export const TopButton = styled(ActionButton)`
-  width: 100%;
-`;
-
 export const ViewLayer = styled.div`
   display: flex;
+  flex: 1 1 100%;
 `;
 
-export const IDInput = styled.input`
+export const VaultForm = styled.form`
+  display: flex;
+  flex: 1 1 100%;
+`;
+
+export const Input = styled.input`
   flex: 1 1 100%;
   background-color: #f4f1ed;
   font-family: "basic-sans", sans-serif;
@@ -61,10 +69,10 @@ export const IDInput = styled.input`
   border: none;
 `;
 
-export const ViewButton = styled.div`
+export const ViewButton = styled.button`
   background-color: #ded8d1;
   height: 100%;
-  width: 3em;
+  width: 50px;
   display: flex;
   justify-content: center;
   cursor: pointer;
@@ -80,22 +88,12 @@ export const EyeIcon = styled(FaEye)`
   align-self: center;
 `;
 
-export const CutButton = styled(ActionButton)`
-  grid-area: cut;
+export const SearchIcon = styled(FaSearch)`
+  color: #00000076;
+  font-size: 28px;
+  align-self: center;
 `;
 
-export const OverhandButton = styled(ActionButton)`
-  grid-area: overhand;
-`;
-
-export const FaroButton = styled(ActionButton)`
-  grid-area: faro;
-`;
-
-export const WashButton = styled(ActionButton)`
-  grid-area: wash;
-`;
-
-export const ReverseButton = styled(ActionButton)`
-  grid-area: reverse;
+export const ErrorText = styled.p`
+  color: red;
 `;

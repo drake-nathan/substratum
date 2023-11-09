@@ -1,8 +1,9 @@
+import { type Project } from "components/staticData/projects";
 import { useEffect, useState } from "react";
 import { type QueryFunctionContext, useInfiniteQuery } from "react-query";
 import { fetchCollectionTokens } from "services/azureApi/fetches";
-import { type Project } from "components/staticData/projects";
 import type { CollectionResponse } from "services/azureApi/types";
+
 import TokenGrid from "./TokenGrid/TokenGrid";
 import TokenMenu from "./TokenMenu/TokenMenu";
 import { TokensContainer } from "./Tokens.styled";
@@ -42,8 +43,10 @@ const Tokens = ({ projectSlug, project }: Props): JSX.Element => {
     if (error) console.error(error.message);
     if (data) {
       const lastPage = data.pages[data.pages.length - 1];
-      setHasMore(lastPage.hasMore);
-      setCurrentLength(lastPage.skip + lastPage.tokens.length);
+      if (lastPage) {
+        setHasMore(lastPage.hasMore);
+        setCurrentLength(lastPage.skip + lastPage.tokens.length);
+      }
     }
   }, [data, error]);
 
