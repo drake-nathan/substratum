@@ -1,5 +1,6 @@
 import axios from "axios";
 import { z } from "zod";
+
 import type { CollectionResponse, IProject, IToken, TxCounts } from "./types";
 
 const rootApiUrl = process.env.NEXT_PUBLIC_API_ROOT;
@@ -68,8 +69,8 @@ export const fetchCurrentSupplies = async (): Promise<
 
   const schema = z.array(
     z.object({
-      project_slug: z.string(),
       current_supply: z.number(),
+      project_slug: z.string(),
     }),
   );
 

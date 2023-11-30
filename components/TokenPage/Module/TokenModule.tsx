@@ -1,5 +1,6 @@
 import Generator from "components/Generator/Generator";
 import { type Project } from "components/staticData/projects";
+import { useCurrentSupply } from "hooks/useCurrentSupply";
 import { useWindowSize } from "hooks/useWindowSize";
 import React, { useEffect, useState } from "react";
 import type { IToken } from "services/azureApi/types";
@@ -26,7 +27,9 @@ const TokenModule = ({ token, project }: Props): JSX.Element => {
     description,
     additional_info,
   } = token;
-  const { projectSlug, aspectRatio, currentSupply, isZeroIndexed } = project;
+  const { projectSlug, aspectRatio, isZeroIndexed } = project;
+
+  const currentSupply = useCurrentSupply(projectSlug);
 
   const { windowWidth } = useWindowSize();
 

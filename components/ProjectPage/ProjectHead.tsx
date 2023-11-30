@@ -1,5 +1,6 @@
 import MarketIcons from "components/MarketIcons/MarketIcons";
 import { type Project } from "components/staticData/projects";
+import { useCurrentSupply } from "hooks/useCurrentSupply";
 import { intlNumberFormat } from "utils/helpers";
 
 import * as St from "./ProjectHead.styled";
@@ -9,7 +10,9 @@ interface Props {
 }
 
 const ProjectHead = ({ project }: Props): JSX.Element => {
-  const { name, artist, website, currentSupply, maxSupply } = project;
+  const { name, artist, website, maxSupply, projectSlug } = project;
+
+  const currentSupply = useCurrentSupply(projectSlug);
 
   return (
     <St.Container>
