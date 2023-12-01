@@ -93,3 +93,33 @@ export const fetchCurrentSupplies = async (): Promise<
 
   return currentSupplies;
 };
+
+export const fetchTokenZeroSvg = async (projectSlug: string) => {
+  const url = `${rootApiUrl}/project/${projectSlug}/token/0`;
+
+  let tokenZero: unknown;
+  try {
+    tokenZero = (await axios.get<unknown>(url)).data;
+  } catch (error) {
+    throw new Error(`Error fetching token zero`, {
+      cause: error,
+    });
+  }
+
+  const schema = z.object({
+    svg: z.string(),
+  });
+
+  let svg: string;
+  try {
+    const parsedTokenZero = schema.parse(tokenZero);
+
+    svg = parsedTokenZero.svg;
+  } catch (error) {
+    throw new Error(`Error parsing token zero`, {
+      cause: error,
+    });
+  }
+
+  return svg;
+};
