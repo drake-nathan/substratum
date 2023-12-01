@@ -77,7 +77,7 @@ export const projects: Project[] = [
   {
     artist: Artist.Matto,
     artistAddress: "0xF8d9056db2C2189155bc25A30269dc5dDeD15d46",
-    aspectRatio: 1,
+    aspectRatio: 0.5625,
     contractAddress: "0xCC55af23d9861e41C5875F1e76fb3c4122E8C4Fa",
     currentSupply: 0,
     externalUrl: "https://substratum.art/project/100x10x1",
