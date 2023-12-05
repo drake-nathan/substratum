@@ -36,12 +36,7 @@ const TokenCard = ({ token, isTokenIdInTitle }: Props): JSX.Element => {
           {/* <St.Owner>Owner: 0x1abc7154748d1ce5144478cdeb574ae244b939b5</St.Owner> */}
         </Link>
 
-        {!isTokenIdInTitle && (
-          <St.Text>
-            Token ID:
-            {tokenId}
-          </St.Text>
-        )}
+        {!isTokenIdInTitle && <St.Text>Token ID: {tokenId}</St.Text>}
 
         {scriptInputs?.level_shift === undefined ? null : (
           <St.Text>

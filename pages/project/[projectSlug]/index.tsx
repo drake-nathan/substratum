@@ -27,7 +27,12 @@ const Home: NextPage = () => {
   const [error, setError] = useState<string>();
   const [tab, setTab] = useQueryState(
     "tab",
-    parseAsStringEnum(["details", "tokens"]).withDefault("details"),
+    parseAsStringEnum(["details", "tokens"])
+      .withDefault("details")
+      .withOptions({
+        history: "push",
+        shallow: false,
+      }),
   );
 
   useEffect(() => {

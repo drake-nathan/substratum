@@ -1,4 +1,5 @@
 import type { Project } from "components/staticData/projects";
+import { useCurrentSupply } from "hooks/useCurrentSupply";
 import { useEffect } from "react";
 import { useQuery } from "react-query";
 import { fetchCollectionTokens } from "services/azureApi/fetches";
@@ -13,8 +14,10 @@ interface Props {
 }
 
 const OtherTokens = ({ token, project }: Props): JSX.Element => {
-  const { projectSlug, currentSupply } = project;
+  const { projectSlug } = project;
   const { token_id: tokenId } = token;
+
+  const currentSupply = useCurrentSupply(projectSlug);
 
   const skip =
     currentSupply && currentSupply < tokenId + 3 ? currentSupply - 3 : tokenId;

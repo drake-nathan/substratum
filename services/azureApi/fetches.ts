@@ -1,5 +1,6 @@
 import axios from "axios";
 import { z } from "zod";
+
 import type { CollectionResponse, IProject, IToken, TxCounts } from "./types";
 
 const rootApiUrl = process.env.NEXT_PUBLIC_API_ROOT;
@@ -68,8 +69,8 @@ export const fetchCurrentSupplies = async (): Promise<
 
   const schema = z.array(
     z.object({
-      project_slug: z.string(),
       current_supply: z.number(),
+      project_slug: z.string(),
     }),
   );
 
@@ -91,4 +92,34 @@ export const fetchCurrentSupplies = async (): Promise<
   }
 
   return currentSupplies;
+};
+
+export const fetchTokenZeroSvg = async (projectSlug: string) => {
+  const url = `${rootApiUrl}/project/${projectSlug}/token/0`;
+
+  let tokenZero: unknown;
+  try {
+    tokenZero = (await axios.get<unknown>(url)).data;
+  } catch (error) {
+    throw new Error(`Error fetching token zero`, {
+      cause: error,
+    });
+  }
+
+  const schema = z.object({
+    svg: z.string(),
+  });
+
+  let svg: string;
+  try {
+    const parsedTokenZero = schema.parse(tokenZero);
+
+    svg = parsedTokenZero.svg;
+  } catch (error) {
+    throw new Error(`Error parsing token zero`, {
+      cause: error,
+    });
+  }
+
+  return svg;
 };

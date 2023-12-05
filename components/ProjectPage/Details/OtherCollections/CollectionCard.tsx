@@ -1,4 +1,5 @@
 import { type Project } from "components/staticData/projects";
+import { useCurrentSupply } from "hooks/useCurrentSupply";
 import Link from "next/link";
 import { intlNumberFormat } from "utils/helpers";
 
@@ -16,10 +17,11 @@ const Card = ({ project }: Props): JSX.Element => {
     local,
     projectSlug,
     externalUrl,
-    currentSupply,
     maxSupply,
     status,
   } = project;
+
+  const currentSupply = useCurrentSupply(projectSlug);
 
   const CardJsx = (
     <St.Container>

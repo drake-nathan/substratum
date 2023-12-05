@@ -23,7 +23,6 @@ export interface Project {
   contractAddress: string;
   image: string;
   maxSupply: number;
-  currentSupply?: number;
   isZeroIndexed: boolean;
   isTokenIdInTitle: boolean;
   usesTransfers: boolean;
@@ -53,7 +52,6 @@ export const projects: Project[] = [
     artist: Artist.Matto,
     aspectRatio: 1,
     contractAddress: "0x74C093fD987Fff140677Aa83B6CC4680B8ef2956",
-    currentSupply: 10,
     image: "/projects/haiku.png",
     isTokenIdInTitle: false,
     isZeroIndexed: false,
@@ -77,9 +75,8 @@ export const projects: Project[] = [
   {
     artist: Artist.Matto,
     artistAddress: "0xF8d9056db2C2189155bc25A30269dc5dDeD15d46",
-    aspectRatio: 1,
-    contractAddress: "0x32a1918079034b610c27F43f8cb04EF121DcEeD0",
-    currentSupply: 0,
+    aspectRatio: 0.5625,
+    contractAddress: "0xCC55af23d9861e41C5875F1e76fb3c4122E8C4Fa",
     externalUrl: "https://substratum.art/project/100x10x1",
     image: "/projects/100x10x1-a.png",
     isTokenIdInTitle: false,
@@ -111,7 +108,6 @@ export const projects: Project[] = [
     artist: Artist.Matto,
     aspectRatio: 1,
     contractAddress: "0x5B17395A9699D2819a9d009bA375a0825b077385",
-    currentSupply: 99,
     image: "/projects/crystallized-illusions.png",
     isTokenIdInTitle: false,
     isZeroIndexed: true,
@@ -142,7 +138,6 @@ export const projects: Project[] = [
     artist: Artist.ImmutableComputer,
     aspectRatio: 1.777777777777777,
     contractAddress: "0xa9132D23886b63D29858Fe541214fEad5815d64A",
-    currentSupply: 12,
     image: "/projects/negative-carbon.png",
     isTokenIdInTitle: true,
     isZeroIndexed: true,
@@ -170,7 +165,6 @@ export const projects: Project[] = [
     artist: Artist.Matto,
     aspectRatio: 1,
     contractAddress: "0x2eEa9f8eb2a3365175c7cb25Db9ae277bE218806",
-    currentSupply: 68,
     image: "/projects/mathare-memories.png",
     isTokenIdInTitle: true,
     isZeroIndexed: false,
@@ -201,7 +195,6 @@ export const projects: Project[] = [
     artist: Artist.Matto,
     aspectRatio: 1,
     contractAddress: "0x15BF7610a7d50541e865EfA3adad434147a4E1A9",
-    currentSupply: 256,
     image: "/projects/texture.svg",
     isTokenIdInTitle: true,
     isZeroIndexed: true,
@@ -229,7 +222,6 @@ export const projects: Project[] = [
     artist: Artist.Matto,
     aspectRatio: 1,
     contractAddress: "0x4E171e0F14a9046e14B93221f31Acd2EC4Af8429",
-    currentSupply: 302,
     externalUrl: "https://chainlife.xyz/",
     image: "/projects/chainlife.png",
     isTokenIdInTitle: true,
@@ -258,7 +250,6 @@ export const projects: Project[] = [
     artist: Artist.Matto,
     aspectRatio: 1,
     contractAddress: "0x7f463b874eC264dC7BD8C780f5790b4Fc371F11f",
-    currentSupply: 4_444,
     externalUrl: "https://blonks.xyz/",
     image: "/projects/blonks.png",
     isTokenIdInTitle: true,
