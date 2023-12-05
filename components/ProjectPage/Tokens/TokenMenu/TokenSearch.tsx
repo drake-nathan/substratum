@@ -1,4 +1,5 @@
 import { type Project } from "components/staticData/projects";
+import { useCurrentSupply } from "hooks/useCurrentSupply";
 import { useEffect, useState } from "react";
 import { type SubmitHandler, useForm } from "react-hook-form";
 
@@ -19,7 +20,9 @@ const TokenSearch = ({
   setTokenId,
   refetch,
 }: Props): JSX.Element => {
-  const { currentSupply, maxSupply, isZeroIndexed } = project;
+  const { maxSupply, isZeroIndexed, projectSlug } = project;
+
+  const currentSupply = useCurrentSupply(projectSlug);
 
   const indexCorrection = isZeroIndexed ? 1 : 0;
   const maxToken = currentSupply
