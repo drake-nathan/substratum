@@ -56,7 +56,7 @@ export const projects: Project[] = [
     isTokenIdInTitle: false,
     isZeroIndexed: false,
     local: true,
-    maxSupply: 1000000000000,
+    maxSupply: 1000000,
     name: "Freestyle H-ai-ku",
     openSeaSlug: "freestyle-h-ai-ku",
     projectPageInfo: {

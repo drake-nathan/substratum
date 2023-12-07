@@ -23,6 +23,8 @@ const Card = ({ project }: Props): JSX.Element => {
 
   const currentSupply = useCurrentSupply(projectSlug);
 
+  const maxSupplyText = maxSupply > 999_999 ? "?" : intlNumberFormat(maxSupply);
+
   const CardJsx = (
     <St.Container>
       <St.ImgSection>
@@ -41,8 +43,8 @@ const Card = ({ project }: Props): JSX.Element => {
         </St.ArtistName>
 
         <St.SupplyText>
-          {currentSupply ? intlNumberFormat(currentSupply) : 0}/
-          {intlNumberFormat(maxSupply)} Minted
+          {currentSupply ? intlNumberFormat(currentSupply) : 0}/{maxSupplyText}{" "}
+          Minted
         </St.SupplyText>
       </St.InfoSection>
     </St.Container>

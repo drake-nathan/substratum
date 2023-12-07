@@ -13,6 +13,7 @@ const ProjectHead = ({ project }: Props): JSX.Element => {
   const { name, artist, website, maxSupply, projectSlug } = project;
 
   const currentSupply = useCurrentSupply(projectSlug);
+  const maxSupplyText = maxSupply > 999_999 ? "?" : intlNumberFormat(maxSupply);
 
   return (
     <St.Container>
@@ -30,7 +31,7 @@ const ProjectHead = ({ project }: Props): JSX.Element => {
       </St.MarketIconsWrapper>
 
       <St.TokenStatus>
-        {currentSupply}/{intlNumberFormat(maxSupply)} Tokens Minted
+        {currentSupply}/{maxSupplyText} Tokens Minted
       </St.TokenStatus>
     </St.Container>
   );
