@@ -4,6 +4,7 @@ import "../styles/fonts.css";
 import "react-tooltip/dist/react-tooltip.css";
 
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import Footer from "components/Footer/Footer";
 import Header from "components/Header/Header";
 import Providers from "contexts/Providers";
@@ -25,6 +26,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
       </AppContainer>
     </Providers>
     <Analytics />
+    <SpeedInsights />
   </>
 );
 
