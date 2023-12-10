@@ -43,7 +43,7 @@ const Details = ({ project }: Props): JSX.Element => {
     <St.DetailGrid>
       <St.ProjectImage>
         {projectSlug === "100x10x1-a" || projectSlug === "100x10x1-a-goerli" ? (
-          <OneHundredXImage image={image} />
+          <OneHundredXImage />
         ) : (
           <>
             <St.Image src={image} alt="Project image" />

@@ -41,7 +41,7 @@
     "react-query": "^3.39.3",
     "react-spinners": "^0.13.8",
     "react-tooltip": "^5.25.0",
-    "sharp": "^0.33.0",
+    "sharp": "0.32.0",
     "styled-components": "^6.1.1",
     "stylis": "^4.3.0",
     "viem": "^1.19.11",
