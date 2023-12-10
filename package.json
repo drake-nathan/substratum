@@ -19,6 +19,8 @@
   "dependencies": {
     "@babel/core": "^7.23.5",
     "@hookform/resolvers": "^3.3.2",
+    "@tanstack/react-query": "^5.13.4",
+    "@tanstack/react-query-devtools": "^5.13.4",
     "@vercel/analytics": "^1.1.1",
     "@vercel/speed-insights": "^1.0.0",
     "@wagmi/cli": "^1.5.2",
@@ -38,7 +40,6 @@
     "react-icons": "^4.12.0",
     "react-infinite-scroll-component": "^6.1.0",
     "react-is": "^18.2.0",
-    "react-query": "^3.39.3",
     "react-spinners": "^0.13.8",
     "react-tooltip": "^5.25.0",
     "sharp": "0.32.0",

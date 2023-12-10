@@ -1,5 +1,5 @@
+import { type InfiniteData } from "@tanstack/react-query";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { type InfiniteData } from "react-query";
 import { type CollectionResponse } from "services/azureApi/types";
 
 import TokenCard from "../TokenCard/TokenCard";
@@ -27,8 +27,6 @@ const TokenGrid = ({
   isTokenIdInTitle,
 }: Props): JSX.Element => (
   <St.Container>
-    {/* FIXME: */}
-    {/* eslint-disable-next-line no-nested-ternary */}
     {tokens ? (
       <InfiniteScroll
         dataLength={currentLength}

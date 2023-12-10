@@ -1,8 +1,8 @@
+import { useQuery } from "@tanstack/react-query";
 import MarketIcons from "components/MarketIcons/MarketIcons";
 import { type Project } from "components/staticData/projects";
 import Link from "next/link";
 import { useEffect } from "react";
-import { useQuery } from "react-query";
 import { fetchToken } from "services/azureApi/fetches";
 import type { IToken } from "services/azureApi/types";
 
@@ -24,7 +24,10 @@ const TokenPage = ({ project, tokenId }: Props): JSX.Element => {
     error,
     data: token,
     refetch,
-  } = useQuery<IToken, Error>("token", () => fetchToken(projectSlug, tokenId));
+  } = useQuery<IToken, Error>({
+    queryFn: () => fetchToken(projectSlug, tokenId),
+    queryKey: ["token"],
+  });
 
   useEffect(() => {
     refetch();
