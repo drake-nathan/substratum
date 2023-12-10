@@ -6,7 +6,7 @@ import * as St from "./OneHundredXImage.styled";
 
 const OneHundredXImage = (): JSX.Element => {
   const { colors } = useTheme();
-  const { data, error } = useTokenZeroImage("100x10x1-a-goerli");
+  const { data, error } = useTokenZeroImage();
 
   if (error)
     return (
