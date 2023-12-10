@@ -20,7 +20,9 @@ const OtherTokens = ({ token, project }: Props): JSX.Element => {
   const currentSupply = useCurrentSupply(projectSlug);
 
   const skip =
-    currentSupply && currentSupply < tokenId + 3 ? currentSupply - 3 : tokenId;
+    currentSupply && currentSupply < tokenId + 3
+      ? currentSupply - 3
+      : tokenId + 1;
 
   const {
     isLoading,

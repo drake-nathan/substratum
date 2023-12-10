@@ -7,6 +7,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+  text-align: center;
 `;
 
 export const PngImage = styled.img`

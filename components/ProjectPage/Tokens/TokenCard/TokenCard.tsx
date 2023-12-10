@@ -1,5 +1,6 @@
+import OneHundredXImage from "components/ProjectPage/100x/OneHundredXImage";
 import Link from "next/link";
-import type { TokenAbbr } from "services/azureApi/types";
+import { ProjectSlug, type TokenAbbr } from "services/azureApi/types";
 
 import * as St from "./TokenCard.styled";
 
@@ -23,10 +24,17 @@ const TokenCard = ({ token, isTokenIdInTitle }: Props): JSX.Element => {
   const tokenLink = `/project/${projectSlug}/token/${tokenId}`;
   const alt = `${name} token`;
 
+  const isCompositeImage =
+    projectSlug === ProjectSlug["100x10x1-a-goerli"] && tokenId === 0;
+
   return (
     <St.Wrapper>
       <Link href={tokenLink}>
-        <St.PreviewImage src={imgSrc} alt={alt} />
+        {isCompositeImage ? (
+          <OneHundredXImage />
+        ) : (
+          <St.PreviewImage src={imgSrc} alt={alt} />
+        )}
       </Link>
 
       <St.DescriptionDiv>

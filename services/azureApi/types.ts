@@ -14,6 +14,10 @@ export enum ProjectSlug {
   negativeCarbon = "negative-carbon",
   crystallizedIllusions = "crystallized-illusions",
   textureAndHues = "texture-and-hues",
+  blonks = "blonks",
+  "100x10x1-a-goerli" = "100x10x1-a-goerli",
+  haiku = "haiku",
+  mfa = "mfa",
 }
 
 export enum Chain {

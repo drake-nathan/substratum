@@ -1,8 +1,9 @@
 import MarketIcons from "components/MarketIcons/MarketIcons";
 import { type Project } from "components/staticData/projects";
 import { Tooltip } from "react-tooltip";
-import type { IToken } from "services/azureApi/types";
+import { type IToken, ProjectSlug } from "services/azureApi/types";
 
+import CompositeFullScreen from "./CompositeFullScreen";
 import * as St from "./TokenIcons.styled";
 
 interface Props {
@@ -16,6 +17,7 @@ const TokenIcons = ({ token, project }: Props): JSX.Element => {
     generator_url: generatorUrl,
     svgGen,
     image,
+    project_slug: projectSlug,
   } = token;
   const { isMobileControls } = project;
 
@@ -24,6 +26,9 @@ const TokenIcons = ({ token, project }: Props): JSX.Element => {
   const mobileUrl = generatorUrl ? new URL(generatorUrl) : null;
 
   if (mobileUrl) mobileUrl.searchParams.set("mobile", "true");
+
+  const isCompositeImage =
+    projectSlug === ProjectSlug["100x10x1-a-goerli"] && tokenId === 0;
 
   return (
     <St.IconDiv>
@@ -40,6 +45,8 @@ const TokenIcons = ({ token, project }: Props): JSX.Element => {
           />
         </a>
       )}
+
+      {isCompositeImage && <CompositeFullScreen />}
 
       {isMobileControls && mobileUrl && (
         <a href={mobileUrl.toString()} target="_blank" rel="noreferrer">
