@@ -4,7 +4,7 @@ import { Tooltip } from "react-tooltip";
 import * as St from "./TokenIcons.styled";
 
 const CompositeFullScreen = () => {
-  const { data } = useTokenZeroImage("100x10x1-a-goerli");
+  const { data } = useTokenZeroImage();
 
   if (data)
     return (

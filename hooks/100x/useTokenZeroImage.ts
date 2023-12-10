@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import { fetchTokenZeroImage } from "services/nextApiFetches";
+import { fetchTokenZeroImage } from "services/azureApi/fetches";
 
-export const useTokenZeroImage = (projectSlug: string) => {
+export const useTokenZeroImage = () => {
   const query = useQuery<string | null, Error>({
     gcTime: Infinity,
-    queryFn: () => fetchTokenZeroImage(projectSlug),
+    queryFn: () => fetchTokenZeroImage(),
     queryKey: ["tokenZeroImage"],
     refetchOnMount: false,
     refetchOnReconnect: false,

@@ -1,5 +1,4 @@
 import axios from "axios";
-import { deEscapeSvg } from "utils/images";
 import { z } from "zod";
 
 import type { CollectionResponse, IProject, IToken, TxCounts } from "./types";
@@ -95,32 +94,18 @@ export const fetchCurrentSupplies = async (): Promise<
   return currentSupplies;
 };
 
-export const fetchTokenZeroSvg = async (projectSlug: string) => {
-  const url = `${rootApiUrl}/project/${projectSlug}/token/0`;
+export const fetchTokenZeroImage = async () => {
+  const url = `${rootApiUrl}/convert-token-zero`;
 
-  let tokenZero: unknown;
   try {
-    tokenZero = (await axios.get<unknown>(url)).data;
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    const blob = await response.blob();
+    return URL.createObjectURL(blob);
   } catch (error) {
-    throw new Error(`Error fetching token zero`, {
-      cause: error,
-    });
+    console.error("Error fetching PNG image:", error);
+    return null;
   }
-
-  const schema = z.object({
-    svg: z.string(),
-  });
-
-  let svg: string;
-  try {
-    const parsedTokenZero = schema.parse(tokenZero);
-
-    svg = parsedTokenZero.svg;
-  } catch (error) {
-    throw new Error(`Error parsing token zero`, {
-      cause: error,
-    });
-  }
-
-  return deEscapeSvg(svg);
 };
