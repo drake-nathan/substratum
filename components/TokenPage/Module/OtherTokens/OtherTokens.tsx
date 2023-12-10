@@ -1,7 +1,7 @@
+import { useQuery } from "@tanstack/react-query";
 import type { Project } from "components/staticData/projects";
 import { useCurrentSupply } from "hooks/useCurrentSupply";
 import { useEffect } from "react";
-import { useQuery } from "react-query";
 import { fetchCollectionTokens } from "services/azureApi/fetches";
 import type { CollectionResponse, IToken } from "services/azureApi/types";
 
@@ -20,16 +20,20 @@ const OtherTokens = ({ token, project }: Props): JSX.Element => {
   const currentSupply = useCurrentSupply(projectSlug);
 
   const skip =
-    currentSupply && currentSupply < tokenId + 3 ? currentSupply - 3 : tokenId;
+    currentSupply && currentSupply < tokenId + 3
+      ? currentSupply - 3
+      : tokenId + 1;
 
   const {
     isLoading,
     error,
     data: response,
     refetch,
-  } = useQuery<CollectionResponse, Error>("tokens", () =>
-    fetchCollectionTokens(projectSlug, 3, skip, "asc", "tokenId", null),
-  );
+  } = useQuery<CollectionResponse, Error>({
+    queryFn: () =>
+      fetchCollectionTokens(projectSlug, 3, skip, "asc", "tokenId", null),
+    queryKey: ["tokens"],
+  });
 
   useEffect(() => {
     refetch();

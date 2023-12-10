@@ -1,4 +1,5 @@
 import axios from "axios";
+import { deEscapeSvg } from "utils/images";
 import { z } from "zod";
 
 import type { CollectionResponse, IProject, IToken, TxCounts } from "./types";
@@ -121,5 +122,5 @@ export const fetchTokenZeroSvg = async (projectSlug: string) => {
     });
   }
 
-  return svg;
+  return deEscapeSvg(svg);
 };

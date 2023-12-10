@@ -1,11 +1,11 @@
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import { fetchCurrentSupplies } from "services/azureApi/fetches";
 
 export const useCurrentSupply = (projectSlug: string): number | undefined => {
-  const { data: currentSupplies } = useQuery<Record<string, number>, Error>(
-    "currentSupplies",
-    fetchCurrentSupplies,
-  );
+  const { data: currentSupplies } = useQuery<Record<string, number>, Error>({
+    queryFn: fetchCurrentSupplies,
+    queryKey: ["currentSupplies"],
+  });
 
   return currentSupplies?.[projectSlug];
 };

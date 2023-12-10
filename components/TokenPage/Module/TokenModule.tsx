@@ -1,14 +1,14 @@
-import Generator from "components/Generator/Generator";
-import { type Project } from "components/staticData/projects";
+import type { Project } from "components/staticData/projects";
 import { useCurrentSupply } from "hooks/useCurrentSupply";
 import { useWindowSize } from "hooks/useWindowSize";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import type { IToken } from "services/azureApi/types";
 import { intlNumberFormat } from "utils/helpers";
 
 // import PriceIcon from 'public/icons/PriceIcon.svg';
 import BottomBar from "./BottomBar/BottomBar";
 import OtherTokens from "./OtherTokens/OtherTokens";
+import TokenImage from "./TokenImage";
 import TokenInfo from "./TokenInfo/TokenInfo";
 import * as St from "./TokenModule.styled";
 
@@ -62,19 +62,16 @@ const TokenModule = ({ token, project }: Props): JSX.Element => {
         </St.TitleSection>
 
         <St.ImageSection>
-          {generatorUrl ? (
-            <Generator
-              generatorUrl={generatorUrl}
-              height={height}
-              width={width}
-            />
-          ) : (
-            <St.Image
-              src={imageMid || image}
-              alt="Token Image"
-              $aspectRatio={aspectRatio}
-            />
-          )}
+          <TokenImage
+            generatorUrl={generatorUrl}
+            image={image}
+            imageMid={imageMid}
+            aspectRatio={aspectRatio}
+            width={width}
+            height={height}
+            projectSlug={projectSlug}
+            tokenId={tokenId}
+          />
           <BottomBar token={token} project={project} />
         </St.ImageSection>
 

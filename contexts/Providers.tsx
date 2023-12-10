@@ -1,6 +1,6 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import CustomWeb3Modal from "components/CustomWeb3Modal/CustomWeb3Modal";
 import React from "react";
-import { QueryClient, QueryClientProvider } from "react-query";
 
 import ModalProvider from "./ModalProvider";
 import ThemeProvider from "./ThemeProvider";

@@ -1,6 +1,6 @@
-import { type Project } from "components/staticData/projects";
+import { useInfiniteQuery } from "@tanstack/react-query";
+import type { Project } from "components/staticData/projects";
 import { useEffect, useState } from "react";
-import { type QueryFunctionContext, useInfiniteQuery } from "react-query";
 import { fetchCollectionTokens } from "services/azureApi/fetches";
 import type { CollectionResponse } from "services/azureApi/types";
 
@@ -24,19 +24,20 @@ const Tokens = ({ projectSlug, project }: Props): JSX.Element => {
   const [hasMore, setHasMore] = useState<boolean>(false);
   const limit = 20;
 
-  const fetchQuery = ({ pageParam: skip }: QueryFunctionContext) =>
-    fetchCollectionTokens(
-      projectSlug,
-      limit,
-      skip,
-      sortDir,
-      sortType,
-      tokenSearchId,
-    );
-
-  const { error, data, isLoading, isFetching, fetchNextPage, refetch, remove } =
-    useInfiniteQuery<CollectionResponse, Error>("tokens", fetchQuery, {
+  const { error, data, isLoading, isFetching, fetchNextPage, refetch } =
+    useInfiniteQuery<CollectionResponse, Error>({
       getNextPageParam: (lastFetch) => lastFetch.skip + limit,
+      initialPageParam: 0,
+      queryFn: ({ pageParam: skip }) =>
+        fetchCollectionTokens(
+          projectSlug,
+          limit,
+          skip as number,
+          sortDir,
+          sortType,
+          tokenSearchId,
+        ),
+      queryKey: ["tokens"],
     });
 
   useEffect(() => {
@@ -51,9 +52,8 @@ const Tokens = ({ projectSlug, project }: Props): JSX.Element => {
   }, [data, error]);
 
   useEffect(() => {
-    remove();
     refetch();
-  }, [sortDir, sortType, projectSlug, refetch, remove]);
+  }, [sortDir, sortType, projectSlug, refetch]);
 
   useEffect(() => {
     if (tokenSearchId) setHasMore(false);

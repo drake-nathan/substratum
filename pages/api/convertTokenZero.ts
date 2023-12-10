@@ -15,5 +15,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     res.send(buffer);
   } catch (error) {
     res.status(500).send("Error converting SVG to PNG");
+    console.error(error);
   }
 };
