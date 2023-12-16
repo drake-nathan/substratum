@@ -25,6 +25,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
         <Footer />
       </AppContainer>
     </Providers>
+
     <Analytics />
     <SpeedInsights />
   </>

@@ -20,7 +20,7 @@ import {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export const oneHundredXABI = [
   { stateMutability: 'nonpayable', type: 'constructor', inputs: [] },
@@ -218,16 +218,6 @@ export const oneHundredXABI = [
     outputs: [{ name: '', internalType: 'string', type: 'string' }],
   },
   {
-    stateMutability: 'nonpayable',
-    type: 'function',
-    inputs: [
-      { name: '_to', internalType: 'address', type: 'address' },
-      { name: '_qty', internalType: 'uint256', type: 'uint256' },
-    ],
-    name: 'batchMintToAddress',
-    outputs: [],
-  },
-  {
     stateMutability: 'view',
     type: 'function',
     inputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
@@ -376,20 +366,6 @@ export const oneHundredXABI = [
     inputs: [],
     name: 'layerContentFrozen',
     outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
-  },
-  {
-    stateMutability: 'view',
-    type: 'function',
-    inputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
-    name: 'layerSVG',
-    outputs: [{ name: '', internalType: 'string', type: 'string' }],
-  },
-  {
-    stateMutability: 'view',
-    type: 'function',
-    inputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
-    name: 'layerTraits',
-    outputs: [{ name: '', internalType: 'string', type: 'string' }],
   },
   {
     stateMutability: 'nonpayable',
@@ -849,14 +825,14 @@ export const oneHundredXABI = [
 ] as const
 
 /**
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export const oneHundredXAddress = {
-  5: '0xa9132D23886b63D29858Fe541214fEad5815d64A',
+  5: '0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3',
 } as const
 
 /**
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export const oneHundredXConfig = {
   address: oneHundredXAddress,
@@ -870,7 +846,7 @@ export const oneHundredXConfig = {
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXRead<
   TFunctionName extends string,
@@ -891,7 +867,7 @@ export function useOneHundredXRead<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"SVGfilter"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXSvGfilter<
   TFunctionName extends 'SVGfilter',
@@ -913,7 +889,7 @@ export function useOneHundredXSvGfilter<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"SVGstart"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXSvGstart<
   TFunctionName extends 'SVGstart',
@@ -935,7 +911,7 @@ export function useOneHundredXSvGstart<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"additionalData"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXAdditionalData<
   TFunctionName extends 'additionalData',
@@ -957,7 +933,7 @@ export function useOneHundredXAdditionalData<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"artistAddress"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXArtistAddress<
   TFunctionName extends 'artistAddress',
@@ -979,7 +955,7 @@ export function useOneHundredXArtistAddress<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"artistName"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXArtistName<
   TFunctionName extends 'artistName',
@@ -1001,7 +977,7 @@ export function useOneHundredXArtistName<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"balanceOf"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXBalanceOf<
   TFunctionName extends 'balanceOf',
@@ -1023,7 +999,7 @@ export function useOneHundredXBalanceOf<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"baseShuffleFee"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXBaseShuffleFee<
   TFunctionName extends 'baseShuffleFee',
@@ -1045,7 +1021,7 @@ export function useOneHundredXBaseShuffleFee<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"baseURI"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXBaseUri<
   TFunctionName extends 'baseURI',
@@ -1067,7 +1043,7 @@ export function useOneHundredXBaseUri<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"blackBackground"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXBlackBackground<
   TFunctionName extends 'blackBackground',
@@ -1089,7 +1065,7 @@ export function useOneHundredXBlackBackground<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"blackBackgroundDefault"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXBlackBackgroundDefault<
   TFunctionName extends 'blackBackgroundDefault',
@@ -1111,7 +1087,7 @@ export function useOneHundredXBlackBackgroundDefault<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"collection"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXCollection<
   TFunctionName extends 'collection',
@@ -1133,7 +1109,7 @@ export function useOneHundredXCollection<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"collectionDescription"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXCollectionDescription<
   TFunctionName extends 'collectionDescription',
@@ -1155,7 +1131,7 @@ export function useOneHundredXCollectionDescription<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"collectionNotes"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXCollectionNotes<
   TFunctionName extends 'collectionNotes',
@@ -1177,7 +1153,7 @@ export function useOneHundredXCollectionNotes<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"contractsFrozen"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXContractsFrozen<
   TFunctionName extends 'contractsFrozen',
@@ -1199,7 +1175,7 @@ export function useOneHundredXContractsFrozen<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"croppedCompositeDefault"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXCroppedCompositeDefault<
   TFunctionName extends 'croppedCompositeDefault',
@@ -1221,7 +1197,7 @@ export function useOneHundredXCroppedCompositeDefault<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"externalUrl"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXExternalUrl<
   TFunctionName extends 'externalUrl',
@@ -1243,7 +1219,7 @@ export function useOneHundredXExternalUrl<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"getAltCompositeSVG"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXGetAltCompositeSvg<
   TFunctionName extends 'getAltCompositeSVG',
@@ -1265,7 +1241,7 @@ export function useOneHundredXGetAltCompositeSvg<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"getAltTokenSVG"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXGetAltTokenSvg<
   TFunctionName extends 'getAltTokenSVG',
@@ -1287,7 +1263,7 @@ export function useOneHundredXGetAltTokenSvg<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"getApproved"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXGetApproved<
   TFunctionName extends 'getApproved',
@@ -1309,7 +1285,7 @@ export function useOneHundredXGetApproved<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"getCompositeSVG"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXGetCompositeSvg<
   TFunctionName extends 'getCompositeSVG',
@@ -1331,7 +1307,7 @@ export function useOneHundredXGetCompositeSvg<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"getMethodFees"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXGetMethodFees<
   TFunctionName extends 'getMethodFees',
@@ -1353,7 +1329,7 @@ export function useOneHundredXGetMethodFees<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"getOrder"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXGetOrder<
   TFunctionName extends 'getOrder',
@@ -1375,7 +1351,7 @@ export function useOneHundredXGetOrder<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"getTokenSVG"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXGetTokenSvg<
   TFunctionName extends 'getTokenSVG',
@@ -1397,7 +1373,7 @@ export function useOneHundredXGetTokenSvg<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"getTokenTraits"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXGetTokenTraits<
   TFunctionName extends 'getTokenTraits',
@@ -1419,7 +1395,7 @@ export function useOneHundredXGetTokenTraits<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"isApprovedForAll"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXIsApprovedForAll<
   TFunctionName extends 'isApprovedForAll',
@@ -1441,7 +1417,7 @@ export function useOneHundredXIsApprovedForAll<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"layerContentFrozen"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXLayerContentFrozen<
   TFunctionName extends 'layerContentFrozen',
@@ -1461,53 +1437,9 @@ export function useOneHundredXLayerContentFrozen<
 }
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"layerSVG"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
- */
-export function useOneHundredXLayerSvg<
-  TFunctionName extends 'layerSVG',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'layerSVG',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
-
-/**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"layerTraits"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
- */
-export function useOneHundredXLayerTraits<
-  TFunctionName extends 'layerTraits',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'layerTraits',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
-
-/**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"maxSupply"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXMaxSupply<
   TFunctionName extends 'maxSupply',
@@ -1529,7 +1461,7 @@ export function useOneHundredXMaxSupply<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"methodDescriptions"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXMethodDescriptions<
   TFunctionName extends 'methodDescriptions',
@@ -1551,7 +1483,7 @@ export function useOneHundredXMethodDescriptions<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"minterAddress"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXMinterAddress<
   TFunctionName extends 'minterAddress',
@@ -1573,7 +1505,7 @@ export function useOneHundredXMinterAddress<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"name"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXName<
   TFunctionName extends 'name',
@@ -1595,7 +1527,7 @@ export function useOneHundredXName<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"owner"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXOwner<
   TFunctionName extends 'owner',
@@ -1617,7 +1549,7 @@ export function useOneHundredXOwner<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"ownerOf"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXOwnerOf<
   TFunctionName extends 'ownerOf',
@@ -1639,7 +1571,7 @@ export function useOneHundredXOwnerOf<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"platformAddress"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXPlatformAddress<
   TFunctionName extends 'platformAddress',
@@ -1661,7 +1593,7 @@ export function useOneHundredXPlatformAddress<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"platformBPS"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXPlatformBps<
   TFunctionName extends 'platformBPS',
@@ -1683,7 +1615,7 @@ export function useOneHundredXPlatformBps<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"royaltyAddress"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXRoyaltyAddress<
   TFunctionName extends 'royaltyAddress',
@@ -1705,7 +1637,7 @@ export function useOneHundredXRoyaltyAddress<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"royaltyBPS"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXRoyaltyBps<
   TFunctionName extends 'royaltyBPS',
@@ -1727,7 +1659,7 @@ export function useOneHundredXRoyaltyBps<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"royaltyInfo"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXRoyaltyInfo<
   TFunctionName extends 'royaltyInfo',
@@ -1749,7 +1681,7 @@ export function useOneHundredXRoyaltyInfo<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"shuffleContract"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXShuffleContract<
   TFunctionName extends 'shuffleContract',
@@ -1771,7 +1703,7 @@ export function useOneHundredXShuffleContract<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"shuffleable"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXShuffleable<
   TFunctionName extends 'shuffleable',
@@ -1793,7 +1725,7 @@ export function useOneHundredXShuffleable<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"supportsInterface"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXSupportsInterface<
   TFunctionName extends 'supportsInterface',
@@ -1815,7 +1747,7 @@ export function useOneHundredXSupportsInterface<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"svgContract"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXSvgContract<
   TFunctionName extends 'svgContract',
@@ -1837,7 +1769,7 @@ export function useOneHundredXSvgContract<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"symbol"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXSymbol<
   TFunctionName extends 'symbol',
@@ -1859,7 +1791,7 @@ export function useOneHundredXSymbol<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"token0ExtraDescription"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXToken0ExtraDescription<
   TFunctionName extends 'token0ExtraDescription',
@@ -1881,7 +1813,7 @@ export function useOneHundredXToken0ExtraDescription<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"tokenDataOf"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXTokenDataOf<
   TFunctionName extends 'tokenDataOf',
@@ -1903,7 +1835,7 @@ export function useOneHundredXTokenDataOf<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"tokenEntropy"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXTokenEntropy<
   TFunctionName extends 'tokenEntropy',
@@ -1925,7 +1857,7 @@ export function useOneHundredXTokenEntropy<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"tokenURI"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXTokenUri<
   TFunctionName extends 'tokenURI',
@@ -1947,7 +1879,7 @@ export function useOneHundredXTokenUri<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"tokensMinted"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXTokensMinted<
   TFunctionName extends 'tokensMinted',
@@ -1969,7 +1901,7 @@ export function useOneHundredXTokensMinted<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"tokensOwned"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXTokensOwned<
   TFunctionName extends 'tokensOwned',
@@ -1991,7 +1923,7 @@ export function useOneHundredXTokensOwned<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"website"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXWebsite<
   TFunctionName extends 'website',
@@ -2013,7 +1945,7 @@ export function useOneHundredXWebsite<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXWrite<
   TFunctionName extends string,
@@ -2045,7 +1977,7 @@ export function useOneHundredXWrite<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"SHUFFLE"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXShuffle<
   TMode extends WriteContractMode = undefined,
@@ -2078,7 +2010,7 @@ export function useOneHundredXShuffle<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"TOP"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXTop<
   TMode extends WriteContractMode = undefined,
@@ -2111,7 +2043,7 @@ export function useOneHundredXTop<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"approve"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXApprove<
   TMode extends WriteContractMode = undefined,
@@ -2142,50 +2074,9 @@ export function useOneHundredXApprove<
 }
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"batchMintToAddress"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
- */
-export function useOneHundredXBatchMintToAddress<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'batchMintToAddress'
-        >['request']['abi'],
-        'batchMintToAddress',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'batchMintToAddress'
-      }
-    : UseContractWriteConfig<
-        typeof oneHundredXABI,
-        'batchMintToAddress',
-        TMode
-      > & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'batchMintToAddress'
-      } = {} as any,
-) {
-  return useContractWrite<typeof oneHundredXABI, 'batchMintToAddress', TMode>({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'batchMintToAddress',
-    ...config,
-  } as any)
-}
-
-/**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"freezeContracts"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXFreezeContracts<
   TMode extends WriteContractMode = undefined,
@@ -2226,7 +2117,7 @@ export function useOneHundredXFreezeContracts<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"freezeLayerContent"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXFreezeLayerContent<
   TMode extends WriteContractMode = undefined,
@@ -2267,7 +2158,7 @@ export function useOneHundredXFreezeLayerContent<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"loanToken0"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXLoanToken0<
   TMode extends WriteContractMode = undefined,
@@ -2300,7 +2191,7 @@ export function useOneHundredXLoanToken0<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"mintToAddress"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXMintToAddress<
   TMode extends WriteContractMode = undefined,
@@ -2337,7 +2228,7 @@ export function useOneHundredXMintToAddress<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"overrideLayer"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXOverrideLayer<
   TMode extends WriteContractMode = undefined,
@@ -2374,7 +2265,7 @@ export function useOneHundredXOverrideLayer<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"renounceOwnership"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXRenounceOwnership<
   TMode extends WriteContractMode = undefined,
@@ -2415,7 +2306,7 @@ export function useOneHundredXRenounceOwnership<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"retrieveToken0"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXRetrieveToken0<
   TMode extends WriteContractMode = undefined,
@@ -2452,7 +2343,7 @@ export function useOneHundredXRetrieveToken0<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"safeTransferFrom"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXSafeTransferFrom<
   TMode extends WriteContractMode = undefined,
@@ -2493,7 +2384,7 @@ export function useOneHundredXSafeTransferFrom<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setAdditionalData"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXSetAdditionalData<
   TMode extends WriteContractMode = undefined,
@@ -2534,7 +2425,7 @@ export function useOneHundredXSetAdditionalData<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setApprovalForAll"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXSetApprovalForAll<
   TMode extends WriteContractMode = undefined,
@@ -2575,7 +2466,7 @@ export function useOneHundredXSetApprovalForAll<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setArtistName"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXSetArtistName<
   TMode extends WriteContractMode = undefined,
@@ -2612,7 +2503,7 @@ export function useOneHundredXSetArtistName<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setBaseShuffleFee"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXSetBaseShuffleFee<
   TMode extends WriteContractMode = undefined,
@@ -2653,7 +2544,7 @@ export function useOneHundredXSetBaseShuffleFee<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setBlackBackground"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXSetBlackBackground<
   TMode extends WriteContractMode = undefined,
@@ -2694,7 +2585,7 @@ export function useOneHundredXSetBlackBackground<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setCollection"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXSetCollection<
   TMode extends WriteContractMode = undefined,
@@ -2731,7 +2622,7 @@ export function useOneHundredXSetCollection<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setCollectionDescription"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXSetCollectionDescription<
   TMode extends WriteContractMode = undefined,
@@ -2776,7 +2667,7 @@ export function useOneHundredXSetCollectionDescription<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setCollectionNotes"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXSetCollectionNotes<
   TMode extends WriteContractMode = undefined,
@@ -2817,7 +2708,7 @@ export function useOneHundredXSetCollectionNotes<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setExternalUrl"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXSetExternalUrl<
   TMode extends WriteContractMode = undefined,
@@ -2854,7 +2745,7 @@ export function useOneHundredXSetExternalUrl<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setInterfaces"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXSetInterfaces<
   TMode extends WriteContractMode = undefined,
@@ -2891,7 +2782,7 @@ export function useOneHundredXSetInterfaces<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setMinterAddress"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXSetMinterAddress<
   TMode extends WriteContractMode = undefined,
@@ -2932,7 +2823,7 @@ export function useOneHundredXSetMinterAddress<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setOrder"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXSetOrder<
   TMode extends WriteContractMode = undefined,
@@ -2965,7 +2856,7 @@ export function useOneHundredXSetOrder<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setPrimaryData"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXSetPrimaryData<
   TMode extends WriteContractMode = undefined,
@@ -3002,7 +2893,7 @@ export function useOneHundredXSetPrimaryData<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setRoyaltyData"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXSetRoyaltyData<
   TMode extends WriteContractMode = undefined,
@@ -3039,7 +2930,7 @@ export function useOneHundredXSetRoyaltyData<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setSVGfilter"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXSetSvGfilter<
   TMode extends WriteContractMode = undefined,
@@ -3076,7 +2967,7 @@ export function useOneHundredXSetSvGfilter<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setSVGstart"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXSetSvGstart<
   TMode extends WriteContractMode = undefined,
@@ -3113,7 +3004,7 @@ export function useOneHundredXSetSvGstart<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setToken0ExtraDescription"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXSetToken0ExtraDescription<
   TMode extends WriteContractMode = undefined,
@@ -3158,7 +3049,7 @@ export function useOneHundredXSetToken0ExtraDescription<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setURI"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXSetUri<
   TMode extends WriteContractMode = undefined,
@@ -3191,7 +3082,7 @@ export function useOneHundredXSetUri<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setWebsite"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXSetWebsite<
   TMode extends WriteContractMode = undefined,
@@ -3224,7 +3115,7 @@ export function useOneHundredXSetWebsite<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"toggleBlackBackgroundDefault"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXToggleBlackBackgroundDefault<
   TMode extends WriteContractMode = undefined,
@@ -3269,7 +3160,7 @@ export function useOneHundredXToggleBlackBackgroundDefault<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"toggleCroppedDefault"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXToggleCroppedDefault<
   TMode extends WriteContractMode = undefined,
@@ -3312,7 +3203,7 @@ export function useOneHundredXToggleCroppedDefault<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"toggleShuffling"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXToggleShuffling<
   TMode extends WriteContractMode = undefined,
@@ -3353,7 +3244,7 @@ export function useOneHundredXToggleShuffling<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"transferFrom"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXTransferFrom<
   TMode extends WriteContractMode = undefined,
@@ -3390,7 +3281,7 @@ export function useOneHundredXTransferFrom<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"transferOwnership"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXTransferOwnership<
   TMode extends WriteContractMode = undefined,
@@ -3431,7 +3322,7 @@ export function useOneHundredXTransferOwnership<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"updateDelegateContract"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXUpdateDelegateContract<
   TMode extends WriteContractMode = undefined,
@@ -3476,7 +3367,7 @@ export function useOneHundredXUpdateDelegateContract<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"withdraw"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXWithdraw<
   TMode extends WriteContractMode = undefined,
@@ -3509,7 +3400,7 @@ export function useOneHundredXWithdraw<
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXWrite<TFunctionName extends string>(
   config: Omit<
@@ -3527,7 +3418,7 @@ export function usePrepareOneHundredXWrite<TFunctionName extends string>(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"SHUFFLE"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXShuffle(
   config: Omit<
@@ -3546,7 +3437,7 @@ export function usePrepareOneHundredXShuffle(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"TOP"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXTop(
   config: Omit<
@@ -3565,7 +3456,7 @@ export function usePrepareOneHundredXTop(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"approve"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXApprove(
   config: Omit<
@@ -3582,31 +3473,9 @@ export function usePrepareOneHundredXApprove(
 }
 
 /**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"batchMintToAddress"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
- */
-export function usePrepareOneHundredXBatchMintToAddress(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof oneHundredXABI, 'batchMintToAddress'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'batchMintToAddress',
-    ...config,
-  } as UsePrepareContractWriteConfig<
-    typeof oneHundredXABI,
-    'batchMintToAddress'
-  >)
-}
-
-/**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"freezeContracts"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXFreezeContracts(
   config: Omit<
@@ -3625,7 +3494,7 @@ export function usePrepareOneHundredXFreezeContracts(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"freezeLayerContent"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXFreezeLayerContent(
   config: Omit<
@@ -3647,7 +3516,7 @@ export function usePrepareOneHundredXFreezeLayerContent(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"loanToken0"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXLoanToken0(
   config: Omit<
@@ -3666,7 +3535,7 @@ export function usePrepareOneHundredXLoanToken0(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"mintToAddress"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXMintToAddress(
   config: Omit<
@@ -3685,7 +3554,7 @@ export function usePrepareOneHundredXMintToAddress(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"overrideLayer"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXOverrideLayer(
   config: Omit<
@@ -3704,7 +3573,7 @@ export function usePrepareOneHundredXOverrideLayer(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"renounceOwnership"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXRenounceOwnership(
   config: Omit<
@@ -3726,7 +3595,7 @@ export function usePrepareOneHundredXRenounceOwnership(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"retrieveToken0"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXRetrieveToken0(
   config: Omit<
@@ -3745,7 +3614,7 @@ export function usePrepareOneHundredXRetrieveToken0(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"safeTransferFrom"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXSafeTransferFrom(
   config: Omit<
@@ -3764,7 +3633,7 @@ export function usePrepareOneHundredXSafeTransferFrom(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setAdditionalData"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXSetAdditionalData(
   config: Omit<
@@ -3786,7 +3655,7 @@ export function usePrepareOneHundredXSetAdditionalData(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setApprovalForAll"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXSetApprovalForAll(
   config: Omit<
@@ -3808,7 +3677,7 @@ export function usePrepareOneHundredXSetApprovalForAll(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setArtistName"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXSetArtistName(
   config: Omit<
@@ -3827,7 +3696,7 @@ export function usePrepareOneHundredXSetArtistName(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setBaseShuffleFee"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXSetBaseShuffleFee(
   config: Omit<
@@ -3849,7 +3718,7 @@ export function usePrepareOneHundredXSetBaseShuffleFee(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setBlackBackground"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXSetBlackBackground(
   config: Omit<
@@ -3871,7 +3740,7 @@ export function usePrepareOneHundredXSetBlackBackground(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setCollection"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXSetCollection(
   config: Omit<
@@ -3890,7 +3759,7 @@ export function usePrepareOneHundredXSetCollection(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setCollectionDescription"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXSetCollectionDescription(
   config: Omit<
@@ -3915,7 +3784,7 @@ export function usePrepareOneHundredXSetCollectionDescription(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setCollectionNotes"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXSetCollectionNotes(
   config: Omit<
@@ -3937,7 +3806,7 @@ export function usePrepareOneHundredXSetCollectionNotes(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setExternalUrl"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXSetExternalUrl(
   config: Omit<
@@ -3956,7 +3825,7 @@ export function usePrepareOneHundredXSetExternalUrl(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setInterfaces"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXSetInterfaces(
   config: Omit<
@@ -3975,7 +3844,7 @@ export function usePrepareOneHundredXSetInterfaces(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setMinterAddress"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXSetMinterAddress(
   config: Omit<
@@ -3994,7 +3863,7 @@ export function usePrepareOneHundredXSetMinterAddress(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setOrder"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXSetOrder(
   config: Omit<
@@ -4013,7 +3882,7 @@ export function usePrepareOneHundredXSetOrder(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setPrimaryData"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXSetPrimaryData(
   config: Omit<
@@ -4032,7 +3901,7 @@ export function usePrepareOneHundredXSetPrimaryData(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setRoyaltyData"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXSetRoyaltyData(
   config: Omit<
@@ -4051,7 +3920,7 @@ export function usePrepareOneHundredXSetRoyaltyData(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setSVGfilter"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXSetSvGfilter(
   config: Omit<
@@ -4070,7 +3939,7 @@ export function usePrepareOneHundredXSetSvGfilter(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setSVGstart"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXSetSvGstart(
   config: Omit<
@@ -4089,7 +3958,7 @@ export function usePrepareOneHundredXSetSvGstart(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setToken0ExtraDescription"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXSetToken0ExtraDescription(
   config: Omit<
@@ -4114,7 +3983,7 @@ export function usePrepareOneHundredXSetToken0ExtraDescription(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setURI"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXSetUri(
   config: Omit<
@@ -4133,7 +4002,7 @@ export function usePrepareOneHundredXSetUri(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setWebsite"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXSetWebsite(
   config: Omit<
@@ -4152,7 +4021,7 @@ export function usePrepareOneHundredXSetWebsite(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"toggleBlackBackgroundDefault"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXToggleBlackBackgroundDefault(
   config: Omit<
@@ -4177,7 +4046,7 @@ export function usePrepareOneHundredXToggleBlackBackgroundDefault(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"toggleCroppedDefault"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXToggleCroppedDefault(
   config: Omit<
@@ -4202,7 +4071,7 @@ export function usePrepareOneHundredXToggleCroppedDefault(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"toggleShuffling"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXToggleShuffling(
   config: Omit<
@@ -4221,7 +4090,7 @@ export function usePrepareOneHundredXToggleShuffling(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"transferFrom"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXTransferFrom(
   config: Omit<
@@ -4240,7 +4109,7 @@ export function usePrepareOneHundredXTransferFrom(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"transferOwnership"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXTransferOwnership(
   config: Omit<
@@ -4262,7 +4131,7 @@ export function usePrepareOneHundredXTransferOwnership(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"updateDelegateContract"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXUpdateDelegateContract(
   config: Omit<
@@ -4287,7 +4156,7 @@ export function usePrepareOneHundredXUpdateDelegateContract(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"withdraw"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function usePrepareOneHundredXWithdraw(
   config: Omit<
@@ -4306,7 +4175,7 @@ export function usePrepareOneHundredXWithdraw(
 /**
  * Wraps __{@link useContractEvent}__ with `abi` set to __{@link oneHundredXABI}__.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXEvent<TEventName extends string>(
   config: Omit<
@@ -4324,7 +4193,7 @@ export function useOneHundredXEvent<TEventName extends string>(
 /**
  * Wraps __{@link useContractEvent}__ with `abi` set to __{@link oneHundredXABI}__ and `eventName` set to `"Approval"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXApprovalEvent(
   config: Omit<
@@ -4343,7 +4212,7 @@ export function useOneHundredXApprovalEvent(
 /**
  * Wraps __{@link useContractEvent}__ with `abi` set to __{@link oneHundredXABI}__ and `eventName` set to `"ApprovalForAll"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXApprovalForAllEvent(
   config: Omit<
@@ -4362,7 +4231,7 @@ export function useOneHundredXApprovalForAllEvent(
 /**
  * Wraps __{@link useContractEvent}__ with `abi` set to __{@link oneHundredXABI}__ and `eventName` set to `"OrderChanged"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXOrderChangedEvent(
   config: Omit<
@@ -4381,7 +4250,7 @@ export function useOneHundredXOrderChangedEvent(
 /**
  * Wraps __{@link useContractEvent}__ with `abi` set to __{@link oneHundredXABI}__ and `eventName` set to `"OwnershipTransferred"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXOwnershipTransferredEvent(
   config: Omit<
@@ -4400,7 +4269,7 @@ export function useOneHundredXOwnershipTransferredEvent(
 /**
  * Wraps __{@link useContractEvent}__ with `abi` set to __{@link oneHundredXABI}__ and `eventName` set to `"Transfer"`.
  *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0xa9132D23886b63D29858Fe541214fEad5815d64A)
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
 export function useOneHundredXTransferEvent(
   config: Omit<

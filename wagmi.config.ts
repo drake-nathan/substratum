@@ -18,7 +18,7 @@ export default defineConfig(() => {
         contracts: [
           {
             address: {
-              [goerli.id]: "0xa9132D23886b63D29858Fe541214fEad5815d64A",
+              [goerli.id]: "0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3",
             },
             name: "oneHundredX",
           },

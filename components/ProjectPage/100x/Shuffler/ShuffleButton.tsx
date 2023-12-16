@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { isAddress } from "viem";
 import { useAccount } from "wagmi";
 
+import { useOneHundredXShuffleable } from "../../../../wagmi/generated";
 import { type Method, methods } from "./methods";
 import ShuffleModal from "./ShuffleModal";
 import * as St from "./Shuffler.styled";
@@ -19,6 +20,7 @@ const ShuffleButton = ({ method, vault }: Props): React.JSX.Element => {
   const { launchAlertModal } = useModal();
   const { address } = useAccount();
   const { methodFees } = useMethodFees();
+  const { data: shuffleable } = useOneHundredXShuffleable();
 
   const [showShuffleModal, setShowShuffleModal] = useState<boolean>(false);
 
@@ -32,6 +34,11 @@ const ShuffleButton = ({ method, vault }: Props): React.JSX.Element => {
       launchAlertModal(
         "We're having trouble getting data from the blockchain at the moment. Please try again later or with a better connection.",
       );
+      return;
+    }
+
+    if (shuffleable === false) {
+      launchAlertModal("Shuffling is not currently enabled.");
       return;
     }
 

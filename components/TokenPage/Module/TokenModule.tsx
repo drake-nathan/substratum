@@ -1,7 +1,5 @@
 import type { Project } from "components/staticData/projects";
 import { useCurrentSupply } from "hooks/useCurrentSupply";
-import { useWindowSize } from "hooks/useWindowSize";
-import { useEffect, useState } from "react";
 import type { IToken } from "services/azureApi/types";
 import { intlNumberFormat } from "utils/helpers";
 
@@ -31,25 +29,6 @@ const TokenModule = ({ token, project }: Props): JSX.Element => {
 
   const currentSupply = useCurrentSupply(projectSlug);
 
-  const { windowWidth } = useWindowSize();
-
-  const [width, setWidth] = useState<number>(600);
-  const height = aspectRatio ? width / aspectRatio : width;
-
-  useEffect(() => {
-    if (windowWidth > 1350) setWidth(600);
-    else if (windowWidth <= 1350 && windowWidth > 1250) setWidth(550);
-    else if (windowWidth <= 1250 && windowWidth > 1150) setWidth(500);
-    else if (windowWidth <= 1150 && windowWidth > 1070) setWidth(400);
-    else if (windowWidth <= 1070 && windowWidth > 1000) setWidth(350);
-    else if (windowWidth <= 1000 && windowWidth > 800) setWidth(600);
-    else if (windowWidth <= 800 && windowWidth > 650) setWidth(500);
-    else if (windowWidth <= 650 && windowWidth > 550) setWidth(400);
-    else if (windowWidth <= 550 && windowWidth > 450) setWidth(375);
-    else if (windowWidth <= 450 && windowWidth > 400) setWidth(350);
-    else setWidth(325);
-  }, [windowWidth]);
-
   return (
     <St.Container>
       <St.InfoGrid>
@@ -67,10 +46,6 @@ const TokenModule = ({ token, project }: Props): JSX.Element => {
             image={image}
             imageMid={imageMid}
             aspectRatio={aspectRatio}
-            width={width}
-            height={height}
-            projectSlug={projectSlug}
-            tokenId={tokenId}
           />
           <BottomBar token={token} project={project} />
         </St.ImageSection>

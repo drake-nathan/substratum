@@ -4,12 +4,11 @@ import * as St from "./Generator.styled";
 
 interface Props {
   generatorUrl: string;
-  height: number;
-  width: number;
+  aspectRatio?: number;
 }
 
-const Generator = ({ generatorUrl, height, width }: Props): JSX.Element => (
-  <St.FrameWrapper height={height} width={width}>
+const Generator = ({ generatorUrl, aspectRatio }: Props): JSX.Element => (
+  <St.FrameWrapper aspectRatio={aspectRatio}>
     <iframe src={generatorUrl} title="generator" />
   </St.FrameWrapper>
 );
