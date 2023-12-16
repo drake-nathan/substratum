@@ -1,8 +1,8 @@
+import Generator from "components/Generator/Generator";
 import * as St from "components/ProjectPage/Details/Details.styled";
 import { type Project, projects } from "components/staticData/projects";
 
 import Legend from "../100x/Legend/Legend";
-import OneHundredXImage from "../100x/OneHundredXImage";
 import Shuffler from "../100x/Shuffler/Shuffler";
 import CollectionCard from "./OtherCollections/CollectionCard";
 
@@ -24,6 +24,7 @@ const getRelatedCollections = (project: Project) => {
 
 const Details = ({ project }: Props): JSX.Element => {
   const {
+    aspectRatio,
     projectSlug,
     name,
     image,
@@ -43,7 +44,10 @@ const Details = ({ project }: Props): JSX.Element => {
     <St.DetailGrid>
       <St.ProjectImage>
         {projectSlug === "100x10x1-a" || projectSlug === "100x10x1-a-goerli" ? (
-          <OneHundredXImage />
+          <Generator
+            aspectRatio={aspectRatio}
+            generatorUrl="https://a.100x10x1.com/?png=true"
+          />
         ) : (
           <>
             <St.Image src={image} alt="Project image" />

@@ -1,4 +1,4 @@
-import OneHundredXImage from "components/ProjectPage/100x/OneHundredXImage";
+import Generator from "components/Generator/Generator";
 import Link from "next/link";
 import { ProjectSlug, type TokenAbbr } from "services/azureApi/types";
 
@@ -30,7 +30,10 @@ const TokenCard = ({ token }: Props): JSX.Element => {
     <St.Wrapper>
       <Link href={tokenLink}>
         {isCompositeImage ? (
-          <OneHundredXImage />
+          <Generator
+            aspectRatio={0.5625}
+            generatorUrl="https://a.100x10x1.com/?png=true"
+          />
         ) : (
           <St.PreviewImage src={imgSrc} alt={alt} />
         )}

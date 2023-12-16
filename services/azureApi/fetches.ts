@@ -93,19 +93,3 @@ export const fetchCurrentSupplies = async (): Promise<
 
   return currentSupplies;
 };
-
-export const fetchTokenZeroImage = async () => {
-  const url = `${rootApiUrl}/convert-token-zero`;
-
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-    const blob = await response.blob();
-    return URL.createObjectURL(blob);
-  } catch (error) {
-    console.error("Error fetching PNG image:", error);
-    return null;
-  }
-};
