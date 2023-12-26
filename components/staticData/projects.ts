@@ -1,3 +1,9 @@
+const blobRoot = process.env.NEXT_PUBLIC_BLOB_ROOT;
+
+if (!blobRoot) {
+  throw new Error("NEXT_PUBLIC_BLOB_ROOT is not defined");
+}
+
 export enum Status {
   Closed = "Closed",
   Upcoming = "Upcoming",
@@ -50,35 +56,11 @@ export interface Project {
 export const projects: Project[] = [
   {
     artist: Artist.Matto,
-    aspectRatio: 1,
-    contractAddress: "0x74C093fD987Fff140677Aa83B6CC4680B8ef2956",
-    image: "/projects/haiku.png",
-    isTokenIdInTitle: false,
-    isZeroIndexed: false,
-    local: true,
-    maxSupply: 1000000,
-    name: "Freestyle H-ai-ku",
-    openSeaSlug: "freestyle-h-ai-ku",
-    projectPageInfo: {
-      collectionDetails: "",
-      date: "Sept. 29, 2023",
-      description:
-        '"Freestyle H-ai-ku" is an AI-enhanced exploration of my Freestyle Haiku poetry (freestylehaiku.com). This project utilizes AI as a collective unconscious that not only intensifies the expressiveness of my poetry but also unveils hidden truths and newfound meanings within my words. Each poem is individually stored in the smart contract, while image media, AI-generated poem interpretations, and attributes metadata is stored on Arweave. The resulting work is more than a poem or a visual, it is also a vehicle for the introspection of the human condition through the lens of early Artificial Intelligence systems.',
-      license: "CC BY-NC 4.0",
-      tools: "Solidity, Stable Diffusion, Transformer LLM, GAN, CNN",
-    },
-    projectSlug: "haiku",
-    status: Status.Minting,
-    usesTransfers: false,
-    website: "https://matto.xyz/project/freestyle-h-ai-ku/",
-  },
-  {
-    artist: Artist.Matto,
     artistAddress: "0xF8d9056db2C2189155bc25A30269dc5dDeD15d46",
     aspectRatio: 0.5625,
     contractAddress: "0xCC55af23d9861e41C5875F1e76fb3c4122E8C4Fa",
     externalUrl: "https://substratum.art/project/100x10x1",
-    image: "/projects/100x10x1-a.png",
+    image: `${blobRoot}/images/100x10x1-a-goerli_0.png`,
     isTokenIdInTitle: false,
     isZeroIndexed: true,
     local: true,
@@ -103,6 +85,30 @@ export const projects: Project[] = [
     status: Status.Upcoming,
     usesTransfers: false,
     website: "https://matto.xyz/project/100x10x1",
+  },
+  {
+    artist: Artist.Matto,
+    aspectRatio: 1,
+    contractAddress: "0x74C093fD987Fff140677Aa83B6CC4680B8ef2956",
+    image: "/projects/haiku.png",
+    isTokenIdInTitle: false,
+    isZeroIndexed: false,
+    local: true,
+    maxSupply: 1000000,
+    name: "Freestyle H-ai-ku",
+    openSeaSlug: "freestyle-h-ai-ku",
+    projectPageInfo: {
+      collectionDetails: "",
+      date: "Sept. 29, 2023",
+      description:
+        '"Freestyle H-ai-ku" is an AI-enhanced exploration of my Freestyle Haiku poetry (freestylehaiku.com). This project utilizes AI as a collective unconscious that not only intensifies the expressiveness of my poetry but also unveils hidden truths and newfound meanings within my words. Each poem is individually stored in the smart contract, while image media, AI-generated poem interpretations, and attributes metadata is stored on Arweave. The resulting work is more than a poem or a visual, it is also a vehicle for the introspection of the human condition through the lens of early Artificial Intelligence systems.',
+      license: "CC BY-NC 4.0",
+      tools: "Solidity, Stable Diffusion, Transformer LLM, GAN, CNN",
+    },
+    projectSlug: "haiku",
+    status: Status.Minting,
+    usesTransfers: false,
+    website: "https://matto.xyz/project/freestyle-h-ai-ku/",
   },
   {
     artist: Artist.Matto,

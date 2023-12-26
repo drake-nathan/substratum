@@ -1,6 +1,6 @@
 import Generator from "components/Generator/Generator";
 import Link from "next/link";
-import { ProjectSlug, type TokenAbbr } from "services/azureApi/types";
+import { type TokenAbbr } from "services/azureApi/types";
 
 import * as St from "./TokenCard.styled";
 
@@ -23,20 +23,10 @@ const TokenCard = ({ token }: Props): JSX.Element => {
   const tokenLink = `/project/${projectSlug}/token/${tokenId}`;
   const alt = `${name} token`;
 
-  const isCompositeImage =
-    projectSlug === ProjectSlug["100x10x1-a-goerli"] && tokenId === 0;
-
   return (
     <St.Wrapper>
       <Link href={tokenLink}>
-        {isCompositeImage ? (
-          <Generator
-            aspectRatio={0.5625}
-            generatorUrl="https://a.100x10x1.com/?png=true"
-          />
-        ) : (
-          <St.PreviewImage src={imgSrc} alt={alt} />
-        )}
+        <St.PreviewImage src={imgSrc} alt={alt} />
       </Link>
 
       <St.DescriptionDiv>
