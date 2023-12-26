@@ -43,19 +43,10 @@ const Details = ({ project }: Props): JSX.Element => {
   return (
     <St.DetailGrid>
       <St.ProjectImage>
-        {projectSlug === "100x10x1-a" || projectSlug === "100x10x1-a-goerli" ? (
-          <Generator
-            aspectRatio={aspectRatio}
-            generatorUrl="https://a.100x10x1.com/?png=true"
-          />
-        ) : (
-          <>
-            <St.Image src={image} alt="Project image" />
-            <St.ProjectImageNameContainer>
-              <St.ProjectImageName>{`${name}`}</St.ProjectImageName>
-            </St.ProjectImageNameContainer>
-          </>
-        )}
+        <St.Image aspectRatio={aspectRatio} src={image} alt="Project image" />
+        <St.ProjectImageNameContainer>
+          <St.ProjectImageName>{`${name}`}</St.ProjectImageName>
+        </St.ProjectImageNameContainer>
       </St.ProjectImage>
 
       <St.Details>

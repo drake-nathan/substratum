@@ -9,7 +9,7 @@ interface Props {
   project: Project;
 }
 
-const ProjectHead = ({ project }: Props): JSX.Element => {
+const ProjectHead = ({ project }: Props) => {
   const { name, artist, website, maxSupply, projectSlug } = project;
 
   const currentSupply = useCurrentSupply(projectSlug);
