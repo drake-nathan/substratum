@@ -10,7 +10,7 @@ import Header from "components/Header/Header";
 import Providers from "contexts/Providers";
 import type { AppProps } from "next/app";
 
-import { AppContainer, BodyContainer } from "../styles/App.styled";
+import { AppContainer } from "../styles/App.styled";
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
   <>
@@ -18,9 +18,9 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
       <AppContainer>
         <Header />
 
-        <BodyContainer>
+        <div className="flex size-full grow flex-col items-center">
           <Component {...pageProps} />
-        </BodyContainer>
+        </div>
 
         <Footer />
       </AppContainer>
