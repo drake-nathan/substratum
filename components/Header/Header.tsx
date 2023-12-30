@@ -2,10 +2,11 @@ import { Squash as Hamburger } from "hamburger-react";
 import Link from "next/link";
 import Substratum from "public/substratum/substratum.svg";
 import { useState } from "react";
+import { CgSun } from "react-icons/cg";
+import { MdOutlineDarkMode } from "react-icons/md";
 import { useTheme } from "styled-components";
 
 import ConnectButton from "./Connect/ConnectButton";
-import * as St from "./Header.styled";
 import MobileNav from "./MobileNav/MobileNav";
 import NavLinks from "./NavLinks/NavLinks";
 import SocialIcons from "./SocialIcons/SocialIcons";
@@ -18,55 +19,60 @@ const Header = (): JSX.Element => {
   const iconSize = !isMobile ? 80 : 42;
 
   return (
-    <St.OuterContainer>
+    <header className="flex w-full items-center gap-4 border-b border-black md:justify-between md:gap-8 md:border-b-[3px] dark:border-white">
       <Link href="/">
-        <St.LogoDiv>
-          <Substratum width={iconSize} height={iconSize} />
-        </St.LogoDiv>
+        <div className="flex size-12 items-center justify-center border-r-[1px] border-white bg-black md:size-[90px]">
+          <Substratum height={iconSize} width={iconSize} />
+        </div>
       </Link>
 
       {!isMobileNav ? (
         <>
-          <St.InnerContainer>
+          <div className="md- flex w-full items-center justify-between">
             <Link href="/">
-              <St.Title>substratum</St.Title>
+              <h1 className="">substratum</h1>
             </Link>
 
             <NavLinks setShowMobileNav={setShowMobileNav} />
 
             <SocialIcons />
-          </St.InnerContainer>
+          </div>
 
-          <St.DarkModeButton onClick={toggleTheme}>
+          <button
+            className="hover:text-hover-light dark:hover:text-hover-dark"
+            onClick={toggleTheme}
+          >
             {!isDark ? (
-              <St.DarkModeIcon className="icon" />
+              <MdOutlineDarkMode className="text-xl" />
             ) : (
-              <St.LightModeIcon className="icon" />
+              <CgSun className="text-xl" />
             )}
-          </St.DarkModeButton>
+          </button>
 
           <ConnectButton />
         </>
       ) : (
         <>
           <Link href="/">
-            <St.Title>substratum</St.Title>
+            <h1 className="md- flex w-full items-center justify-between text-2xl">
+              substratum
+            </h1>
           </Link>
 
-          <St.HamburgerDiv>
+          <div className="ml-auto mr-1">
             <Hamburger
               color={colors.textMain}
+              label="Show menu"
               size={isMobile ? 20 : 36}
               toggle={setShowMobileNav}
               toggled={showMobileNav}
-              label="Show menu"
             />
-          </St.HamburgerDiv>
+          </div>
 
           <MobileNav isOpen={showMobileNav} setIsOpen={setShowMobileNav} />
         </>
       )}
-    </St.OuterContainer>
+    </header>
   );
 };
 

@@ -281,9 +281,4 @@ export const projects: Project[] = [
   },
 ];
 
-export enum ProjectSort {
-  All,
-  Minting,
-  Upcoming,
-  Closed,
-}
+export type ProjectSort = "all" | "minting" | "upcoming" | "closed";

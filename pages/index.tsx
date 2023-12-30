@@ -1,30 +1,22 @@
-import Hero from "components/LandingPage/Hero/Hero";
-import Projects from "components/LandingPage/Projects/Grid/Grid";
+import Hero from "components/LandingPage/Hero";
+import Projects from "components/LandingPage/Projects/Grid";
 import type { NextPage } from "next";
 import Head from "next/head";
 import React from "react";
-import styled from "styled-components";
-
-const HomeContainer = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
 
 const Home: NextPage = () => {
   const width = 1424;
 
   return (
-    <HomeContainer>
+    <div className="flex w-full flex-col items-center ">
       <Head>
         <title>substratum</title>
-        <meta name="description" content="substratum" />
+        <meta content="substratum" name="description" />
       </Head>
 
       <Hero width={width} />
       <Projects width={width} />
-    </HomeContainer>
+    </div>
   );
 };
 

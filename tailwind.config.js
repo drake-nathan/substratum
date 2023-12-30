@@ -8,15 +8,24 @@ export default {
   darkMode: "class",
   plugins: [],
   theme: {
-    extend: {
-      colors: {
-        black: "#0f0f0f",
-        hover: {
-          dark: "#b9b7b6",
-          light: "#7e7e7e",
-        },
-        white: "#fffcf9",
+    colors: {
+      black: "#0f0f0f",
+      hover: {
+        dark: "#b9b7b6",
+        light: "#7e7e7e",
       },
+      white: "#fffcf9",
+    },
+    extend: {
+      screens: {
+        sm: "500px",
+      },
+    },
+    fontFamily: {
+      exo: ["Exo", "sans-serif"],
+      sans: ["basic-sans", "sans-serif"],
+      transducer: ["transducer", "sans-serif"],
+      transducerCondensed: ["transducer-condensed", "sans-serif"],
     },
   },
 };
