@@ -100,7 +100,7 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>{title}</title>
-        <meta name="description" content="substratum" />
+        <meta content="substratum" name="description" />
       </Head>
 
       {renderTokenPage()}

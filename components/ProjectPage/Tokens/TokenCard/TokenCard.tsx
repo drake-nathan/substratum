@@ -26,7 +26,7 @@ const TokenCard = ({ token, isTokenIdInTitle }: Props): JSX.Element => {
   return (
     <St.Wrapper>
       <Link href={tokenLink}>
-        <St.PreviewImage src={imgSrc} alt={alt} />
+        <St.PreviewImage alt={alt} src={imgSrc} />
       </Link>
 
       <St.DescriptionDiv>

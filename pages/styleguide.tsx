@@ -16,7 +16,7 @@ const StyleGuide: NextPage = () => (
   <BlonksContainer>
     <Head>
       <title>substratum | Style Guide</title>
-      <meta name="description" content="BLONKS" />
+      <meta content="BLONKS" name="description" />
     </Head>
 
     <h1>Heading One</h1>

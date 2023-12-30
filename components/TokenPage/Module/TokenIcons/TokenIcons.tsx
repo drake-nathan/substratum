@@ -30,7 +30,7 @@ const TokenIcons = ({ token, project }: Props): JSX.Element => {
       <MarketIcons project={project} tokenId={tokenId} />
 
       {fullScreenUrl && (
-        <a href={fullScreenUrl} target="_blank" rel="noreferrer">
+        <a href={fullScreenUrl} rel="noreferrer" target="_blank">
           <St.FullScreenIcon className="icon" id="fullscreen" />
 
           <Tooltip
@@ -42,7 +42,7 @@ const TokenIcons = ({ token, project }: Props): JSX.Element => {
       )}
 
       {isMobileControls && mobileUrl && (
-        <a href={mobileUrl.toString()} target="_blank" rel="noreferrer">
+        <a href={mobileUrl.toString()} rel="noreferrer" target="_blank">
           <St.MobileIcon className="icon mobile" id="mobile" />
 
           <Tooltip

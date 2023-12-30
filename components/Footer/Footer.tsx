@@ -19,9 +19,9 @@ const Footer = (): JSX.Element => {
             <a
               className="text-sm font-medium underline"
               href="https://chainlife.gitbook.io/docs/legal/terms"
-              target="_blank"
               rel="noreferrer"
               style={{ fontFamily: "basic-sans, sans-serif" }}
+              target="_blank"
             >
               terms
             </a>

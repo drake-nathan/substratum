@@ -16,7 +16,7 @@ const Blonks: NextPage = () => (
   <BlonksContainer>
     <Head>
       <title>substratum | BLONKS</title>
-      <meta name="description" content="BLONKS" />
+      <meta content="BLONKS" name="description" />
     </Head>
 
     <h1>Blonks</h1>

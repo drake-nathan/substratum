@@ -22,7 +22,7 @@ const SuccessModal = ({ hash, setShowModal, text }: Props): JSX.Element => {
     <ModalBase setShowModal={setShowModal}>
       <St.Text>{text}</St.Text>
 
-      <St.Link href={link} target="_blank" rel="noreferrer">
+      <St.Link href={link} rel="noreferrer" target="_blank">
         View on Etherscan
       </St.Link>
 

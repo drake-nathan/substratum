@@ -32,7 +32,7 @@ const TransactionModal = ({
       <St.Text>{text}</St.Text>
       <St.SubText>{subText}</St.SubText>
       <St.ButtonWrapper>
-        <ActionArea error={error} loading={loading} handleClick={handleClick} />
+        <ActionArea error={error} handleClick={handleClick} loading={loading} />
       </St.ButtonWrapper>
     </ModalBase>
   );

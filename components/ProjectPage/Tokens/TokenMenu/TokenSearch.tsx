@@ -87,17 +87,17 @@ const TokenSearch = ({
             },
             valueAsNumber: true,
           })}
-          id="enter-id"
-          value={tokenId || tokenId === 0 ? tokenId : ""}
           autoComplete="off"
-          onChange={(e) => setTokenId(parseInt(e.target.value, 10))}
-          placeholder="Search By Token ID"
+          id="enter-id"
           onBlur={() => {
             if (tokenId === null || (tokenId === undefined && tokenId !== 0)) {
               setTokenId(null);
               refetch();
             }
           }}
+          onChange={(e) => setTokenId(parseInt(e.target.value, 10))}
+          placeholder="Search By Token ID"
+          value={tokenId || tokenId === 0 ? tokenId : ""}
         />
       </St.Form>
       {errorText && (

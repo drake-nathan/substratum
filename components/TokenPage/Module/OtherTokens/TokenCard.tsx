@@ -1,4 +1,3 @@
-import Generator from "components/Generator/Generator";
 import Link from "next/link";
 import { type TokenAbbr } from "services/azureApi/types";
 
@@ -26,7 +25,7 @@ const TokenCard = ({ token }: Props): JSX.Element => {
   return (
     <St.Wrapper>
       <Link href={tokenLink}>
-        <St.PreviewImage src={imgSrc} alt={alt} />
+        <St.PreviewImage alt={alt} src={imgSrc} />
       </Link>
 
       <St.DescriptionDiv>

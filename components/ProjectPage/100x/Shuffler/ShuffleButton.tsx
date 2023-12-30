@@ -52,7 +52,7 @@ const ShuffleButton = ({ method, vault }: Props): React.JSX.Element => {
 
   return (
     <>
-      <St.ActionButton style={{ gridArea: method }} onClick={handleClick}>
+      <St.ActionButton onClick={handleClick} style={{ gridArea: method }}>
         {method}
       </St.ActionButton>
 

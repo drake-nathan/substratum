@@ -36,43 +36,43 @@ const Legend = () => {
         <St.Top>
           <LegendCard
             isVisible={isVisible.top}
-            toggleMatrixProp={toggleMatrixProp}
             method="top"
+            toggleMatrixProp={toggleMatrixProp}
           />
         </St.Top>
         <St.Cut>
           <LegendCard
             isVisible={isVisible.cut}
-            toggleMatrixProp={toggleMatrixProp}
             method="cut"
+            toggleMatrixProp={toggleMatrixProp}
           />
         </St.Cut>
         <St.Faro>
           <LegendCard
             isVisible={isVisible.faro}
-            toggleMatrixProp={toggleMatrixProp}
             method="faro"
+            toggleMatrixProp={toggleMatrixProp}
           />
         </St.Faro>
         <St.Overhand>
           <LegendCard
             isVisible={isVisible.overhand}
-            toggleMatrixProp={toggleMatrixProp}
             method="overhand"
+            toggleMatrixProp={toggleMatrixProp}
           />
         </St.Overhand>
         <St.Wash>
           <LegendCard
             isVisible={isVisible.wash}
-            toggleMatrixProp={toggleMatrixProp}
             method="wash"
+            toggleMatrixProp={toggleMatrixProp}
           />
         </St.Wash>
         <St.Reverse>
           <LegendCard
             isVisible={isVisible.reverse}
-            toggleMatrixProp={toggleMatrixProp}
             method="reverse"
+            toggleMatrixProp={toggleMatrixProp}
           />
         </St.Reverse>
       </St.LegendGrid>

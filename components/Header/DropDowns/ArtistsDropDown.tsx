@@ -33,7 +33,7 @@ const ArtistsDropDown = ({
     const url = artistUrls[artist];
 
     return (
-      <St.RowLink key={artist} href={url} target="_blank" rel="noreferrer">
+      <St.RowLink href={url} key={artist} rel="noreferrer" target="_blank">
         <St.OpenInNewIcon />
         {renderItem(artist)}
       </St.RowLink>

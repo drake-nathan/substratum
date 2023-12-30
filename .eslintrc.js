@@ -32,13 +32,7 @@ module.exports = {
       },
     ],
     "react/jsx-props-no-spreading": "off",
-    "react/jsx-sort-props": [
-      "error",
-      {
-        callbacksLast: true,
-        shorthandFirst: true,
-      },
-    ],
+    "react/jsx-sort-props": ["error"],
     "react/require-default-props": "off",
     "simple-import-sort/exports": "error",
     "simple-import-sort/imports": "error",

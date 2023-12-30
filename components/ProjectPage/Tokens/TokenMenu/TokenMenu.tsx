@@ -33,9 +33,9 @@ const TokenMenu = ({
       {/* <St.RightDiv> */}
       <TokenSearch
         project={project}
-        tokenId={tokenSearchId}
-        setTokenId={setTokenSearchId}
         refetch={refetch}
+        setTokenId={setTokenSearchId}
+        tokenId={tokenSearchId}
       />
 
       <St.SortDiv>

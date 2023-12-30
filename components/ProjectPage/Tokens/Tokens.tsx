@@ -63,35 +63,35 @@ const Tokens = ({ projectSlug, project }: Props): JSX.Element => {
     <TokensContainer>
       <TokenMenu
         project={project}
-        usesTransfers={usesTransfers}
-        sortDir={sortDir}
-        setSortDir={setSortDir}
-        sortType={sortType}
-        setSortType={setSortType}
-        tokenSearchId={tokenSearchId}
-        setTokenSearchId={setTokenSearchId}
         refetch={refetch}
+        setSortDir={setSortDir}
+        setSortType={setSortType}
+        setTokenSearchId={setTokenSearchId}
+        sortDir={sortDir}
+        sortType={sortType}
+        tokenSearchId={tokenSearchId}
+        usesTransfers={usesTransfers}
       />
       {projectSlug === "100x10x1-a" ? (
         <TokenGrid
-          data={data}
           currentLength={currentLength}
-          hasMore={hasMore}
-          fetchNextPage={fetchNextPage}
+          data={data}
           error={error}
-          isLoading={isLoading}
+          fetchNextPage={fetchNextPage}
+          hasMore={hasMore}
           isFetching={isFetching}
+          isLoading={isLoading}
           isTokenIdInTitle={isTokenIdInTitle}
         />
       ) : (
         <TokenGrid
-          data={data}
           currentLength={currentLength}
-          hasMore={hasMore}
-          fetchNextPage={fetchNextPage}
+          data={data}
           error={error}
-          isLoading={isLoading}
+          fetchNextPage={fetchNextPage}
+          hasMore={hasMore}
           isFetching={isFetching}
+          isLoading={isLoading}
           isTokenIdInTitle={isTokenIdInTitle}
         />
       )}

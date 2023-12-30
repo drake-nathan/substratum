@@ -49,7 +49,7 @@ const TokenPage = ({ project, tokenId }: Props): JSX.Element => {
     }
 
     if (token) {
-      return <TokenModule token={token} project={project} />;
+      return <TokenModule project={project} token={token} />;
     }
 
     return <h1>Could not fetch token right now, try again in a moment.</h1>;
@@ -65,7 +65,7 @@ const TokenPage = ({ project, tokenId }: Props): JSX.Element => {
         <St.ArtistDiv>
           <St.By>By</St.By>
 
-          <a href={website} target="_blank" rel="noreferrer">
+          <a href={website} rel="noreferrer" target="_blank">
             <St.ArtistName>{artist}</St.ArtistName>
           </a>
         </St.ArtistDiv>
