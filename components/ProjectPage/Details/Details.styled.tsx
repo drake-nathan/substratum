@@ -29,8 +29,8 @@ export const ProjectImage = styled.div`
   }
 `;
 
-export const Image = styled.img<{ aspectRatio: number }>`
-  aspect-ratio: ${({ aspectRatio }) => aspectRatio};
+export const Image = styled.img<{ $aspectRatio: number }>`
+  aspect-ratio: ${({ $aspectRatio }) => $aspectRatio};
   object-fit: cover;
   width: 100%;
   border: 1px solid ${({ theme: { colors } }) => colors.textMain};

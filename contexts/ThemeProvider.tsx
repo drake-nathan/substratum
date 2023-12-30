@@ -1,6 +1,7 @@
-import { useEffect, useState, type ReactNode, type ReactElement } from "react";
-import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import { useWindowSize } from "hooks/useWindowSize";
+import { type ReactElement, type ReactNode, useEffect, useState } from "react";
+import { ThemeProvider as StyledThemeProvider } from "styled-components";
+
 import {
   type Colors,
   darkColors,
@@ -62,10 +63,10 @@ const ThemeProvider = ({ children }: Props): ReactElement => {
       theme={{
         ...defaultTheme,
         colors,
+        isDark,
+        isMiniCard,
         isMobile,
         isMobileNav,
-        isMiniCard,
-        isDark,
         toggleTheme,
       }}
     >

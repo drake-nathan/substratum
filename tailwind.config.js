@@ -7,6 +7,15 @@ export default {
   ],
   plugins: [],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        black: "#0f0f0f",
+        hover: {
+          dark: "#b9b7b6",
+          light: "#7e7e7e",
+        },
+        white: "#fffcf9",
+      },
+    },
   },
 };

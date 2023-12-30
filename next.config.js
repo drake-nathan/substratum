@@ -12,6 +12,8 @@ module.exports = {
       issuer: /\.[jt]sx?$/,
       use: ["@svgr/webpack"],
     });
+    // Web3Modal
+    config.externals.push("pino-pretty", "lokijs", "encoding");
 
     return config;
   },

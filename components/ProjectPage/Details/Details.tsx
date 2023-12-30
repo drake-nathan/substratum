@@ -43,7 +43,7 @@ const Details = ({ project }: Props): JSX.Element => {
   return (
     <St.DetailGrid>
       <St.ProjectImage>
-        <St.Image aspectRatio={aspectRatio} src={image} alt="Project image" />
+        <St.Image $aspectRatio={aspectRatio} src={image} alt="Project image" />
         <St.ProjectImageNameContainer>
           <St.ProjectImageName>{`${name}`}</St.ProjectImageName>
         </St.ProjectImageNameContainer>
