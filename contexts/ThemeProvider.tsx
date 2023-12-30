@@ -37,15 +37,17 @@ const ThemeProvider = ({ children }: Props): ReactElement => {
   const toggleTheme = () => {
     if (colors === lightColors) {
       setColors(darkColors);
-      sessionStorage.setItem("theme", "dark");
+      localStorage.setItem("substratum-theme", "dark");
+      document.documentElement.classList.add("dark");
     } else {
       setColors(lightColors);
-      sessionStorage.setItem("theme", "light");
+      localStorage.setItem("substratum-theme", "light");
+      document.documentElement.classList.remove("dark");
     }
   };
 
   useEffect(() => {
-    const savedTheme = sessionStorage.getItem("theme");
+    const savedTheme = localStorage.getItem("substratum-theme");
 
     const prefersDark =
       window.matchMedia &&
@@ -55,6 +57,8 @@ const ThemeProvider = ({ children }: Props): ReactElement => {
       setColors(savedTheme === "dark" ? darkColors : lightColors);
     } else if (prefersDark) {
       setColors(darkColors);
+      localStorage.setItem("substratum-theme", "dark");
+      document.documentElement.classList.add("dark");
     }
   }, []);
 
