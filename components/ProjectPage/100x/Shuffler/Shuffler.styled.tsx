@@ -60,15 +60,6 @@ export const VaultForm = styled.form`
   flex: 1 1 100%;
 `;
 
-export const Input = styled.input`
-  flex: 1 1 100%;
-  background-color: #f4f1ed;
-  font-family: "basic-sans", sans-serif;
-  padding: 1em;
-  outline: unset;
-  border: none;
-`;
-
 export const ViewButton = styled.button`
   background-color: #ded8d1;
   height: 100%;

@@ -6,19 +6,19 @@ import * as St from "./TokenInfo.styled";
 import type { InfoTab } from "./types";
 
 interface Props {
-  projectSlug: string;
-  traits: IAttribute[];
+  additionalDescription: string | undefined;
   description: string;
   poem: string | undefined;
-  additionalDescription: string | undefined;
+  projectSlug: string;
+  traits: IAttribute[];
 }
 
 const TokenInfo = ({
-  projectSlug,
-  traits,
+  additionalDescription,
   description,
   poem,
-  additionalDescription,
+  projectSlug,
+  traits,
 }: Props): JSX.Element => {
   const [tab, setTab] = useQueryState(
     "tab",

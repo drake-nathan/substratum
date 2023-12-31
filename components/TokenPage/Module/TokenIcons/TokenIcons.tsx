@@ -6,16 +6,16 @@ import type { IToken } from "services/azureApi/types";
 import * as St from "./TokenIcons.styled";
 
 interface Props {
-  token: IToken;
   project: Project;
+  token: IToken;
 }
 
-const TokenIcons = ({ token, project }: Props): JSX.Element => {
+const TokenIcons = ({ project, token }: Props): JSX.Element => {
   const {
-    token_id: tokenId,
     generator_url: generatorUrl,
-    svgGen,
     image,
+    svgGen,
+    token_id: tokenId,
   } = token;
   const { isMobileControls } = project;
 

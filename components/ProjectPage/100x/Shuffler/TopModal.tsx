@@ -24,13 +24,13 @@ interface Props {
 
 const TopModal = ({
   address,
-  tokenId,
   methodFee,
   setShowModal,
+  tokenId,
   vault,
 }: Props): JSX.Element => {
   const { launchAlertModal, launchSuccessModal } = useModal();
-  const { ownerAddress, isSuccess } = useTokenOwnerOf(tokenId);
+  const { isSuccess, ownerAddress } = useTokenOwnerOf(tokenId);
 
   const isTokenOwner = ownerAddress
     ? isAddressEqual(vault ?? address, ownerAddress)
@@ -45,7 +45,10 @@ const TopModal = ({
   const handleSuccess = (hash: Hash) => {
     setLoading(false);
     setShowModal(false);
-    launchSuccessModal(`Token ${tokenId} has been sent to the top!`, hash);
+    launchSuccessModal(
+      `Token ${tokenId} has been sent to the top! Check back in about 15 minutes for the updated composite image.`,
+      hash,
+    );
   };
 
   const handleError = (error: Error) => {

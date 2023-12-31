@@ -8,17 +8,17 @@ import { z } from "zod";
 import * as St from "./Shuffler.styled";
 
 interface Props {
-  vault: string;
   setVault: SetState<string>;
+  vault: string;
 }
 
 const schema = z.object({
   vault: zodAddress.nullable(),
 });
 
-const VaultInput = ({ vault, setVault }: Props): JSX.Element => {
+const VaultInput = ({ setVault, vault }: Props): JSX.Element => {
   const { launchAlertModal } = useModal();
-  const { register, handleSubmit } = useForm({
+  const { handleSubmit, register } = useForm({
     mode: "all",
     resolver: zodResolver(schema),
   });
@@ -32,8 +32,9 @@ const VaultInput = ({ vault, setVault }: Props): JSX.Element => {
         onSubmit={handleSubmit(onValid, onInvalid)}
         style={{ gridArea: "vault" }}
       >
-        <St.Input
+        <input
           {...register("vault")}
+          className="flex-shrink flex-grow basis-full border-none bg-offset p-4 font-sans outline-none dark:text-black"
           onChange={(e) => setVault(e.target.value)}
           placeholder="Optional: Enter Vault (Must Delegate to Connected Account)"
           type="text"

@@ -2,6 +2,7 @@ module.exports = {
   extends: [
     "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
+    "plugin:typescript-sort-keys/recommended",
     "prettier",
   ],
   parser: "@typescript-eslint/parser",
@@ -9,7 +10,13 @@ module.exports = {
     project: ["./tsconfig.json", "./tsconfig.node.json"],
     tsconfigRootDir: __dirname,
   },
-  plugins: ["@typescript-eslint", "simple-import-sort", "sort-keys-fix"],
+  plugins: [
+    "@typescript-eslint",
+    "simple-import-sort",
+    "sort-keys-fix",
+    "typescript-sort-keys",
+    "sort-destructure-keys",
+  ],
   root: true,
   rules: {
     "@typescript-eslint/consistent-type-imports": [
@@ -36,6 +43,7 @@ module.exports = {
     "react/require-default-props": "off",
     "simple-import-sort/exports": "error",
     "simple-import-sort/imports": "error",
+    "sort-destructure-keys/sort-destructure-keys": "error",
     "sort-keys-fix/sort-keys-fix": "warn",
   },
 };

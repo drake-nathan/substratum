@@ -9,11 +9,11 @@ import * as St from "./OtherTokens.styled";
 import TokenCard from "./TokenCard";
 
 interface Props {
-  token: IToken;
   project: Project;
+  token: IToken;
 }
 
-const OtherTokens = ({ token, project }: Props): JSX.Element => {
+const OtherTokens = ({ project, token }: Props): JSX.Element => {
   const { projectSlug } = project;
   const { token_id: tokenId } = token;
 
@@ -25,9 +25,9 @@ const OtherTokens = ({ token, project }: Props): JSX.Element => {
       : tokenId + 1;
 
   const {
-    isLoading,
-    error,
     data: response,
+    error,
+    isLoading,
     refetch,
   } = useQuery<CollectionResponse, Error>({
     queryFn: () =>

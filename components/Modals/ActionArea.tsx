@@ -12,8 +12,8 @@ interface Props {
 
 const ActionArea = ({
   error,
-  loading,
   handleClick,
+  loading,
 }: Props): React.JSX.Element => {
   const { colors } = useTheme();
 

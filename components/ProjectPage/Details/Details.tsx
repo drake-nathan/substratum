@@ -24,19 +24,19 @@ const getRelatedCollections = (project: Project) => {
 const Details = ({ project }: Props): JSX.Element => {
   const {
     aspectRatio,
-    projectSlug,
-    name,
     image,
+    name,
     projectPageInfo: {
-      license,
-      description,
-      interactivity,
-      royalties,
       collectionDetails,
       date,
-      tools,
+      description,
+      interactivity,
+      license,
       notes,
+      royalties,
+      tools,
     },
+    projectSlug,
   } = project;
 
   return (

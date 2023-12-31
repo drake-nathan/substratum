@@ -9,13 +9,13 @@ interface Props {
 
 const TokenCard = ({ token }: Props): JSX.Element => {
   const {
-    name,
     image,
     image_mid: imageMid,
     image_small: imageSmall,
-    token_id: tokenId,
+    name,
     project_slug: projectSlug,
     script_inputs: scriptInputs,
+    token_id: tokenId,
   } = token;
 
   const imgSrc = imageSmall || imageMid || image;

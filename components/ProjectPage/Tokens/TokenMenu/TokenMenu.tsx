@@ -5,26 +5,26 @@ import TokenSearch from "./TokenSearch";
 
 interface Props {
   project: Project;
-  usesTransfers: boolean;
-  sortDir: "asc" | "desc";
-  setSortDir: React.Dispatch<React.SetStateAction<"asc" | "desc">>;
-  sortType: "tokenId" | "worldLevel";
-  setSortType: React.Dispatch<React.SetStateAction<"tokenId" | "worldLevel">>;
-  tokenSearchId: number | null;
-  setTokenSearchId: React.Dispatch<React.SetStateAction<number | null>>;
   refetch: () => void;
+  setSortDir: React.Dispatch<React.SetStateAction<"asc" | "desc">>;
+  setSortType: React.Dispatch<React.SetStateAction<"tokenId" | "worldLevel">>;
+  setTokenSearchId: React.Dispatch<React.SetStateAction<number | null>>;
+  sortDir: "asc" | "desc";
+  sortType: "tokenId" | "worldLevel";
+  tokenSearchId: number | null;
+  usesTransfers: boolean;
 }
 
 const TokenMenu = ({
   project,
-  usesTransfers,
-  sortDir,
-  setSortDir,
-  sortType,
-  setSortType,
-  tokenSearchId,
-  setTokenSearchId,
   refetch,
+  setSortDir,
+  setSortType,
+  setTokenSearchId,
+  sortDir,
+  sortType,
+  tokenSearchId,
+  usesTransfers,
 }: Props): JSX.Element => {
   const { projectSlug } = project;
 

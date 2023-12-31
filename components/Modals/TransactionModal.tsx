@@ -10,17 +10,17 @@ interface Props {
   setShowModal: SetState<boolean>;
   transactionModalData: {
     error?: string;
-    loading: boolean;
     header: string;
-    text: string;
+    loading: boolean;
     subText: string;
+    text: string;
   };
 }
 
 const TransactionModal = ({
   onProceed,
   setShowModal,
-  transactionModalData: { error, loading, header, text, subText },
+  transactionModalData: { error, header, loading, subText, text },
 }: Props): React.JSX.Element => {
   const handleClick = () => {
     onProceed();

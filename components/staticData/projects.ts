@@ -6,13 +6,13 @@ if (!blobRoot) {
 
 export enum Status {
   Closed = "Closed",
-  Upcoming = "Upcoming",
   Minting = "Minting",
+  Upcoming = "Upcoming",
 }
 
 export enum Artist {
-  Matto = "Matto",
   ImmutableComputer = "Immutable Computer",
+  Matto = "Matto",
 }
 
 export const artistUrls: Record<Artist, string> = {
@@ -21,36 +21,36 @@ export const artistUrls: Record<Artist, string> = {
 };
 
 export interface Project {
-  name: string;
   artist: Artist;
   artistAddress?: string;
-  website: string;
-  projectSlug: string;
-  contractAddress: string;
-  image: string;
-  maxSupply: number;
-  isZeroIndexed: boolean;
-  isTokenIdInTitle: boolean;
-  usesTransfers: boolean;
-  isMobileControls?: boolean;
-  isAltGenerator?: boolean;
-  useTokenName?: boolean;
-  scriptType?: string;
   aspectRatio: number;
-  status: Status;
-  local: boolean;
-  openSeaSlug: string;
+  contractAddress: string;
   externalUrl?: string;
+  image: string;
+  isAltGenerator?: boolean;
+  isMobileControls?: boolean;
+  isTokenIdInTitle: boolean;
+  isZeroIndexed: boolean;
+  local: boolean;
+  maxSupply: number;
+  name: string;
+  openSeaSlug: string;
   projectPageInfo: {
-    description: string;
     collectionDetails: string;
     date: string;
-    tools: string;
+    description: string;
+    interactivity?: string;
     license: string;
     notes?: string;
-    interactivity?: string;
     royalties?: string;
+    tools: string;
   };
+  projectSlug: string;
+  scriptType?: string;
+  status: Status;
+  useTokenName?: boolean;
+  usesTransfers: boolean;
+  website: string;
 }
 
 export const projects: Project[] = [
@@ -64,7 +64,7 @@ export const projects: Project[] = [
     isTokenIdInTitle: false,
     isZeroIndexed: true,
     local: true,
-    maxSupply: 100,
+    maxSupply: 101,
     name: "100x10x1-A",
     openSeaSlug: "100x10x1A",
     projectPageInfo: {

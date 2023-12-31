@@ -6,24 +6,24 @@ import TokenCard from "../TokenCard/TokenCard";
 import * as St from "./TokenGrid.styled";
 
 interface Props {
-  data: InfiniteData<CollectionResponse> | undefined;
   currentLength: number;
-  hasMore: boolean;
-  fetchNextPage: () => void;
+  data: InfiniteData<CollectionResponse> | undefined;
   error: Error | null;
-  isLoading: boolean;
+  fetchNextPage: () => void;
+  hasMore: boolean;
   isFetching: boolean;
+  isLoading: boolean;
   isTokenIdInTitle: boolean;
 }
 
 const TokenGrid = ({
-  data: tokens,
   currentLength,
-  hasMore,
-  fetchNextPage,
+  data: tokens,
   error,
-  isLoading,
+  fetchNextPage,
+  hasMore,
   isFetching,
+  isLoading,
   isTokenIdInTitle,
 }: Props): JSX.Element => (
   <St.Container>

@@ -6,14 +6,14 @@ import type { Address } from "viem";
 
 interface Props {
   address: Address;
-  tokenId: string | undefined;
   setShowModal: SetState<boolean>;
+  tokenId: string | undefined;
 }
 
 const TokenOwnerOfModal = ({
   address,
-  tokenId,
   setShowModal,
+  tokenId,
 }: Props): JSX.Element => {
   const { ownerAddress } = useTokenOwnerOf(Number(tokenId));
 

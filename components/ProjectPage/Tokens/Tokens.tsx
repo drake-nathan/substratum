@@ -1,5 +1,6 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 import type { Project } from "components/staticData/projects";
+import { parseAsStringEnum, useQueryState } from "next-usequerystate";
 import { useEffect, useState } from "react";
 import { fetchCollectionTokens } from "services/azureApi/fetches";
 import type { CollectionResponse } from "services/azureApi/types";
@@ -9,22 +10,39 @@ import TokenMenu from "./TokenMenu/TokenMenu";
 import { TokensContainer } from "./Tokens.styled";
 
 interface Props {
-  projectSlug: string;
   project: Project;
+  projectSlug: string;
 }
 
-const Tokens = ({ projectSlug, project }: Props): JSX.Element => {
+const Tokens = ({ project, projectSlug }: Props): JSX.Element => {
   const { isTokenIdInTitle, usesTransfers } = project;
-  // api query state
-  const [sortDir, setSortDir] = useState<"asc" | "desc">("asc");
-  const [sortType, setSortType] = useState<"tokenId" | "worldLevel">("tokenId");
-  const [tokenSearchId, setTokenSearchId] = useState<number | null>(null);
+
   // infinite scroll state
   const [currentLength, setCurrentLength] = useState(0);
   const [hasMore, setHasMore] = useState<boolean>(false);
   const limit = 20;
 
-  const { error, data, isLoading, isFetching, fetchNextPage, refetch } =
+  // api query state - using query strings
+  // const [sortDir, setSortDir] = useState<"asc" | "desc">("asc");
+  const [sortDir, setSortDir] = useQueryState(
+    "sortDir",
+    parseAsStringEnum(["asc", "desc"]).withDefault("asc").withOptions({
+      history: "push",
+      shallow: false,
+    }),
+  );
+  const [sortType, setSortType] = useQueryState(
+    "sortType",
+    parseAsStringEnum(["tokenId", "worldLevel"])
+      .withDefault("tokenId")
+      .withOptions({
+        history: "push",
+        shallow: false,
+      }),
+  );
+  const [tokenSearchId, setTokenSearchId] = useState<number | null>(null);
+
+  const { data, error, fetchNextPage, isFetching, isLoading, refetch } =
     useInfiniteQuery<CollectionResponse, Error>({
       getNextPageParam: (lastFetch) => lastFetch.skip + limit,
       initialPageParam: 0,
@@ -42,6 +60,7 @@ const Tokens = ({ projectSlug, project }: Props): JSX.Element => {
 
   useEffect(() => {
     if (error) console.error(error.message);
+
     if (data) {
       const lastPage = data.pages[data.pages.length - 1];
       if (lastPage) {
@@ -72,29 +91,17 @@ const Tokens = ({ projectSlug, project }: Props): JSX.Element => {
         tokenSearchId={tokenSearchId}
         usesTransfers={usesTransfers}
       />
-      {projectSlug === "100x10x1-a" ? (
-        <TokenGrid
-          currentLength={currentLength}
-          data={data}
-          error={error}
-          fetchNextPage={fetchNextPage}
-          hasMore={hasMore}
-          isFetching={isFetching}
-          isLoading={isLoading}
-          isTokenIdInTitle={isTokenIdInTitle}
-        />
-      ) : (
-        <TokenGrid
-          currentLength={currentLength}
-          data={data}
-          error={error}
-          fetchNextPage={fetchNextPage}
-          hasMore={hasMore}
-          isFetching={isFetching}
-          isLoading={isLoading}
-          isTokenIdInTitle={isTokenIdInTitle}
-        />
-      )}
+
+      <TokenGrid
+        currentLength={currentLength}
+        data={data}
+        error={error}
+        fetchNextPage={fetchNextPage}
+        hasMore={hasMore}
+        isFetching={isFetching}
+        isLoading={isLoading}
+        isTokenIdInTitle={isTokenIdInTitle}
+      />
     </TokensContainer>
   );
 };

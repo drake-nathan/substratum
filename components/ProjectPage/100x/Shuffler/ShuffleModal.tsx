@@ -29,7 +29,7 @@ const ShuffleModal = ({
   vault,
 }: Props): JSX.Element => {
   const { launchAlertModal, launchSuccessModal } = useModal();
-  const { tokensOwned, isSuccess } = useTokensOwned(address, vault);
+  const { isSuccess, tokensOwned } = useTokensOwned(address, vault);
 
   const [error, setError] = useState<string | undefined>();
   const [loading, setLoading] = useState<boolean>(true);
@@ -41,7 +41,7 @@ const ShuffleModal = ({
     setLoading(false);
     setShowModal(false);
     launchSuccessModal(
-      `${method.toLocaleUpperCase()} shuffle successful!`,
+      `${method.toLocaleUpperCase()} shuffle successful! Check back in about 15 minutes for the updated composite image.`,
       hash,
     );
   };

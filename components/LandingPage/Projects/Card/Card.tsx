@@ -11,13 +11,13 @@ interface Props {
 
 const Card = ({ project }: Props): JSX.Element => {
   const {
-    name,
     artist,
+    externalUrl,
     image,
     local,
-    projectSlug,
-    externalUrl,
     maxSupply,
+    name,
+    projectSlug,
     status,
   } = project;
 

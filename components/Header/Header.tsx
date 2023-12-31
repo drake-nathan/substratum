@@ -12,7 +12,7 @@ import NavLinks from "./NavLinks/NavLinks";
 import SocialIcons from "./SocialIcons/SocialIcons";
 
 const Header = (): JSX.Element => {
-  const { isMobileNav, isMobile, colors, isDark, toggleTheme } = useTheme();
+  const { colors, isDark, isMobile, isMobileNav, toggleTheme } = useTheme();
 
   const [showMobileNav, setShowMobileNav] = useState(false);
 
