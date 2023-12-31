@@ -41,7 +41,7 @@ const ShuffleModal = ({
     setLoading(false);
     setShowModal(false);
     launchSuccessModal(
-      `${method.toLocaleUpperCase()} shuffle successful!`,
+      `${method.toLocaleUpperCase()} shuffle successful! Check back in about 15 minutes for the updated composite image.`,
       hash,
     );
   };

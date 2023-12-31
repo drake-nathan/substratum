@@ -14,6 +14,7 @@ export default {
         dark: "#b9b7b6",
         light: "#7e7e7e",
       },
+      offset: "#f4f1ed",
       white: "#fffcf9",
     },
     extend: {

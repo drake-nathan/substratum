@@ -29,8 +29,9 @@ const Shuffler = (): React.JSX.Element => {
         <TopButton tokenId={tokenId} vault={vault} />
 
         <St.ViewLayer>
-          <St.Input
+          <input
             aria-label="Token ID for Top method"
+            className="flex-shrink flex-grow basis-full border-none bg-offset p-4 font-sans outline-none dark:text-black"
             max="100"
             onChange={(e) => setTokenId(e.target.value)}
             placeholder="Token ID to Top"

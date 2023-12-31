@@ -45,7 +45,10 @@ const TopModal = ({
   const handleSuccess = (hash: Hash) => {
     setLoading(false);
     setShowModal(false);
-    launchSuccessModal(`Token ${tokenId} has been sent to the top!`, hash);
+    launchSuccessModal(
+      `Token ${tokenId} has been sent to the top! Check back in about 15 minutes for the updated composite image.`,
+      hash,
+    );
   };
 
   const handleError = (error: Error) => {
