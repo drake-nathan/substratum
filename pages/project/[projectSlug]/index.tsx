@@ -8,17 +8,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { parseAsStringEnum, useQueryState } from "next-usequerystate";
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
 import { isString } from "utils/helpers";
-
-const HomeContainer = styled.div`
-  width: 100%;
-  max-width: 2000px;
-  min-height: 75vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
 
 const Home: NextPage = () => {
   const { projectSlug } = useRouter().query;
@@ -51,7 +41,7 @@ const Home: NextPage = () => {
   const title = project?.name ? `substratum | ${project.name}` : "substratum";
 
   return (
-    <HomeContainer>
+    <div className="flex min-h-[75vh] w-full max-w-[2000px] flex-col items-center">
       <Head>
         <title>{title}</title>
         <meta content="substratum" name="description" />
@@ -60,7 +50,7 @@ const Home: NextPage = () => {
       {projectSlug && project && isString(projectSlug) && (
         <>
           <ProjectHead project={project} />
-          <ProjectMenuBar setTab={setTab} tab={tab} />
+          <ProjectMenuBar projectSlug={projectSlug} setTab={setTab} tab={tab} />
 
           {tab === "tokens" ? (
             <Tokens project={project} projectSlug={projectSlug} />
@@ -71,7 +61,7 @@ const Home: NextPage = () => {
       )}
 
       {error && <h1>{error}</h1>}
-    </HomeContainer>
+    </div>
   );
 };
 
