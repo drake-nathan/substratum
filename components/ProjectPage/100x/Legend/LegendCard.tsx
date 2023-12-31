@@ -4,14 +4,14 @@ import * as St from "./Legend.styled";
 
 interface Props {
   isVisible: boolean;
-  toggleMatrixProp: (property: keyof VisibilityMatrix) => void;
   method: Method;
+  toggleMatrixProp: (property: keyof VisibilityMatrix) => void;
 }
 
 const LegendCard = ({
   isVisible,
-  toggleMatrixProp,
   method,
+  toggleMatrixProp,
 }: Props): JSX.Element => {
   return (
     <>

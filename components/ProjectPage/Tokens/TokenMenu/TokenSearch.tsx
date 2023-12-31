@@ -9,18 +9,18 @@ type IToken = { tokenId: number };
 
 interface Props {
   project: Project;
-  tokenId: number | null;
-  setTokenId: React.Dispatch<React.SetStateAction<number | null>>;
   refetch: () => void;
+  setTokenId: React.Dispatch<React.SetStateAction<number | null>>;
+  tokenId: number | null;
 }
 
 const TokenSearch = ({
   project,
-  tokenId,
-  setTokenId,
   refetch,
+  setTokenId,
+  tokenId,
 }: Props): JSX.Element => {
-  const { maxSupply, isZeroIndexed, projectSlug } = project;
+  const { isZeroIndexed, maxSupply, projectSlug } = project;
 
   const currentSupply = useCurrentSupply(projectSlug);
 
@@ -32,9 +32,9 @@ const TokenSearch = ({
   const [errorText, setErrorText] = useState("");
 
   const {
-    register,
-    handleSubmit,
     formState: { errors },
+    handleSubmit,
+    register,
   } = useForm<IToken>();
 
   const onSubmit: SubmitHandler<IToken> = () => {

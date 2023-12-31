@@ -24,13 +24,13 @@ interface Props {
 
 const TopModal = ({
   address,
-  tokenId,
   methodFee,
   setShowModal,
+  tokenId,
   vault,
 }: Props): JSX.Element => {
   const { launchAlertModal, launchSuccessModal } = useModal();
-  const { ownerAddress, isSuccess } = useTokenOwnerOf(tokenId);
+  const { isSuccess, ownerAddress } = useTokenOwnerOf(tokenId);
 
   const isTokenOwner = ownerAddress
     ? isAddressEqual(vault ?? address, ownerAddress)

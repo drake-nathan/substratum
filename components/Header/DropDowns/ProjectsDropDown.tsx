@@ -6,15 +6,15 @@ import { useTheme } from "styled-components";
 import * as St from "./DropDowns.styled";
 
 interface Props {
-  showDropDown: boolean;
   setShowDropDown: React.Dispatch<React.SetStateAction<boolean>>;
   setShowMobileNav: React.Dispatch<React.SetStateAction<boolean>>;
+  showDropDown: boolean;
 }
 
 const ProjectsDropDown = ({
-  showDropDown,
   setShowDropDown,
   setShowMobileNav,
+  showDropDown,
 }: Props): JSX.Element => {
   const { isMobile } = useTheme();
 
@@ -28,7 +28,7 @@ const ProjectsDropDown = ({
   );
 
   const projectsListJsx = projects.map(
-    ({ name, local, externalUrl, projectSlug }) =>
+    ({ externalUrl, local, name, projectSlug }) =>
       local ? (
         <Link href={`/project/${projectSlug}`} key={name}>
           {renderProjectItem(name)}

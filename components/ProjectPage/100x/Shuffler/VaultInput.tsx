@@ -8,17 +8,17 @@ import { z } from "zod";
 import * as St from "./Shuffler.styled";
 
 interface Props {
-  vault: string;
   setVault: SetState<string>;
+  vault: string;
 }
 
 const schema = z.object({
   vault: zodAddress.nullable(),
 });
 
-const VaultInput = ({ vault, setVault }: Props): JSX.Element => {
+const VaultInput = ({ setVault, vault }: Props): JSX.Element => {
   const { launchAlertModal } = useModal();
-  const { register, handleSubmit } = useForm({
+  const { handleSubmit, register } = useForm({
     mode: "all",
     resolver: zodResolver(schema),
   });

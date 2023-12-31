@@ -9,11 +9,11 @@ import TokenMenu from "./TokenMenu/TokenMenu";
 import { TokensContainer } from "./Tokens.styled";
 
 interface Props {
-  projectSlug: string;
   project: Project;
+  projectSlug: string;
 }
 
-const Tokens = ({ projectSlug, project }: Props): JSX.Element => {
+const Tokens = ({ project, projectSlug }: Props): JSX.Element => {
   const { isTokenIdInTitle, usesTransfers } = project;
   // api query state
   const [sortDir, setSortDir] = useState<"asc" | "desc">("asc");
@@ -24,7 +24,7 @@ const Tokens = ({ projectSlug, project }: Props): JSX.Element => {
   const [hasMore, setHasMore] = useState<boolean>(false);
   const limit = 20;
 
-  const { error, data, isLoading, isFetching, fetchNextPage, refetch } =
+  const { data, error, fetchNextPage, isFetching, isLoading, refetch } =
     useInfiniteQuery<CollectionResponse, Error>({
       getNextPageParam: (lastFetch) => lastFetch.skip + limit,
       initialPageParam: 0,

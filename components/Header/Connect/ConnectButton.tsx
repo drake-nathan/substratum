@@ -6,7 +6,7 @@ import { useAccount, useBalance, useEnsName } from "wagmi";
 
 const ConnectButton = (): JSX.Element => {
   const { isClient } = useIsClient();
-  const { open, close } = useWeb3Modal();
+  const { close, open } = useWeb3Modal();
   const { open: isOpen } = useWeb3ModalState();
 
   const { address } = useAccount();

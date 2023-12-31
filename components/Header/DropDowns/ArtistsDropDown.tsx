@@ -8,15 +8,15 @@ const artists = projects.map(({ artist }) => artist);
 const uniqueArtists = [...new Set(artists)];
 
 interface Props {
-  showDropDown: boolean;
   setShowDropDown: React.Dispatch<React.SetStateAction<boolean>>;
   setShowMobileNav: React.Dispatch<React.SetStateAction<boolean>>;
+  showDropDown: boolean;
 }
 
 const ArtistsDropDown = ({
-  showDropDown,
   setShowDropDown,
   setShowMobileNav,
+  showDropDown,
 }: Props): JSX.Element => {
   const { isMobile } = useTheme();
 

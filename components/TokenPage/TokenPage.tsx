@@ -15,14 +15,14 @@ interface Props {
 }
 
 const TokenPage = ({ project, tokenId }: Props): JSX.Element => {
-  const { name, projectSlug, artist, website } = project;
+  const { artist, name, projectSlug, website } = project;
 
   const projectLink = `/project/${projectSlug}`;
 
   const {
-    isLoading,
-    error,
     data: token,
+    error,
+    isLoading,
     refetch,
   } = useQuery<IToken, Error>({
     queryFn: () => fetchToken(projectSlug, tokenId),

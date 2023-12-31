@@ -15,7 +15,7 @@ interface Props {
 }
 
 const MarketIcons = ({ project, tokenId }: Props): JSX.Element => {
-  const { openSeaSlug, contractAddress } = project;
+  const { contractAddress, openSeaSlug } = project;
 
   // need this since zero is falsy
   const isToken = tokenId !== undefined;
@@ -26,12 +26,12 @@ const MarketIcons = ({ project, tokenId }: Props): JSX.Element => {
         // skip etherscan for token version
         if (icon.market === Market.Etherscan && isToken) return null;
         const {
-          id,
           altCollection,
           altToken,
+          id,
+          src: Icon,
           tooltipCollection,
           tooltipToken,
-          src: Icon,
         } = icon;
 
         const alt = isToken ? altToken : altCollection;

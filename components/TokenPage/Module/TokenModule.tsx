@@ -11,21 +11,21 @@ import TokenInfo from "./TokenInfo/TokenInfo";
 import * as St from "./TokenModule.styled";
 
 interface Props {
-  token: IToken;
   project: Project;
+  token: IToken;
 }
 
-const TokenModule = ({ token, project }: Props): JSX.Element => {
+const TokenModule = ({ project, token }: Props): JSX.Element => {
   const {
+    additional_info,
+    attributes,
+    description,
+    generator_url: generatorUrl,
     image,
     image_mid: imageMid,
-    generator_url: generatorUrl,
-    attributes,
     token_id: tokenId,
-    description,
-    additional_info,
   } = token;
-  const { projectSlug, aspectRatio, isZeroIndexed } = project;
+  const { aspectRatio, isZeroIndexed, projectSlug } = project;
 
   const currentSupply = useCurrentSupply(projectSlug);
 

@@ -5,11 +5,11 @@ import TokenIcons from "../TokenIcons/TokenIcons";
 import * as St from "./BottomBar.styled";
 
 interface Props {
-  token: IToken;
   project: Project;
+  token: IToken;
 }
 
-const BottomBar = ({ token, project }: Props): JSX.Element => (
+const BottomBar = ({ project, token }: Props): JSX.Element => (
   <St.Container>
     <TokenIcons project={project} token={token} />
   </St.Container>

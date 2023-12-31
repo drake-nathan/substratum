@@ -1,11 +1,11 @@
 import * as St from "./ProjectMenuBar.styled";
 
 interface Props {
-  tab: string;
   setTab: (tab: "details" | "tokens") => void;
+  tab: string;
 }
 
-const ProjectMenuBar = ({ tab, setTab }: Props): JSX.Element => (
+const ProjectMenuBar = ({ setTab, tab }: Props): JSX.Element => (
   <St.Container>
     <St.TabsContainer>
       <St.Tab

@@ -30,15 +30,15 @@ const MarketRootsToken = {
 } satisfies Record<Market, string>;
 
 interface Icon {
-  market: Market;
-  urlParam: UrlParam;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  src: any;
-  id: string;
   altCollection: string;
   altToken: string;
+  id: string;
+  market: Market;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  src: any;
   tooltipCollection: string;
   tooltipToken: string;
+  urlParam: UrlParam;
 }
 
 export const getProjectMarketLink = (
