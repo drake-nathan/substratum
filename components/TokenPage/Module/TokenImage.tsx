@@ -20,9 +20,9 @@ const TokenImage = ({ aspectRatio, generatorUrl, image, imageMid }: Props) => {
 
   return (
     <Image
-      src={imageMid || image}
-      alt="Token Image"
       $aspectRatio={aspectRatio}
+      alt="Token Image"
+      src={imageMid || image}
     />
   );
 };

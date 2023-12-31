@@ -6,7 +6,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link rel="icon" href="/substratum/substratum.ico" />
+          <link href="/substratum/substratum.ico" rel="icon" />
         </Head>
 
         <body>

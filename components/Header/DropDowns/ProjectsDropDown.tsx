@@ -30,15 +30,15 @@ const ProjectsDropDown = ({
   const projectsListJsx = projects.map(
     ({ name, local, externalUrl, projectSlug }) =>
       local ? (
-        <Link key={name} href={`/project/${projectSlug}`}>
+        <Link href={`/project/${projectSlug}`} key={name}>
           {renderProjectItem(name)}
         </Link>
       ) : (
         <St.RowLink
-          key={name}
           href={externalUrl}
-          target="_blank"
+          key={name}
           rel="noreferrer"
+          target="_blank"
         >
           <St.OpenInNewIcon />
           {renderProjectItem(name)}

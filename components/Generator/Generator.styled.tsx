@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export const FrameWrapper = styled.div<{ aspectRatio?: number }>`
+export const FrameWrapper = styled.div<{ $aspectRatio?: number }>`
   position: relative;
   overflow: hidden;
   padding-top: 100%;
-  ${({ aspectRatio }) => aspectRatio && `aspect-ratio: ${aspectRatio};`}
+  ${({ $aspectRatio }) => $aspectRatio && `aspect-ratio: ${$aspectRatio};`}
 
   iframe {
     border: none;

@@ -29,8 +29,8 @@ const VaultInput = ({ vault, setVault }: Props): JSX.Element => {
   return (
     <>
       <St.VaultForm
-        style={{ gridArea: "vault" }}
         onSubmit={handleSubmit(onValid, onInvalid)}
+        style={{ gridArea: "vault" }}
       >
         <St.Input
           {...register("vault")}

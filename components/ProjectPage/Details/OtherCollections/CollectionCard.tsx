@@ -28,7 +28,7 @@ const Card = ({ project }: Props): JSX.Element => {
   const CardJsx = (
     <St.Container>
       <St.ImgSection>
-        <St.Img src={image} alt={name} />
+        <St.Img alt={name} src={image} />
 
         <St.StatusDiv>
           <St.StatusText>{status}</St.StatusText>
@@ -37,10 +37,7 @@ const Card = ({ project }: Props): JSX.Element => {
 
       <St.InfoSection>
         <St.ProjectTitle>{name}</St.ProjectTitle>
-        <St.ArtistName>
-          By
-          {artist}
-        </St.ArtistName>
+        <St.ArtistName>{`By ${artist}`}</St.ArtistName>
 
         <St.SupplyText>
           {currentSupply ? intlNumberFormat(currentSupply) : 0}/{maxSupplyText}{" "}
@@ -54,7 +51,7 @@ const Card = ({ project }: Props): JSX.Element => {
   return local ? (
     <Link href={`/project/${projectSlug}`}>{CardJsx}</Link>
   ) : (
-    <a href={externalUrl} target="_blank" rel="noreferrer">
+    <a href={externalUrl} rel="noreferrer" target="_blank">
       {CardJsx}
     </a>
   );

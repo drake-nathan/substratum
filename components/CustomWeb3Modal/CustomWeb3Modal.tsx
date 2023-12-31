@@ -1,7 +1,8 @@
-import { Web3Modal } from "@web3modal/react";
-import React from "react";
-import { web3ModalClient } from "services/wagmi";
+import { createWeb3Modal, useWeb3ModalTheme } from "@web3modal/wagmi/react";
+import React, { useEffect } from "react";
+import { chains, wagmiConfig } from "services/wagmi";
 import { useTheme } from "styled-components";
+import { WagmiConfig } from "wagmi";
 
 const projectId = process.env.NEXT_PUBLIC_W3M_PROJECT_ID;
 
@@ -9,24 +10,28 @@ if (!projectId) {
   throw new Error("Missing NEXT_PUBLIC_W3M_PROJECT_ID");
 }
 
-const CustomWeb3Modal = (): JSX.Element => {
-  const { colors, isDark } = useTheme();
+createWeb3Modal({
+  chains,
+  projectId,
+  wagmiConfig,
+});
+
+const Web3Modal = ({
+  children,
+}: {
+  children: React.ReactNode;
+}): JSX.Element => {
+  const { isDark } = useTheme();
+  const { setThemeMode } = useWeb3ModalTheme();
 
   const themeMode = isDark ? "dark" : "light";
-  const themeVariables = {
-    "--w3m-accent-color": isDark ? colors.hover : colors.textMain,
-    "--w3m-accent-fill-color": isDark ? colors.textMain : colors.bgMain,
-    "--w3m-background-color": isDark ? colors.hover : colors.textMain,
-  };
 
-  return (
-    <Web3Modal
-      projectId={projectId}
-      ethereumClient={web3ModalClient}
-      themeMode={themeMode}
-      themeVariables={themeVariables}
-    />
-  );
+  useEffect(() => {
+    setThemeMode(themeMode);
+  }, [setThemeMode, themeMode]);
+
+  // @ts-expect-error TODO: fix this
+  return <WagmiConfig config={wagmiConfig}>{children}</WagmiConfig>;
 };
 
-export default CustomWeb3Modal;
+export default Web3Modal;

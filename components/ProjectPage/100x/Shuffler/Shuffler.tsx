@@ -31,11 +31,11 @@ const Shuffler = (): React.JSX.Element => {
         <St.ViewLayer>
           <St.Input
             aria-label="Token ID for Top method"
+            max="100"
             onChange={(e) => setTokenId(e.target.value)}
             placeholder="Token ID to Top"
-            type="number"
-            max="100"
             step="1"
+            type="number"
             value={tokenId}
           />
 
@@ -58,13 +58,13 @@ const Shuffler = (): React.JSX.Element => {
       <ShuffleButton method="wash" vault={vault} />
       <ShuffleButton method="reverse" vault={vault} />
 
-      <VaultInput vault={vault} setVault={setVault} />
+      <VaultInput setVault={setVault} vault={vault} />
 
       {address && tokenModal && (
         <TokenOwnerOfModal
           address={address}
-          tokenId={tokenId}
           setShowModal={setTokenModal}
+          tokenId={tokenId}
         />
       )}
     </St.ButtonGrid>

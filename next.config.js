@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+module.exports = {
   output: "standalone",
   reactStrictMode: true,
   swcMinify: true,
@@ -12,6 +12,8 @@ const nextConfig = {
       issuer: /\.[jt]sx?$/,
       use: ["@svgr/webpack"],
     });
+    // Web3Modal
+    config.externals.push("pino-pretty", "lokijs", "encoding");
 
     return config;
   },
@@ -50,5 +52,3 @@ const nextConfig = {
     ];
   },
 };
-
-export default nextConfig;

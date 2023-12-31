@@ -33,22 +33,22 @@ const TokenInfo = ({
     <St.Container>
       <St.TabWrapper>
         <St.Tab
-          onClick={() => setTab("description")}
           $active={tab === "description"}
+          onClick={() => setTab("description")}
         >
           <h3>{projectSlug === "haiku" ? "Poem" : "Description"}</h3>
         </St.Tab>
 
         {additionalDescription && (
           <St.Tab
-            onClick={() => setTab("more-info")}
             $active={tab === "more-info"}
+            onClick={() => setTab("more-info")}
           >
             <h3>{projectSlug === "haiku" ? "AI Analysis" : "More Info"}</h3>
           </St.Tab>
         )}
 
-        <St.Tab onClick={() => setTab("traits")} $active={tab === "traits"}>
+        <St.Tab $active={tab === "traits"} onClick={() => setTab("traits")}>
           <h3>Traits</h3>
         </St.Tab>
       </St.TabWrapper>

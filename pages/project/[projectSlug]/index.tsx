@@ -54,16 +54,16 @@ const Home: NextPage = () => {
     <HomeContainer>
       <Head>
         <title>{title}</title>
-        <meta name="description" content="substratum" />
+        <meta content="substratum" name="description" />
       </Head>
 
       {projectSlug && project && isString(projectSlug) && (
         <>
           <ProjectHead project={project} />
-          <ProjectMenuBar tab={tab} setTab={setTab} />
+          <ProjectMenuBar setTab={setTab} tab={tab} />
 
           {tab === "tokens" ? (
-            <Tokens projectSlug={projectSlug} project={project} />
+            <Tokens project={project} projectSlug={projectSlug} />
           ) : (
             <Details project={project} />
           )}

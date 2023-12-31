@@ -8,7 +8,7 @@ interface Props {
 }
 
 const Generator = ({ generatorUrl, aspectRatio }: Props): JSX.Element => (
-  <St.FrameWrapper aspectRatio={aspectRatio}>
+  <St.FrameWrapper $aspectRatio={aspectRatio}>
     <iframe src={generatorUrl} title="generator" />
   </St.FrameWrapper>
 );

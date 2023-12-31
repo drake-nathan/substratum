@@ -57,7 +57,7 @@ const Info = ({
             <St.Row key={name}>
               <St.Name>{name}</St.Name>
               {isLink ? (
-                <a id={name} href={value} target="_blank" rel="noreferrer">
+                <a href={value} id={name} rel="noreferrer" target="_blank">
                   <St.Value>{processedValue}</St.Value>
                 </a>
               ) : (

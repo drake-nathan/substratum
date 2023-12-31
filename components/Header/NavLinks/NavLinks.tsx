@@ -39,9 +39,9 @@ const NavLinks = ({ setShowMobileNav }: Props): JSX.Element => {
 
       {isMobile && (
         <ProjectsDropDown
-          showDropDown={showProjectsDropDown}
           setShowDropDown={setShowProjectsDropDown}
           setShowMobileNav={setShowMobileNav}
+          showDropDown={showProjectsDropDown}
         />
       )}
     </>
@@ -71,9 +71,9 @@ const NavLinks = ({ setShowMobileNav }: Props): JSX.Element => {
 
       {isMobile && (
         <ArtistsDropDown
-          showDropDown={showArtistsDropDown}
           setShowDropDown={setShowArtistsDropDown}
           setShowMobileNav={setShowMobileNav}
+          showDropDown={showArtistsDropDown}
         />
       )}
     </>
@@ -105,17 +105,17 @@ const NavLinks = ({ setShowMobileNav }: Props): JSX.Element => {
 
       {!isMobile && (
         <ProjectsDropDown
-          showDropDown={showProjectsDropDown}
           setShowDropDown={setShowProjectsDropDown}
           setShowMobileNav={setShowMobileNav}
+          showDropDown={showProjectsDropDown}
         />
       )}
 
       {!isMobile && (
         <ArtistsDropDown
-          showDropDown={showArtistsDropDown}
           setShowDropDown={setShowArtistsDropDown}
           setShowMobileNav={setShowMobileNav}
+          showDropDown={showArtistsDropDown}
         />
       )}
     </St.Container>

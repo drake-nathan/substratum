@@ -1,6 +1,7 @@
-import { useEffect, useState, type ReactNode, type ReactElement } from "react";
-import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import { useWindowSize } from "hooks/useWindowSize";
+import { type ReactElement, type ReactNode, useEffect, useState } from "react";
+import { ThemeProvider as StyledThemeProvider } from "styled-components";
+
 import {
   type Colors,
   darkColors,
@@ -36,15 +37,17 @@ const ThemeProvider = ({ children }: Props): ReactElement => {
   const toggleTheme = () => {
     if (colors === lightColors) {
       setColors(darkColors);
-      sessionStorage.setItem("theme", "dark");
+      localStorage.setItem("substratum-theme", "dark");
+      document.documentElement.classList.add("dark");
     } else {
       setColors(lightColors);
-      sessionStorage.setItem("theme", "light");
+      localStorage.setItem("substratum-theme", "light");
+      document.documentElement.classList.remove("dark");
     }
   };
 
   useEffect(() => {
-    const savedTheme = sessionStorage.getItem("theme");
+    const savedTheme = localStorage.getItem("substratum-theme");
 
     const prefersDark =
       window.matchMedia &&
@@ -54,6 +57,8 @@ const ThemeProvider = ({ children }: Props): ReactElement => {
       setColors(savedTheme === "dark" ? darkColors : lightColors);
     } else if (prefersDark) {
       setColors(darkColors);
+      localStorage.setItem("substratum-theme", "dark");
+      document.documentElement.classList.add("dark");
     }
   }, []);
 
@@ -62,10 +67,10 @@ const ThemeProvider = ({ children }: Props): ReactElement => {
       theme={{
         ...defaultTheme,
         colors,
+        isDark,
+        isMiniCard,
         isMobile,
         isMobileNav,
-        isMiniCard,
-        isDark,
         toggleTheme,
       }}
     >

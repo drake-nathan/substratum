@@ -1,10 +1,14 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import CustomWeb3Modal from "components/CustomWeb3Modal/CustomWeb3Modal";
+import dynamic from "next/dynamic";
 import React from "react";
 
 import ModalProvider from "./ModalProvider";
 import ThemeProvider from "./ThemeProvider";
-import WagmiProvider from "./WagmiProvider";
+
+const Web3Modal = dynamic(
+  () => import("../components/CustomWeb3Modal/CustomWeb3Modal"),
+  { ssr: false },
+);
 
 interface Props {
   children: React.ReactNode;
@@ -15,13 +19,11 @@ const Providers = ({ children }: Props): JSX.Element => {
 
   return (
     <ThemeProvider>
-      <WagmiProvider>
+      <Web3Modal>
         <QueryClientProvider client={queryClient}>
           <ModalProvider>{children}</ModalProvider>
         </QueryClientProvider>
-      </WagmiProvider>
-
-      <CustomWeb3Modal />
+      </Web3Modal>
     </ThemeProvider>
   );
 };

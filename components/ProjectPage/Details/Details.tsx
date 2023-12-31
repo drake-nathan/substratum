@@ -1,4 +1,3 @@
-import Generator from "components/Generator/Generator";
 import * as St from "components/ProjectPage/Details/Details.styled";
 import { type Project, projects } from "components/staticData/projects";
 
@@ -43,7 +42,7 @@ const Details = ({ project }: Props): JSX.Element => {
   return (
     <St.DetailGrid>
       <St.ProjectImage>
-        <St.Image aspectRatio={aspectRatio} src={image} alt="Project image" />
+        <St.Image $aspectRatio={aspectRatio} alt="Project image" src={image} />
         <St.ProjectImageNameContainer>
           <St.ProjectImageName>{`${name}`}</St.ProjectImageName>
         </St.ProjectImageNameContainer>
@@ -59,8 +58,8 @@ const Details = ({ project }: Props): JSX.Element => {
           {projectSlug === "texture-and-hues" && (
             <a
               href="https://mattoapi.blob.core.windows.net/texture-and-hues-images/allSVGs.json"
-              target="_blank"
               rel="noreferrer"
+              target="_blank"
             >
               <St.LinkContainer>
                 <St.Link>All SVGs</St.Link>

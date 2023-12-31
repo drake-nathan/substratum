@@ -21,7 +21,7 @@ const ProjectHead = ({ project }: Props) => {
 
       <St.ArtistDiv>
         <St.By>By</St.By>{" "}
-        <a href={website} target="_blank" rel="noreferrer">
+        <a href={website} rel="noreferrer" target="_blank">
           <St.ArtistName>{artist}</St.ArtistName>
         </a>
       </St.ArtistDiv>

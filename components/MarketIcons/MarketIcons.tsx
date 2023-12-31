@@ -41,14 +41,14 @@ const MarketIcons = ({ project, tokenId }: Props): JSX.Element => {
           : getProjectMarketLink(icon, openSeaSlug, contractAddress);
 
         return (
-          <a key={id} href={link} target="_blank" rel="noreferrer">
-            <Icon id={id} alt={alt} className="icon" />
+          <a href={link} key={id} rel="noreferrer" target="_blank">
+            <Icon alt={alt} className="icon" id={id} />
 
             <Tooltip
               anchorId={id}
               content={tooltip}
-              positionStrategy="fixed"
               place={isToken ? "top" : "bottom"}
+              positionStrategy="fixed"
             />
           </a>
         );

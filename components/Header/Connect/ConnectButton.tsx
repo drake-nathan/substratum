@@ -1,14 +1,13 @@
-import { useWeb3Modal } from "@web3modal/react";
+import { useWeb3Modal, useWeb3ModalState } from "@web3modal/wagmi/react";
 import { useIsClient } from "hooks/useIsClient";
 import { useEffect, useState } from "react";
 import { shortenAddress, shortenEth, shortenText } from "utils/shorteners";
 import { useAccount, useBalance, useEnsName } from "wagmi";
 
-import * as St from "./ConnectButton.styled";
-
 const ConnectButton = (): JSX.Element => {
-  const { isOpen, open, close } = useWeb3Modal();
   const { isClient } = useIsClient();
+  const { open, close } = useWeb3Modal();
+  const { open: isOpen } = useWeb3ModalState();
 
   const { address } = useAccount();
   const { data: ens } = useEnsName({ address });
@@ -32,16 +31,20 @@ const ConnectButton = (): JSX.Element => {
   const eth = balance?.formatted ? shortenEth(balance.formatted) : null;
 
   return (
-    <St.ConnectButton onClick={clickHandler}>
+    <button
+      className="flex h-[90px] w-[300px] items-center justify-center  bg-black font-bold text-white hover:underline"
+      onClick={clickHandler}
+      style={{ borderLeft: "1px solid #fffcf9" }}
+    >
       {address && isClient ? (
-        <St.WalletInfo>
+        <div className="flex flex-col items-center gap-2">
           <p>{accountText}</p>
           <p>{eth && `${eth} ${balance?.symbol}`}</p>
-        </St.WalletInfo>
+        </div>
       ) : (
         <h3>Connect</h3>
       )}
-    </St.ConnectButton>
+    </button>
   );
 };
 

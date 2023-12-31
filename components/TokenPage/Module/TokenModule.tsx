@@ -42,21 +42,21 @@ const TokenModule = ({ token, project }: Props): JSX.Element => {
 
         <St.ImageSection>
           <TokenImage
+            aspectRatio={aspectRatio}
             generatorUrl={generatorUrl}
             image={image}
             imageMid={imageMid}
-            aspectRatio={aspectRatio}
           />
-          <BottomBar token={token} project={project} />
+          <BottomBar project={project} token={token} />
         </St.ImageSection>
 
         <St.InfoSection>
           <TokenInfo
-            projectSlug={projectSlug}
-            traits={attributes}
+            additionalDescription={additional_info?.additional_description}
             description={description}
             poem={additional_info?.poem}
-            additionalDescription={additional_info?.additional_description}
+            projectSlug={projectSlug}
+            traits={attributes}
           />
         </St.InfoSection>
 

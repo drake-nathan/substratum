@@ -11,7 +11,7 @@ interface Props {
 
 const BottomBar = ({ token, project }: Props): JSX.Element => (
   <St.Container>
-    <TokenIcons token={token} project={project} />
+    <TokenIcons project={project} token={token} />
   </St.Container>
 );
 

@@ -30,17 +30,17 @@ const TokenGrid = ({
     {tokens ? (
       <InfiniteScroll
         dataLength={currentLength}
-        next={fetchNextPage}
         hasMore={hasMore}
         loader={<St.H1>Loading...</St.H1>}
+        next={fetchNextPage}
       >
         <St.Grid>
           {tokens.pages.map((page) =>
             page.tokens.map((token) => (
               <TokenCard
-                token={token}
-                key={token.name}
                 isTokenIdInTitle={isTokenIdInTitle}
+                key={token.name}
+                token={token}
               />
             )),
           )}
