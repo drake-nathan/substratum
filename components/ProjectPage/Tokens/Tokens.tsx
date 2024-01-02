@@ -1,5 +1,5 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
-import type { Project } from "components/staticData/projects";
+import type { Project } from "data/projects";
 import { parseAsStringEnum, useQueryState } from "next-usequerystate";
 import { useEffect, useState } from "react";
 import { fetchCollectionTokens } from "services/azureApi/fetches";

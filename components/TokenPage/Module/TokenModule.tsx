@@ -1,4 +1,4 @@
-import type { Project } from "components/staticData/projects";
+import type { Project } from "data/projects";
 import { useCurrentSupply } from "hooks/useCurrentSupply";
 import type { IToken } from "services/azureApi/types";
 import { intlNumberFormat } from "utils/helpers";

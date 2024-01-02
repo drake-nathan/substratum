@@ -1,4 +1,4 @@
-import { type Project } from "components/staticData/projects";
+import { type Project } from "data/projects";
 import { Tooltip } from "react-tooltip";
 
 import {

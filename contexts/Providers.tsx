@@ -5,10 +5,9 @@ import React from "react";
 import ModalProvider from "./ModalProvider";
 import ThemeProvider from "./ThemeProvider";
 
-const Web3Modal = dynamic(
-  () => import("../components/CustomWeb3Modal/CustomWeb3Modal"),
-  { ssr: false },
-);
+const Web3Modal = dynamic(() => import("../components/CustomWeb3Modal"), {
+  ssr: false,
+});
 
 interface Props {
   children: React.ReactNode;

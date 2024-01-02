@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import MarketIcons from "components/MarketIcons/MarketIcons";
-import { type Project } from "components/staticData/projects";
+import { type Project } from "data/projects";
 import Link from "next/link";
 import { useEffect } from "react";
 import { fetchToken } from "services/azureApi/fetches";

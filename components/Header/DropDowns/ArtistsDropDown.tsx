@@ -1,4 +1,4 @@
-import { artistUrls, projects } from "components/staticData/projects";
+import { artistUrls, projects } from "data/projects";
 import React from "react";
 import { useTheme } from "styled-components";
 

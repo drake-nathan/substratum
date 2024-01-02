@@ -1,4 +1,4 @@
-import { type Project } from "components/staticData/projects";
+import { type Project } from "data/projects";
 import { useCurrentSupply } from "hooks/useCurrentSupply";
 import Link from "next/link";
 import { intlNumberFormat } from "utils/helpers";

@@ -1,4 +1,4 @@
-import { projects } from "components/staticData/projects";
+import { projects } from "data/projects";
 import Link from "next/link";
 import React from "react";
 import { useTheme } from "styled-components";

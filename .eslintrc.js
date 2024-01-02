@@ -31,13 +31,6 @@ module.exports = {
     "no-underscore-dangle": "off",
     "no-unused-vars": "off",
     "react-hooks/exhaustive-deps": "warn",
-    "react/function-component-definition": [
-      "warn",
-      {
-        namedComponents: "arrow-function",
-        unnamedComponents: "arrow-function",
-      },
-    ],
     "react/jsx-props-no-spreading": "off",
     "react/jsx-sort-props": ["error"],
     "react/require-default-props": "off",

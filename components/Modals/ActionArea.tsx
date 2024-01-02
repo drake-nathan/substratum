@@ -1,8 +1,7 @@
+import Button from "components/Button";
 import React from "react";
 import { PuffLoader } from "react-spinners";
 import { useTheme } from "styled-components";
-
-import * as St from "./Modals.styled";
 
 interface Props {
   error: string | undefined;
@@ -17,14 +16,19 @@ const ActionArea = ({
 }: Props): React.JSX.Element => {
   const { colors } = useTheme();
 
-  if (error) return <St.Error>{error}</St.Error>;
+  if (error)
+    return (
+      <p className="max-w-[30ch] text-center font-semibold underline">
+        {error}
+      </p>
+    );
 
   if (loading) return <PuffLoader color={colors.textMain} />;
 
   return (
-    <St.Button onClick={handleClick}>
+    <Button onClick={handleClick}>
       <h4>Proceed</h4>
-    </St.Button>
+    </Button>
   );
 };
 

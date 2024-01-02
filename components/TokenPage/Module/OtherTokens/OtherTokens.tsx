@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import type { Project } from "components/staticData/projects";
+import type { Project } from "data/projects";
 import { useCurrentSupply } from "hooks/useCurrentSupply";
 import { useEffect } from "react";
 import { fetchCollectionTokens } from "services/azureApi/fetches";

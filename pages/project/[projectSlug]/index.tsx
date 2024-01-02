@@ -2,7 +2,7 @@ import Details from "components/ProjectPage/Details/Details";
 import ProjectHead from "components/ProjectPage/ProjectHead";
 import ProjectMenuBar from "components/ProjectPage/ProjectMenuBar";
 import Tokens from "components/ProjectPage/Tokens/Tokens";
-import { type Project, projects } from "components/staticData/projects";
+import { type Project, projects } from "data/projects";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";

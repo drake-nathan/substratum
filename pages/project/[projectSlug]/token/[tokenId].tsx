@@ -1,5 +1,5 @@
-import { projects } from "components/staticData/projects";
 import TokenPage from "components/TokenPage/TokenPage";
+import { projects } from "data/projects";
 import { useCurrentSupply } from "hooks/useCurrentSupply";
 import type { NextPage } from "next";
 import Head from "next/head";

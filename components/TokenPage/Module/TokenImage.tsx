@@ -1,4 +1,4 @@
-import Generator from "components/Generator/Generator";
+import Generator from "components/Generator";
 import styled from "styled-components";
 
 const Image = styled.img<{ $aspectRatio: number }>`

@@ -1,10 +1,10 @@
+import Button from "components/Button";
 import { getEtherscanLink } from "utils/links";
 import type { SetState } from "utils/types";
 import type { Hash } from "viem";
 import { useChainId } from "wagmi";
 
 import ModalBase from "./ModalBase";
-import * as St from "./Modals.styled";
 
 interface Props {
   hash: Hash;
@@ -20,17 +20,22 @@ const SuccessModal = ({ hash, setShowModal, text }: Props): JSX.Element => {
 
   return (
     <ModalBase setShowModal={setShowModal}>
-      <St.Text>{text}</St.Text>
+      <p className="max-w-[30ch] text-center font-semibold">{text}</p>
 
-      <St.Link href={link} rel="noreferrer" target="_blank">
+      <a
+        className="text-[1.125rem] font-medium hover:text-hover-light hover:underline dark:hover:text-hover-dark"
+        href={link}
+        rel="noreferrer"
+        target="_blank"
+      >
         View on Etherscan
-      </St.Link>
+      </a>
 
-      <St.ButtonWrapper>
-        <St.Button onClick={() => setShowModal(false)}>
+      <div className="flex items-center justify-around">
+        <Button onClick={() => setShowModal(false)}>
           <h4>Close</h4>
-        </St.Button>
-      </St.ButtonWrapper>
+        </Button>
+      </div>
     </ModalBase>
   );
 };
