@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { projects, type ProjectSort, Status } from "../../../data/projects";
+import { type ProjectSort, Status, projects } from "../../../data/projects";
 import Card from "./Card/Card";
 import TabBar from "./TabBar/TabBar";
 

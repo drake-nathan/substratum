@@ -1,6 +1,7 @@
 import type { Project } from "data/projects";
-import { useCurrentSupply } from "hooks/useCurrentSupply";
 import type { IToken } from "services/azureApi/types";
+
+import { useCurrentSupply } from "hooks/useCurrentSupply";
 import { intlNumberFormat } from "utils/helpers";
 
 // import PriceIcon from 'public/icons/PriceIcon.svg';

@@ -1,9 +1,10 @@
+import type { NextPage } from "next";
+
 import Details from "components/ProjectPage/Details/Details";
 import ProjectHead from "components/ProjectPage/ProjectHead";
 import ProjectMenuBar from "components/ProjectPage/ProjectMenuBar";
 import Tokens from "components/ProjectPage/Tokens/Tokens";
 import { type Project, projects } from "data/projects";
-import type { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { parseAsStringEnum, useQueryState } from "next-usequerystate";
@@ -50,7 +51,11 @@ const Home: NextPage = () => {
       {projectSlug && project && isString(projectSlug) && (
         <>
           <ProjectHead project={project} />
-          <ProjectMenuBar projectSlug={projectSlug} setTab={setTab} tab={tab} />
+          <ProjectMenuBar
+            projectSlug={projectSlug}
+            setTab={(tab) => void setTab(tab)}
+            tab={tab}
+          />
 
           {tab === "tokens" ? (
             <Tokens project={project} projectSlug={projectSlug} />

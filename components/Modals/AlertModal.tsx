@@ -1,5 +1,6 @@
-import Button from "components/Button";
 import type { SetState } from "utils/types";
+
+import Button from "components/Button";
 
 import ModalBase from "./ModalBase";
 

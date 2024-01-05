@@ -1,9 +1,11 @@
-import { parseAsStringEnum, useQueryState } from "next-usequerystate";
 import type { IAttribute } from "services/azureApi/types";
+
+import { parseAsStringEnum, useQueryState } from "next-usequerystate";
+
+import type { InfoTab } from "./types";
 
 import Info from "./Info";
 import * as St from "./TokenInfo.styled";
-import type { InfoTab } from "./types";
 
 interface Props {
   additionalDescription: string | undefined;
@@ -34,7 +36,7 @@ const TokenInfo = ({
       <St.TabWrapper>
         <St.Tab
           $active={tab === "description"}
-          onClick={() => setTab("description")}
+          onClick={() => void setTab("description")}
         >
           <h3>{projectSlug === "haiku" ? "Poem" : "Description"}</h3>
         </St.Tab>
@@ -42,13 +44,16 @@ const TokenInfo = ({
         {additionalDescription && (
           <St.Tab
             $active={tab === "more-info"}
-            onClick={() => setTab("more-info")}
+            onClick={() => void setTab("more-info")}
           >
             <h3>{projectSlug === "haiku" ? "AI Analysis" : "More Info"}</h3>
           </St.Tab>
         )}
 
-        <St.Tab $active={tab === "traits"} onClick={() => setTab("traits")}>
+        <St.Tab
+          $active={tab === "traits"}
+          onClick={() => void setTab("traits")}
+        >
           <h3>Traits</h3>
         </St.Tab>
       </St.TabWrapper>

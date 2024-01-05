@@ -1,4 +1,4 @@
-import { type Project } from "data/projects";
+import type { Project } from "data/projects";
 import type { IToken } from "services/azureApi/types";
 
 import TokenIcons from "../TokenIcons/TokenIcons";

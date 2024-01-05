@@ -1,5 +1,6 @@
+import type { Project } from "data/projects";
+
 import MarketIcons from "components/MarketIcons/MarketIcons";
-import { type Project } from "data/projects";
 import { useCurrentSupply } from "hooks/useCurrentSupply";
 import { intlNumberFormat } from "utils/helpers";
 

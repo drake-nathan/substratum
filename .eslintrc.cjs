@@ -1,8 +1,9 @@
 module.exports = {
   extends: [
     "next/core-web-vitals",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:typescript-sort-keys/recommended",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/strict-type-checked",
+    "plugin:perfectionist/recommended-natural",
     "prettier",
   ],
   parser: "@typescript-eslint/parser",
@@ -10,19 +11,16 @@ module.exports = {
     project: ["./tsconfig.json", "./tsconfig.node.json"],
     tsconfigRootDir: __dirname,
   },
-  plugins: [
-    "@typescript-eslint",
-    "simple-import-sort",
-    "sort-keys-fix",
-    "typescript-sort-keys",
-    "sort-destructure-keys",
-  ],
+  plugins: ["@typescript-eslint", "perfectionist"],
   root: true,
   rules: {
-    "@typescript-eslint/consistent-type-imports": [
+    "@typescript-eslint/consistent-type-exports": "error",
+    "@typescript-eslint/consistent-type-imports": "error",
+    "@typescript-eslint/no-confusing-void-expression": [
       "error",
-      { fixStyle: "inline-type-imports" },
+      { ignoreArrowShorthand: true },
     ],
+    "@typescript-eslint/no-import-type-side-effects": "error",
     "@typescript-eslint/no-unused-vars": "warn",
     "import/no-anonymous-default-export": "off",
     "import/prefer-default-export": "off",
@@ -30,13 +28,8 @@ module.exports = {
     "no-return-assign": "off",
     "no-underscore-dangle": "off",
     "no-unused-vars": "off",
-    "react-hooks/exhaustive-deps": "warn",
     "react/jsx-props-no-spreading": "off",
-    "react/jsx-sort-props": ["error"],
     "react/require-default-props": "off",
-    "simple-import-sort/exports": "error",
-    "simple-import-sort/imports": "error",
-    "sort-destructure-keys/sort-destructure-keys": "error",
-    "sort-keys-fix/sort-keys-fix": "warn",
+    "react-hooks/exhaustive-deps": "warn",
   },
 };

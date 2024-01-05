@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
     "allowJs": true,
-    "noEmit": true
+    "noEmit": true,
+    "strict": true
   },
   "include": [
     "tailwind.config.js",
-    ".eslintrc.js",
+    ".eslintrc.cjs",
     "next.config.js",
     "postcss.config.js",
     "prettier.config.js"

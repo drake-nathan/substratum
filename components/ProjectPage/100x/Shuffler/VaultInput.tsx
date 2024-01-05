@@ -1,7 +1,8 @@
+import type { SetState } from "utils/types";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useModal } from "hooks/useModal";
 import { useForm } from "react-hook-form";
-import type { SetState } from "utils/types";
 import { zodAddress } from "utils/zod";
 import { z } from "zod";
 
@@ -29,7 +30,7 @@ const VaultInput = ({ setVault, vault }: Props): JSX.Element => {
   return (
     <>
       <St.VaultForm
-        onSubmit={handleSubmit(onValid, onInvalid)}
+        onSubmit={void handleSubmit(onValid, onInvalid)}
         style={{ gridArea: "vault" }}
       >
         <input
