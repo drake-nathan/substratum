@@ -1,9 +1,10 @@
+import type { Address, Hash } from "viem";
+import type { WriteContractResult } from "wagmi/dist/actions";
+
 import {
   type Method,
   methods,
 } from "components/ProjectPage/100x/Shuffler/methods";
-import type { Address, Hash } from "viem";
-import type { WriteContractResult } from "wagmi/dist/actions";
 
 import {
   useOneHundredXShuffle,
@@ -13,20 +14,20 @@ import {
 interface Params {
   handleError: (error: Error) => void;
   handleSuccess: (hash: Hash) => void;
-  payableAmount: bigint;
   method: Method | undefined;
+  payableAmount: bigint;
   vault?: Address;
 }
 
 export const useShuffle = ({
   handleError,
   handleSuccess,
-  payableAmount,
   method,
+  payableAmount,
   vault,
 }: Params): {
-  write: (() => void) | undefined;
   data: WriteContractResult | undefined;
+  write: (() => void) | undefined;
 } => {
   const { config } = usePrepareOneHundredXShuffle({
     args: vault
@@ -41,7 +42,7 @@ export const useShuffle = ({
     value: payableAmount,
   });
 
-  const { write, data } = useOneHundredXShuffle({
+  const { data, write } = useOneHundredXShuffle({
     ...config,
     onError: (error) => {
       if (method) {
@@ -49,7 +50,9 @@ export const useShuffle = ({
         console.error(error);
       }
     },
-    onSuccess: (data) => handleSuccess(data.hash),
+    onSuccess: (data) => {
+      handleSuccess(data.hash);
+    },
   });
 
   return { data, write: method ? write : undefined };

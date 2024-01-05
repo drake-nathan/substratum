@@ -77,7 +77,7 @@ const TokenSearch = ({
 
   return (
     <>
-      <St.Form id="token-page-form" onSubmit={handleSubmit(onSubmit)}>
+      <St.Form id="token-page-form" onSubmit={void handleSubmit(onSubmit)}>
         <St.Input
           className="special-artist-name"
           type="number"
@@ -91,7 +91,7 @@ const TokenSearch = ({
           autoComplete="off"
           id="enter-id"
           onBlur={() => {
-            if (tokenId === null || (tokenId === undefined && tokenId !== 0)) {
+            if (tokenId === null || tokenId !== 0) {
               setTokenId(null);
               refetch();
             }

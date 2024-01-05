@@ -44,7 +44,7 @@ const Tokens = ({ project, projectSlug }: Props): JSX.Element => {
   const [tokenSearchId, setTokenSearchId] = useState<null | number>(null);
 
   const { data, error, fetchNextPage, isFetching, isLoading, refetch } =
-    useInfiniteQuery<CollectionResponse, Error>({
+    useInfiniteQuery<CollectionResponse>({
       getNextPageParam: (lastFetch) => lastFetch.skip + limit,
       initialPageParam: 0,
       queryFn: ({ pageParam: skip }) =>
@@ -64,15 +64,14 @@ const Tokens = ({ project, projectSlug }: Props): JSX.Element => {
 
     if (data) {
       const lastPage = data.pages[data.pages.length - 1];
-      if (lastPage) {
-        setHasMore(lastPage.hasMore);
-        setCurrentLength(lastPage.skip + lastPage.tokens.length);
-      }
+
+      setHasMore(lastPage.hasMore);
+      setCurrentLength(lastPage.skip + lastPage.tokens.length);
     }
   }, [data, error]);
 
   useEffect(() => {
-    refetch();
+    void refetch();
   }, [sortDir, sortType, projectSlug, refetch]);
 
   useEffect(() => {
@@ -83,9 +82,9 @@ const Tokens = ({ project, projectSlug }: Props): JSX.Element => {
     <TokensContainer>
       <TokenMenu
         project={project}
-        refetch={refetch}
-        setSortDir={setSortDir}
-        setSortType={setSortType}
+        refetch={() => void refetch()}
+        setSortDir={(dir) => void setSortDir(dir)}
+        setSortType={(type) => void setSortType(type)}
         setTokenSearchId={setTokenSearchId}
         sortDir={sortDir}
         sortType={sortType}
@@ -97,7 +96,7 @@ const Tokens = ({ project, projectSlug }: Props): JSX.Element => {
         currentLength={currentLength}
         data={data}
         error={error}
-        fetchNextPage={fetchNextPage}
+        fetchNextPage={() => void fetchNextPage()}
         hasMore={hasMore}
         isFetching={isFetching}
         isLoading={isLoading}

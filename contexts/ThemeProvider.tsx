@@ -49,9 +49,9 @@ const ThemeProvider = ({ children }: Props): ReactElement => {
   useEffect(() => {
     const savedTheme = localStorage.getItem("substratum-theme");
 
-    const prefersDark =
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ).matches;
 
     if (savedTheme && ["dark", "light"].includes(savedTheme)) {
       setColors(savedTheme === "dark" ? darkColors : lightColors);

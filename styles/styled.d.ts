@@ -5,11 +5,11 @@ import type { Colors } from "./theme";
 declare module "styled-components" {
   export interface DefaultTheme {
     borderRadius: string;
+    colors: Colors;
+    isDark?: boolean;
+    isMiniCard?: boolean;
     isMobile?: boolean;
     isMobileNav?: boolean;
-    isMiniCard?: boolean;
-    colors: Colors;
     toggleTheme?: () => void;
-    isDark?: boolean;
   }
 }

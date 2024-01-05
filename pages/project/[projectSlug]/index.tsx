@@ -51,7 +51,11 @@ const Home: NextPage = () => {
       {projectSlug && project && isString(projectSlug) && (
         <>
           <ProjectHead project={project} />
-          <ProjectMenuBar projectSlug={projectSlug} setTab={setTab} tab={tab} />
+          <ProjectMenuBar
+            projectSlug={projectSlug}
+            setTab={(tab) => void setTab(tab)}
+            tab={tab}
+          />
 
           {tab === "tokens" ? (
             <Tokens project={project} projectSlug={projectSlug} />

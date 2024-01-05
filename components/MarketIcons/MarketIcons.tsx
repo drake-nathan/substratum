@@ -30,6 +30,8 @@ const MarketIcons = ({ project, tokenId }: Props): JSX.Element => {
           altCollection,
           altToken,
           id,
+          // necessary for svgr
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
           src: Icon,
           tooltipCollection,
           tooltipToken,

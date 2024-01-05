@@ -25,13 +25,13 @@ const TokenPage = ({ project, tokenId }: Props): JSX.Element => {
     error,
     isLoading,
     refetch,
-  } = useQuery<IToken, Error>({
+  } = useQuery<IToken>({
     queryFn: () => fetchToken(projectSlug, tokenId),
     queryKey: ["token"],
   });
 
   useEffect(() => {
-    refetch();
+    void refetch();
   }, [refetch, tokenId]);
 
   const renderToken = (): JSX.Element => {

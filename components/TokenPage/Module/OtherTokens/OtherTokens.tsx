@@ -30,14 +30,14 @@ const OtherTokens = ({ project, token }: Props): JSX.Element => {
     error,
     isLoading,
     refetch,
-  } = useQuery<CollectionResponse, Error>({
+  } = useQuery<CollectionResponse>({
     queryFn: () =>
       fetchCollectionTokens(projectSlug, 3, skip, "asc", "tokenId", null),
     queryKey: ["tokens"],
   });
 
   useEffect(() => {
-    refetch();
+    void refetch();
   }, [refetch, tokenId]);
 
   return (
@@ -46,7 +46,7 @@ const OtherTokens = ({ project, token }: Props): JSX.Element => {
         <>
           <St.OtherTokensHeader>Other Tokens</St.OtherTokensHeader>
           <St.OtherTokens>
-            {response?.tokens.length
+            {response.tokens.length
               ? response.tokens.map((t) => <TokenCard key={t.name} token={t} />)
               : null}
           </St.OtherTokens>

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import EtherscanLogo from "public/icons/EtherscanLogo.svg";
 import FirstMateLogo from "public/icons/FirstMateLogo.svg";
 import LooksRareLogo from "public/icons/LooksRareLogo.svg";

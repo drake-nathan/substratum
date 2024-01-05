@@ -1,9 +1,9 @@
-import type { Address, Hash } from "viem";
+import type { Address } from "viem";
 
 type Params = {
-  chain: "mainnet" | "goerli";
+  chain: "goerli" | "mainnet";
   type: "address" | "tx";
-  value: Address | Hash;
+  value: Address;
 };
 
 export const getEtherscanLink = ({ chain, type, value }: Params) => {
