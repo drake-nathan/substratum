@@ -1,4 +1,5 @@
-import { type ConfigOptions } from "@web3modal/wagmi/dist/types/src/utils/defaultWagmiCoreConfig";
+import type { ConfigOptions } from "@web3modal/wagmi/dist/types/src/utils/defaultWagmiCoreConfig";
+
 import { defaultWagmiConfig } from "@web3modal/wagmi/react";
 import { goerli, mainnet } from "wagmi/chains";
 

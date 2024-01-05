@@ -30,8 +30,8 @@ const Web3Modal = ({
     setThemeMode(themeMode);
   }, [setThemeMode, themeMode]);
 
-  // @ts-expect-error TODO: fix this
-  return <WagmiConfig config={wagmiConfig}>{children}</WagmiConfig>;
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
+  return <WagmiConfig config={wagmiConfig as any}>{children}</WagmiConfig>;
 };
 
 export default Web3Modal;
