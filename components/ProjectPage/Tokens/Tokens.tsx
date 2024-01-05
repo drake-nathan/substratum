@@ -1,9 +1,10 @@
-import { useInfiniteQuery } from "@tanstack/react-query";
 import type { Project } from "components/staticData/projects";
+import type { CollectionResponse } from "services/azureApi/types";
+
+import { useInfiniteQuery } from "@tanstack/react-query";
 import { parseAsStringEnum, useQueryState } from "next-usequerystate";
 import { useEffect, useState } from "react";
 import { fetchCollectionTokens } from "services/azureApi/fetches";
-import type { CollectionResponse } from "services/azureApi/types";
 
 import TokenGrid from "./TokenGrid/TokenGrid";
 import TokenMenu from "./TokenMenu/TokenMenu";
@@ -40,7 +41,7 @@ const Tokens = ({ project, projectSlug }: Props): JSX.Element => {
         shallow: false,
       }),
   );
-  const [tokenSearchId, setTokenSearchId] = useState<number | null>(null);
+  const [tokenSearchId, setTokenSearchId] = useState<null | number>(null);
 
   const { data, error, fetchNextPage, isFetching, isLoading, refetch } =
     useInfiniteQuery<CollectionResponse, Error>({

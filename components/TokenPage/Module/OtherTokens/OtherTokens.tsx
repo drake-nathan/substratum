@@ -1,9 +1,10 @@
-import { useQuery } from "@tanstack/react-query";
 import type { Project } from "components/staticData/projects";
+import type { CollectionResponse, IToken } from "services/azureApi/types";
+
+import { useQuery } from "@tanstack/react-query";
 import { useCurrentSupply } from "hooks/useCurrentSupply";
 import { useEffect } from "react";
 import { fetchCollectionTokens } from "services/azureApi/fetches";
-import type { CollectionResponse, IToken } from "services/azureApi/types";
 
 import * as St from "./OtherTokens.styled";
 import TokenCard from "./TokenCard";

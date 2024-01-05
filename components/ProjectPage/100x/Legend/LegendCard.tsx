@@ -1,5 +1,6 @@
-import { type Method, methodDescriptions } from "../Shuffler/methods";
 import type { VisibilityMatrix } from "./Legend";
+
+import { type Method, methodDescriptions } from "../Shuffler/methods";
 import * as St from "./Legend.styled";
 
 interface Props {

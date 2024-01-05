@@ -1,4 +1,4 @@
-import { type Project } from "components/staticData/projects";
+import type { Project } from "components/staticData/projects";
 import type { IToken } from "services/azureApi/types";
 
 import TokenIcons from "../TokenIcons/TokenIcons";

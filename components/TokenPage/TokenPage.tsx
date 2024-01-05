@@ -1,10 +1,11 @@
+import type { Project } from "components/staticData/projects";
+import type { IToken } from "services/azureApi/types";
+
 import { useQuery } from "@tanstack/react-query";
 import MarketIcons from "components/MarketIcons/MarketIcons";
-import { type Project } from "components/staticData/projects";
 import Link from "next/link";
 import { useEffect } from "react";
 import { fetchToken } from "services/azureApi/fetches";
-import type { IToken } from "services/azureApi/types";
 
 import TokenModule from "./Module/TokenModule";
 import * as St from "./TokenPage.styled";

@@ -1,15 +1,16 @@
+import type { SetState } from "utils/types";
+
 import TransactionModal from "components/Modals/TransactionModal";
 import { useTokenOwnerOf } from "hooks/100x/useTokenOwnerOf";
 import { useTop } from "hooks/100x/useTop";
 import { useModal } from "hooks/useModal";
 import { useEffect, useState } from "react";
-import type { SetState } from "utils/types";
 import {
   type Address,
-  formatEther,
   type Hash,
-  isAddressEqual,
   TransactionExecutionError,
+  formatEther,
+  isAddressEqual,
 } from "viem";
 
 import { methodDescriptions } from "./methods";

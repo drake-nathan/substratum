@@ -1,6 +1,7 @@
 import type { InfiniteData } from "@tanstack/react-query";
-import InfiniteScroll from "react-infinite-scroll-component";
 import type { CollectionResponse } from "services/azureApi/types";
+
+import InfiniteScroll from "react-infinite-scroll-component";
 
 import TokenCard from "../TokenCard/TokenCard";
 import * as St from "./TokenGrid.styled";

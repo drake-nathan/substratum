@@ -1,16 +1,17 @@
-import { projects } from "components/staticData/projects";
-import TokenPage from "components/TokenPage/TokenPage";
-import { useCurrentSupply } from "hooks/useCurrentSupply";
 import type { NextPage } from "next";
+import type { ProjectSlug } from "services/azureApi/types";
+
+import TokenPage from "components/TokenPage/TokenPage";
+import { projects } from "components/staticData/projects";
+import { useCurrentSupply } from "hooks/useCurrentSupply";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import type { ProjectSlug } from "services/azureApi/types";
 
 const Home: NextPage = () => {
   const { projectSlug, tokenId: tokenIdQuery } = useRouter().query;
 
-  const [tokenId, setTokenId] = useState<number | null>(null);
+  const [tokenId, setTokenId] = useState<null | number>(null);
   const [isTokenIdValid, setIsTokenIdValid] = useState<boolean>(false);
 
   const project = projects.find((p) => p.projectSlug === projectSlug);

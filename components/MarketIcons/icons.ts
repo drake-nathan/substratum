@@ -57,7 +57,7 @@ export const getProjectMarketLink = (
 export const getTokenMarketLink = (
   icon: Icon,
   address: string,
-  tokenId: string | number,
+  tokenId: number | string,
 ): string => {
   const { market } = icon;
 

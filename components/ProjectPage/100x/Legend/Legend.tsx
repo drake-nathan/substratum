@@ -4,19 +4,19 @@ import * as St from "./Legend.styled";
 import LegendCard from "./LegendCard";
 
 export class VisibilityMatrix {
-  legend = false;
-
-  top = false;
-
   cut = false;
 
   faro = false;
 
+  legend = false;
+
   overhand = false;
 
-  wash = false;
-
   reverse = false;
+
+  top = false;
+
+  wash = false;
 }
 
 const Legend = () => {

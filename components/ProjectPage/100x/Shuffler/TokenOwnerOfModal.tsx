@@ -1,8 +1,9 @@
+import type { SetState } from "utils/types";
+import type { Address } from "viem";
+
 import AlertModal from "components/Modals/AlertModal";
 import { useTokenOwnerOf } from "hooks/100x/useTokenOwnerOf";
 import { shortenAddress } from "utils/shorteners";
-import type { SetState } from "utils/types";
-import type { Address } from "viem";
 
 interface Props {
   address: Address;

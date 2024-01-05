@@ -1,4 +1,5 @@
-import { type Project } from "components/staticData/projects";
+import type { Project } from "components/staticData/projects";
+
 import { useCurrentSupply } from "hooks/useCurrentSupply";
 import { useEffect, useState } from "react";
 import { type SubmitHandler, useForm } from "react-hook-form";
@@ -10,8 +11,8 @@ type IToken = { tokenId: number };
 interface Props {
   project: Project;
   refetch: () => void;
-  setTokenId: React.Dispatch<React.SetStateAction<number | null>>;
-  tokenId: number | null;
+  setTokenId: React.Dispatch<React.SetStateAction<null | number>>;
+  tokenId: null | number;
 }
 
 const TokenSearch = ({
