@@ -2,9 +2,14 @@
   "extends": [
     "next/core-web-vitals",
     "eslint:recommended",
-    "plugin:@typescript-eslint/strict-type-checked",
     "plugin:perfectionist/recommended-natural",
     "prettier"
+  ],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": ["plugin:@typescript-eslint/strict-type-checked"]
+    }
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
