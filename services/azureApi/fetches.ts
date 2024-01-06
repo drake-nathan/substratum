@@ -34,7 +34,7 @@ export const fetchCollectionTokens = async (
   skip: number,
   sortDir: "asc" | "desc",
   sortType: "tokenId" | "worldLevel",
-  tokenId: number | null,
+  tokenId: null | number,
 ) => {
   const url = `${rootApiUrl}/project/${projectSlug}/all-tokens`;
 

@@ -35,7 +35,7 @@ export const useTop = ({
     value: payableAmount,
   });
 
-  const { write, data } = useOneHundredXTop({
+  const { data, write } = useOneHundredXTop({
     ...config,
     onError: (error) => {
       if (tokenId) {

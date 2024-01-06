@@ -13,7 +13,7 @@ export default defineConfig(() => {
     out: "wagmi/generated.ts",
     plugins: [
       etherscan({
-        apiKey: env.ETHERSCAN_API_KEY ?? "",
+        apiKey: env.ETHERSCAN_API_KEY,
         chainId: env.NEXT_PUBLIC_CHAIN === "mainnet" ? mainnet.id : goerli.id,
         contracts: [
           {

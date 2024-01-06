@@ -3,6 +3,7 @@ import Link from "next/link";
 import { intlNumberFormat } from "utils/helpers";
 
 import type { Project } from "../../../staticData/projects";
+
 import * as St from "./Card.styled";
 
 interface Props {

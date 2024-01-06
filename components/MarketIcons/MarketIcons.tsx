@@ -1,13 +1,14 @@
-import { type Project } from "components/staticData/projects";
+import type { Project } from "components/staticData/projects";
+
 import { Tooltip } from "react-tooltip";
 
+import * as St from "./MarketIcons.styled";
 import {
+  Market,
   getProjectMarketLink,
   getTokenMarketLink,
   icons,
-  Market,
 } from "./icons";
-import * as St from "./MarketIcons.styled";
 
 interface Props {
   project: Project;
@@ -29,6 +30,8 @@ const MarketIcons = ({ project, tokenId }: Props): JSX.Element => {
           altCollection,
           altToken,
           id,
+          // necessary for svgr
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
           src: Icon,
           tooltipCollection,
           tooltipToken,

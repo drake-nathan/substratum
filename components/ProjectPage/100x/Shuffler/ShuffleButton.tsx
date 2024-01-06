@@ -5,9 +5,9 @@ import { isAddress } from "viem";
 import { useAccount } from "wagmi";
 
 import { useOneHundredXShuffleable } from "../../../../wagmi/generated";
-import { type Method, methods } from "./methods";
 import ShuffleModal from "./ShuffleModal";
 import * as St from "./Shuffler.styled";
+import { type Method, methods } from "./methods";
 
 interface Props {
   method: Method;

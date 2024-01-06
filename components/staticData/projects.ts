@@ -16,8 +16,8 @@ export enum Artist {
 }
 
 export const artistUrls: Record<Artist, string> = {
-  [Artist.Matto]: "https://matto.xyz",
   [Artist.ImmutableComputer]: "http://immutablecomputer.com/",
+  [Artist.Matto]: "https://matto.xyz",
 };
 
 export interface Project {
@@ -281,4 +281,4 @@ export const projects: Project[] = [
   },
 ];
 
-export type ProjectSort = "all" | "minting" | "upcoming" | "closed";
+export type ProjectSort = "all" | "closed" | "minting" | "upcoming";

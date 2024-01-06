@@ -1,0 +1,48 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:perfectionist/recommended-natural",
+    "prettier"
+  ],
+  "overrides": [
+    {
+      "extends": ["plugin:@typescript-eslint/strict-type-checked"],
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "@typescript-eslint/consistent-type-exports": "error",
+        "@typescript-eslint/consistent-type-imports": "error",
+        "@typescript-eslint/no-confusing-void-expression": [
+          "error",
+          { "ignoreArrowShorthand": true }
+        ],
+        "@typescript-eslint/no-import-type-side-effects": "error",
+        "@typescript-eslint/no-unused-vars": "warn"
+      }
+    }
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": ["./tsconfig.json"]
+  },
+  "plugins": ["@typescript-eslint", "perfectionist"],
+  "root": true,
+  "rules": {
+    "import/no-anonymous-default-export": "off",
+    "import/prefer-default-export": "off",
+    "no-console": ["warn", { "allow": ["info", "warn", "error"] }],
+    "no-return-assign": "off",
+    "no-underscore-dangle": "off",
+    "no-unused-vars": "off",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/function-component-definition": [
+      "warn",
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "react/jsx-props-no-spreading": "off",
+    "react/require-default-props": "off"
+  }
+}

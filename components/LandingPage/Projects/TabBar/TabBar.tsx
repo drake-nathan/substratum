@@ -1,4 +1,5 @@
-import { type ProjectSort } from "../../../staticData/projects";
+import type { ProjectSort } from "../../../staticData/projects";
+
 import * as St from "./TabBar.styled";
 
 interface Props {

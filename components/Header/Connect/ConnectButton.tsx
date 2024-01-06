@@ -22,9 +22,9 @@ const ConnectButton = (): JSX.Element => {
 
   const clickHandler = () => {
     if (isOpen) {
-      close();
+      void close();
     } else {
-      open();
+      void open();
     }
   };
 

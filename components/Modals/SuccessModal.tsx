@@ -1,6 +1,7 @@
-import { getEtherscanLink } from "utils/links";
 import type { SetState } from "utils/types";
 import type { Hash } from "viem";
+
+import { getEtherscanLink } from "utils/links";
 import { useChainId } from "wagmi";
 
 import ModalBase from "./ModalBase";

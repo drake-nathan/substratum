@@ -1,4 +1,4 @@
-import { type Project } from "components/staticData/projects";
+import type { Project } from "components/staticData/projects";
 
 import * as St from "./TokenMenu.styled";
 import TokenSearch from "./TokenSearch";
@@ -8,10 +8,10 @@ interface Props {
   refetch: () => void;
   setSortDir: React.Dispatch<React.SetStateAction<"asc" | "desc">>;
   setSortType: React.Dispatch<React.SetStateAction<"tokenId" | "worldLevel">>;
-  setTokenSearchId: React.Dispatch<React.SetStateAction<number | null>>;
+  setTokenSearchId: React.Dispatch<React.SetStateAction<null | number>>;
   sortDir: "asc" | "desc";
   sortType: "tokenId" | "worldLevel";
-  tokenSearchId: number | null;
+  tokenSearchId: null | number;
   usesTransfers: boolean;
 }
 
