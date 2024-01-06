@@ -2,8 +2,8 @@ import type { DefaultTheme } from "styled-components";
 
 export interface Colors {
   bgMain: string;
-  textMain: string;
   hover: string;
+  textMain: string;
 }
 
 export const darkColors: Colors = {

@@ -1,4 +1,5 @@
 import type { Address } from "viem";
+
 import { z } from "zod";
 
 import { isString } from "./helpers";
