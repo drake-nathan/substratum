@@ -1,7 +1,9 @@
+/* eslint-disable @next/next/no-img-element */
+import { RxOpenInNewWindow } from "react-icons/rx";
+
 import Legend from "../100x/Legend/Legend";
 import Shuffler from "../100x/Shuffler/Shuffler";
 import CollectionCard from "./OtherCollections/CollectionCard";
-import * as St from "components/ProjectPage/Details/Details.styled";
 import { type Project, projects } from "data/projects";
 
 interface Props {
@@ -39,81 +41,94 @@ const Details = ({ project }: Props): JSX.Element => {
   } = project;
 
   return (
-    <St.DetailGrid>
-      <St.ProjectImage>
-        <St.Image $aspectRatio={aspectRatio} alt="Project image" src={image} />
-        <St.ProjectImageNameContainer>
-          <St.ProjectImageName>{name}</St.ProjectImageName>
-        </St.ProjectImageNameContainer>
-      </St.ProjectImage>
+    <div className="mt-12 grid w-full grid-cols-2 gap-8 px-20 max-sm:mt-[23px] max-sm:py-[23px]">
+      <div className="mt-4 flex min-w-[400px] flex-col max-md:col-span-2 max-md:col-start-1 max-md:m-0 max-md:min-w-[auto]">
+        <img
+          alt="Project image"
+          className="w-full border border-black object-cover dark:border-white"
+          src={image}
+          style={{ aspectRatio }}
+        />
+        <div className="flex w-full justify-between border border-t-0 border-black p-4 dark:border-white">
+          <span className="flex-1 text-left font-sans text-xl italic md:text-[28px]">
+            {name}
+          </span>
+        </div>
+      </div>
 
-      <St.Details>
-        {projectSlug === "100x10x1-a" ||
-          (projectSlug === "100x10x1-a-goerli" && <Shuffler />)}
+      <div className="flex flex-col gap-8 max-md:col-span-2 max-md:col-start-1">
+        {(projectSlug === "100x10x1-a" ||
+          projectSlug === "100x10x1-a-goerli") && <Shuffler />}
 
-        <St.AboutSection>
-          <St.DescTitle>About {name}</St.DescTitle>
-          <St.Text>{description}</St.Text>
+        <div className="w-full min-w-[225px] max-xl:min-w-[350px] max-[400px]:min-w-[325px]">
+          <h2>About {name}</h2>
+          <p className="max-w-prose whitespace-pre-line">{description}</p>
           {projectSlug === "texture-and-hues" && (
             <a
               href="https://mattoapi.blob.core.windows.net/texture-and-hues-images/allSVGs.json"
               rel="noreferrer"
               target="_blank"
             >
-              <St.LinkContainer>
-                <St.Link>All SVGs</St.Link>
-                <St.OpenInNewIcon />
-              </St.LinkContainer>
+              <div className="g-1 mt-4 flex items-center text-lg hover:text-black dark:hover:text-white">
+                <span className="underline">All SVGs</span>
+                <RxOpenInNewWindow className="font-medium" />
+              </div>
             </a>
           )}
-        </St.AboutSection>
+        </div>
 
-        <St.OtherInfo>
-          <St.DescTitle>Collection Details</St.DescTitle>
-          <St.Text>{collectionDetails}</St.Text>
-          <St.Text>{date}</St.Text>
+        <div className="flex flex-col">
+          <h2>Collection Details</h2>
+          <p className="max-w-prose whitespace-pre-line">{collectionDetails}</p>
+          <p className="max-w-prose whitespace-pre-line">{date}</p>
 
-          <St.SmallDescTitle>Tools</St.SmallDescTitle>
-          <St.Text>{tools}</St.Text>
+          <h4 className="mb-1 mt-4 font-sans font-bold capitalize">Tools</h4>
+          <p className="max-w-prose whitespace-pre-line">{tools}</p>
 
           {notes && (
             <>
-              <St.SmallDescTitle>Notes</St.SmallDescTitle>
-              <St.Text>{notes}</St.Text>
+              <h4 className="mb-1 mt-4 font-sans font-bold capitalize">
+                Notes
+              </h4>
+              <p className="max-w-prose whitespace-pre-line">{notes}</p>
             </>
           )}
 
           {interactivity && (
             <>
-              <St.SmallDescTitle>Interactivity</St.SmallDescTitle>
-              <St.Text>{interactivity}</St.Text>
+              <h4 className="mb-1 mt-4 font-sans font-bold capitalize">
+                Interactivity
+              </h4>
+              <p className="max-w-prose whitespace-pre-line">{interactivity}</p>
             </>
           )}
 
           {royalties && (
             <>
-              <St.SmallDescTitle>Royalties</St.SmallDescTitle>
-              <St.Text>{royalties}</St.Text>
+              <h4 className="mb-1 mt-4 font-sans font-bold capitalize">
+                Royalties
+              </h4>
+              <p className="max-w-prose whitespace-pre-line">{royalties}</p>
             </>
           )}
 
-          <St.SmallDescTitle>License</St.SmallDescTitle>
-          <St.Text>{license}</St.Text>
-        </St.OtherInfo>
-      </St.Details>
+          <h4 className="mb-1 mt-4 font-sans font-bold capitalize">License</h4>
+          <p className="max-w-prose whitespace-pre-line">{license}</p>
+        </div>
+      </div>
 
       {projectSlug === "100x10x1-a" ||
         (projectSlug === "100x10x1-a-goerli" && <Legend />)}
 
-      <St.OtherCollectionsContainer>
-        <St.OtherCollectionsHeader>Other Collections</St.OtherCollectionsHeader>
-        <St.OtherCollections>
+      <div className="col-span-2 col-start-1">
+        <h2 className="mb-2">Other Collections</h2>
+        <div className="g-8 flex w-full">
           {getRelatedCollections(project).map((p) => (
             <CollectionCard key={p.projectSlug} project={p} />
           ))}
-        </St.OtherCollections>
-      </St.OtherCollectionsContainer>
-    </St.DetailGrid>
+        </div>
+      </div>
+    </div>
   );
 };
 
