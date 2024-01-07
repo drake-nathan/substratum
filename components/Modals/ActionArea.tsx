@@ -1,7 +1,8 @@
-import Button from "components/Button";
 import React from "react";
 import { PuffLoader } from "react-spinners";
 import { useTheme } from "styled-components";
+
+import Button from "components/Button";
 
 interface Props {
   error: string | undefined;

@@ -1,8 +1,7 @@
 import type { SetState } from "utils/types";
 
-import Button from "components/Button";
-
 import ModalBase from "./ModalBase";
+import Button from "components/Button";
 
 interface Props {
   setShowModal: SetState<boolean>;

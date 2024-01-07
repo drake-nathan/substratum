@@ -1,10 +1,10 @@
-import { useCurrentSupply } from "hooks/useCurrentSupply";
 import Link from "next/link";
-import { intlNumberFormat } from "utils/helpers";
 
 import type { Project } from "../../../../data/projects";
 
 import * as St from "./Card.styled";
+import { useCurrentSupply } from "hooks/useCurrentSupply";
+import { intlNumberFormat } from "utils/helpers";
 
 interface Props {
   project: Project;

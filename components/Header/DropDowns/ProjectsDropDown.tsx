@@ -1,9 +1,9 @@
-import { projects } from "data/projects";
 import Link from "next/link";
 import React from "react";
 import { useTheme } from "styled-components";
 
 import * as St from "./DropDowns.styled";
+import { projects } from "data/projects";
 
 interface Props {
   setShowDropDown: React.Dispatch<React.SetStateAction<boolean>>;

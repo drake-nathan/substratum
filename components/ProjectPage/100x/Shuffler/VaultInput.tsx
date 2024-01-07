@@ -1,12 +1,12 @@
-import type { SetState } from "utils/types";
-
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useModal } from "hooks/useModal";
 import { useForm } from "react-hook-form";
-import { zodAddress } from "utils/zod";
 import { z } from "zod";
 
+import type { SetState } from "utils/types";
+
 import * as St from "./Shuffler.styled";
+import { useModal } from "hooks/useModal";
+import { zodAddress } from "utils/zod";
 
 interface Props {
   setVault: SetState<string>;

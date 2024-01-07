@@ -1,5 +1,6 @@
-import type { Project } from "data/projects";
 import type { IToken } from "services/azureApi/types";
+
+import type { Project } from "data/projects";
 
 import TokenIcons from "../TokenIcons/TokenIcons";
 import * as St from "./BottomBar.styled";

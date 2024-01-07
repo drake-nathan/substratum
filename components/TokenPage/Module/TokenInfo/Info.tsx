@@ -1,6 +1,5 @@
 import type { IAttribute } from "services/azureApi/types";
 
-import { useWindowSize } from "hooks/useWindowSize";
 import { useEffect, useState } from "react";
 import { Tooltip } from "react-tooltip";
 
@@ -8,6 +7,8 @@ import type { InfoTab } from "./types";
 
 import * as St from "./TokenInfo.styled";
 import { formatNewLines, shortenTrait } from "./utils";
+import { useWindowSize } from "hooks/useWindowSize";
+import { isString } from "utils/helpers";
 
 interface Props {
   additionalDescription: string | undefined;
@@ -47,17 +48,17 @@ const Info = ({
       <St.Table>
         {traits.map((trait) => {
           const { trait_type: name, value } = trait;
-          const processedValue =
-            typeof value === "string"
-              ? shortenTrait(value, maxTraitLength)
-              : value;
+          const processedValue = isString(value)
+            ? shortenTrait(value, maxTraitLength)
+            : value;
           const isTraitShortened =
-            typeof value === "string" && value.length > maxTraitLength;
-          const isLink = typeof value === "string" && value.includes("http");
+            isString(value) && value.length > maxTraitLength;
+          const isLink = isString(value) && value.includes("http");
 
           return (
             <St.Row key={name}>
               <St.Name>{name}</St.Name>
+
               {isLink ? (
                 <a href={value} id={name} rel="noreferrer" target="_blank">
                   <St.Value>{processedValue}</St.Value>
@@ -65,6 +66,7 @@ const Info = ({
               ) : (
                 <St.Value id={name}>{processedValue}</St.Value>
               )}
+
               {isTraitShortened && (
                 <Tooltip
                   anchorId={name}

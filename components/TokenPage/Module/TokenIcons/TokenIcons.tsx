@@ -1,10 +1,11 @@
-import type { Project } from "data/projects";
 import type { IToken } from "services/azureApi/types";
 
-import MarketIcons from "components/MarketIcons/MarketIcons";
 import { Tooltip } from "react-tooltip";
 
+import type { Project } from "data/projects";
+
 import * as St from "./TokenIcons.styled";
+import MarketIcons from "components/MarketIcons/MarketIcons";
 
 interface Props {
   project: Project;

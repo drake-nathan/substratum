@@ -33,3 +33,6 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# so that bun is used on vercel, but yarn can be used on windows
+yarn.lock

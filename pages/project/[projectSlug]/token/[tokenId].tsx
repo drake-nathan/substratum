@@ -1,12 +1,13 @@
 import type { NextPage } from "next";
 import type { ProjectSlug } from "services/azureApi/types";
 
-import TokenPage from "components/TokenPage/TokenPage";
-import { projects } from "data/projects";
-import { useCurrentSupply } from "hooks/useCurrentSupply";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+
+import TokenPage from "components/TokenPage/TokenPage";
+import { projects } from "data/projects";
+import { useCurrentSupply } from "hooks/useCurrentSupply";
 
 const Home: NextPage = () => {
   const { projectSlug, tokenId: tokenIdQuery } = useRouter().query;

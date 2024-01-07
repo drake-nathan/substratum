@@ -1,8 +1,9 @@
 import { useWeb3Modal, useWeb3ModalState } from "@web3modal/wagmi/react";
-import { useIsClient } from "hooks/useIsClient";
 import { useEffect, useState } from "react";
-import { shortenAddress, shortenEth, shortenText } from "utils/shorteners";
 import { useAccount, useBalance, useEnsName } from "wagmi";
+
+import { useIsClient } from "hooks/useIsClient";
+import { shortenAddress, shortenEth, shortenText } from "utils/shorteners";
 
 const ConnectButton = (): JSX.Element => {
   const { isClient } = useIsClient();
