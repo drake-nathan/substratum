@@ -1,4 +1,4 @@
-import type { Project } from "components/staticData/projects";
+import type { Project } from "data/projects";
 import type { CollectionResponse, IToken } from "services/azureApi/types";
 
 import { useQuery } from "@tanstack/react-query";

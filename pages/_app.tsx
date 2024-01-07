@@ -2,12 +2,11 @@ import type { AppProps } from "next/app";
 
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import Footer from "components/Footer/Footer";
+import Footer from "components/Footer";
 import Header from "components/Header/Header";
 import Providers from "contexts/Providers";
 import "react-tooltip/dist/react-tooltip.css";
 
-import { AppContainer } from "../styles/App.styled";
 import "../styles/fonts.css";
 import "../styles/globals.css";
 import "../styles/spinner.css";
@@ -15,7 +14,7 @@ import "../styles/spinner.css";
 const MyApp = ({ Component, pageProps }: AppProps) => (
   <>
     <Providers>
-      <AppContainer>
+      <div className="flex min-h-screen w-full cursor-default flex-col items-stretch bg-white text-black dark:bg-black dark:text-white">
         <Header />
 
         <div className="flex size-full grow flex-col items-center">
@@ -23,7 +22,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
         </div>
 
         <Footer />
-      </AppContainer>
+      </div>
     </Providers>
 
     <Analytics />

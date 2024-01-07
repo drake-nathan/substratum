@@ -2,7 +2,7 @@ import { useCurrentSupply } from "hooks/useCurrentSupply";
 import Link from "next/link";
 import { intlNumberFormat } from "utils/helpers";
 
-import type { Project } from "../../../staticData/projects";
+import type { Project } from "../../../../data/projects";
 
 import * as St from "./Card.styled";
 

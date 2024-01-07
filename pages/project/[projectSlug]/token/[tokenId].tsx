@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import type { ProjectSlug } from "services/azureApi/types";
 
 import TokenPage from "components/TokenPage/TokenPage";
-import { projects } from "components/staticData/projects";
+import { projects } from "data/projects";
 import { useCurrentSupply } from "hooks/useCurrentSupply";
 import Head from "next/head";
 import { useRouter } from "next/router";

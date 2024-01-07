@@ -1,4 +1,4 @@
-import type { Project } from "components/staticData/projects";
+import type { Project } from "data/projects";
 
 import * as St from "./TokenMenu.styled";
 import TokenSearch from "./TokenSearch";
@@ -30,7 +30,6 @@ const TokenMenu = ({
 
   return (
     <St.Container>
-      {/* <St.RightDiv> */}
       <TokenSearch
         project={project}
         refetch={refetch}
@@ -39,7 +38,6 @@ const TokenMenu = ({
       />
 
       <St.SortDiv>
-        {/* <St.SortText>Sort by:</St.SortText> */}
         <St.TextButton
           className={`${
             sortType === "tokenId" ? "" : "inactive"
@@ -86,7 +84,6 @@ const TokenMenu = ({
           )}
         </St.SortButton>
       </St.SortDiv>
-      {/* </St.RightDiv> */}
     </St.Container>
   );
 };

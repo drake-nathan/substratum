@@ -1,4 +1,4 @@
-import type { Project } from "components/staticData/projects";
+import type { Project } from "data/projects";
 import type { CollectionResponse } from "services/azureApi/types";
 
 import { useInfiniteQuery } from "@tanstack/react-query";

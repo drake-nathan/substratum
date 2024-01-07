@@ -4,7 +4,6 @@ import React from "react";
 
 import ActionArea from "./ActionArea";
 import ModalBase from "./ModalBase";
-import * as St from "./Modals.styled";
 
 interface Props {
   onProceed: () => void;
@@ -23,18 +22,19 @@ const TransactionModal = ({
   setShowModal,
   transactionModalData: { error, header, loading, subText, text },
 }: Props): React.JSX.Element => {
-  const handleClick = () => {
-    onProceed();
-  };
-
   return (
     <ModalBase setShowModal={setShowModal}>
-      <St.Header>{header}</St.Header>
-      <St.Text>{text}</St.Text>
-      <St.SubText>{subText}</St.SubText>
-      <St.ButtonWrapper>
-        <ActionArea error={error} handleClick={handleClick} loading={loading} />
-      </St.ButtonWrapper>
+      <h3>{header}</h3>
+
+      <p className="max-w-[30ch] text-center font-semibold">{text}</p>
+
+      <p className="text-center text-hover-light dark:text-hover-dark">
+        {subText}
+      </p>
+
+      <div className="flex items-center justify-around">
+        <ActionArea error={error} handleClick={onProceed} loading={loading} />
+      </div>
     </ModalBase>
   );
 };

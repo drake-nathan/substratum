@@ -1,5 +1,5 @@
 import * as St from "components/ProjectPage/Details/Details.styled";
-import { type Project, projects } from "components/staticData/projects";
+import { type Project, projects } from "data/projects";
 
 import Legend from "../100x/Legend/Legend";
 import Shuffler from "../100x/Shuffler/Shuffler";

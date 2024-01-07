@@ -15,9 +15,16 @@ export default {
         light: "#7e7e7e",
       },
       offset: "#f4f1ed",
+      overlay: "rgba(0, 0, 0, 0.6)",
       white: "#fffcf9",
     },
     extend: {
+      borderRadius: {
+        xs: "1px",
+      },
+      borderWidth: {
+        3: "3px",
+      },
       screens: {
         sm: "500px",
       },

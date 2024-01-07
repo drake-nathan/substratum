@@ -1,7 +1,8 @@
 import type { SetState } from "utils/types";
 
+import Button from "components/Button";
+
 import ModalBase from "./ModalBase";
-import * as St from "./Modals.styled";
 
 interface Props {
   setShowModal: SetState<boolean>;
@@ -11,13 +12,13 @@ interface Props {
 const AlertModal = ({ setShowModal, text }: Props): JSX.Element => {
   return (
     <ModalBase setShowModal={setShowModal}>
-      <St.Text>{text}</St.Text>
+      <p className="max-w-[30ch] text-center font-semibold">{text}</p>
 
-      <St.ButtonWrapper>
-        <St.Button onClick={() => setShowModal(false)}>
+      <div className="flex items-center justify-around">
+        <Button onClick={() => setShowModal(false)}>
           <h4>Close</h4>
-        </St.Button>
-      </St.ButtonWrapper>
+        </Button>
+      </div>
     </ModalBase>
   );
 };

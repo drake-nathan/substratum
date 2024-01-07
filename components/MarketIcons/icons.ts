@@ -35,6 +35,7 @@ interface Icon {
   altToken: string;
   id: string;
   market: Market;
+  // necessary for svgr
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   src: any;
   tooltipCollection: string;
