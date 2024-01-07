@@ -1,14 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
+import { useState } from "react";
 import { RxOpenInNewWindow } from "react-icons/rx";
 
 import Legend from "../100x/Legend/Legend";
 import Shuffler from "../100x/Shuffler/Shuffler";
 import CollectionCard from "./OtherCollections/CollectionCard";
 import { type Project, projects } from "data/projects";
-
-interface Props {
-  project: Project;
-}
 
 const getRelatedCollections = (project: Project) => {
   const projectIndex = projects.indexOf(project);
@@ -22,10 +19,9 @@ const getRelatedCollections = (project: Project) => {
   return initialProjects;
 };
 
-const Details = ({ project }: Props): JSX.Element => {
+const Details = ({ project }: { project: Project }): JSX.Element => {
   const {
     aspectRatio,
-    image,
     name,
     projectPageInfo: {
       collectionDetails,
@@ -39,6 +35,13 @@ const Details = ({ project }: Props): JSX.Element => {
     },
     projectSlug,
   } = project;
+
+  const [imageTokenId, setImageTokenId] = useState<number>(0);
+
+  const image =
+    imageTokenId === 0
+      ? project.image
+      : `${process.env.NEXT_PUBLIC_BLOB_ROOT}/images/100x10x1-a-goerli_${imageTokenId}.png`;
 
   return (
     <div className="mt-12 grid w-full grid-cols-2 gap-8 px-20 max-sm:mt-[23px] max-sm:py-[23px]">
@@ -58,7 +61,9 @@ const Details = ({ project }: Props): JSX.Element => {
 
       <div className="flex flex-col gap-8 max-md:col-span-2 max-md:col-start-1">
         {(projectSlug === "100x10x1-a" ||
-          projectSlug === "100x10x1-a-goerli") && <Shuffler />}
+          projectSlug === "100x10x1-a-goerli") && (
+          <Shuffler setImageTokenId={setImageTokenId} />
+        )}
 
         <div className="w-full min-w-[225px] max-xl:min-w-[350px] max-[400px]:min-w-[325px]">
           <h2>About {name}</h2>
@@ -121,8 +126,8 @@ const Details = ({ project }: Props): JSX.Element => {
         (projectSlug === "100x10x1-a-goerli" && <Legend />)}
 
       <div className="col-span-2 col-start-1">
-        <h2 className="mb-2">Other Collections</h2>
-        <div className="g-8 flex w-full">
+        <h2 className="mb-4">Other Collections</h2>
+        <div className="flex w-full justify-between gap-8">
           {getRelatedCollections(project).map((p) => (
             <CollectionCard key={p.projectSlug} project={p} />
           ))}

@@ -3,6 +3,8 @@ import { Tooltip } from "react-tooltip";
 import { useTheme } from "styled-components";
 import { useAccount } from "wagmi";
 
+import type { SetState } from "utils/types";
+
 import ShuffleButton from "./ShuffleButton";
 import * as St from "./Shuffler.styled";
 import TokenOwnerOfModal from "./TokenOwnerOfModal";
@@ -11,7 +13,11 @@ import VaultInput from "./VaultInput";
 import { methodDescriptions } from "./methods";
 import { useModal } from "hooks/useModal";
 
-const Shuffler = (): React.JSX.Element => {
+const Shuffler = ({
+  setImageTokenId,
+}: {
+  setImageTokenId: SetState<number>;
+}): React.JSX.Element => {
   const { isDark } = useTheme();
   const { address } = useAccount();
   const { launchAlertModal } = useModal();
@@ -20,14 +26,21 @@ const Shuffler = (): React.JSX.Element => {
   const [tokenModal, setTokenModal] = useState<boolean>(false);
   const [tokenId, setTokenId] = useState<string>();
 
-  const handleViewClick = () => {
-    if (!address) launchAlertModal("Please connect your wallet");
-    else if (!tokenId) launchAlertModal("Please enter a token ID");
-    else setTokenModal(true);
-  };
-
   const tooltipVariant = isDark ? "dark" : "light";
   const tooltipPlace = "bottom";
+
+  const handleViewClick = () => {
+    if (tokenId) {
+      const tokenIdNumber = parseInt(tokenId);
+
+      if (tokenIdNumber < 0 || tokenIdNumber > 100) {
+        launchAlertModal("Token ID must be between 0 and 100");
+        return;
+      }
+
+      setImageTokenId(parseInt(tokenId));
+    }
+  };
 
   return (
     <St.ButtonGrid>
@@ -55,14 +68,16 @@ const Shuffler = (): React.JSX.Element => {
           />
 
           <St.ViewButton id="view-token-owner" onClick={handleViewClick}>
-            <St.EyeIcon />
+            <a
+              className="self-center"
+              data-tooltip-content="See this token's image"
+              data-tooltip-id="view-token-image"
+              data-tooltip-place="left"
+            >
+              <St.EyeIcon />
+            </a>
 
-            <Tooltip
-              anchorId="view-token-owner"
-              content="See tokens owned"
-              place="left"
-              positionStrategy="fixed"
-            />
+            <Tooltip id="view-token-image" />
           </St.ViewButton>
         </St.ViewLayer>
       </St.TopAction>
