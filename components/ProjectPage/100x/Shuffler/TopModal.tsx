@@ -53,6 +53,9 @@ const TopModal = ({
   };
 
   const handleError = (error: Error) => {
+    // This error is handled in the transaction modal
+    if (isSuccess && !isTokenOwner) return;
+
     if (
       error instanceof TransactionExecutionError &&
       error.message.startsWith("User rejected the request.")
