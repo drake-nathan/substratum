@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Tooltip } from "react-tooltip";
+import { useTheme } from "styled-components";
 import { useAccount } from "wagmi";
 
 import ShuffleButton from "./ShuffleButton";
@@ -7,9 +8,11 @@ import * as St from "./Shuffler.styled";
 import TokenOwnerOfModal from "./TokenOwnerOfModal";
 import TopButton from "./TopButton";
 import VaultInput from "./VaultInput";
+import { methodDescriptions } from "./methods";
 import { useModal } from "hooks/useModal";
 
 const Shuffler = (): React.JSX.Element => {
+  const { isDark } = useTheme();
   const { address } = useAccount();
   const { launchAlertModal } = useModal();
 
@@ -23,10 +26,21 @@ const Shuffler = (): React.JSX.Element => {
     else setTokenModal(true);
   };
 
+  const tooltipVariant = isDark ? "dark" : "light";
+  const tooltipPlace = "bottom";
+
   return (
     <St.ButtonGrid>
       <St.TopAction>
-        <TopButton tokenId={tokenId} vault={vault} />
+        <a
+          data-tooltip-content={methodDescriptions["top"]}
+          data-tooltip-id="cut-tooltip"
+          data-tooltip-place={tooltipPlace}
+          data-tooltip-variant={tooltipVariant}
+        >
+          <TopButton tokenId={tokenId} vault={vault} />
+        </a>
+        <Tooltip className="max-w-[30ch]" id="top-tooltip" />
 
         <St.ViewLayer>
           <input
@@ -53,11 +67,56 @@ const Shuffler = (): React.JSX.Element => {
         </St.ViewLayer>
       </St.TopAction>
 
-      <ShuffleButton method="cut" vault={vault} />
-      <ShuffleButton method="overhand" vault={vault} />
-      <ShuffleButton method="faro" vault={vault} />
-      <ShuffleButton method="wash" vault={vault} />
-      <ShuffleButton method="reverse" vault={vault} />
+      <a
+        data-tooltip-content={methodDescriptions["cut"]}
+        data-tooltip-id="cut-tooltip"
+        data-tooltip-place={tooltipPlace}
+        data-tooltip-variant={tooltipVariant}
+      >
+        <ShuffleButton method="cut" vault={vault} />
+      </a>
+      <Tooltip className="max-w-[30ch]" id="cut-tooltip" />
+
+      <a
+        data-tooltip-content={methodDescriptions["overhand"]}
+        data-tooltip-id="cut-tooltip"
+        data-tooltip-place={tooltipPlace}
+        data-tooltip-variant={tooltipVariant}
+      >
+        <ShuffleButton method="overhand" vault={vault} />
+      </a>
+      <Tooltip className="max-w-[30ch]" id="overhand-tooltip" />
+
+      <a
+        data-tooltip-content={methodDescriptions["faro"]}
+        data-tooltip-id="cut-tooltip"
+        data-tooltip-place={tooltipPlace}
+        data-tooltip-variant={tooltipVariant}
+      >
+        <ShuffleButton method="faro" vault={vault} />
+      </a>
+      <Tooltip className="max-w-[30ch]" id="faro-tooltip" />
+
+      <a
+        data-tooltip-content={methodDescriptions["wash"]}
+        data-tooltip-id="cut-tooltip"
+        data-tooltip-place={tooltipPlace}
+        data-tooltip-variant={tooltipVariant}
+      >
+        <ShuffleButton method="wash" vault={vault} />
+      </a>
+      <Tooltip className="max-w-[30ch]" id="wash-tooltip" />
+
+      <a
+        data-tooltip-content={methodDescriptions["reverse"]}
+        data-tooltip-id="cut-tooltip"
+        data-tooltip-place={tooltipPlace}
+        data-tooltip-variant={tooltipVariant}
+        style={{ gridArea: "reverse" }}
+      >
+        <ShuffleButton method="reverse" vault={vault} />
+      </a>
+      <Tooltip className="max-w-[30ch]" id="reverse-tooltip" />
 
       <VaultInput setVault={setVault} vault={vault} />
 
