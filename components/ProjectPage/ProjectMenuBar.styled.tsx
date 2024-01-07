@@ -1,18 +1,5 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  width: 100%;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  padding: 0 80px;
-  border-bottom: 1px solid ${({ theme: { colors } }) => colors.textMain};
-
-  @media (max-width: 500px) {
-    padding: 0 1.5em;
-  }
-`;
-
 export const Title = styled.h2`
   padding-bottom: 0.25em;
 

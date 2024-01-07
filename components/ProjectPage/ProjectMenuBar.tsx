@@ -8,7 +8,7 @@ interface Props {
 
 const ProjectMenuBar = ({ projectSlug, setTab, tab }: Props): JSX.Element => {
   return (
-    <St.Container>
+    <div className="sm:px20 flex w-full items-end justify-between border-b border-black px-6 dark:border-white">
       <St.TabsContainer>
         <St.Tab
           className={tab === "details" ? "active" : ""}
@@ -25,7 +25,7 @@ const ProjectMenuBar = ({ projectSlug, setTab, tab }: Props): JSX.Element => {
           Tokens
         </St.Tab>
       </St.TabsContainer>
-    </St.Container>
+    </div>
   );
 };
 
