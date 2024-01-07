@@ -11,7 +11,12 @@
       "files": ["*.ts", "*.tsx"],
       "rules": {
         "@typescript-eslint/consistent-type-exports": "error",
-        "@typescript-eslint/consistent-type-imports": "error",
+        "@typescript-eslint/consistent-type-imports": [
+          "error",
+          {
+            "fixStyle": "inline-type-imports"
+          }
+        ],
         "@typescript-eslint/no-confusing-void-expression": [
           "error",
           { "ignoreArrowShorthand": true }
@@ -34,6 +39,31 @@
     "no-return-assign": "off",
     "no-underscore-dangle": "off",
     "no-unused-vars": "off",
+    "perfectionist/sort-imports": [
+      "error",
+      {
+        "groups": [
+          "type",
+          ["builtin", "external"],
+          ["parent-type", "sibling-type", "index-type", "internal-type"],
+          ["parent", "sibling", "index", "internal"],
+          "object",
+          "unknown"
+        ],
+        "internal-pattern": [
+          "components/**",
+          "contexts/**",
+          "data/**",
+          "hooks/**",
+          "lib/**",
+          "pages/**",
+          "styles/**",
+          "utils/**"
+        ],
+        "order": "asc",
+        "type": "natural"
+      }
+    ],
     "react-hooks/exhaustive-deps": "warn",
     "react/function-component-definition": [
       "warn",

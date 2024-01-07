@@ -1,8 +1,8 @@
-import { artistUrls, projects } from "data/projects";
 import React from "react";
 import { useTheme } from "styled-components";
 
 import * as St from "./DropDowns.styled";
+import { artistUrls, projects } from "data/projects";
 
 const artists = projects.map(({ artist }) => artist);
 const uniqueArtists = [...new Set(artists)];

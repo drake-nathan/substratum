@@ -1,5 +1,6 @@
-import type { SetState } from "utils/types";
 import type { Address } from "viem";
+
+import type { SetState } from "utils/types";
 
 import AlertModal from "components/Modals/AlertModal";
 import { useTokenOwnerOf } from "hooks/100x/useTokenOwnerOf";

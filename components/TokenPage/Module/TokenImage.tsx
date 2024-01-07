@@ -1,5 +1,6 @@
-import Generator from "components/Generator";
 import styled from "styled-components";
+
+import Generator from "components/Generator";
 
 const Image = styled.img<{ $aspectRatio: number }>`
   aspect-ratio: ${({ $aspectRatio }) => $aspectRatio};

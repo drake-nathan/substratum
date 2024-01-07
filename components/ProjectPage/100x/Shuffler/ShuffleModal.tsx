@@ -1,9 +1,3 @@
-import type { SetState } from "utils/types";
-
-import TransactionModal from "components/Modals/TransactionModal";
-import { useShuffle } from "hooks/100x/useShuffle";
-import { useTokensOwned } from "hooks/100x/useTokensOwned";
-import { useModal } from "hooks/useModal";
 import { useEffect, useState } from "react";
 import {
   type Address,
@@ -12,7 +6,13 @@ import {
   formatEther,
 } from "viem";
 
+import type { SetState } from "utils/types";
+
 import { type Method, methodDescriptions } from "./methods";
+import TransactionModal from "components/Modals/TransactionModal";
+import { useShuffle } from "hooks/100x/useShuffle";
+import { useTokensOwned } from "hooks/100x/useTokensOwned";
+import { useModal } from "hooks/useModal";
 
 interface Props {
   address: Address;
@@ -48,6 +48,9 @@ const ShuffleModal = ({
   };
 
   const handleError = (error: Error) => {
+    // This error is handled in the transaction modal
+    if (isSuccess && !tokensOwned) return;
+
     if (
       error instanceof TransactionExecutionError &&
       error.message.startsWith("User rejected the request.")
@@ -76,7 +79,7 @@ const ShuffleModal = ({
     if (isSuccess && !tokensOwned) {
       setError("Must own at least one token to shuffle.");
     }
-  }, [fee, isSuccess, launchAlertModal, setShowModal, tokensOwned]);
+  }, [isSuccess, tokensOwned]);
 
   const proceedHandler = () => {
     setLoading(true);

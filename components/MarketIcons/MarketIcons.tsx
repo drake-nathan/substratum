@@ -1,6 +1,6 @@
-import type { Project } from "data/projects";
-
 import { Tooltip } from "react-tooltip";
+
+import type { Project } from "data/projects";
 
 import * as St from "./MarketIcons.styled";
 import {

@@ -76,7 +76,6 @@ export const ViewButton = styled.button`
 export const EyeIcon = styled(FaEye)`
   color: #00000076;
   font-size: 28px;
-  align-self: center;
 `;
 
 export const SearchIcon = styled(FaSearch)`

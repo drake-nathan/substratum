@@ -1,6 +1,6 @@
-import type { SetState } from "utils/types";
-
 import React from "react";
+
+import type { SetState } from "utils/types";
 
 import ActionArea from "./ActionArea";
 import ModalBase from "./ModalBase";
@@ -24,7 +24,7 @@ const TransactionModal = ({
 }: Props): React.JSX.Element => {
   return (
     <ModalBase setShowModal={setShowModal}>
-      <h3>{header}</h3>
+      <h3 className="font-semibold">{header}</h3>
 
       <p className="max-w-[30ch] text-center font-semibold">{text}</p>
 
