@@ -1,6 +1,5 @@
 import type { IAttribute } from "services/azureApi/types";
 
-import { useWindowSize } from "hooks/useWindowSize";
 import { useEffect, useState } from "react";
 import { Tooltip } from "react-tooltip";
 
@@ -8,6 +7,7 @@ import type { InfoTab } from "./types";
 
 import * as St from "./TokenInfo.styled";
 import { formatNewLines, shortenTrait } from "./utils";
+import { useWindowSize } from "hooks/useWindowSize";
 
 interface Props {
   additionalDescription: string | undefined;

@@ -1,8 +1,6 @@
-import type { Project } from "data/projects";
 import type { IToken } from "services/azureApi/types";
 
-import { useCurrentSupply } from "hooks/useCurrentSupply";
-import { intlNumberFormat } from "utils/helpers";
+import type { Project } from "data/projects";
 
 // import PriceIcon from 'public/icons/PriceIcon.svg';
 import BottomBar from "./BottomBar/BottomBar";
@@ -10,6 +8,8 @@ import OtherTokens from "./OtherTokens/OtherTokens";
 import TokenImage from "./TokenImage";
 import TokenInfo from "./TokenInfo/TokenInfo";
 import * as St from "./TokenModule.styled";
+import { useCurrentSupply } from "hooks/useCurrentSupply";
+import { intlNumberFormat } from "utils/helpers";
 
 interface Props {
   project: Project;

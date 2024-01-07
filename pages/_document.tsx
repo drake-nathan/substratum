@@ -1,5 +1,6 @@
-import StyledComponentsRegistry from "lib/registry";
 import Document, { Head, Html, Main, NextScript } from "next/document";
+
+import StyledComponentsRegistry from "lib/registry";
 
 class MyDocument extends Document {
   render() {

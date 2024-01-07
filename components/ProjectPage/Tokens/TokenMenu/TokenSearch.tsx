@@ -1,10 +1,10 @@
-import type { Project } from "data/projects";
-
-import { useCurrentSupply } from "hooks/useCurrentSupply";
 import { useEffect, useState } from "react";
 import { type SubmitHandler, useForm } from "react-hook-form";
 
+import type { Project } from "data/projects";
+
 import * as St from "./TokenSearch.styled";
+import { useCurrentSupply } from "hooks/useCurrentSupply";
 
 type IToken = { tokenId: number };
 

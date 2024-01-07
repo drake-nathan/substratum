@@ -1,6 +1,6 @@
-import type { SetState } from "utils/types";
-
 import React from "react";
+
+import type { SetState } from "utils/types";
 
 import ActionArea from "./ActionArea";
 import ModalBase from "./ModalBase";

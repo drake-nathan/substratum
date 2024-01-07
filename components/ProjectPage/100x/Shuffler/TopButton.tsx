@@ -1,5 +1,3 @@
-import { useMethodFees } from "hooks/100x/useMethodFees";
-import { useModal } from "hooks/useModal";
 import React, { useState } from "react";
 import { isAddress } from "viem";
 import { useAccount } from "wagmi";
@@ -8,6 +6,8 @@ import { useOneHundredXShuffleable } from "../../../../wagmi/generated";
 import * as St from "./Shuffler.styled";
 import TopModal from "./TopModal";
 import { type Method, methods } from "./methods";
+import { useMethodFees } from "hooks/100x/useMethodFees";
+import { useModal } from "hooks/useModal";
 
 interface Props {
   tokenId: string | undefined;

@@ -1,9 +1,3 @@
-import type { SetState } from "utils/types";
-
-import TransactionModal from "components/Modals/TransactionModal";
-import { useTokenOwnerOf } from "hooks/100x/useTokenOwnerOf";
-import { useTop } from "hooks/100x/useTop";
-import { useModal } from "hooks/useModal";
 import { useEffect, useState } from "react";
 import {
   type Address,
@@ -13,7 +7,13 @@ import {
   isAddressEqual,
 } from "viem";
 
+import type { SetState } from "utils/types";
+
 import { methodDescriptions } from "./methods";
+import TransactionModal from "components/Modals/TransactionModal";
+import { useTokenOwnerOf } from "hooks/100x/useTokenOwnerOf";
+import { useTop } from "hooks/100x/useTop";
+import { useModal } from "hooks/useModal";
 
 interface Props {
   address: Address;

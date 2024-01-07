@@ -1,4 +1,3 @@
-import { useModal } from "hooks/useModal";
 import React, { useState } from "react";
 import { Tooltip } from "react-tooltip";
 import { useAccount } from "wagmi";
@@ -8,6 +7,7 @@ import * as St from "./Shuffler.styled";
 import TokenOwnerOfModal from "./TokenOwnerOfModal";
 import TopButton from "./TopButton";
 import VaultInput from "./VaultInput";
+import { useModal } from "hooks/useModal";
 
 const Shuffler = (): React.JSX.Element => {
   const { address } = useAccount();

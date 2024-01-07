@@ -1,11 +1,12 @@
-import type { SetState } from "utils/types";
 import type { Hash } from "viem";
 
-import Button from "components/Button";
-import { getEtherscanLink } from "utils/links";
 import { useChainId } from "wagmi";
 
+import type { SetState } from "utils/types";
+
 import ModalBase from "./ModalBase";
+import Button from "components/Button";
+import { getEtherscanLink } from "utils/links";
 
 interface Props {
   hash: Hash;
