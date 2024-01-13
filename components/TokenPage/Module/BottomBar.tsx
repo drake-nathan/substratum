@@ -1,9 +1,7 @@
+import type { Project } from "data/projects";
 import type { IToken } from "services/azureApi/types";
 
-import type { Project } from "data/projects";
-
-import TokenIcons from "../TokenIcons/TokenIcons";
-import * as St from "./BottomBar.styled";
+import TokenIcons from "./TokenIcons";
 
 interface Props {
   project: Project;
@@ -11,9 +9,9 @@ interface Props {
 }
 
 const BottomBar = ({ project, token }: Props): JSX.Element => (
-  <St.Container>
+  <div className="w-full p-4">
     <TokenIcons project={project} token={token} />
-  </St.Container>
+  </div>
 );
 
 export default BottomBar;

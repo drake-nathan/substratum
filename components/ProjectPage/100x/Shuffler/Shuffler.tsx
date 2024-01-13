@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaEye } from "react-icons/fa";
 import { Tooltip } from "react-tooltip";
 import { useTheme } from "styled-components";
 import { useAccount } from "wagmi";
@@ -6,11 +7,11 @@ import { useAccount } from "wagmi";
 import type { SetState } from "utils/types";
 
 import ShuffleButton from "./ShuffleButton";
-import * as St from "./Shuffler.styled";
 import TokenOwnerOfModal from "./TokenOwnerOfModal";
 import TopButton from "./TopButton";
 import VaultInput from "./VaultInput";
 import { methodDescriptions } from "./methods";
+import st from "./shuffler.module.css";
 import { useModal } from "hooks/useModal";
 
 const Shuffler = ({
@@ -42,9 +43,11 @@ const Shuffler = ({
     }
   };
 
+  const classes = `${st.shufflerGrid} mt-4 grid grid-cols-2 gap-x-4 gap-y-5`;
+
   return (
-    <St.ButtonGrid>
-      <St.TopAction>
+    <div className={classes}>
+      <div className="flex flex-col" style={{ gridArea: "top" }}>
         <a
           data-tooltip-content={methodDescriptions["top"]}
           data-tooltip-id="cut-tooltip"
@@ -55,7 +58,10 @@ const Shuffler = ({
         </a>
         <Tooltip className="max-w-[30ch]" id="top-tooltip" />
 
-        <St.ViewLayer>
+        <div
+          className="flex flex-shrink flex-grow"
+          style={{ flexBasis: "100%" }}
+        >
           <input
             aria-label="Token ID for Top method"
             className="flex-shrink flex-grow basis-full border-none bg-offset p-4 font-sans outline-none dark:text-black"
@@ -67,20 +73,24 @@ const Shuffler = ({
             value={tokenId}
           />
 
-          <St.ViewButton id="view-token-owner" onClick={handleViewClick}>
+          <button
+            className="flex h-full w-[50px] justify-center bg-icon-light hover:bg-icon-dark"
+            id="view-token-owner"
+            onClick={handleViewClick}
+          >
             <a
               className="self-center"
               data-tooltip-content="See this token's image"
               data-tooltip-id="view-token-image"
               data-tooltip-place="left"
             >
-              <St.EyeIcon />
+              <FaEye className="text-3xl text-icon-color" />
             </a>
 
             <Tooltip id="view-token-image" />
-          </St.ViewButton>
-        </St.ViewLayer>
-      </St.TopAction>
+          </button>
+        </div>
+      </div>
 
       <a
         data-tooltip-content={methodDescriptions["cut"]}
@@ -142,7 +152,7 @@ const Shuffler = ({
           tokenId={tokenId}
         />
       )}
-    </St.ButtonGrid>
+    </div>
   );
 };
 

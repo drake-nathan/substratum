@@ -1,8 +1,9 @@
 import { createWeb3Modal, useWeb3ModalTheme } from "@web3modal/wagmi/react";
 import React, { useEffect } from "react";
-import { chains, wagmiConfig } from "services/wagmi";
 import { useTheme } from "styled-components";
 import { WagmiConfig } from "wagmi";
+
+import { chains, wagmiConfig } from "services/wagmi";
 
 const projectId = process.env.NEXT_PUBLIC_W3M_PROJECT_ID;
 

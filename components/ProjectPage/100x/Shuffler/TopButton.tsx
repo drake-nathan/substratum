@@ -3,9 +3,9 @@ import { isAddress } from "viem";
 import { useAccount } from "wagmi";
 
 import { useOneHundredXShuffleable } from "../../../../wagmi/generated";
-import * as St from "./Shuffler.styled";
 import TopModal from "./TopModal";
 import { type Method, methods } from "./methods";
+import BigButton from "components/BigButton";
 import { useMethodFees } from "hooks/100x/useMethodFees";
 import { useModal } from "hooks/useModal";
 
@@ -64,9 +64,9 @@ const TopButton = ({ tokenId, vault }: Props): React.JSX.Element => {
 
   return (
     <>
-      <St.ActionButton onClick={handleClick} style={{ gridArea: method }}>
+      <BigButton onClick={handleClick} style={{ gridArea: method }}>
         {method}
-      </St.ActionButton>
+      </BigButton>
 
       {address &&
         methodFees &&

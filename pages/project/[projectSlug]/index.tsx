@@ -7,7 +7,7 @@ import React, { useEffect, useState } from "react";
 
 import Details from "components/ProjectPage/Details/Details";
 import ProjectHead from "components/ProjectPage/ProjectHead";
-import ProjectMenuBar from "components/ProjectPage/ProjectMenuBar";
+import Tabs from "components/ProjectPage/Tabs";
 import Tokens from "components/ProjectPage/Tokens/Tokens";
 import { type Project, projects } from "data/projects";
 import { isString } from "utils/helpers";
@@ -19,7 +19,7 @@ const Home: NextPage = () => {
   const [error, setError] = useState<string>();
   const [tab, setTab] = useQueryState(
     "tab",
-    parseAsStringEnum(["details", "tokens"])
+    parseAsStringEnum(["details", "tokens", "mint"])
       .withDefault("details")
       .withOptions({
         history: "push",
@@ -49,10 +49,10 @@ const Home: NextPage = () => {
         <meta content="substratum" name="description" />
       </Head>
 
-      {projectSlug && project && isString(projectSlug) && (
+      {projectSlug && isString(projectSlug) && project && (
         <>
           <ProjectHead project={project} />
-          <ProjectMenuBar
+          <Tabs
             projectSlug={projectSlug}
             setTab={(tab) => void setTab(tab)}
             tab={tab}

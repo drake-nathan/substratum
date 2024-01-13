@@ -1,9 +1,8 @@
-import type { IAttribute } from "services/azureApi/types";
-
 import { useEffect, useState } from "react";
 import { Tooltip } from "react-tooltip";
 
 import type { InfoTab } from "./types";
+import type { IAttribute } from "services/azureApi/types";
 
 import * as St from "./TokenInfo.styled";
 import { formatNewLines, shortenTrait } from "./utils";

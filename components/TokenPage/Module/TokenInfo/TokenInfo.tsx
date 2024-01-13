@@ -1,8 +1,7 @@
-import type { IAttribute } from "services/azureApi/types";
-
 import { parseAsStringEnum, useQueryState } from "next-usequerystate";
 
 import type { InfoTab } from "./types";
+import type { IAttribute } from "services/azureApi/types";
 
 import Info from "./Info";
 import * as St from "./TokenInfo.styled";

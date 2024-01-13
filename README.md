@@ -5,10 +5,10 @@
 ### Prerequisites
 
 - [Node.js](https://nodejs.org/en/) - Install LTS version, Node 20
-- [bun](https://bun.sh/docs/installation) - Package manager
+- [Yarn](https://yarnpkg.com/en/docs/install) - Install latest version `npm install -g yarn`
 - env - Environment variables
 
 ### Commands
 
-- `bun install` - Install dependencies
-- `bun dev` - Start development server
+- `yarn` - Install dependencies
+- `yarn dev` - Start development server

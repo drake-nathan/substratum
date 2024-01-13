@@ -19,7 +19,7 @@ const Header = (): JSX.Element => {
   const iconSize = !isMobile ? 80 : 42;
 
   return (
-    <header className="flex w-full items-center gap-4 border-b border-black md:justify-between md:gap-8 md:border-b-[3px] dark:border-white">
+    <header className="flex w-full items-center gap-4 border-b border-black dark:border-white md:justify-between md:gap-8 md:border-b-[3px]">
       <Link href="/">
         <div className="flex size-12 items-center justify-center border-r-[1px] border-white bg-black md:size-[90px]">
           <Substratum height={iconSize} width={iconSize} />

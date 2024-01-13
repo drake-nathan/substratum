@@ -1,6 +1,5 @@
-import { zodAddress } from "utils/zod";
-
 import { useOneHundredXOwnerOf } from "../../wagmi/generated";
+import { zodAddress } from "utils/zod";
 
 export const useTokenOwnerOf = (tokenId: number) => {
   const { data, error, isSuccess } = useOneHundredXOwnerOf({

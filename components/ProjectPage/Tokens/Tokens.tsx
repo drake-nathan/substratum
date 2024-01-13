@@ -1,15 +1,14 @@
-import type { CollectionResponse } from "services/azureApi/types";
-
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { parseAsStringEnum, useQueryState } from "next-usequerystate";
 import { useEffect, useState } from "react";
-import { fetchCollectionTokens } from "services/azureApi/fetches";
 
 import type { Project } from "data/projects";
+import type { CollectionResponse } from "services/azureApi/types";
 
 import TokenGrid from "./TokenGrid/TokenGrid";
 import TokenMenu from "./TokenMenu/TokenMenu";
 import { TokensContainer } from "./Tokens.styled";
+import { fetchCollectionTokens } from "services/azureApi/fetches";
 
 interface Props {
   project: Project;
