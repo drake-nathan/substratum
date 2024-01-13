@@ -8,22 +8,36 @@ export default {
   darkMode: "class",
   plugins: [],
   theme: {
-    colors: {
-      black: "#0f0f0f",
-      hover: {
-        dark: "#b9b7b6",
-        light: "#7e7e7e",
-      },
-      offset: "#f4f1ed",
-      overlay: "rgba(0, 0, 0, 0.6)",
-      white: "#fffcf9",
-    },
     extend: {
       borderRadius: {
         xs: "1px",
       },
       borderWidth: {
         3: "3px",
+      },
+      colors: {
+        black: "#0f0f0f",
+        hover: {
+          dark: "#b9b7b6",
+          light: "#7e7e7e",
+        },
+        icon: {
+          color: "#00000076",
+          dark: "#999795",
+          light: "#ded8d1",
+        },
+        offset: "#f4f1ed",
+        overlay: "rgba(0, 0, 0, 0.6)",
+        white: "#fffcf9",
+      },
+      gridTemplateAreas: {
+        customLayout: `
+          'top top'
+          'cut overhand'
+          'faro wash'
+          'reverse reverse'
+          'vault vault'
+        `,
       },
       screens: {
         sm: "500px",

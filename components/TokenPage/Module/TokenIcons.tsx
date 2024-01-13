@@ -1,10 +1,10 @@
-import type { IToken } from "services/azureApi/types";
-
+import { MdMobileFriendly } from "react-icons/md";
+import { MdOutlinePhoto } from "react-icons/md";
 import { Tooltip } from "react-tooltip";
 
 import type { Project } from "data/projects";
+import type { IToken } from "services/azureApi/types";
 
-import * as St from "./TokenIcons.styled";
 import MarketIcons from "components/MarketIcons/MarketIcons";
 
 interface Props {
@@ -19,21 +19,27 @@ const TokenIcons = ({ project, token }: Props): JSX.Element => {
     svgGen,
     token_id: tokenId,
   } = token;
-  const { isMobileControls } = project;
+  const { isMobileControls, projectSlug } = project;
 
-  const fullScreenUrl = generatorUrl || svgGen || image;
+  const is100xComposite =
+    tokenId === 0 &&
+    (projectSlug === "100x10x1-a-goerli" || projectSlug === "100x10x1-a");
+
+  const fullScreenUrl = is100xComposite
+    ? svgGen || image
+    : generatorUrl || svgGen || image;
 
   const mobileUrl = generatorUrl ? new URL(generatorUrl) : null;
 
   if (mobileUrl) mobileUrl.searchParams.set("mobile", "true");
 
   return (
-    <St.IconDiv>
+    <div className="flex items-baseline justify-between gap-2">
       <MarketIcons project={project} tokenId={tokenId} />
 
       {fullScreenUrl && (
         <a href={fullScreenUrl} rel="noreferrer" target="_blank">
-          <St.FullScreenIcon className="icon" id="fullscreen" />
+          <MdOutlinePhoto className="text-2xl" id="fullscreen" />
 
           <Tooltip
             anchorId="fullscreen"
@@ -45,7 +51,7 @@ const TokenIcons = ({ project, token }: Props): JSX.Element => {
 
       {isMobileControls && mobileUrl && (
         <a href={mobileUrl.toString()} rel="noreferrer" target="_blank">
-          <St.MobileIcon className="icon mobile" id="mobile" />
+          <MdMobileFriendly className="text-2xl" id="mobile" />
 
           <Tooltip
             anchorId="mobile"
@@ -54,7 +60,7 @@ const TokenIcons = ({ project, token }: Props): JSX.Element => {
           />
         </a>
       )}
-    </St.IconDiv>
+    </div>
   );
 };
 

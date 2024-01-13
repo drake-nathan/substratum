@@ -2,14 +2,13 @@ import type { Address, Hash } from "viem";
 import type { WriteContractResult } from "wagmi/dist/actions";
 
 import {
-  type Method,
-  methods,
-} from "components/ProjectPage/100x/Shuffler/methods";
-
-import {
   useOneHundredXShuffle,
   usePrepareOneHundredXShuffle,
 } from "../../wagmi/generated";
+import {
+  type Method,
+  methods,
+} from "components/ProjectPage/100x/Shuffler/methods";
 
 interface Params {
   handleError: (error: Error) => void;

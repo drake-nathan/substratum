@@ -1,4 +1,3 @@
-import { useWindowSize } from "hooks/useWindowSize";
 import { type ReactElement, type ReactNode, useEffect, useState } from "react";
 import { ThemeProvider as StyledThemeProvider } from "styled-components";
 
@@ -8,6 +7,7 @@ import {
   defaultTheme,
   lightColors,
 } from "../styles/theme";
+import { useWindowSize } from "hooks/useWindowSize";
 
 interface Props {
   children: ReactNode;
@@ -55,6 +55,8 @@ const ThemeProvider = ({ children }: Props): ReactElement => {
 
     if (savedTheme && ["dark", "light"].includes(savedTheme)) {
       setColors(savedTheme === "dark" ? darkColors : lightColors);
+      localStorage.setItem("substratum-theme", savedTheme);
+      document.documentElement.classList.toggle("dark", savedTheme === "dark");
     } else if (prefersDark) {
       setColors(darkColors);
       localStorage.setItem("substratum-theme", "dark");

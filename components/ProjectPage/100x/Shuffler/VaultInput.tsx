@@ -1,10 +1,10 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { FaSearch } from "react-icons/fa";
 import { z } from "zod";
 
 import type { SetState } from "utils/types";
 
-import * as St from "./Shuffler.styled";
 import { useModal } from "hooks/useModal";
 import { zodAddress } from "utils/zod";
 
@@ -29,9 +29,10 @@ const VaultInput = ({ setVault, vault }: Props): JSX.Element => {
 
   return (
     <>
-      <St.VaultForm
+      <form
+        className="flex flex-shrink flex-grow"
         onSubmit={void handleSubmit(onValid, onInvalid)}
-        style={{ gridArea: "vault" }}
+        style={{ flexBasis: "100%", gridArea: "vault" }}
       >
         <input
           {...register("vault")}
@@ -41,10 +42,14 @@ const VaultInput = ({ setVault, vault }: Props): JSX.Element => {
           type="text"
           value={vault}
         />
-        <St.ViewButton type="submit">
-          <St.SearchIcon />
-        </St.ViewButton>
-      </St.VaultForm>
+
+        <button
+          className="flex h-full w-[50px] justify-center bg-icon-light hover:bg-icon-dark"
+          type="submit"
+        >
+          <FaSearch className="self-center text-3xl text-icon-color" />
+        </button>
+      </form>
     </>
   );
 };

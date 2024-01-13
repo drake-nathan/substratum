@@ -1,14 +1,13 @@
-import type { CollectionResponse, IToken } from "services/azureApi/types";
-
 import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
-import { fetchCollectionTokens } from "services/azureApi/fetches";
 
 import type { Project } from "data/projects";
+import type { CollectionResponse, IToken } from "services/azureApi/types";
 
 import * as St from "./OtherTokens.styled";
 import TokenCard from "./TokenCard";
 import { useCurrentSupply } from "hooks/useCurrentSupply";
+import { fetchCollectionTokens } from "services/azureApi/fetches";
 
 interface Props {
   project: Project;

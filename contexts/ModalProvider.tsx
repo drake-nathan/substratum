@@ -1,8 +1,9 @@
 import type { Hash } from "viem";
 
+import { createContext, useState } from "react";
+
 import AlertModal from "components/Modals/AlertModal";
 import SuccessModal from "components/Modals/SuccessModal";
-import { createContext, useState } from "react";
 
 export interface IModalContext {
   launchAlertModal: (text: string) => void;

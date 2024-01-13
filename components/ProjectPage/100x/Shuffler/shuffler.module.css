@@ -1,0 +1,19 @@
+.shufflerGrid {
+  grid-template-areas:
+    "top top"
+    "cut overhand"
+    "faro wash"
+    "reverse reverse"
+    "vault vault";
+
+  @media (max-width: 768px) {
+    grid-template-areas:
+      "top top"
+      "cut cut"
+      "overhand overhand"
+      "faro faro"
+      "wash wash"
+      "reverse reverse"
+      "vault vault";
+  }
+}

@@ -5,17 +5,11 @@ import LegendCard from "./LegendCard";
 
 export class VisibilityMatrix {
   cut = false;
-
   faro = false;
-
   legend = false;
-
   overhand = false;
-
   reverse = false;
-
   top = false;
-
   wash = false;
 }
 

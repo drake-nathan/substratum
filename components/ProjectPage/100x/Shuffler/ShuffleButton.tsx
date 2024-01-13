@@ -4,8 +4,8 @@ import { useAccount } from "wagmi";
 
 import { useOneHundredXShuffleable } from "../../../../wagmi/generated";
 import ShuffleModal from "./ShuffleModal";
-import * as St from "./Shuffler.styled";
 import { type Method, methods } from "./methods";
+import BigButton from "components/BigButton";
 import { useMethodFees } from "hooks/100x/useMethodFees";
 import { useModal } from "hooks/useModal";
 
@@ -52,9 +52,9 @@ const ShuffleButton = ({ method, vault }: Props): React.JSX.Element => {
 
   return (
     <>
-      <St.ActionButton onClick={handleClick} style={{ gridArea: method }}>
+      <BigButton onClick={handleClick} style={{ gridArea: method }}>
         {method}
-      </St.ActionButton>
+      </BigButton>
 
       {address &&
         methodFees &&

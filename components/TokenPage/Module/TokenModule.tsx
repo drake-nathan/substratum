@@ -1,9 +1,8 @@
+import type { Project } from "data/projects";
 import type { IToken } from "services/azureApi/types";
 
-import type { Project } from "data/projects";
-
 // import PriceIcon from 'public/icons/PriceIcon.svg';
-import BottomBar from "./BottomBar/BottomBar";
+import BottomBar from "./BottomBar";
 import OtherTokens from "./OtherTokens/OtherTokens";
 import TokenImage from "./TokenImage";
 import TokenInfo from "./TokenInfo/TokenInfo";

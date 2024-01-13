@@ -57,6 +57,7 @@
           "hooks/**",
           "lib/**",
           "pages/**",
+          "services/**",
           "styles/**",
           "utils/**"
         ],
