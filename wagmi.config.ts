@@ -1,6 +1,8 @@
 import { defineConfig, loadEnv } from "@wagmi/cli";
 import { etherscan, react } from "@wagmi/cli/plugins";
-import { goerli, mainnet } from "wagmi/chains";
+import { goerli, mainnet, sepolia } from "wagmi/chains";
+
+import { depositAbi } from "./data/depositAbi";
 
 export default defineConfig(() => {
   const env = loadEnv({
@@ -9,7 +11,15 @@ export default defineConfig(() => {
   });
 
   return {
-    contracts: [],
+    contracts: [
+      {
+        abi: depositAbi,
+        address: {
+          [sepolia.id]: "0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c",
+        },
+        name: "deposit",
+      },
+    ],
     out: "wagmi/generated.ts",
     plugins: [
       etherscan({

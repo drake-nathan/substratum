@@ -3,15 +3,6 @@ import styled from "styled-components";
 
 type ShowDropDown = { $showDropDown: boolean };
 
-export const Overlay = styled.div`
-  height: 100vh;
-  width: 100%;
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 10;
-`;
-
 export const Container = styled.div<ShowDropDown>`
   position: absolute;
   z-index: 40;

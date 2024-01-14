@@ -6,7 +6,7 @@ import { CgSun } from "react-icons/cg";
 import { MdOutlineDarkMode } from "react-icons/md";
 import { useTheme } from "styled-components";
 
-import ConnectButton from "./Connect/ConnectButton";
+import ConnectButton from "./ConnectButton";
 import MobileNav from "./MobileNav/MobileNav";
 import NavLinks from "./NavLinks/NavLinks";
 import SocialIcons from "./SocialIcons/SocialIcons";
