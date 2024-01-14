@@ -5,11 +5,9 @@ import { useRouter } from "next/router";
 import { parseAsStringEnum, useQueryState } from "next-usequerystate";
 import React, { useEffect, useState } from "react";
 
-import Details from "components/ProjectPage/Details/Details";
 import ProjectHead from "components/ProjectPage/ProjectHead";
 import ProjectMain from "components/ProjectPage/ProjectMain";
 import Tabs from "components/ProjectPage/Tabs";
-import Tokens from "components/ProjectPage/Tokens/Tokens";
 import { type Project, projects } from "data/projects";
 import { isString } from "utils/helpers";
 
