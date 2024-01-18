@@ -7,9 +7,9 @@ import { MdOutlineDarkMode } from "react-icons/md";
 import { useTheme } from "styled-components";
 
 import ConnectButton from "./ConnectButton";
-import MobileNav from "./MobileNav/MobileNav";
+import MobileNav from "./MobileNav";
 import NavLinks from "./NavLinks/NavLinks";
-import SocialIcons from "./SocialIcons/SocialIcons";
+import SocialIcons from "./SocialIcons";
 
 const Header = (): JSX.Element => {
   const { colors, isDark, isMobile, isMobileNav, toggleTheme } = useTheme();
