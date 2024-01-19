@@ -1,4 +1,4 @@
-import { RxCaretDown } from "react-icons/rx";
+import { RxCaretDown, RxCaretRight } from "react-icons/rx";
 import styled from "styled-components";
 
 export const Tab = styled.div`
@@ -35,4 +35,10 @@ export const DropdownIcon = styled(RxCaretDown)`
   margin: -5px;
   margin-right: -9px;
   transition: transform 0.25s ease-in-out;
+`;
+
+export const RightArrowIcon = styled(RxCaretRight)`
+  font-size: 1.75rem;
+  margin-left: -3px;
+  margin-top: -2px;
 `;
