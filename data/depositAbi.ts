@@ -172,7 +172,7 @@ export const depositAbi: Abi = [
     type: "function",
   },
   {
-    inputs: [{ internalType: "address", name: "_vault", type: "address" }],
+    inputs: [{ internalType: "address", name: "_recipient", type: "address" }],
     name: "DEPOSIT_AND_SET_ANOTHER_RECEVIER",
     outputs: [],
     stateMutability: "payable",
@@ -243,6 +243,13 @@ export const depositAbi: Abi = [
     name: "artistCancelAndRefundDeposit",
     outputs: [],
     stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "currentDepositorCount",
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+    stateMutability: "view",
     type: "function",
   },
   {
