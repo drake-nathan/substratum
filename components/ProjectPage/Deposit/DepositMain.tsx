@@ -5,6 +5,8 @@ import {
   BodyContainer,
   BoldText,
   CheckBox,
+  ContractBody,
+  ContractSection,
   DepositsStatus,
   DiscountGrid,
   DiscountSection,
@@ -29,6 +31,8 @@ const DepositMain = (): React.JSX.Element => {
 
   const [isMintPrivate, setIsMintPrivate] = useState(true);
 
+  const apos = "'";
+
   return (
     <>
       <NoteFromMattoContainer>
@@ -45,8 +49,8 @@ const DepositMain = (): React.JSX.Element => {
             <span style={{ fontSize: "16px", fontStyle: "italic" }}>
               benefit to all participants{" "}
             </span>
-            if they are 'individual' and able to communicate with each other.
-            Based on these aspects and my general disdain for{" "}
+            if they are {apos}individual{apos} and able to communicate with each
+            other. Based on these aspects and my general disdain for{" "}
             <span style={{ fontSize: "16px", fontStyle: "italic" }}>FOMO </span>
             , I wrote this reusable contract that allows allow lists,
             token-gated discounts, and for participants to cancel their bid at
@@ -91,7 +95,7 @@ const DepositMain = (): React.JSX.Element => {
                 {" "}
                 allows the artist to cancel (and refund) any deposits{" "}
               </span>
-              . If a mint is assigned to an account that the artist doesn't
+              . If a mint is assigned to an account that the artist doesn{apos}t
               think will be a good participant in this project, the artist can
               cancel the corresponding deposit.{" "}
             </p>
@@ -105,8 +109,8 @@ const DepositMain = (): React.JSX.Element => {
               <span style={{ fontSize: "16px", textDecoration: "underline" }}>
                 100x10x1-A token
               </span>{" "}
-              airdropped to their specified 'recipient' address (or in case of
-              emergency, they will receive a full refund).
+              airdropped to their specified {apos}recipient{apos} address (or in
+              case of emergency, they will receive a full refund).
             </p>{" "}
             <p>
               {" "}
@@ -129,8 +133,28 @@ const DepositMain = (): React.JSX.Element => {
               <TokenThumb alt="Chainlife 17" src="/icons/chainlife_17.PNG" />
             </DiscountGrid>
           </DiscountSection>
-
-          <h1>Left 3</h1>
+          <ContractSection>
+            <h2>Contract Status</h2>
+            <ContractBody>
+              <h4>
+                The following includes live data pulled from the{" "}
+                <span style={{ textDecoration: "underline" }}>
+                  <a
+                    href="https://goerli.etherscan.io/address/0xCC55af23d9861e41C5875F1e76fb3c4122E8C4Fa"
+                    target="_blank"
+                  >
+                    contract
+                  </a>
+                </span>
+                :
+              </h4>
+              <p>Goal Number of Allowed Depositors: ____ </p>
+              <p>Current Depositors: ____ amazing supporters</p>
+              <p>Current Contract Balance: ____ ETH Required</p>
+              <p>Deposit for Non-Token Holders: ____ ETH </p>
+              <p>Required Deposit for Token Holders: ____ ETH</p>
+            </ContractBody>
+          </ContractSection>
         </Left>
         <Right>
           <h1>Right 1</h1>

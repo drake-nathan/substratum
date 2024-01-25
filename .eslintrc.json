@@ -74,6 +74,7 @@
       }
     ],
     "react/jsx-props-no-spreading": "off",
+    "react/no-unescaped-entities": 0,
     "react/require-default-props": "off"
   }
 }

@@ -10,6 +10,7 @@ export const NoteFromMattoContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  margin-top: 20px;
   @media (max-width: 768px) {
     margin-top: 2rem;
   }
@@ -104,6 +105,7 @@ export const Left = styled.div`
   padding-right: 60px;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
+  gap: 1rem;
 
   @media (max-width: 768px) {
     padding-left: 5px;
@@ -115,8 +117,8 @@ export const HowSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
-  margin-bottom: 36px;
 
   h2 {
     font-size: 30px;
@@ -128,8 +130,8 @@ export const DiscountSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
-  margin-bottom: 36px;
 
   h2 {
     font-size: 30px;
@@ -146,7 +148,7 @@ export const DiscountGrid = styled.div`
   p {
     padding: 20px;
     @media (max-width: 1540px) {
-      font-size: 16px;
+      font-size: 18px;
       padding-bottom: 10px;
     }
   }
@@ -161,4 +163,32 @@ export const Right = styled.div`
 export const TokenThumb = styled.img`
   border-left: 3px solid #0f0f0f;
   object-fit: cover;
+`;
+
+export const ContractSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+
+  h2 {
+    font-size: 30px;
+    margin-bottom: 16px;
+  }
+`;
+
+export const ContractBody = styled.div`
+  border: 3px solid #0f0f0f;
+  min-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  p {
+    padding: 20px;
+    @media (max-width: 1540px) {
+      font-size: 18px;
+      padding-bottom: 10px;
+    }
+  }
 `;
