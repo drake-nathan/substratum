@@ -4,13 +4,19 @@ import {
   BlankBox,
   BodyContainer,
   BoldText,
+  ButtonRow,
+  CancelButton,
+  CancelButtonRow,
+  CancelDeposit,
   CheckBox,
   ContractBody,
   ContractSection,
+  DepositButton,
   DepositsStatus,
   DiscountGrid,
   DiscountSection,
   HowSection,
+  InteractionsSection,
   Left,
   Locked,
   MattoNoteHeader,
@@ -20,8 +26,11 @@ import {
   NoteText,
   Right,
   StageStatus,
+  StandardDeposit,
+  TokenDeposit,
   TokenThumb,
   Unlocked,
+  UserInput,
 } from "./DepositMain.styled";
 
 const DepositMain = (): React.JSX.Element => {
@@ -136,7 +145,7 @@ const DepositMain = (): React.JSX.Element => {
           <ContractSection>
             <h2>Contract Status</h2>
             <ContractBody>
-              <h4>
+              <h6 style={{ fontWeight: 700 }}>
                 The following includes live data pulled from the{" "}
                 <span style={{ textDecoration: "underline" }}>
                   <a
@@ -147,7 +156,7 @@ const DepositMain = (): React.JSX.Element => {
                   </a>
                 </span>
                 :
-              </h4>
+              </h6>
               <p>Goal Number of Allowed Depositors: ____ </p>
               <p>Current Depositors: ____ amazing supporters</p>
               <p>Current Contract Balance: ____ ETH Required</p>
@@ -157,9 +166,52 @@ const DepositMain = (): React.JSX.Element => {
           </ContractSection>
         </Left>
         <Right>
-          <h1>Right 1</h1>
-          <h1>Right 2</h1>
-          <h1>Right 3</h1>
+          <InteractionsSection>
+            <h2>Contract Interactions</h2>
+            <StandardDeposit>
+              <h6>Standard Deposit</h6>
+              <p>
+                You can set an address to be the recipient of this project's
+                token (0x form only - no ENS). If left blank, the depositing
+                account will be set as recipient. Please consider using a vault
+                that is delegated to a depositing account. The 100x10x1-A
+                interactive functions support delegation through delegate.xyz.
+              </p>
+              <ButtonRow>
+                <UserInput placeholder="Optional: 0x address recipient" />
+                <DepositButton>SUBMIT DEPOSIT ___ETH</DepositButton>
+              </ButtonRow>
+            </StandardDeposit>
+          </InteractionsSection>
+          <TokenDeposit>
+            <h6>Token-Gated Deposit</h6>
+            <p>
+              You can set an address to be the recipient of this project's token
+              (0x form only - no ENS). If left blank, the depositing account
+              will be set as recipient. Please consider using a vault that is
+              delegated to a depositing account. The 100x10x1-A interactive
+              functions support delegation through delegate.xyz.
+            </p>
+            <ButtonRow>
+              <UserInput placeholder="Optional: delegated 0x address holding token" />
+              <DepositButton>SUBMIT DEPOSIT ___ETH</DepositButton>
+            </ButtonRow>
+          </TokenDeposit>
+          <CancelDeposit>
+            <h6>Cancel Deposit</h6>
+            <p>
+              Plain and simple: cancel your deposit and you will be refunded
+              your originally deposited amount (discounted or not).
+            </p>
+            <p style={{ fontStyle: "italic" }}>
+              Note: this wipes all data associated with your deposit. Both
+              depositing account and recipient account will be able to be
+              reused.
+            </p>
+            <CancelButtonRow>
+              <CancelButton>CANCEL DEPOSIT</CancelButton>
+            </CancelButtonRow>
+          </CancelDeposit>
         </Right>
       </BodyContainer>
     </>

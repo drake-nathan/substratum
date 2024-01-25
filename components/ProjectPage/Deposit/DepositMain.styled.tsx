@@ -95,8 +95,18 @@ export const BodyContainer = styled.div`
   width: 100%;
   max-width: 2000px;
 
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
+  @media (max-width: 1425px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    gap: 2rem;
+    max-width: 1000px;
+
+    p {
+      font-size: 16px;
+    }
   }
 `;
 
@@ -105,11 +115,22 @@ export const Left = styled.div`
   padding-right: 60px;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
-  gap: 1rem;
+  gap: 3rem;
+
+  @media (max-width: 1350px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 
   @media (max-width: 768px) {
     padding-left: 5px;
     padding-right: 5px;
+  }
+
+  @media (max-width: 650px) {
+    width: 99%;
   }
 `;
 
@@ -117,7 +138,7 @@ export const HowSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: start;
   gap: 1rem;
 
   h2 {
@@ -141,23 +162,45 @@ export const DiscountSection = styled.div`
 
 export const DiscountGrid = styled.div`
   display: grid;
-  grid-template-columns: 70% 30%;
+  grid-template-columns: 2fr 1fr;
   border: 3px solid #0f0f0f;
-  min-width: 600px;
+  min-width: 500px;
+  max-width: 650px;
 
   p {
     padding: 20px;
     @media (max-width: 1540px) {
       font-size: 18px;
-      padding-bottom: 10px;
+      padding: 10px;
+    }
+    @media (max-width: 810px) {
+      font-size: 16px;
     }
   }
 `;
 
 export const Right = styled.div`
-  background: yellow;
+  padding-left: 60px;
+  padding-right: 60px;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
+  gap: 3rem;
+
+  @media (max-width: 1350px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (max-width: 768px) {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  @media (max-width: 650px) {
+    width: 99%;
+  }
 `;
 
 export const TokenThumb = styled.img`
@@ -169,6 +212,7 @@ export const ContractSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: start;
   gap: 1rem;
 
   h2 {
@@ -179,16 +223,115 @@ export const ContractSection = styled.div`
 
 export const ContractBody = styled.div`
   border: 3px solid #0f0f0f;
-  min-width: 600px;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  padding: 35px;
+  min-width: 500px;
 
   p {
-    padding: 20px;
     @media (max-width: 1540px) {
       font-size: 18px;
-      padding-bottom: 10px;
     }
   }
 `;
+
+export const InteractionsSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  gap: 1rem;
+
+  h2 {
+    font-size: 30px;
+    margin-bottom: 16px;
+  }
+`;
+
+export const StandardDeposit = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+
+  h6 {
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+`;
+
+export const TokenDeposit = styled(StandardDeposit)``;
+
+export const ButtonRow = styled.div`
+  display: grid;
+  grid-template-columns: 65% 35%;
+  border: 3px solid #0f0f0f;
+  min-width: 600px;
+  margin-top: 20px;
+
+  @media (max-width: 650px) {
+    width: 80%;
+    min-width: 450px;
+  }
+`;
+
+export const UserInput = styled.input`
+  border: 3px solid #0f0f0f;
+  height: 75px;
+  min-width: 325px;
+  padding-left: 10px;
+  display: flex;
+  outline: none;
+
+  &::placeholder {
+    font-size: 14px;
+  }
+
+  @media (max-width: 650px) {
+    &::placeholder {
+      font-size: 11.5px;
+    }
+  }
+`;
+
+export const DepositButton = styled.button`
+  background: #0f0f0f;
+  color: #f5f5f5;
+  height: 75px;
+  font-size: 18px;
+  font-weight: bold;
+
+  @media (max-width: 650px) {
+    font-size: 16px;
+    padding: 8px;
+    font-weight: 600;
+  }
+`;
+export const CancelButton = styled.button`
+  background: #0f0f0f;
+  color: #f5f5f5;
+  height: 75px;
+  width: 375px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+
+  @media (max-width: 650px) {
+    font-size: 16px;
+    padding: 8px;
+    font-weight: 600;
+    width: 350px;
+  }
+`;
+
+export const CancelButtonRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+`;
+
+export const CancelDeposit = styled(TokenDeposit)``;
