@@ -166,23 +166,21 @@ const DepositMain = (): React.JSX.Element => {
           </ContractSection>
         </Left>
         <Right>
-          <InteractionsSection>
+          <StandardDeposit>
             <h2>Contract Interactions</h2>
-            <StandardDeposit>
-              <h6>Standard Deposit</h6>
-              <p>
-                You can set an address to be the recipient of this project's
-                token (0x form only - no ENS). If left blank, the depositing
-                account will be set as recipient. Please consider using a vault
-                that is delegated to a depositing account. The 100x10x1-A
-                interactive functions support delegation through delegate.xyz.
-              </p>
-              <ButtonRow>
-                <UserInput placeholder="Optional: 0x address recipient" />
-                <DepositButton>SUBMIT DEPOSIT ___ETH</DepositButton>
-              </ButtonRow>
-            </StandardDeposit>
-          </InteractionsSection>
+            <h6>Standard Deposit</h6>
+            <p>
+              You can set an address to be the recipient of this project's token
+              (0x form only - no ENS). If left blank, the depositing account
+              will be set as recipient. Please consider using a vault that is
+              delegated to a depositing account. The 100x10x1-A interactive
+              functions support delegation through delegate.xyz.
+            </p>
+            <ButtonRow>
+              <UserInput placeholder="Optional: 0x address recipient" />
+              <DepositButton>SUBMIT DEPOSIT ___ETH</DepositButton>
+            </ButtonRow>
+          </StandardDeposit>
           <TokenDeposit>
             <h6>Token-Gated Deposit</h6>
             <p>

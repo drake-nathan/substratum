@@ -31,6 +31,11 @@ export const NoteBox = styled.div`
   padding-right: 40px;
   margin-top: 15px;
   border: 3px solid #0f0f0f;
+
+  @media (max-width: 768px) {
+    width: 85%;
+  }
+
   p {
     text-align: center;
   }
@@ -83,6 +88,8 @@ export const BlankBox = styled(MdOutlineCheckBoxOutlineBlank)`
 
 export const Locked = styled(IoLockClosed)`
   font-size: 19px;
+  margin-left: -10px;
+  margin-top: -4px;
 `;
 
 export const Unlocked = styled(IoLockOpen)`
@@ -167,6 +174,12 @@ export const DiscountGrid = styled.div`
   min-width: 500px;
   max-width: 650px;
 
+  @media (max-width: 500px) {
+    min-width: 0px;
+    max-width: 100%;
+    grid-template-columns: 5fr 1fr;
+  }
+
   p {
     padding: 20px;
     @media (max-width: 1540px) {
@@ -175,6 +188,47 @@ export const DiscountGrid = styled.div`
     }
     @media (max-width: 810px) {
       font-size: 16px;
+    }
+  }
+`;
+
+export const TokenThumb = styled.img`
+  border-left: 3px solid #0f0f0f;
+  object-fit: cover;
+  @media (max-width: 500px) {
+    border-bottom: 3px solid #0f0f0f;
+  }
+`;
+
+export const ContractSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  gap: 1rem;
+
+  h2 {
+    font-size: 30px;
+    margin-bottom: 16px;
+  }
+`;
+
+export const ContractBody = styled.div`
+  border: 3px solid #0f0f0f;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 35px;
+  min-width: 500px;
+
+  @media (max-width: 500px) {
+    min-width: 0px;
+    max-width: 100%;
+  }
+
+  p {
+    @media (max-width: 1540px) {
+      font-size: 18px;
     }
   }
 `;
@@ -203,45 +257,16 @@ export const Right = styled.div`
   }
 `;
 
-export const TokenThumb = styled.img`
-  border-left: 3px solid #0f0f0f;
-  object-fit: cover;
-`;
-
-export const ContractSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: start;
-  gap: 1rem;
-
-  h2 {
-    font-size: 30px;
-    margin-bottom: 16px;
-  }
-`;
-
-export const ContractBody = styled.div`
-  border: 3px solid #0f0f0f;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding: 35px;
-  min-width: 500px;
-
-  p {
-    @media (max-width: 1540px) {
-      font-size: 18px;
-    }
-  }
-`;
-
 export const InteractionsSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: start;
   gap: 1rem;
+
+  @media (max-width: 650px) {
+    justify-content: center;
+  }
 
   h2 {
     font-size: 30px;
@@ -255,6 +280,16 @@ export const StandardDeposit = styled.div`
   align-items: flex-start;
   justify-content: center;
   gap: 1rem;
+
+  @media (max-width: 650px) {
+    align-items: center;
+  }
+
+  h2 {
+    font-size: 30px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
 
   h6 {
     font-weight: 700;
@@ -272,8 +307,9 @@ export const ButtonRow = styled.div`
   margin-top: 20px;
 
   @media (max-width: 650px) {
-    width: 80%;
-    min-width: 450px;
+    width: 100%;
+    min-width: 0px;
+    grid-template-columns: 80% 20%;
   }
 `;
 
@@ -294,6 +330,12 @@ export const UserInput = styled.input`
       font-size: 11.5px;
     }
   }
+
+  @media (max-width: 500px) {
+    &::placeholder {
+      font-size: 11px;
+    }
+  }
 `;
 
 export const DepositButton = styled.button`
@@ -306,6 +348,12 @@ export const DepositButton = styled.button`
   @media (max-width: 650px) {
     font-size: 16px;
     padding: 8px;
+    font-weight: 600;
+  }
+
+  @media (max-width: 500px) {
+    font-size: 12px;
+    padding: 2px;
     font-weight: 600;
   }
 `;
@@ -322,7 +370,7 @@ export const CancelButton = styled.button`
     font-size: 16px;
     padding: 8px;
     font-weight: 600;
-    width: 350px;
+    width: 100%;
   }
 `;
 
