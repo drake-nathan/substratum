@@ -307,9 +307,9 @@ export const ButtonRow = styled.div`
   margin-top: 20px;
 
   @media (max-width: 650px) {
-    width: 100%;
     min-width: 0px;
-    grid-template-columns: 80% 20%;
+    max-width: 365px;
+    grid-template-columns: 70% 30%;
   }
 `;
 
@@ -327,13 +327,7 @@ export const UserInput = styled.input`
 
   @media (max-width: 650px) {
     &::placeholder {
-      font-size: 11.5px;
-    }
-  }
-
-  @media (max-width: 500px) {
-    &::placeholder {
-      font-size: 11px;
+      font-size: 13px;
     }
   }
 `;
@@ -352,7 +346,7 @@ export const DepositButton = styled.button`
   }
 
   @media (max-width: 500px) {
-    font-size: 12px;
+    font-size: 14px;
     padding: 2px;
     font-weight: 600;
   }

@@ -46,7 +46,7 @@ const DepositMain = (): React.JSX.Element => {
     <>
       <NoteFromMattoContainer>
         <MattoNoteHeader>A Note From Matto</MattoNoteHeader>
-        <NoteBox>
+        <NoteBox className="dark:border-3 dark:border-white">
           <NoteText>
             A NOTE FROM MATTO “100x10x1 Composition A is unique in that full
             functionality of the project only happens
@@ -129,7 +129,7 @@ const DepositMain = (): React.JSX.Element => {
           </HowSection>
           <DiscountSection>
             <h2>Token-Gated Discount</h2>
-            <DiscountGrid>
+            <DiscountGrid className="dark:border-3 dark:border-white">
               <p>
                 To be eligible for a discount the depositing account or a vault
                 that delegates to it must own a{" "}
@@ -139,12 +139,16 @@ const DepositMain = (): React.JSX.Element => {
                 The address that holds the qualifying token will be recorded as
                 the recipient of the 100x10x1-A token.
               </p>
-              <TokenThumb alt="Chainlife 17" src="/icons/chainlife_17.PNG" />
+              <TokenThumb
+                alt="Chainlife 17"
+                className="dark:border-r-3 dark:border-white"
+                src="/icons/chainlife_17.PNG"
+              />
             </DiscountGrid>
           </DiscountSection>
           <ContractSection>
             <h2>Contract Status</h2>
-            <ContractBody>
+            <ContractBody className="dark:border-3 dark:border-white">
               <h6 style={{ fontWeight: 700 }}>
                 The following includes live data pulled from the{" "}
                 <span style={{ textDecoration: "underline" }}>
@@ -176,23 +180,26 @@ const DepositMain = (): React.JSX.Element => {
               delegated to a depositing account. The 100x10x1-A interactive
               functions support delegation through delegate.xyz.
             </p>
-            <ButtonRow>
+            <ButtonRow className=" dark:border-3 dark:border-white">
               <UserInput placeholder="Optional: 0x address recipient" />
-              <DepositButton>SUBMIT DEPOSIT ___ETH</DepositButton>
+              <DepositButton className="hover:bg-hover-light dark:bg-white dark:text-black dark:hover:bg-hover-dark">
+                SUBMIT DEPOSIT ___ETH
+              </DepositButton>
             </ButtonRow>
           </StandardDeposit>
           <TokenDeposit>
             <h6>Token-Gated Deposit</h6>
             <p>
-              You can set an address to be the recipient of this project's token
-              (0x form only - no ENS). If left blank, the depositing account
-              will be set as recipient. Please consider using a vault that is
-              delegated to a depositing account. The 100x10x1-A interactive
-              functions support delegation through delegate.xyz.
+              To receive the discount, enter the eligible token's ID. This token
+              must be owned by the depositing account or a vault that delegates
+              to it. The recipient account will be set to whichever account owns
+              the eligible token.
             </p>
-            <ButtonRow>
-              <UserInput placeholder="Optional: delegated 0x address holding token" />
-              <DepositButton>SUBMIT DEPOSIT ___ETH</DepositButton>
+            <ButtonRow className="dark:border-3 dark:border-white">
+              <UserInput placeholder="Chainlife tokenID required" />
+              <DepositButton className="hover:bg-hover-light dark:bg-white dark:text-black dark:hover:bg-hover-dark">
+                SUBMIT DEPOSIT ___ETH
+              </DepositButton>
             </ButtonRow>
           </TokenDeposit>
           <CancelDeposit>
@@ -207,7 +214,9 @@ const DepositMain = (): React.JSX.Element => {
               reused.
             </p>
             <CancelButtonRow>
-              <CancelButton>CANCEL DEPOSIT</CancelButton>
+              <CancelButton className="hover:bg-hover-light dark:bg-white dark:text-black dark:hover:bg-hover-dark">
+                CANCEL DEPOSIT
+              </CancelButton>
             </CancelButtonRow>
           </CancelDeposit>
         </Right>
