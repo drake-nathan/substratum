@@ -19,7 +19,7 @@ export const NoteFromMattoContainer = styled.div`
 export const MattoNoteHeader = styled.h1`
   margin-top: 15px;
   @media (max-width: 768px) {
-    font-size: 24px;
+    font-size: 30px;
   }
 `;
 

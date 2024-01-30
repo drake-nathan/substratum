@@ -7,7 +7,6 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5em;
-  margin-right: 1.5em;
 
   .icon {
     font-size: 1rem;
@@ -17,6 +16,11 @@ export const Container = styled.div`
     &:hover {
       color: ${(props) => props.theme.colors.hover};
       cursor: pointer;
+    }
+
+    @media (max-width: 750px) {
+      font-size: 1.5rem;
+      margin-top: -20px;
     }
   }
 `;

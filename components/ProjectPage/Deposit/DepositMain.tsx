@@ -34,7 +34,7 @@ import {
 } from "./DepositMain.styled";
 
 const DepositMain = (): React.JSX.Element => {
-  const [isDepositOpen, setIsDepositOpen] = useState(false);
+  const [isDepositOpen, setIsDepositOpen] = useState(true);
 
   const [isMintPublic, setIsMintPublic] = useState(false);
 
@@ -48,8 +48,8 @@ const DepositMain = (): React.JSX.Element => {
         <MattoNoteHeader>A Note From Matto</MattoNoteHeader>
         <NoteBox className="dark:border-3 dark:border-white">
           <NoteText>
-            A NOTE FROM MATTO “100x10x1 Composition A is unique in that full
-            functionality of the project only happens
+            100x10x1 Composition A is unique in that full functionality of the
+            project only happens
             <span style={{ fontSize: "16px", fontWeight: "bold" }}>
               {" "}
               after a full mint
@@ -67,7 +67,7 @@ const DepositMain = (): React.JSX.Element => {
             <span style={{ fontSize: "16px", textDecoration: "underline" }}>
               raise-closing*
             </span>{" "}
-            .”
+            .
           </NoteText>
         </NoteBox>
       </NoteFromMattoContainer>
@@ -147,7 +147,7 @@ const DepositMain = (): React.JSX.Element => {
             </DiscountGrid>
           </DiscountSection>
           <ContractSection>
-            <h2>Contract Status</h2>
+            <h2>Funding Status</h2>
             <ContractBody className="dark:border-3 dark:border-white">
               <h6 style={{ fontWeight: 700 }}>
                 The following includes live data pulled from the{" "}
@@ -161,11 +161,10 @@ const DepositMain = (): React.JSX.Element => {
                 </span>
                 :
               </h6>
-              <p>Goal Number of Allowed Depositors: ____ </p>
+              <p>Goal Number of Depositors: ____ </p>
               <p>Current Depositors: ____ amazing supporters</p>
-              <p>Current Contract Balance: ____ ETH Required</p>
-              <p>Deposit for Non-Token Holders: ____ ETH </p>
-              <p>Required Deposit for Token Holders: ____ ETH</p>
+              <p>Standard Deposit Amount: ____ ETH </p>
+              <p>Discounted Deposit Amount: ____ ETH</p>
             </ContractBody>
           </ContractSection>
         </Left>
