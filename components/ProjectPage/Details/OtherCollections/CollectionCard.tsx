@@ -27,7 +27,7 @@ const Card = ({ project }: Props): JSX.Element => {
   const maxSupplyText = maxSupply > 999_999 ? "?" : intlNumberFormat(maxSupply);
 
   const CardJsx = (
-    <div className="relative flex w-[400px] flex-col rounded-xs border border-black hover:cursor-pointer dark:border-white">
+    <div className="relative flex w-[400px] flex-col rounded-xs border border-black hover:cursor-pointer dark:border-white max-sm:w-[350px]">
       <div className="size-full overflow-hidden">
         <img
           alt={name}

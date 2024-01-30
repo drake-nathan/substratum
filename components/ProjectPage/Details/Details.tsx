@@ -44,8 +44,8 @@ const Details = ({ project }: { project: Project }): JSX.Element => {
       : `${process.env.NEXT_PUBLIC_BLOB_ROOT}/images/100x10x1-a-goerli_${imageTokenId}.png`;
 
   return (
-    <div className="mt-12 grid w-full grid-cols-2 gap-8 px-20 max-sm:mt-[23px] max-sm:py-[23px]">
-      <div className="mt-4 flex min-w-[400px] flex-col max-md:col-span-2 max-md:col-start-1 max-md:m-0 max-md:min-w-[auto]">
+    <div className="mt-12 grid w-full grid-cols-2 gap-8 px-20 max-sm:mt-[23px] max-sm:px-6 max-sm:py-[23px]">
+      <div className="mt-4 flex min-w-[400px] flex-col max-md:col-span-2 max-md:col-start-1 max-md:m-0 max-md:min-w-[Auto]">
         <img
           alt="Project image"
           className="w-full border border-black object-cover dark:border-white"
