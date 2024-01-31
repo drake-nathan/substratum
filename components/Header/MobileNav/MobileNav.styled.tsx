@@ -3,34 +3,55 @@ import styled from "styled-components";
 type IsOpen = { $isOpen: boolean };
 
 export const Container = styled.div<IsOpen>`
-  --top-gap: 90px;
   position: fixed;
   z-index: 69;
-  top: var(--top-gap);
+  top: 0;
   right: 0;
-  height: calc(100vh - var(--top-gap));
+  height: 100svh;
   width: 100%;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 2em;
-  padding: 3em 2em 9em;
+  //padding: 3em 2em 9em;
 
   background-color: ${({ theme }) => theme.colors.bgMain};
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 
   transform: ${({ $isOpen }) =>
     $isOpen ? "translateX(0)" : "translateX(+100vw)"};
-  transition-duration: 400ms;
-  transition-delay: 250ms;
+  transition-duration: 350ms;
+  transition-delay: 200ms;
+  transition-timing-function: ease-in-out;
 
   @media (max-height: 700px) {
     padding: 2em 2em 7em;
   }
+`;
 
-  @media (max-width: 786px) {
-    --top-gap: 47px;
-  }
+export const TopRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.textMain};
+`;
+
+export const LogoRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+`;
+
+export const NavLinkContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2em;
+  //margin-bottom: 2rem;
 `;
