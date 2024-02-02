@@ -180,7 +180,7 @@ const DepositMain = (): React.JSX.Element => {
               delegated to a depositing account. The 100x10x1-A interactive
               functions support delegation through delegate.xyz.
             </p>
-            <ButtonRow className=" dark:border-3 dark:border-white">
+            <ButtonRow className="dark:border-3 dark:border-white">
               <UserInput placeholder="Optional: 0x address recipient" />
               <DepositButton className="hover:bg-hover-light dark:bg-white dark:text-black dark:hover:bg-hover-dark">
                 SUBMIT DEPOSIT ___ETH

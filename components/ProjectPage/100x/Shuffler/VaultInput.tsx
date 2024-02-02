@@ -36,7 +36,7 @@ const VaultInput = ({ setVault, vault }: Props): JSX.Element => {
       >
         <input
           {...register("vault")}
-          className="shrink grow basis-full border-none bg-offset p-4 font-sans outline-none dark:text-black"
+          className="shrink grow basis-full border-none bg-offset p-4 font-sans outline-none dark:text-black max-sm:text-[10px]"
           onChange={(e) => setVault(e.target.value)}
           placeholder="Optional: Enter Vault (Must Delegate to Connected Account)"
           type="text"

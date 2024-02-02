@@ -17,7 +17,7 @@ const schema = z.object({
 });
 
 // convert to object type
-type DepositInitiative = {
+interface DepositInitiative {
   artist: Address;
   fullDeposit: bigint;
   name: string;
@@ -26,7 +26,7 @@ type DepositInitiative = {
   platformFeeBps: number;
   tokenGateContract: Address;
   tokenGateDeposit: bigint;
-};
+}
 
 export const useDepositInitiative = (): DepositInitiative | null => {
   const { data, error } = useDepositGetInitiativeDetails();

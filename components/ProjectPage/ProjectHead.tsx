@@ -18,7 +18,7 @@ const ProjectHead = ({ project, tab }: Props) => {
 
   return (
     <div className="grid w-full px-10 sm:grid-cols-1 sm:py-20 md:grid-cols-2 md:p-20">
-      <div className="flex w-full flex-col items-start max-sm:mt-10">
+      <div className="flex w-full flex-col items-start max-sm:mb-4 max-sm:mt-10">
         <h1 className="mb-4 text-2xl sm:text-4xl">{name}</h1>
 
         <div className="mb-8 flex justify-start gap-2">
