@@ -3,20 +3,19 @@ import type { Address } from "viem";
 import { z } from "zod";
 
 import { useDepositGetInitiativeDetails } from "../../wagmi/generated";
-import { zodAddress } from "utils/zod";
+import { zodAddress, zodJsonToBigInt, zodJsonToNumber } from "utils/zod";
 
 const schema = z.object({
   artist: zodAddress,
-  full_deposit_amount: z.bigint(),
+  full_deposit_amount: zodJsonToBigInt,
   name: z.string(),
-  number_of_deposits_allowed: z.number(),
+  number_of_deposits_allowed: zodJsonToNumber,
   platform: zodAddress,
-  platform_fee_bps: z.number(),
+  platform_fee_bps: zodJsonToNumber,
   token_gate_contract: zodAddress,
-  token_gate_deposit: z.bigint(),
+  token_gate_deposit_amount: zodJsonToBigInt,
 });
 
-// convert to object type
 interface DepositInitiative {
   artist: Address;
   fullDeposit: bigint;
@@ -25,10 +24,10 @@ interface DepositInitiative {
   platform: Address;
   platformFeeBps: number;
   tokenGateContract: Address;
-  tokenGateDeposit: bigint;
+  tokenGateDepositAmount: bigint;
 }
 
-export const useDepositInitiative = (): DepositInitiative | null => {
+export const useDepositInitiative = (): DepositInitiative => {
   const { data, error } = useDepositGetInitiativeDetails();
 
   if (error) {
@@ -40,18 +39,16 @@ export const useDepositInitiative = (): DepositInitiative | null => {
     parsed = JSON.parse(data);
   }
 
-  const validated = schema.safeParse(parsed);
+  const validated = schema.parse(parsed);
 
-  return validated.success
-    ? {
-        artist: validated.data.artist,
-        fullDeposit: validated.data.full_deposit_amount,
-        name: validated.data.name,
-        numberOfDepositsAllowed: validated.data.number_of_deposits_allowed,
-        platform: validated.data.platform,
-        platformFeeBps: validated.data.platform_fee_bps,
-        tokenGateContract: validated.data.token_gate_contract,
-        tokenGateDeposit: validated.data.token_gate_deposit,
-      }
-    : null;
+  return {
+    artist: validated.artist,
+    fullDeposit: validated.full_deposit_amount,
+    name: validated.name,
+    numberOfDepositsAllowed: validated.number_of_deposits_allowed,
+    platform: validated.platform,
+    platformFeeBps: validated.platform_fee_bps,
+    tokenGateContract: validated.token_gate_contract,
+    tokenGateDepositAmount: validated.token_gate_deposit_amount,
+  };
 };

@@ -1,53 +1,19 @@
-import { useState } from "react";
-
-import {
-  BlankBox,
-  BodyContainer,
-  BoldText,
-  ButtonRow,
-  CancelButton,
-  CancelButtonRow,
-  CancelDeposit,
-  CheckBox,
-  ContractBody,
-  ContractSection,
-  DepositButton,
-  DepositsStatus,
-  DiscountGrid,
-  DiscountSection,
-  HowSection,
-  InteractionsSection,
-  Left,
-  Locked,
-  MattoNoteHeader,
-  MintStage,
-  NoteBox,
-  NoteFromMattoContainer,
-  NoteText,
-  Right,
-  StageStatus,
-  StandardDeposit,
-  TokenDeposit,
-  TokenThumb,
-  Unlocked,
-  UserInput,
-} from "./DepositMain.styled";
+/* eslint-disable @typescript-eslint/no-unnecessary-condition */
+import * as St from "./DepositMain.styled";
 
 const DepositMain = (): React.JSX.Element => {
-  const [isDepositOpen, setIsDepositOpen] = useState(false);
-
-  const [isMintPublic, setIsMintPublic] = useState(false);
-
-  const [isMintPrivate, setIsMintPrivate] = useState(true);
+  const isDepositOpen = false;
+  const isMintPublic = false;
+  const isMintPrivate = true;
 
   const apos = "'";
 
   return (
     <>
-      <NoteFromMattoContainer>
-        <MattoNoteHeader>A Note From Matto</MattoNoteHeader>
-        <NoteBox className="dark:border-3 dark:border-white">
-          <NoteText>
+      <St.NoteFromMattoContainer>
+        <St.MattoNoteHeader>A Note From Matto</St.MattoNoteHeader>
+        <St.NoteBox className="dark:border-3 dark:border-white">
+          <St.NoteText>
             A NOTE FROM MATTO “100x10x1 Composition A is unique in that full
             functionality of the project only happens
             <span style={{ fontSize: "16px", fontWeight: "bold" }}>
@@ -68,25 +34,25 @@ const DepositMain = (): React.JSX.Element => {
               raise-closing*
             </span>{" "}
             .”
-          </NoteText>
-        </NoteBox>
-      </NoteFromMattoContainer>
-      <MintStage>
-        <StageStatus>
-          <BoldText>STAGE:</BoldText>
-          <NoteText>ALLOW LIST</NoteText>
-          {isMintPrivate ? <CheckBox /> : <BlankBox />}
-          <NoteText>PUBLIC</NoteText>
-          {isMintPublic ? <CheckBox /> : <BlankBox />}
-        </StageStatus>
-        <DepositsStatus>
-          <BoldText>DEPOSITS:</BoldText>
-          {isDepositOpen ? <Unlocked /> : <Locked />}
-        </DepositsStatus>{" "}
-      </MintStage>
-      <BodyContainer>
-        <Left>
-          <HowSection>
+          </St.NoteText>
+        </St.NoteBox>
+      </St.NoteFromMattoContainer>
+      <St.MintStage>
+        <St.StageStatus>
+          <St.BoldText>STAGE:</St.BoldText>
+          <St.NoteText>ALLOW LIST</St.NoteText>
+          {isMintPrivate ? <St.CheckBox /> : <St.BlankBox />}
+          <St.NoteText>PUBLIC</St.NoteText>
+          {isMintPublic ? <St.CheckBox /> : <St.BlankBox />}
+        </St.StageStatus>
+        <St.DepositsStatus>
+          <St.BoldText>DEPOSITS:</St.BoldText>
+          {isDepositOpen ? <St.Unlocked /> : <St.Locked />}
+        </St.DepositsStatus>{" "}
+      </St.MintStage>
+      <St.BodyContainer>
+        <St.Left>
+          <St.HowSection>
             <h2>How The Contract Works</h2>
             <p>
               This deposit contract allows only{" "}
@@ -126,10 +92,10 @@ const DepositMain = (): React.JSX.Element => {
               *Raise-closing: automatic once the goal number of depositors is
               reached, but if unreached the artist may manually close it.
             </p>
-          </HowSection>
-          <DiscountSection>
+          </St.HowSection>
+          <St.DiscountSection>
             <h2>Token-Gated Discount</h2>
-            <DiscountGrid className="dark:border-3 dark:border-white">
+            <St.DiscountGrid className="dark:border-3 dark:border-white">
               <p>
                 To be eligible for a discount the depositing account or a vault
                 that delegates to it must own a{" "}
@@ -139,16 +105,16 @@ const DepositMain = (): React.JSX.Element => {
                 The address that holds the qualifying token will be recorded as
                 the recipient of the 100x10x1-A token.
               </p>
-              <TokenThumb
+              <St.TokenThumb
                 alt="Chainlife 17"
                 className="dark:border-r-3 dark:border-white"
                 src="/icons/chainlife_17.PNG"
               />
-            </DiscountGrid>
-          </DiscountSection>
-          <ContractSection>
+            </St.DiscountGrid>
+          </St.DiscountSection>
+          <St.ContractSection>
             <h2>Contract Status</h2>
-            <ContractBody className="dark:border-3 dark:border-white">
+            <St.ContractBody className="dark:border-3 dark:border-white">
               <h6 style={{ fontWeight: 700 }}>
                 The following includes live data pulled from the{" "}
                 <span style={{ textDecoration: "underline" }}>
@@ -166,11 +132,11 @@ const DepositMain = (): React.JSX.Element => {
               <p>Current Contract Balance: ____ ETH Required</p>
               <p>Deposit for Non-Token Holders: ____ ETH </p>
               <p>Required Deposit for Token Holders: ____ ETH</p>
-            </ContractBody>
-          </ContractSection>
-        </Left>
-        <Right>
-          <StandardDeposit>
+            </St.ContractBody>
+          </St.ContractSection>
+        </St.Left>
+        <St.Right>
+          <St.StandardDeposit>
             <h2>Contract Interactions</h2>
             <h6>Standard Deposit</h6>
             <p>
@@ -180,14 +146,14 @@ const DepositMain = (): React.JSX.Element => {
               delegated to a depositing account. The 100x10x1-A interactive
               functions support delegation through delegate.xyz.
             </p>
-            <ButtonRow className="dark:border-3 dark:border-white">
-              <UserInput placeholder="Optional: 0x address recipient" />
-              <DepositButton className="hover:bg-hover-light dark:bg-white dark:text-black dark:hover:bg-hover-dark">
+            <St.ButtonRow className="dark:border-3 dark:border-white">
+              <St.UserInput placeholder="Optional: 0x address recipient" />
+              <St.DepositButton className="hover:bg-hover-light dark:bg-white dark:text-black dark:hover:bg-hover-dark">
                 SUBMIT DEPOSIT ___ETH
-              </DepositButton>
-            </ButtonRow>
-          </StandardDeposit>
-          <TokenDeposit>
+              </St.DepositButton>
+            </St.ButtonRow>
+          </St.StandardDeposit>
+          <St.TokenDeposit>
             <h6>Token-Gated Deposit</h6>
             <p>
               To receive the discount, enter the eligible token's ID. This token
@@ -195,14 +161,14 @@ const DepositMain = (): React.JSX.Element => {
               to it. The recipient account will be set to whichever account owns
               the eligible token.
             </p>
-            <ButtonRow className="dark:border-3 dark:border-white">
-              <UserInput placeholder="Chainlife tokenID required" />
-              <DepositButton className="hover:bg-hover-light dark:bg-white dark:text-black dark:hover:bg-hover-dark">
+            <St.ButtonRow className="dark:border-3 dark:border-white">
+              <St.UserInput placeholder="Chainlife tokenID required" />
+              <St.DepositButton className="hover:bg-hover-light dark:bg-white dark:text-black dark:hover:bg-hover-dark">
                 SUBMIT DEPOSIT ___ETH
-              </DepositButton>
-            </ButtonRow>
-          </TokenDeposit>
-          <CancelDeposit>
+              </St.DepositButton>
+            </St.ButtonRow>
+          </St.TokenDeposit>
+          <St.CancelDeposit>
             <h6>Cancel Deposit</h6>
             <p>
               Plain and simple: cancel your deposit and you will be refunded
@@ -213,14 +179,14 @@ const DepositMain = (): React.JSX.Element => {
               depositing account and recipient account will be able to be
               reused.
             </p>
-            <CancelButtonRow>
-              <CancelButton className="hover:bg-hover-light dark:bg-white dark:text-black dark:hover:bg-hover-dark">
+            <St.CancelButtonRow>
+              <St.CancelButton className="hover:bg-hover-light dark:bg-white dark:text-black dark:hover:bg-hover-dark">
                 CANCEL DEPOSIT
-              </CancelButton>
-            </CancelButtonRow>
-          </CancelDeposit>
-        </Right>
-      </BodyContainer>
+              </St.CancelButton>
+            </St.CancelButtonRow>
+          </St.CancelDeposit>
+        </St.Right>
+      </St.BodyContainer>
     </>
   );
 };
