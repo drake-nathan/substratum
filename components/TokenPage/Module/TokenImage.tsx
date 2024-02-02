@@ -9,12 +9,12 @@ const Image = styled.img<{ $aspectRatio: number }>`
   border-bottom: 1px solid ${({ theme: { colors } }) => colors.textMain};
 `;
 
-type Props = {
+interface Props {
   aspectRatio: number;
   generatorUrl: string | undefined;
   image: string;
   imageMid: string | undefined;
-};
+}
 
 const TokenImage = ({ aspectRatio, generatorUrl, image, imageMid }: Props) => {
   if (generatorUrl) return <Generator generatorUrl={generatorUrl} />;

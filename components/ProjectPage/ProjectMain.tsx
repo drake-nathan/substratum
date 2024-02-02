@@ -6,11 +6,11 @@ import DepositMain from "./Deposit/DepositMain";
 import Details from "./Details/Details";
 import Tokens from "./Tokens/Tokens";
 
-type Props = {
+interface Props {
   project: Project;
   projectSlug: string;
   tab: "details" | "mint" | "tokens";
-};
+}
 
 const ProjectMain = ({
   project,

@@ -100,7 +100,7 @@ const TopModal = ({
         header: "Top",
         loading,
         subText,
-        text: methodDescriptions["top"],
+        text: methodDescriptions.top,
       }}
     />
   );

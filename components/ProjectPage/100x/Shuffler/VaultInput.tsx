@@ -30,13 +30,13 @@ const VaultInput = ({ setVault, vault }: Props): JSX.Element => {
   return (
     <>
       <form
-        className="flex flex-shrink flex-grow"
+        className="flex shrink grow"
         onSubmit={void handleSubmit(onValid, onInvalid)}
         style={{ flexBasis: "100%", gridArea: "vault" }}
       >
         <input
           {...register("vault")}
-          className="flex-shrink flex-grow basis-full border-none bg-offset p-4 font-sans outline-none dark:text-black"
+          className="shrink grow basis-full border-none bg-offset p-4 font-sans outline-none dark:text-black"
           onChange={(e) => setVault(e.target.value)}
           placeholder="Optional: Enter Vault (Must Delegate to Connected Account)"
           type="text"

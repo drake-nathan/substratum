@@ -28,7 +28,7 @@ const Header = (): JSX.Element => {
 
       {!isMobileNav ? (
         <>
-          <div className="md- flex w-full items-center justify-between">
+          <div className="flex w-full items-center justify-between">
             <Link href="/">
               <h1 className="">substratum</h1>
             </Link>
@@ -54,7 +54,7 @@ const Header = (): JSX.Element => {
       ) : (
         <>
           <Link href="/">
-            <h1 className="md- flex w-full items-center justify-between text-2xl">
+            <h1 className="flex w-full items-center justify-between text-2xl">
               substratum
             </h1>
           </Link>

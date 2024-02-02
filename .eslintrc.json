@@ -3,11 +3,15 @@
     "next/core-web-vitals",
     "eslint:recommended",
     "plugin:perfectionist/recommended-natural",
+    "plugin:tailwindcss/recommended",
     "prettier"
   ],
   "overrides": [
     {
-      "extends": ["plugin:@typescript-eslint/strict-type-checked"],
+      "extends": [
+        "plugin:@typescript-eslint/strict-type-checked",
+        "plugin:@typescript-eslint/stylistic-type-checked"
+      ],
       "files": ["*.ts", "*.tsx"],
       "rules": {
         "@typescript-eslint/consistent-type-exports": "error",
@@ -22,7 +26,11 @@
           { "ignoreArrowShorthand": true }
         ],
         "@typescript-eslint/no-import-type-side-effects": "error",
-        "@typescript-eslint/no-unused-vars": "warn"
+        "@typescript-eslint/no-unused-vars": "warn",
+        "@typescript-eslint/prefer-nullish-coalescing": [
+          "error",
+          { "ignorePrimitives": { "string": true } }
+        ]
       }
     }
   ],
@@ -30,7 +38,7 @@
   "parserOptions": {
     "project": "./tsconfig.json"
   },
-  "plugins": ["@typescript-eslint", "perfectionist"],
+  "plugins": ["@typescript-eslint", "perfectionist", "tailwindcss"],
   "root": true,
   "rules": {
     "import/no-anonymous-default-export": "off",
@@ -74,6 +82,19 @@
       }
     ],
     "react/jsx-props-no-spreading": "off",
-    "react/require-default-props": "off"
+    "react/require-default-props": "off",
+    "tailwindcss/classnames-order": "off"
+  },
+  "settings": {
+    "tailwindcss": {
+      "whitelist": [
+        "dropdown-flip",
+        "icon",
+        "active",
+        "rotated",
+        "hide",
+        "inactive"
+      ]
+    }
   }
 }
