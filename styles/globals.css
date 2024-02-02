@@ -7,13 +7,19 @@
   margin: 0;
   padding: 0;
   font-family: "transducer", sans-serif;
+  --mobile-breakpoint: 800px;
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE/Edge */
+}
+
+*::-webkit-scrollbar {
+  display: none !important;
 }
 
 html,
 body {
   overflow-x: hidden;
   font-size: 16px;
-  --mobile-breakpoint: 800px;
 }
 
 button {

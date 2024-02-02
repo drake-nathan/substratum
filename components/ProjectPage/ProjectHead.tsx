@@ -17,8 +17,8 @@ const ProjectHead = ({ project, tab }: Props) => {
   const maxSupplyText = maxSupply > 999_999 ? "?" : intlNumberFormat(maxSupply);
 
   return (
-    <div className="grid w-full grid-cols-2 p-20">
-      <div className="flex w-full flex-col items-start max-sm:mt-4 max-sm:p-[23px]">
+    <div className="grid w-full px-10 sm:grid-cols-1 sm:py-20 md:grid-cols-2 md:p-20">
+      <div className="flex w-full flex-col items-start max-sm:mt-10">
         <h1 className="mb-4 text-2xl sm:text-4xl">{name}</h1>
 
         <div className="mb-8 flex justify-start gap-2">
