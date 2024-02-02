@@ -1,7 +1,9 @@
 import { RxOpenInNewWindow } from "react-icons/rx";
 import styled from "styled-components";
 
-type ShowDropDown = { $showDropDown: boolean };
+interface ShowDropDown {
+  $showDropDown: boolean;
+}
 
 export const Container = styled.div<ShowDropDown>`
   position: absolute;

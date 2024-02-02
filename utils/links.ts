@@ -1,10 +1,10 @@
 import type { Address } from "viem";
 
-type Params = {
+interface Params {
   chain: "goerli" | "mainnet";
   type: "address" | "tx";
   value: Address;
-};
+}
 
 export const getEtherscanLink = ({ chain, type, value }: Params) => {
   const baseUrl = `https://${

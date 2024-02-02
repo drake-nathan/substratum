@@ -74,7 +74,7 @@ const Details = ({ project }: { project: Project }): JSX.Element => {
               rel="noreferrer"
               target="_blank"
             >
-              <div className="g-1 mt-4 flex items-center text-lg hover:text-black dark:hover:text-white">
+              <div className="mt-4 flex items-center gap-1 text-lg hover:text-black dark:hover:text-white">
                 <span className="underline">All SVGs</span>
                 <RxOpenInNewWindow className="font-medium" />
               </div>

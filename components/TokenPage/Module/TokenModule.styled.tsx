@@ -126,7 +126,10 @@ export const BuyButton = styled.button`
   }
 `;
 
-type Props = { height: number; width: number };
+interface Props {
+  height: number;
+  width: number;
+}
 
 export const InnerContainer = styled.div<Props>`
   width: 100%;

@@ -6,7 +6,9 @@ import type { Project } from "data/projects";
 import * as St from "./TokenSearch.styled";
 import { useCurrentSupply } from "hooks/useCurrentSupply";
 
-type IToken = { tokenId: number };
+interface IToken {
+  tokenId: number;
+}
 
 interface Props {
   project: Project;
@@ -43,7 +45,7 @@ const TokenSearch = ({
   };
 
   useEffect(() => {
-    if (errors.tokenId && errors.tokenId.message) {
+    if (errors.tokenId?.message) {
       setErrorText(errors.tokenId.message);
       setTimeout(() => setErrorText(""), 3000);
     } else if (errorText) {
@@ -98,7 +100,7 @@ const TokenSearch = ({
           }}
           onChange={(e) => setTokenId(parseInt(e.target.value, 10))}
           placeholder="Search By Token ID"
-          value={tokenId || tokenId === 0 ? tokenId : ""}
+          value={tokenId ?? ""}
         />
       </St.Form>
       {errorText && (
