@@ -28,8 +28,9 @@ const TokenSearch = ({
   const currentSupply = useCurrentSupply(projectSlug);
 
   const indexCorrection = isZeroIndexed ? 1 : 0;
-  const maxToken = currentSupply
-    ? currentSupply - indexCorrection
+  const maxToken =
+    currentSupply ?
+      currentSupply - indexCorrection
     : maxSupply - indexCorrection;
 
   const [errorText, setErrorText] = useState("");

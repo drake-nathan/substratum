@@ -26,7 +26,7 @@ const Header = (): JSX.Element => {
         </div>
       </Link>
 
-      {!isMobileNav ? (
+      {!isMobileNav ?
         <>
           <div className="flex w-full items-center justify-between">
             <Link href="/">
@@ -42,17 +42,14 @@ const Header = (): JSX.Element => {
             className="hover:text-hover-light dark:hover:text-hover-dark"
             onClick={toggleTheme}
           >
-            {!isDark ? (
+            {!isDark ?
               <MdOutlineDarkMode className="text-xl" />
-            ) : (
-              <CgSun className="text-xl" />
-            )}
+            : <CgSun className="text-xl" />}
           </button>
 
           <ConnectButton />
         </>
-      ) : (
-        <>
+      : <>
           <Link href="/">
             <h1 className="flex w-full items-center justify-between text-2xl">
               substratum
@@ -71,7 +68,7 @@ const Header = (): JSX.Element => {
 
           <MobileNav isOpen={showMobileNav} setIsOpen={setShowMobileNav} />
         </>
-      )}
+      }
     </header>
   );
 };

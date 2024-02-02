@@ -40,21 +40,19 @@ const ArtistsDropDown = ({
     );
   });
 
-  return !isMobile ? (
-    <>
-      {showDropDown && (
-        <div
-          className="fixed left-0 top-0 z-10 h-screen w-full"
-          onClick={closeBothMenus}
-        />
-      )}
-      <St.ContainerArtists $showDropDown={showDropDown}>
-        {artistListJsx}
-      </St.ContainerArtists>
-    </>
-  ) : (
-    <St.MobileContainer>{artistListJsx}</St.MobileContainer>
-  );
+  return !isMobile ?
+      <>
+        {showDropDown && (
+          <div
+            className="fixed left-0 top-0 z-10 h-screen w-full"
+            onClick={closeBothMenus}
+          />
+        )}
+        <St.ContainerArtists $showDropDown={showDropDown}>
+          {artistListJsx}
+        </St.ContainerArtists>
+      </>
+    : <St.MobileContainer>{artistListJsx}</St.MobileContainer>;
 };
 
 export default ArtistsDropDown;

@@ -39,8 +39,9 @@ const MarketIcons = ({ project, tokenId }: Props): JSX.Element => {
 
         const alt = isToken ? altToken : altCollection;
         const tooltip = isToken ? tooltipToken : tooltipCollection;
-        const link = isToken
-          ? getTokenMarketLink(icon, contractAddress, tokenId)
+        const link =
+          isToken ?
+            getTokenMarketLink(icon, contractAddress, tokenId)
           : getProjectMarketLink(icon, openSeaSlug, contractAddress);
 
         return (

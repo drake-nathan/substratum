@@ -25,9 +25,8 @@ const TokenIcons = ({ project, token }: Props): JSX.Element => {
     tokenId === 0 &&
     (projectSlug === "100x10x1-a-goerli" || projectSlug === "100x10x1-a");
 
-  const fullScreenUrl = is100xComposite
-    ? svgGen || image
-    : generatorUrl || svgGen || image;
+  const fullScreenUrl =
+    is100xComposite ? svgGen || image : generatorUrl || svgGen || image;
 
   const mobileUrl = generatorUrl ? new URL(generatorUrl) : null;
 

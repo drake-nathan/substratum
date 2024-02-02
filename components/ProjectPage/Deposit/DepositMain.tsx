@@ -41,13 +41,19 @@ const DepositMain = (): React.JSX.Element => {
         <St.StageStatus>
           <St.BoldText>STAGE:</St.BoldText>
           <St.NoteText>ALLOW LIST</St.NoteText>
-          {isMintPrivate ? <St.CheckBox /> : <St.BlankBox />}
+          {isMintPrivate ?
+            <St.CheckBox />
+          : <St.BlankBox />}
           <St.NoteText>PUBLIC</St.NoteText>
-          {isMintPublic ? <St.CheckBox /> : <St.BlankBox />}
+          {isMintPublic ?
+            <St.CheckBox />
+          : <St.BlankBox />}
         </St.StageStatus>
         <St.DepositsStatus>
           <St.BoldText>DEPOSITS:</St.BoldText>
-          {isDepositOpen ? <St.Unlocked /> : <St.Locked />}
+          {isDepositOpen ?
+            <St.Unlocked />
+          : <St.Locked />}
         </St.DepositsStatus>{" "}
       </St.MintStage>
       <St.BodyContainer>

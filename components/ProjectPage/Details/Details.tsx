@@ -39,9 +39,9 @@ const Details = ({ project }: { project: Project }): JSX.Element => {
   const [imageTokenId, setImageTokenId] = useState<number>(0);
 
   const image =
-    imageTokenId === 0
-      ? project.image
-      : `${process.env.NEXT_PUBLIC_BLOB_ROOT}/images/100x10x1-a-goerli_${imageTokenId}.png`;
+    imageTokenId === 0 ?
+      project.image
+    : `${process.env.NEXT_PUBLIC_BLOB_ROOT}/images/100x10x1-a-goerli_${imageTokenId}.png`;
 
   return (
     <div className="mt-12 grid w-full grid-cols-2 gap-8 px-20 max-sm:mt-[23px] max-sm:px-6 max-sm:py-[23px]">

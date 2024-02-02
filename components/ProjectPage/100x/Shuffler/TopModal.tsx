@@ -33,9 +33,8 @@ const TopModal = ({
   const { launchAlertModal, launchSuccessModal } = useModal();
   const { isSuccess, ownerAddress } = useTokenOwnerOf(tokenId);
 
-  const isTokenOwner = ownerAddress
-    ? isAddressEqual(vault ?? address, ownerAddress)
-    : null;
+  const isTokenOwner =
+    ownerAddress ? isAddressEqual(vault ?? address, ownerAddress) : null;
 
   const [error, setError] = useState<string | undefined>();
   const [loading, setLoading] = useState<boolean>(true);
