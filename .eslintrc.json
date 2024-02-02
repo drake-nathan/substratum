@@ -82,6 +82,7 @@
       }
     ],
     "react/jsx-props-no-spreading": "off",
+    "react/no-unescaped-entities": "off",
     "react/require-default-props": "off",
     "tailwindcss/classnames-order": "off"
   },
