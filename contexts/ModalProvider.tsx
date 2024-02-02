@@ -11,8 +11,8 @@ export interface IModalContext {
 }
 
 export const ModalContext = createContext<IModalContext>({
-  launchAlertModal: () => {},
-  launchSuccessModal: () => {},
+  launchAlertModal: () => undefined,
+  launchSuccessModal: () => undefined,
 });
 
 interface Props {
