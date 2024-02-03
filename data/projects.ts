@@ -1,6 +1,7 @@
 const blobRoot = process.env.NEXT_PUBLIC_BLOB_ROOT;
+const env = process.env.NODE_ENV;
 
-if (!blobRoot) {
+if (!blobRoot && env !== "test") {
   throw new Error("NEXT_PUBLIC_BLOB_ROOT is not defined");
 }
 

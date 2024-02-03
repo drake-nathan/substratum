@@ -26,11 +26,31 @@
           { "ignoreArrowShorthand": true }
         ],
         "@typescript-eslint/no-import-type-side-effects": "error",
+        "@typescript-eslint/no-unsafe-assignment": "off",
+        "@typescript-eslint/no-unsafe-call": "off",
+        "@typescript-eslint/no-unsafe-member-access": "off",
+        "@typescript-eslint/no-unsafe-return": "off",
         "@typescript-eslint/no-unused-vars": "warn",
         "@typescript-eslint/prefer-nullish-coalescing": [
           "error",
           { "ignorePrimitives": { "string": true } }
         ]
+      }
+    },
+    {
+      "env": { "jest/globals": true },
+      "extends": [
+        "plugin:jest/recommended",
+        "plugin:jest/style",
+        "plugin:testing-library/react",
+        "plugin:jest-formatting/strict"
+      ],
+      "files": ["*.test.ts", "*.test.tsx"],
+      "plugins": ["jest", "jest-formatting", "testing-library"],
+      "settings": {
+        "jest": {
+          "version": 27
+        }
       }
     }
   ],
