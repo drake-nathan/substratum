@@ -16,6 +16,7 @@ interface Props {
 const MobileNav: React.FC<Props> = ({ isOpen, setIsOpen }) => {
   const { colors, isMobile } = useTheme();
   const iconSize = !isMobile ? 80 : 42;
+
   return (
     <St.Container $isOpen={isOpen}>
       <St.TopRow>

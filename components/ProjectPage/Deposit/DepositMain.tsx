@@ -180,9 +180,12 @@ const DepositMain = (): React.JSX.Element => {
               functions support delegation through delegate.xyz.
             </p>
             <ButtonRow className="dark:border-3 dark:border-white">
-              <UserInput placeholder="Optional: 0x address recipient" />
+              <UserInput
+                className="border-none bg-offset p-4 font-sans outline-none dark:text-black max-sm:text-[12px]"
+                placeholder="Optional: 0x address recipient"
+              />
               <DepositButton className="hover:bg-hover-light dark:bg-white dark:text-black dark:hover:bg-hover-dark">
-                SUBMIT DEPOSIT ___ETH
+                SUBMIT ___ETH
               </DepositButton>
             </ButtonRow>
           </StandardDeposit>
@@ -195,9 +198,12 @@ const DepositMain = (): React.JSX.Element => {
               the eligible token.
             </p>
             <ButtonRow className="dark:border-3 dark:border-white">
-              <UserInput placeholder="Chainlife tokenID required" />
+              <UserInput
+                className="border-none bg-offset p-4 font-sans outline-none dark:text-black max-sm:text-[12px]"
+                placeholder="Chainlife tokenID required"
+              />
               <DepositButton className="hover:bg-hover-light dark:bg-white dark:text-black dark:hover:bg-hover-dark">
-                SUBMIT DEPOSIT ___ETH
+                SUBMIT ___ETH
               </DepositButton>
             </ButtonRow>
           </TokenDeposit>

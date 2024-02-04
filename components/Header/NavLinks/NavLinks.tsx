@@ -19,63 +19,62 @@ const NavLinks = ({ setShowMobileNav }: Props): JSX.Element => {
     <>
       <St.Tab
         onClick={() => {
-          setShowArtistsDropDown(false);
+          //setShowArtistsDropDown(false);
           setShowProjectsDropDown((prev) => !prev);
         }}
       >
         <St.Text
-          onClick={() => {
-            setShowMobileNav(false);
-          }}
+        // onClick={() => {
+        // setShowMobileNav(false);
+        //}}
         >
           Projects
         </St.Text>
-        {!isMobile && (
-          <St.DropdownIcon
-            className={showProjectsDropDown ? "dropdown-flip" : ""}
-          />
-        )}
+        <St.DropdownIcon
+          className={showProjectsDropDown ? "dropdown-flip" : ""}
+        />
       </St.Tab>
 
-      {isMobile && (
-        <ProjectsDropDown
-          setShowDropDown={setShowProjectsDropDown}
-          setShowMobileNav={setShowMobileNav}
-          showDropDown={showProjectsDropDown}
-        />
-      )}
+      <ProjectsDropDown
+        setShowDropDown={setShowProjectsDropDown}
+        setShowMobileNav={setShowMobileNav}
+        showDropDown={showProjectsDropDown}
+      />
     </>
   );
 
   const artistsTab = (
     <>
       <St.Tab
-        onClick={() => {
-          setShowProjectsDropDown(false);
-          setShowArtistsDropDown((prev) => !prev);
-        }}
+        onClick={
+          !isMobile
+            ? () => {
+                //setShowProjectsDropDown(false);
+                setShowArtistsDropDown((prev) => !prev);
+              }
+            : () => {
+                setShowArtistsDropDown((prev) => !prev);
+              }
+        }
       >
         <St.Text
-          onClick={() => {
-            setShowMobileNav(false);
-          }}
+        //onClick={() => {
+        //setShowMobileNav(false);
+        //}}
         >
           Artists
         </St.Text>
-        {!isMobile && (
-          <St.DropdownIcon
-            className={showArtistsDropDown ? "dropdown-flip" : ""}
-          />
-        )}
+
+        <St.DropdownIcon
+          className={showArtistsDropDown ? "dropdown-flip" : ""}
+        />
       </St.Tab>
 
-      {isMobile && (
-        <ArtistsDropDown
-          setShowDropDown={setShowArtistsDropDown}
-          setShowMobileNav={setShowMobileNav}
-          showDropDown={showArtistsDropDown}
-        />
-      )}
+      <ArtistsDropDown
+        setShowDropDown={setShowArtistsDropDown}
+        setShowMobileNav={setShowMobileNav}
+        showDropDown={showArtistsDropDown}
+      />
     </>
   );
 
@@ -111,22 +110,6 @@ const NavLinks = ({ setShowMobileNav }: Props): JSX.Element => {
           </span>
         </a>
       </St.Tab>
-
-      {!isMobile && (
-        <ProjectsDropDown
-          setShowDropDown={setShowProjectsDropDown}
-          setShowMobileNav={setShowMobileNav}
-          showDropDown={showProjectsDropDown}
-        />
-      )}
-
-      {!isMobile && (
-        <ArtistsDropDown
-          setShowDropDown={setShowArtistsDropDown}
-          setShowMobileNav={setShowMobileNav}
-          showDropDown={showArtistsDropDown}
-        />
-      )}
     </div>
   );
 };
