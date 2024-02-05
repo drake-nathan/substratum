@@ -66,7 +66,7 @@ const ArtistsDropDown = ({
         {showDropDown && <div className="fixed left-0 top-0 z-10 flex-col" />}
         <div
           className={clsx(
-            "left-50 top-[50.5px] z-40 h-0 min-w-56 overflow-y-hidden bg-white transition-all duration-300 dark:bg-black",
+            "top-[50.5px] z-40 h-0 min-w-56 overflow-y-hidden bg-white transition-all duration-300 dark:bg-black",
             {
               "h-max px-5 pb-2 pt-3 outline outline-1 outline-black dark:outline-white":
                 showDropDown,

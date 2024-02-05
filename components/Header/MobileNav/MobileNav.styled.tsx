@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-type IsOpen = { $isOpen: boolean };
+interface IsOpen {
+  $isOpen: boolean;
+}
 
 export const Container = styled.div<IsOpen>`
   position: fixed;
@@ -15,7 +17,6 @@ export const Container = styled.div<IsOpen>`
   align-items: center;
   justify-content: flex-start;
   gap: 2em;
-  //padding: 3em 2em 9em;
 
   background-color: ${({ theme }) => theme.colors.bgMain};
 
@@ -53,5 +54,4 @@ export const NavLinkContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
   gap: 2em;
-  //margin-bottom: 2rem;
 `;

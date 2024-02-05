@@ -5,7 +5,7 @@ import { useTheme } from "styled-components";
 
 import ConnectButton from "../ConnectButton";
 import NavLinks from "../NavLinks/NavLinks";
-import SocialIcons from "../SocialIcons/SocialIcons";
+import SocialIcons from "../SocialIcons";
 import * as St from "./MobileNav.styled";
 
 interface Props {
@@ -27,7 +27,7 @@ const MobileNav: React.FC<Props> = ({ isOpen, setIsOpen }) => {
             </div>
           </Link>
           <Link href="/">
-            <h1 className="md- flex w-full items-center justify-between text-2xl">
+            <h1 className="flex w-full items-center justify-between text-2xl">
               substratum
             </h1>
           </Link>
