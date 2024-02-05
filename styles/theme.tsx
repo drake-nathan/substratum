@@ -1,9 +1,11 @@
 import type { DefaultTheme } from "styled-components";
 
+type HexColor = `#${string}`;
+
 export interface Colors {
-  bgMain: string;
-  hover: string;
-  textMain: string;
+  bgMain: HexColor;
+  hover: HexColor;
+  textMain: HexColor;
 }
 
 export const darkColors: Colors = {

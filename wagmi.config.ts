@@ -15,7 +15,7 @@ export default defineConfig(() => {
       {
         abi: depositAbi,
         address: {
-          [sepolia.id]: "0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c",
+          [sepolia.id]: "0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B",
         },
         name: "deposit",
       },

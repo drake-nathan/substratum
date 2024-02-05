@@ -12,7 +12,7 @@ interface Props {
     error?: string;
     header: string;
     loading: boolean;
-    subText: string;
+    subText?: string;
     text: string;
   };
 }
@@ -28,9 +28,11 @@ const TransactionModal = ({
 
       <p className="max-w-[30ch] text-center font-semibold">{text}</p>
 
-      <p className="text-center text-hover-light dark:text-hover-dark">
-        {subText}
-      </p>
+      {subText && (
+        <p className="text-center text-hover-light dark:text-hover-dark">
+          {subText}
+        </p>
+      )}
 
       <div className="flex items-center justify-around">
         <ActionArea error={error} handleClick={onProceed} loading={loading} />

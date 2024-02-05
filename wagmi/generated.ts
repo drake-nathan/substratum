@@ -20,7 +20,7 @@ import {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export const depositABI = [
   {
@@ -196,7 +196,7 @@ export const depositABI = [
   {
     stateMutability: 'payable',
     type: 'function',
-    inputs: [{ name: '_vault', internalType: 'address', type: 'address' }],
+    inputs: [{ name: '_recipient', internalType: 'address', type: 'address' }],
     name: 'DEPOSIT_AND_SET_ANOTHER_RECEVIER',
     outputs: [],
   },
@@ -236,13 +236,6 @@ export const depositABI = [
     outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
   },
   {
-    stateMutability: 'view',
-    type: 'function',
-    inputs: [],
-    name: 'allFundsWithdrawn',
-    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
-  },
-  {
     stateMutability: 'nonpayable',
     type: 'function',
     inputs: [
@@ -266,6 +259,20 @@ export const depositABI = [
     ],
     name: 'artistCancelAndRefundDeposit',
     outputs: [],
+  },
+  {
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [],
+    name: 'currentDepositorCount',
+    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
+  },
+  {
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [],
+    name: 'delegateContract',
+    outputs: [{ name: '', internalType: 'address', type: 'address' }],
   },
   {
     stateMutability: 'view',
@@ -296,6 +303,13 @@ export const depositABI = [
     outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
   },
   {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [],
+    name: 'endInitiative',
+    outputs: [],
+  },
+  {
     stateMutability: 'view',
     type: 'function',
     inputs: [],
@@ -315,6 +329,13 @@ export const depositABI = [
     inputs: [],
     name: 'getAllRecipientAddresses',
     outputs: [{ name: '', internalType: 'address[]', type: 'address[]' }],
+  },
+  {
+    stateMutability: 'view',
+    type: 'function',
+    inputs: [],
+    name: 'getContractStatus',
+    outputs: [{ name: '', internalType: 'bool[]', type: 'bool[]' }],
   },
   {
     stateMutability: 'view',
@@ -430,9 +451,27 @@ export const depositABI = [
     stateMutability: 'nonpayable',
     type: 'function',
     inputs: [
+      { name: '_artistAddress', internalType: 'address', type: 'address' },
+    ],
+    name: 'updateArtistAddress',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [
       { name: '_delegateContract', internalType: 'address', type: 'address' },
     ],
     name: 'updateDelegateContract',
+    outputs: [],
+  },
+  {
+    stateMutability: 'nonpayable',
+    type: 'function',
+    inputs: [
+      { name: '_platformAddress', internalType: 'address', type: 'address' },
+    ],
+    name: 'updatePlatformAddress',
     outputs: [],
   },
   {
@@ -445,14 +484,14 @@ export const depositABI = [
 ] as const
 
 /**
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export const depositAddress = {
-  11155111: '0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c',
+  11155111: '0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B',
 } as const
 
 /**
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export const depositConfig = {
   address: depositAddress,
@@ -1290,7 +1329,7 @@ export const oneHundredXConfig = {
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositRead<
   TFunctionName extends string,
@@ -1311,7 +1350,7 @@ export function useDepositRead<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"addressHasDeposited"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositAddressHasDeposited<
   TFunctionName extends 'addressHasDeposited',
@@ -1333,7 +1372,7 @@ export function useDepositAddressHasDeposited<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"addressIsApprovedForPrivate"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositAddressIsApprovedForPrivate<
   TFunctionName extends 'addressIsApprovedForPrivate',
@@ -1355,7 +1394,7 @@ export function useDepositAddressIsApprovedForPrivate<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"addressIsRecipient"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositAddressIsRecipient<
   TFunctionName extends 'addressIsRecipient',
@@ -1375,31 +1414,9 @@ export function useDepositAddressIsRecipient<
 }
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"allFundsWithdrawn"`.
- *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
- */
-export function useDepositAllFundsWithdrawn<
-  TFunctionName extends 'allFundsWithdrawn',
-  TSelectData = ReadContractResult<typeof depositABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: depositABI,
-    address: depositAddress[11155111],
-    functionName: 'allFundsWithdrawn',
-    ...config,
-  } as UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>)
-}
-
-/**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"approvedAddresses"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositApprovedAddresses<
   TFunctionName extends 'approvedAddresses',
@@ -1419,9 +1436,53 @@ export function useDepositApprovedAddresses<
 }
 
 /**
+ * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"currentDepositorCount"`.
+ *
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
+ */
+export function useDepositCurrentDepositorCount<
+  TFunctionName extends 'currentDepositorCount',
+  TSelectData = ReadContractResult<typeof depositABI, TFunctionName>,
+>(
+  config: Omit<
+    UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>,
+    'abi' | 'address' | 'functionName'
+  > & { chainId?: keyof typeof depositAddress } = {} as any,
+) {
+  return useContractRead({
+    abi: depositABI,
+    address: depositAddress[11155111],
+    functionName: 'currentDepositorCount',
+    ...config,
+  } as UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>)
+}
+
+/**
+ * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"delegateContract"`.
+ *
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
+ */
+export function useDepositDelegateContract<
+  TFunctionName extends 'delegateContract',
+  TSelectData = ReadContractResult<typeof depositABI, TFunctionName>,
+>(
+  config: Omit<
+    UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>,
+    'abi' | 'address' | 'functionName'
+  > & { chainId?: keyof typeof depositAddress } = {} as any,
+) {
+  return useContractRead({
+    abi: depositABI,
+    address: depositAddress[11155111],
+    functionName: 'delegateContract',
+    ...config,
+  } as UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>)
+}
+
+/**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"depositorToIndex"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositDepositorToIndex<
   TFunctionName extends 'depositorToIndex',
@@ -1443,7 +1504,7 @@ export function useDepositDepositorToIndex<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"depositors"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositDepositors<
   TFunctionName extends 'depositors',
@@ -1465,7 +1526,7 @@ export function useDepositDepositors<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"depositorsToRecipients"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositDepositorsToRecipients<
   TFunctionName extends 'depositorsToRecipients',
@@ -1487,7 +1548,7 @@ export function useDepositDepositorsToRecipients<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"depositsCompleted"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositDepositsCompleted<
   TFunctionName extends 'depositsCompleted',
@@ -1509,7 +1570,7 @@ export function useDepositDepositsCompleted<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"getAllApprovedAddresses"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositGetAllApprovedAddresses<
   TFunctionName extends 'getAllApprovedAddresses',
@@ -1531,7 +1592,7 @@ export function useDepositGetAllApprovedAddresses<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"getAllDepositors"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositGetAllDepositors<
   TFunctionName extends 'getAllDepositors',
@@ -1553,7 +1614,7 @@ export function useDepositGetAllDepositors<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"getAllRecipientAddresses"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositGetAllRecipientAddresses<
   TFunctionName extends 'getAllRecipientAddresses',
@@ -1573,9 +1634,31 @@ export function useDepositGetAllRecipientAddresses<
 }
 
 /**
+ * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"getContractStatus"`.
+ *
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
+ */
+export function useDepositGetContractStatus<
+  TFunctionName extends 'getContractStatus',
+  TSelectData = ReadContractResult<typeof depositABI, TFunctionName>,
+>(
+  config: Omit<
+    UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>,
+    'abi' | 'address' | 'functionName'
+  > & { chainId?: keyof typeof depositAddress } = {} as any,
+) {
+  return useContractRead({
+    abi: depositABI,
+    address: depositAddress[11155111],
+    functionName: 'getContractStatus',
+    ...config,
+  } as UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>)
+}
+
+/**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"getInitiativeDetails"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositGetInitiativeDetails<
   TFunctionName extends 'getInitiativeDetails',
@@ -1597,7 +1680,7 @@ export function useDepositGetInitiativeDetails<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"owner"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositOwner<
   TFunctionName extends 'owner',
@@ -1619,7 +1702,7 @@ export function useDepositOwner<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"privateDepositsEnabled"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositPrivateDepositsEnabled<
   TFunctionName extends 'privateDepositsEnabled',
@@ -1641,7 +1724,7 @@ export function useDepositPrivateDepositsEnabled<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"publicDepositsEnabled"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositPublicDepositsEnabled<
   TFunctionName extends 'publicDepositsEnabled',
@@ -1663,7 +1746,7 @@ export function useDepositPublicDepositsEnabled<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"receivedDiscount"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositReceivedDiscount<
   TFunctionName extends 'receivedDiscount',
@@ -1685,7 +1768,7 @@ export function useDepositReceivedDiscount<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"recipientAddresses"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositRecipientAddresses<
   TFunctionName extends 'recipientAddresses',
@@ -1707,7 +1790,7 @@ export function useDepositRecipientAddresses<
 /**
  * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"thisDepositInitiative"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositThisDepositInitiative<
   TFunctionName extends 'thisDepositInitiative',
@@ -1729,7 +1812,7 @@ export function useDepositThisDepositInitiative<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link depositABI}__.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositWrite<
   TFunctionName extends string,
@@ -1758,7 +1841,7 @@ export function useDepositWrite<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"CANCEL_AND_REFUND"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositCancelAndRefund<
   TMode extends WriteContractMode = undefined,
@@ -1795,7 +1878,7 @@ export function useDepositCancelAndRefund<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"DEPOSIT_AND_SET_ANOTHER_RECEVIER"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositDepositAndSetAnotherRecevier<
   TMode extends WriteContractMode = undefined,
@@ -1840,7 +1923,7 @@ export function useDepositDepositAndSetAnotherRecevier<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"DEPOSIT_AND_SET_SELF_AS_RECEIVER"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositDepositAndSetSelfAsReceiver<
   TMode extends WriteContractMode = undefined,
@@ -1885,7 +1968,7 @@ export function useDepositDepositAndSetSelfAsReceiver<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"DEPOSIT_WITH_TOKEN_GATE_AND_SET_HOLDING_ADDRESS"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositDepositWithTokenGateAndSetHoldingAddress<
   TMode extends WriteContractMode = undefined,
@@ -1930,7 +2013,7 @@ export function useDepositDepositWithTokenGateAndSetHoldingAddress<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"approveAddresses"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositApproveAddresses<
   TMode extends WriteContractMode = undefined,
@@ -1967,7 +2050,7 @@ export function useDepositApproveAddresses<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"artistCancelAndRefundDeposit"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositArtistCancelAndRefundDeposit<
   TMode extends WriteContractMode = undefined,
@@ -2010,9 +2093,46 @@ export function useDepositArtistCancelAndRefundDeposit<
 }
 
 /**
+ * Wraps __{@link useContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"endInitiative"`.
+ *
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
+ */
+export function useDepositEndInitiative<
+  TMode extends WriteContractMode = undefined,
+  TChainId extends number = keyof typeof depositAddress,
+>(
+  config: TMode extends 'prepared'
+    ? UseContractWriteConfig<
+        PrepareWriteContractResult<
+          typeof depositABI,
+          'endInitiative'
+        >['request']['abi'],
+        'endInitiative',
+        TMode
+      > & {
+        address?: Address
+        chainId?: TChainId
+        functionName?: 'endInitiative'
+      }
+    : UseContractWriteConfig<typeof depositABI, 'endInitiative', TMode> & {
+        abi?: never
+        address?: never
+        chainId?: TChainId
+        functionName?: 'endInitiative'
+      } = {} as any,
+) {
+  return useContractWrite<typeof depositABI, 'endInitiative', TMode>({
+    abi: depositABI,
+    address: depositAddress[11155111],
+    functionName: 'endInitiative',
+    ...config,
+  } as any)
+}
+
+/**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"newInitiative"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositNewInitiative<
   TMode extends WriteContractMode = undefined,
@@ -2049,7 +2169,7 @@ export function useDepositNewInitiative<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"renounceOwnership"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositRenounceOwnership<
   TMode extends WriteContractMode = undefined,
@@ -2086,7 +2206,7 @@ export function useDepositRenounceOwnership<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"setPrivateDepositBool"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositSetPrivateDepositBool<
   TMode extends WriteContractMode = undefined,
@@ -2127,7 +2247,7 @@ export function useDepositSetPrivateDepositBool<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"setPublicDepositBool"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositSetPublicDepositBool<
   TMode extends WriteContractMode = undefined,
@@ -2168,7 +2288,7 @@ export function useDepositSetPublicDepositBool<
 /**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"transferOwnership"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositTransferOwnership<
   TMode extends WriteContractMode = undefined,
@@ -2203,9 +2323,50 @@ export function useDepositTransferOwnership<
 }
 
 /**
+ * Wraps __{@link useContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"updateArtistAddress"`.
+ *
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
+ */
+export function useDepositUpdateArtistAddress<
+  TMode extends WriteContractMode = undefined,
+  TChainId extends number = keyof typeof depositAddress,
+>(
+  config: TMode extends 'prepared'
+    ? UseContractWriteConfig<
+        PrepareWriteContractResult<
+          typeof depositABI,
+          'updateArtistAddress'
+        >['request']['abi'],
+        'updateArtistAddress',
+        TMode
+      > & {
+        address?: Address
+        chainId?: TChainId
+        functionName?: 'updateArtistAddress'
+      }
+    : UseContractWriteConfig<
+        typeof depositABI,
+        'updateArtistAddress',
+        TMode
+      > & {
+        abi?: never
+        address?: never
+        chainId?: TChainId
+        functionName?: 'updateArtistAddress'
+      } = {} as any,
+) {
+  return useContractWrite<typeof depositABI, 'updateArtistAddress', TMode>({
+    abi: depositABI,
+    address: depositAddress[11155111],
+    functionName: 'updateArtistAddress',
+    ...config,
+  } as any)
+}
+
+/**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"updateDelegateContract"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositUpdateDelegateContract<
   TMode extends WriteContractMode = undefined,
@@ -2244,9 +2405,50 @@ export function useDepositUpdateDelegateContract<
 }
 
 /**
+ * Wraps __{@link useContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"updatePlatformAddress"`.
+ *
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
+ */
+export function useDepositUpdatePlatformAddress<
+  TMode extends WriteContractMode = undefined,
+  TChainId extends number = keyof typeof depositAddress,
+>(
+  config: TMode extends 'prepared'
+    ? UseContractWriteConfig<
+        PrepareWriteContractResult<
+          typeof depositABI,
+          'updatePlatformAddress'
+        >['request']['abi'],
+        'updatePlatformAddress',
+        TMode
+      > & {
+        address?: Address
+        chainId?: TChainId
+        functionName?: 'updatePlatformAddress'
+      }
+    : UseContractWriteConfig<
+        typeof depositABI,
+        'updatePlatformAddress',
+        TMode
+      > & {
+        abi?: never
+        address?: never
+        chainId?: TChainId
+        functionName?: 'updatePlatformAddress'
+      } = {} as any,
+) {
+  return useContractWrite<typeof depositABI, 'updatePlatformAddress', TMode>({
+    abi: depositABI,
+    address: depositAddress[11155111],
+    functionName: 'updatePlatformAddress',
+    ...config,
+  } as any)
+}
+
+/**
  * Wraps __{@link useContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"withdrawAllFunds"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositWithdrawAllFunds<
   TMode extends WriteContractMode = undefined,
@@ -2283,7 +2485,7 @@ export function useDepositWithdrawAllFunds<
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link depositABI}__.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function usePrepareDepositWrite<TFunctionName extends string>(
   config: Omit<
@@ -2301,7 +2503,7 @@ export function usePrepareDepositWrite<TFunctionName extends string>(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"CANCEL_AND_REFUND"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function usePrepareDepositCancelAndRefund(
   config: Omit<
@@ -2320,7 +2522,7 @@ export function usePrepareDepositCancelAndRefund(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"DEPOSIT_AND_SET_ANOTHER_RECEVIER"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function usePrepareDepositDepositAndSetAnotherRecevier(
   config: Omit<
@@ -2345,7 +2547,7 @@ export function usePrepareDepositDepositAndSetAnotherRecevier(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"DEPOSIT_AND_SET_SELF_AS_RECEIVER"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function usePrepareDepositDepositAndSetSelfAsReceiver(
   config: Omit<
@@ -2370,7 +2572,7 @@ export function usePrepareDepositDepositAndSetSelfAsReceiver(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"DEPOSIT_WITH_TOKEN_GATE_AND_SET_HOLDING_ADDRESS"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function usePrepareDepositDepositWithTokenGateAndSetHoldingAddress(
   config: Omit<
@@ -2395,7 +2597,7 @@ export function usePrepareDepositDepositWithTokenGateAndSetHoldingAddress(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"approveAddresses"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function usePrepareDepositApproveAddresses(
   config: Omit<
@@ -2414,7 +2616,7 @@ export function usePrepareDepositApproveAddresses(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"artistCancelAndRefundDeposit"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function usePrepareDepositArtistCancelAndRefundDeposit(
   config: Omit<
@@ -2437,9 +2639,28 @@ export function usePrepareDepositArtistCancelAndRefundDeposit(
 }
 
 /**
+ * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"endInitiative"`.
+ *
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
+ */
+export function usePrepareDepositEndInitiative(
+  config: Omit<
+    UsePrepareContractWriteConfig<typeof depositABI, 'endInitiative'>,
+    'abi' | 'address' | 'functionName'
+  > & { chainId?: keyof typeof depositAddress } = {} as any,
+) {
+  return usePrepareContractWrite({
+    abi: depositABI,
+    address: depositAddress[11155111],
+    functionName: 'endInitiative',
+    ...config,
+  } as UsePrepareContractWriteConfig<typeof depositABI, 'endInitiative'>)
+}
+
+/**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"newInitiative"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function usePrepareDepositNewInitiative(
   config: Omit<
@@ -2458,7 +2679,7 @@ export function usePrepareDepositNewInitiative(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"renounceOwnership"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function usePrepareDepositRenounceOwnership(
   config: Omit<
@@ -2477,7 +2698,7 @@ export function usePrepareDepositRenounceOwnership(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"setPrivateDepositBool"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function usePrepareDepositSetPrivateDepositBool(
   config: Omit<
@@ -2499,7 +2720,7 @@ export function usePrepareDepositSetPrivateDepositBool(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"setPublicDepositBool"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function usePrepareDepositSetPublicDepositBool(
   config: Omit<
@@ -2518,7 +2739,7 @@ export function usePrepareDepositSetPublicDepositBool(
 /**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"transferOwnership"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function usePrepareDepositTransferOwnership(
   config: Omit<
@@ -2535,9 +2756,28 @@ export function usePrepareDepositTransferOwnership(
 }
 
 /**
+ * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"updateArtistAddress"`.
+ *
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
+ */
+export function usePrepareDepositUpdateArtistAddress(
+  config: Omit<
+    UsePrepareContractWriteConfig<typeof depositABI, 'updateArtistAddress'>,
+    'abi' | 'address' | 'functionName'
+  > & { chainId?: keyof typeof depositAddress } = {} as any,
+) {
+  return usePrepareContractWrite({
+    abi: depositABI,
+    address: depositAddress[11155111],
+    functionName: 'updateArtistAddress',
+    ...config,
+  } as UsePrepareContractWriteConfig<typeof depositABI, 'updateArtistAddress'>)
+}
+
+/**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"updateDelegateContract"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function usePrepareDepositUpdateDelegateContract(
   config: Omit<
@@ -2557,9 +2797,31 @@ export function usePrepareDepositUpdateDelegateContract(
 }
 
 /**
+ * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"updatePlatformAddress"`.
+ *
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
+ */
+export function usePrepareDepositUpdatePlatformAddress(
+  config: Omit<
+    UsePrepareContractWriteConfig<typeof depositABI, 'updatePlatformAddress'>,
+    'abi' | 'address' | 'functionName'
+  > & { chainId?: keyof typeof depositAddress } = {} as any,
+) {
+  return usePrepareContractWrite({
+    abi: depositABI,
+    address: depositAddress[11155111],
+    functionName: 'updatePlatformAddress',
+    ...config,
+  } as UsePrepareContractWriteConfig<
+    typeof depositABI,
+    'updatePlatformAddress'
+  >)
+}
+
+/**
  * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"withdrawAllFunds"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function usePrepareDepositWithdrawAllFunds(
   config: Omit<
@@ -2578,7 +2840,7 @@ export function usePrepareDepositWithdrawAllFunds(
 /**
  * Wraps __{@link useContractEvent}__ with `abi` set to __{@link depositABI}__.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositEvent<TEventName extends string>(
   config: Omit<
@@ -2596,7 +2858,7 @@ export function useDepositEvent<TEventName extends string>(
 /**
  * Wraps __{@link useContractEvent}__ with `abi` set to __{@link depositABI}__ and `eventName` set to `"Cancel"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositCancelEvent(
   config: Omit<
@@ -2615,7 +2877,7 @@ export function useDepositCancelEvent(
 /**
  * Wraps __{@link useContractEvent}__ with `abi` set to __{@link depositABI}__ and `eventName` set to `"Deposit"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositDepositEvent(
   config: Omit<
@@ -2634,7 +2896,7 @@ export function useDepositDepositEvent(
 /**
  * Wraps __{@link useContractEvent}__ with `abi` set to __{@link depositABI}__ and `eventName` set to `"FundsWithdrawn"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositFundsWithdrawnEvent(
   config: Omit<
@@ -2653,7 +2915,7 @@ export function useDepositFundsWithdrawnEvent(
 /**
  * Wraps __{@link useContractEvent}__ with `abi` set to __{@link depositABI}__ and `eventName` set to `"NewInitiative"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositNewInitiativeEvent(
   config: Omit<
@@ -2672,7 +2934,7 @@ export function useDepositNewInitiativeEvent(
 /**
  * Wraps __{@link useContractEvent}__ with `abi` set to __{@link depositABI}__ and `eventName` set to `"OwnershipTransferred"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositOwnershipTransferredEvent(
   config: Omit<
@@ -2691,7 +2953,7 @@ export function useDepositOwnershipTransferredEvent(
 /**
  * Wraps __{@link useContractEvent}__ with `abi` set to __{@link depositABI}__ and `eventName` set to `"TokenGateUsed"`.
  *
- * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0xC042DBF6f75C25CD2EBBeA24879a14B59B9Ae80c)
+ * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
 export function useDepositTokenGateUsedEvent(
   config: Omit<

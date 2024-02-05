@@ -29,8 +29,9 @@ export const useShuffle = ({
   write: (() => void) | undefined;
 } => {
   const { config } = usePrepareOneHundredXShuffle({
-    args: vault
-      ? [BigInt(method ? methods[method] : 0), vault]
+    args:
+      vault ?
+        [BigInt(method ? methods[method] : 0), vault]
       : [BigInt(method ? methods[method] : 0)],
     onError: (error) => {
       if (method) {

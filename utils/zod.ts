@@ -9,3 +9,7 @@ const isEthereumAddress = (value: unknown): value is Address => {
 };
 
 export const zodAddress = z.custom<Address>(isEthereumAddress);
+
+export const zodJsonToBigInt = z.string().transform((val) => BigInt(val));
+
+export const zodJsonToNumber = z.string().transform((val) => parseInt(val, 10));

@@ -21,9 +21,9 @@ const OtherTokens = ({ project, token }: Props): JSX.Element => {
   const currentSupply = useCurrentSupply(projectSlug);
 
   const skip =
-    currentSupply && currentSupply < tokenId + 3
-      ? currentSupply - 3
-      : tokenId + 1;
+    currentSupply && currentSupply < tokenId + 3 ?
+      currentSupply - 3
+    : tokenId + 1;
 
   const {
     data: response,
@@ -42,13 +42,13 @@ const OtherTokens = ({ project, token }: Props): JSX.Element => {
 
   return (
     <St.OtherTokensContainer>
-      {(!isLoading && error) || !response?.tokens.length ? null : (
+      {(!isLoading && error) ?? !response?.tokens.length ? null : (
         <>
           <St.OtherTokensHeader>Other Tokens</St.OtherTokensHeader>
           <St.OtherTokens>
-            {response.tokens.length
-              ? response.tokens.map((t) => <TokenCard key={t.name} token={t} />)
-              : null}
+            {response.tokens.length ?
+              response.tokens.map((t) => <TokenCard key={t.name} token={t} />)
+            : null}
           </St.OtherTokens>
         </>
       )}

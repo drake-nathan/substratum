@@ -7,9 +7,9 @@ import { MdOutlineDarkMode } from "react-icons/md";
 import { useTheme } from "styled-components";
 
 import ConnectButton from "./ConnectButton";
-import MobileNav from "./MobileNav/MobileNav";
+import MobileNav from "./MobileNav";
 import NavLinks from "./NavLinks/NavLinks";
-import SocialIcons from "./SocialIcons/SocialIcons";
+import SocialIcons from "./SocialIcons";
 
 const Header = (): JSX.Element => {
   const { colors, isDark, isMobile, isMobileNav, toggleTheme } = useTheme();
@@ -26,9 +26,9 @@ const Header = (): JSX.Element => {
         </div>
       </Link>
 
-      {!isMobileNav ? (
+      {!isMobileNav ?
         <>
-          <div className="md- flex w-full items-center justify-between">
+          <div className="flex w-full items-center justify-between">
             <Link href="/">
               <h1 className="">substratum</h1>
             </Link>
@@ -42,19 +42,16 @@ const Header = (): JSX.Element => {
             className="hover:text-hover-light dark:hover:text-hover-dark"
             onClick={toggleTheme}
           >
-            {!isDark ? (
+            {!isDark ?
               <MdOutlineDarkMode className="text-xl" />
-            ) : (
-              <CgSun className="text-xl" />
-            )}
+            : <CgSun className="text-xl" />}
           </button>
 
           <ConnectButton />
         </>
-      ) : (
-        <>
+      : <>
           <Link href="/">
-            <h1 className="md- flex w-full items-center justify-between text-2xl">
+            <h1 className="flex w-full items-center justify-between text-2xl">
               substratum
             </h1>
           </Link>
@@ -71,7 +68,7 @@ const Header = (): JSX.Element => {
 
           <MobileNav isOpen={showMobileNav} setIsOpen={setShowMobileNav} />
         </>
-      )}
+      }
     </header>
   );
 };

@@ -11,15 +11,15 @@ export interface IModalContext {
 }
 
 export const ModalContext = createContext<IModalContext>({
-  launchAlertModal: () => {},
-  launchSuccessModal: () => {},
+  launchAlertModal: () => undefined,
+  launchSuccessModal: () => undefined,
 });
 
-interface Props {
+const ModalProvider = ({
+  children,
+}: {
   children: React.ReactNode;
-}
-
-const ModalProvider = ({ children }: Props): JSX.Element => {
+}): JSX.Element => {
   const [showAlertModal, setShowAlertModal] = useState(false);
   const [alertText, setAlertText] = useState("");
 

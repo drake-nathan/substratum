@@ -53,13 +53,11 @@ const Card = ({ project }: Props): JSX.Element => {
   );
 
   // render a link if the project is local, otherwise render an anchor tag
-  return local ? (
-    <Link href={`/project/${projectSlug}`}>{CardJsx}</Link>
-  ) : (
-    <a href={externalUrl} rel="noreferrer" target="_blank">
-      {CardJsx}
-    </a>
-  );
+  return local ?
+      <Link href={`/project/${projectSlug}`}>{CardJsx}</Link>
+    : <a href={externalUrl} rel="noreferrer" target="_blank">
+        {CardJsx}
+      </a>;
 };
 
 export default Card;

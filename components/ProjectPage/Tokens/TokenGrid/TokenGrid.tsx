@@ -29,7 +29,7 @@ const TokenGrid = ({
   isTokenIdInTitle,
 }: Props): JSX.Element => (
   <St.Container>
-    {tokens ? (
+    {tokens ?
       <InfiniteScroll
         dataLength={currentLength}
         hasMore={hasMore}
@@ -48,11 +48,9 @@ const TokenGrid = ({
           )}
         </St.Grid>
       </InfiniteScroll>
-    ) : error && (!isLoading || !isFetching) ? (
+    : error && (!isLoading || !isFetching) ?
       <St.H1>Unable to fetch tokens right now.</St.H1>
-    ) : (
-      <St.H1>Loading...</St.H1>
-    )}
+    : <St.H1>Loading...</St.H1>}
   </St.Container>
 );
 export default TokenGrid;

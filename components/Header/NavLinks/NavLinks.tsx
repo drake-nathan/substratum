@@ -47,14 +47,14 @@ const NavLinks = ({ setShowMobileNav }: Props): JSX.Element => {
     <>
       <St.Tab
         onClick={
-          !isMobile
-            ? () => {
-                //setShowProjectsDropDown(false);
-                setShowArtistsDropDown((prev) => !prev);
-              }
-            : () => {
-                setShowArtistsDropDown((prev) => !prev);
-              }
+          !isMobile ?
+            () => {
+              //setShowProjectsDropDown(false);
+              setShowArtistsDropDown((prev) => !prev);
+            }
+          : () => {
+              setShowArtistsDropDown((prev) => !prev);
+            }
         }
       >
         <St.Text
@@ -80,21 +80,19 @@ const NavLinks = ({ setShowMobileNav }: Props): JSX.Element => {
 
   return (
     <div className="relative flex items-center gap-4 max-md:mb-4 max-md:h-full max-md:flex-col max-md:justify-between">
-      {!isMobile ? (
+      {!isMobile ?
         projectsTab
-      ) : (
-        <div className="relative flex w-full flex-col items-center gap-4">
+      : <div className="relative flex w-full flex-col items-center gap-4">
           {projectsTab}
         </div>
-      )}
+      }
 
-      {!isMobile ? (
+      {!isMobile ?
         artistsTab
-      ) : (
-        <div className="relative flex w-full flex-col items-center gap-4">
+      : <div className="relative flex w-full flex-col items-center gap-4">
           {artistsTab}
         </div>
-      )}
+      }
 
       <St.Tab>
         <a

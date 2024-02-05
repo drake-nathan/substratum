@@ -37,14 +37,12 @@ const ConnectButton = (): JSX.Element => {
       onClick={clickHandler}
       style={{ borderLeft: "1px solid #fffcf9" }}
     >
-      {address && isClient ? (
+      {address && isClient ?
         <div className="flex flex-col items-center gap-2">
           <p>{accountText}</p>
           <p>{eth && `${eth} ${balance?.symbol}`}</p>
         </div>
-      ) : (
-        <h3>Connect</h3>
-      )}
+      : <h3>Connect</h3>}
     </button>
   );
 };

@@ -1,7 +1,7 @@
 import type { ConfigOptions } from "@web3modal/wagmi/dist/types/src/utils/defaultWagmiCoreConfig";
 
 import { defaultWagmiConfig } from "@web3modal/wagmi/react";
-import { goerli, mainnet } from "wagmi/chains";
+import { goerli, mainnet, sepolia } from "wagmi/chains";
 
 const projectId = process.env.NEXT_PUBLIC_W3M_PROJECT_ID;
 const infuraKey = process.env.NEXT_PUBLIC_INFURA_KEY;
@@ -11,7 +11,7 @@ if (!projectId || !infuraKey || !chainEnv) {
   throw new Error("Missing env variables");
 }
 
-export const chains = chainEnv === "goerli" ? [goerli] : [mainnet];
+export const chains = chainEnv === "goerli" ? [goerli, sepolia] : [mainnet];
 
 const metadata: ConfigOptions["metadata"] = {
   description: "Web3Modal Example",

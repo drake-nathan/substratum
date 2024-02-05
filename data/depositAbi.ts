@@ -172,7 +172,7 @@ export const depositAbi: Abi = [
     type: "function",
   },
   {
-    inputs: [{ internalType: "address", name: "_vault", type: "address" }],
+    inputs: [{ internalType: "address", name: "_recipient", type: "address" }],
     name: "DEPOSIT_AND_SET_ANOTHER_RECEVIER",
     outputs: [],
     stateMutability: "payable",
@@ -214,13 +214,6 @@ export const depositAbi: Abi = [
     type: "function",
   },
   {
-    inputs: [],
-    name: "allFundsWithdrawn",
-    outputs: [{ internalType: "bool", name: "", type: "bool" }],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
     inputs: [
       { internalType: "address[]", name: "_addresses", type: "address[]" },
     ],
@@ -243,6 +236,20 @@ export const depositAbi: Abi = [
     name: "artistCancelAndRefundDeposit",
     outputs: [],
     stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "currentDepositorCount",
+    outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "delegateContract",
+    outputs: [{ internalType: "address", name: "", type: "address" }],
+    stateMutability: "view",
     type: "function",
   },
   {
@@ -275,6 +282,13 @@ export const depositAbi: Abi = [
   },
   {
     inputs: [],
+    name: "endInitiative",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [],
     name: "getAllApprovedAddresses",
     outputs: [{ internalType: "address[]", name: "", type: "address[]" }],
     stateMutability: "view",
@@ -291,6 +305,13 @@ export const depositAbi: Abi = [
     inputs: [],
     name: "getAllRecipientAddresses",
     outputs: [{ internalType: "address[]", name: "", type: "address[]" }],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "getContractStatus",
+    outputs: [{ internalType: "bool[]", name: "", type: "bool[]" }],
     stateMutability: "view",
     type: "function",
   },
@@ -406,9 +427,27 @@ export const depositAbi: Abi = [
   },
   {
     inputs: [
+      { internalType: "address", name: "_artistAddress", type: "address" },
+    ],
+    name: "updateArtistAddress",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
       { internalType: "address", name: "_delegateContract", type: "address" },
     ],
     name: "updateDelegateContract",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      { internalType: "address", name: "_platformAddress", type: "address" },
+    ],
+    name: "updatePlatformAddress",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",

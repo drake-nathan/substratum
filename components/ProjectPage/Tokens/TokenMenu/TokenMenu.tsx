@@ -62,26 +62,27 @@ const TokenMenu = ({
                 setSortType("worldLevel");
               }}
             >
-              {projectSlug === "chainlife" ||
-              projectSlug === "chainlife-testnet"
-                ? "World Level"
-                : "Transfers"}
+              {(
+                projectSlug === "chainlife" ||
+                projectSlug === "chainlife-testnet"
+              ) ?
+                "World Level"
+              : "Transfers"}
             </St.TextButton>
           </>
         )}
 
         <St.SortButton>
-          {sortDir === "asc" ? (
+          {sortDir === "asc" ?
             <St.SortIconAsc
               className="icon"
               onClick={() => setSortDir("desc")}
             />
-          ) : (
-            <St.SortIconDesc
+          : <St.SortIconDesc
               className="icon"
               onClick={() => setSortDir("asc")}
             />
-          )}
+          }
         </St.SortButton>
       </St.SortDiv>
     </St.Container>

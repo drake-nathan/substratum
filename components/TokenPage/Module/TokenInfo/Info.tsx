@@ -47,9 +47,8 @@ const Info = ({
       <St.Table>
         {traits.map((trait) => {
           const { trait_type: name, value } = trait;
-          const processedValue = isString(value)
-            ? shortenTrait(value, maxTraitLength)
-            : value;
+          const processedValue =
+            isString(value) ? shortenTrait(value, maxTraitLength) : value;
           const isTraitShortened =
             isString(value) && value.length > maxTraitLength;
           const isLink = isString(value) && value.includes("http");
@@ -58,13 +57,11 @@ const Info = ({
             <St.Row key={name}>
               <St.Name>{name}</St.Name>
 
-              {isLink ? (
+              {isLink ?
                 <a href={value} id={name} rel="noreferrer" target="_blank">
                   <St.Value>{processedValue}</St.Value>
                 </a>
-              ) : (
-                <St.Value id={name}>{processedValue}</St.Value>
-              )}
+              : <St.Value id={name}>{processedValue}</St.Value>}
 
               {isTraitShortened && (
                 <Tooltip
