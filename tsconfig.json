@@ -12,15 +12,10 @@
     "moduleDetection": "force",
     "moduleResolution": "node",
     "noEmit": true,
-    "paths": {
-      "components/*": ["./components/*"],
-      "pages/*": ["./pages/*"]
-    },
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "ES2022",
-    "types": ["bun"]
+    "target": "ES2022"
   },
   "exclude": ["node_modules"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.config.js"]
