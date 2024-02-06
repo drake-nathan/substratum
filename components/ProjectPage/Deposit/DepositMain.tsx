@@ -1,10 +1,13 @@
-/* eslint-disable @typescript-eslint/no-unnecessary-condition */
+import { useState } from "react";
+
 import * as St from "./DepositMain.styled";
 
 const DepositMain = (): React.JSX.Element => {
-  const isDepositOpen = false;
-  const isMintPublic = false;
-  const isMintPrivate = true;
+  const [isDepositOpen] = useState(true);
+
+  const [isMintPublic] = useState(false);
+
+  const [isMintPrivate] = useState(true);
 
   const apos = "'";
 
@@ -14,8 +17,8 @@ const DepositMain = (): React.JSX.Element => {
         <St.MattoNoteHeader>A Note From Matto</St.MattoNoteHeader>
         <St.NoteBox className="dark:border-3 dark:border-white">
           <St.NoteText>
-            A NOTE FROM MATTO “100x10x1 Composition A is unique in that full
-            functionality of the project only happens
+            100x10x1 Composition A is unique in that full functionality of the
+            project only happens
             <span style={{ fontSize: "16px", fontWeight: "bold" }}>
               {" "}
               after a full mint
@@ -33,7 +36,7 @@ const DepositMain = (): React.JSX.Element => {
             <span style={{ fontSize: "16px", textDecoration: "underline" }}>
               raise-closing*
             </span>{" "}
-            .”
+            .
           </St.NoteText>
         </St.NoteBox>
       </St.NoteFromMattoContainer>
@@ -119,7 +122,7 @@ const DepositMain = (): React.JSX.Element => {
             </St.DiscountGrid>
           </St.DiscountSection>
           <St.ContractSection>
-            <h2>Contract Status</h2>
+            <h2>Funding Status</h2>
             <St.ContractBody className="dark:border-3 dark:border-white">
               <h6 style={{ fontWeight: 700 }}>
                 The following includes live data pulled from the{" "}
@@ -133,11 +136,10 @@ const DepositMain = (): React.JSX.Element => {
                 </span>
                 :
               </h6>
-              <p>Goal Number of Allowed Depositors: ____ </p>
+              <p>Goal Number of Depositors: ____ </p>
               <p>Current Depositors: ____ amazing supporters</p>
-              <p>Current Contract Balance: ____ ETH Required</p>
-              <p>Deposit for Non-Token Holders: ____ ETH </p>
-              <p>Required Deposit for Token Holders: ____ ETH</p>
+              <p>Standard Deposit Amount: ____ ETH </p>
+              <p>Discounted Deposit Amount: ____ ETH</p>
             </St.ContractBody>
           </St.ContractSection>
         </St.Left>
@@ -153,9 +155,12 @@ const DepositMain = (): React.JSX.Element => {
               functions support delegation through delegate.xyz.
             </p>
             <St.ButtonRow className="dark:border-3 dark:border-white">
-              <St.UserInput placeholder="Optional: 0x address recipient" />
+              <St.UserInput
+                className="border-none bg-offset p-4 font-sans outline-none dark:text-black max-sm:text-[12px]"
+                placeholder="Optional: 0x address recipient"
+              />
               <St.DepositButton className="hover:bg-hover-light dark:bg-white dark:text-black dark:hover:bg-hover-dark">
-                SUBMIT DEPOSIT ___ETH
+                SUBMIT ___ETH
               </St.DepositButton>
             </St.ButtonRow>
           </St.StandardDeposit>
@@ -168,9 +173,12 @@ const DepositMain = (): React.JSX.Element => {
               the eligible token.
             </p>
             <St.ButtonRow className="dark:border-3 dark:border-white">
-              <St.UserInput placeholder="Chainlife tokenID required" />
+              <St.UserInput
+                className="border-none bg-offset p-4 font-sans outline-none dark:text-black max-sm:text-[12px]"
+                placeholder="Chainlife tokenID required"
+              />
               <St.DepositButton className="hover:bg-hover-light dark:bg-white dark:text-black dark:hover:bg-hover-dark">
-                SUBMIT DEPOSIT ___ETH
+                SUBMIT ___ETH
               </St.DepositButton>
             </St.ButtonRow>
           </St.TokenDeposit>

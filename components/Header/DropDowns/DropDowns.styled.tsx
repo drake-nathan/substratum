@@ -35,7 +35,7 @@ export const Project = styled.div`
 
   @media (max-width: 775px) {
     font-size: 1.375rem;
-    margin: 0.25em 0;
+    margin: 0.5em 0;
   }
 
   &:hover {
@@ -53,6 +53,10 @@ export const RowLink = styled.a`
   display: flex;
   align-items: center;
   gap: 0.25em;
+
+  @media (max-width: 768px) {
+    margin-top: -0.25em;
+  }
 `;
 
 export const OpenInNewIcon = styled(RxOpenInNewWindow)`

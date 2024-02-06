@@ -19,7 +19,7 @@ export const NoteFromMattoContainer = styled.div`
 export const MattoNoteHeader = styled.h1`
   margin-top: 15px;
   @media (max-width: 768px) {
-    font-size: 24px;
+    font-size: 30px;
   }
 `;
 
@@ -302,7 +302,6 @@ export const TokenDeposit = styled(StandardDeposit)``;
 export const ButtonRow = styled.div`
   display: grid;
   grid-template-columns: 65% 35%;
-  border: 3px solid #0f0f0f;
   min-width: 600px;
   margin-top: 20px;
 
@@ -314,40 +313,27 @@ export const ButtonRow = styled.div`
 `;
 
 export const UserInput = styled.input`
-  border: 3px solid #0f0f0f;
-  height: 75px;
+  height: 56px;
   min-width: 325px;
   padding-left: 10px;
   display: flex;
-  outline: none;
-
-  &::placeholder {
-    font-size: 14px;
-  }
-
-  @media (max-width: 650px) {
-    &::placeholder {
-      font-size: 13px;
-    }
-  }
 `;
 
 export const DepositButton = styled.button`
   background: #0f0f0f;
   color: #f5f5f5;
-  height: 75px;
+  height: 56px;
   font-size: 18px;
   font-weight: bold;
 
-  @media (max-width: 650px) {
+  @media (max-width: 768px) {
     font-size: 16px;
     padding: 8px;
     font-weight: 600;
   }
 
   @media (max-width: 500px) {
-    font-size: 14px;
-    padding: 2px;
+    font-size: 13px;
     font-weight: 600;
   }
 `;

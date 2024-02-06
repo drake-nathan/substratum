@@ -28,6 +28,7 @@ export const Grid = styled.div`
 
   @media (max-width: 800px) {
     grid-template-columns: 1fr;
+    gap: 2em;
   }
 `;
 
