@@ -12,6 +12,10 @@
     "moduleDetection": "force",
     "moduleResolution": "node",
     "noEmit": true,
+    "paths": {
+      "components/*": ["./components/*"],
+      "pages/*": ["./pages/*"]
+    },
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
