@@ -16,8 +16,8 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "ES2022",
-    "types": ["bun"],
+    "types": ["bun"]
   },
   "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.config.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.config.js"]
 }
