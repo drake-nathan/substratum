@@ -40,18 +40,13 @@
     {
       "env": { "jest/globals": true },
       "extends": [
-        "plugin:jest/recommended",
-        "plugin:jest/style",
+        "plugin:vitest/recommended",
+        "plugin:vitest/all",
         "plugin:testing-library/react",
         "plugin:jest-formatting/strict"
       ],
       "files": ["*.test.ts", "*.test.tsx"],
-      "plugins": ["jest", "jest-formatting", "testing-library"],
-      "settings": {
-        "jest": {
-          "version": 27
-        }
-      }
+      "plugins": ["jest-formatting", "testing-library", "vitest"]
     }
   ],
   "parser": "@typescript-eslint/parser",
