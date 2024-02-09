@@ -24,7 +24,7 @@ const metadata: ConfigOptions["metadata"] = {
 };
 
 export const wagmiConfig = createConfig({
-  chains: [mainnet, sepolia],
+  chains: [mainnet, goerli, sepolia],
   connectors: [
     injected({ shimDisconnect: true }),
     walletConnect({ metadata, projectId, showQrModal: false }),

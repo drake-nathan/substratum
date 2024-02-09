@@ -21,7 +21,6 @@ export const useCancelDeposit = ({ handleError, handleSuccess }: Params) => {
   const { writeContract } = useWriteDepositCancelAndRefund();
 
   return {
-    ready: !error && data?.request,
     write:
       data ?
         () =>

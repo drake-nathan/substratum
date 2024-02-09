@@ -1,9 +1,8 @@
 import type { Address, Hash } from "viem";
-import type { WriteContractResult } from "wagmi/dist/actions";
 
 import {
-  useOneHundredXTop,
-  usePrepareOneHundredXTop,
+  useSimulateOneHundredXTop,
+  useWriteOneHundredXTop,
 } from "../../wagmi/generated";
 
 interface Params {
@@ -20,31 +19,27 @@ export const useTop = ({
   payableAmount,
   tokenId,
   vault,
-}: Params): {
-  data: WriteContractResult | undefined;
-  write: (() => void) | undefined;
-} => {
-  const { config } = usePrepareOneHundredXTop({
+}: Params) => {
+  const { data, error } = useSimulateOneHundredXTop({
     args: vault ? [BigInt(tokenId), vault] : [BigInt(tokenId)],
-    onError: (error) => {
-      if (tokenId) {
-        handleError(error);
-        console.error(error);
-      }
-    },
     value: payableAmount,
   });
 
-  const { data, write } = useOneHundredXTop({
-    ...config,
-    onError: (error) => {
-      if (tokenId) {
-        handleError(error);
-        console.error(error);
-      }
-    },
-    onSuccess: (data) => handleSuccess(data.hash),
-  });
+  if (error) {
+    handleError(error);
+    console.error(error);
+  }
 
-  return { data, write: tokenId ? write : undefined };
+  const { writeContract } = useWriteOneHundredXTop();
+
+  return {
+    write:
+      data ?
+        () =>
+          writeContract(data.request as TODO, {
+            onError: handleError,
+            onSuccess: handleSuccess,
+          })
+      : null,
+  };
 };
