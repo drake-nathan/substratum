@@ -1,29 +1,26 @@
 import React, { useEffect, useState } from "react";
-import {
-  ContractFunctionExecutionError,
-  type Hash,
-  TransactionExecutionError,
-} from "viem";
+import { type Hash, TransactionExecutionError } from "viem";
+import { useWaitForTransactionReceipt } from "wagmi";
 
 import type { SetState } from "utils/types";
 
 import TransactionModal from "components/Modals/TransactionModal";
-import { useCancelDeposit } from "hooks/deposit/useCancelDeposit";
+import { useDepositAndSetSelf } from "hooks/deposit/useDepositAndSetSelf";
 import { useModal } from "hooks/useModal";
 
 interface Props {
   setShowModal: SetState<boolean>;
 }
 
-const CancelDepositModal = ({ setShowModal }: Props): React.JSX.Element => {
+const DepositSelfModal = ({ setShowModal }: Props): React.JSX.Element => {
   const { launchAlertModal, launchSuccessModal } = useModal();
 
-  const [loading, setLoading] = useState<boolean>(true);
+  const [hash, setHash] = useState<Hash | undefined>();
+  const [loading, setLoading] = useState(true);
+  const [firstLoad, setFirstLoad] = useState(false);
 
   const handleSuccess = (hash: Hash) => {
-    setLoading(false);
-    setShowModal(false);
-    launchSuccessModal("Deposit successfully cancelled.", hash);
+    setHash(hash);
   };
 
   const handleError = (error: Error) => {
@@ -35,46 +32,48 @@ const CancelDepositModal = ({ setShowModal }: Props): React.JSX.Element => {
       return;
     }
 
-    if (
-      error instanceof ContractFunctionExecutionError &&
-      error.message.includes("Address has not deposited")
-    ) {
-      launchAlertModal(
-        "This address has not deposited, so there is currently nothing to cancel.",
-      );
-      setShowModal(false);
-      return;
-    }
-
     launchAlertModal("Something went wrong, please try again.");
     setShowModal(false);
   };
 
-  const { write } = useCancelDeposit({
+  const { write } = useDepositAndSetSelf({
     handleError,
     handleSuccess,
   });
 
   useEffect(() => {
-    if (write) setLoading(false);
-  }, [write]);
+    if (write && !firstLoad) {
+      setLoading(false);
+      setFirstLoad(true);
+    }
+  }, [firstLoad, write]);
 
   const proceedHandler = () => {
     setLoading(true);
     write?.();
   };
 
+  const { data } = useWaitForTransactionReceipt({ hash });
+
+  useEffect(() => {
+    if (data) {
+      setLoading(false);
+      setShowModal(false);
+      launchSuccessModal("Deposit successfully made.", data.transactionHash);
+    }
+  }, [data, setShowModal, launchSuccessModal]);
+
   return (
     <TransactionModal
       onProceed={proceedHandler}
       setShowModal={setShowModal}
       transactionModalData={{
-        header: "Cancel Deposit",
+        header: "Make Deposit",
         loading,
-        text: "Click below if you wish to cancel an existing deposit.",
+        text: "Click below, when ready, to submit a deposit.",
       }}
     />
   );
 };
 
-export default CancelDepositModal;
+export default DepositSelfModal;

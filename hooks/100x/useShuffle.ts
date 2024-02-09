@@ -1,9 +1,8 @@
 import type { Address, Hash } from "viem";
-import type { WriteContractResult } from "wagmi/dist/actions";
 
 import {
-  useOneHundredXShuffle,
-  usePrepareOneHundredXShuffle,
+  useSimulateOneHundredXShuffle,
+  useWriteOneHundredXShuffle,
 } from "../../wagmi/generated";
 import {
   type Method,
@@ -24,36 +23,30 @@ export const useShuffle = ({
   method,
   payableAmount,
   vault,
-}: Params): {
-  data: WriteContractResult | undefined;
-  write: (() => void) | undefined;
-} => {
-  const { config } = usePrepareOneHundredXShuffle({
+}: Params) => {
+  const { data, error } = useSimulateOneHundredXShuffle({
     args:
       vault ?
         [BigInt(method ? methods[method] : 0), vault]
       : [BigInt(method ? methods[method] : 0)],
-    onError: (error) => {
-      if (method) {
-        handleError(error);
-        console.error(error);
-      }
-    },
     value: payableAmount,
   });
 
-  const { data, write } = useOneHundredXShuffle({
-    ...config,
-    onError: (error) => {
-      if (method) {
-        handleError(error);
-        console.error(error);
-      }
-    },
-    onSuccess: (data) => {
-      handleSuccess(data.hash);
-    },
-  });
+  if (error) {
+    handleError(error);
+    console.error(error);
+  }
 
-  return { data, write: method ? write : undefined };
+  const { writeContract } = useWriteOneHundredXShuffle();
+
+  return {
+    write:
+      data ?
+        () =>
+          writeContract(data.request as TODO, {
+            onError: handleError,
+            onSuccess: handleSuccess,
+          })
+      : null,
+  };
 };

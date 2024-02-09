@@ -25,7 +25,7 @@ export default {
   },
   output: "standalone",
   reactStrictMode: true,
-  async redirects() {
+  redirects() {
     return [
       {
         destination: "/",

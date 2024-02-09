@@ -1,19 +1,9 @@
 import {
-  useContractRead,
-  UseContractReadConfig,
-  useContractWrite,
-  Address,
-  UseContractWriteConfig,
-  usePrepareContractWrite,
-  UsePrepareContractWriteConfig,
-  useContractEvent,
-  UseContractEventConfig,
-} from 'wagmi'
-import {
-  ReadContractResult,
-  WriteContractMode,
-  PrepareWriteContractResult,
-} from 'wagmi/actions'
+  createUseReadContract,
+  createUseWriteContract,
+  createUseSimulateContract,
+  createUseWatchContractEvent,
+} from 'wagmi/codegen'
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // deposit
@@ -22,7 +12,7 @@ import {
 /**
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export const depositABI = [
+export const depositAbi = [
   {
     type: 'event',
     anonymous: false,
@@ -495,7 +485,7 @@ export const depositAddress = {
  */
 export const depositConfig = {
   address: depositAddress,
-  abi: depositABI,
+  abi: depositAbi,
 } as const
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -505,7 +495,7 @@ export const depositConfig = {
 /**
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export const oneHundredXABI = [
+export const oneHundredXAbi = [
   { stateMutability: 'nonpayable', type: 'constructor', inputs: [] },
   {
     type: 'event',
@@ -1319,7 +1309,7 @@ export const oneHundredXAddress = {
  */
 export const oneHundredXConfig = {
   address: oneHundredXAddress,
-  abi: oneHundredXABI,
+  abi: oneHundredXAbi,
 } as const
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1327,5086 +1317,2313 @@ export const oneHundredXConfig = {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link depositAbi}__
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositRead<
-  TFunctionName extends string,
-  TSelectData = ReadContractResult<typeof depositABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>,
-    'abi' | 'address'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: depositABI,
-    address: depositAddress[11155111],
-    ...config,
-  } as UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>)
-}
+export const useReadDeposit = /*#__PURE__*/ createUseReadContract({
+  abi: depositAbi,
+  address: depositAddress,
+})
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"addressHasDeposited"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"addressHasDeposited"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositAddressHasDeposited<
-  TFunctionName extends 'addressHasDeposited',
-  TSelectData = ReadContractResult<typeof depositABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useReadDepositAddressHasDeposited =
+  /*#__PURE__*/ createUseReadContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'addressHasDeposited',
-    ...config,
-  } as UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"addressIsApprovedForPrivate"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"addressIsApprovedForPrivate"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositAddressIsApprovedForPrivate<
-  TFunctionName extends 'addressIsApprovedForPrivate',
-  TSelectData = ReadContractResult<typeof depositABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useReadDepositAddressIsApprovedForPrivate =
+  /*#__PURE__*/ createUseReadContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'addressIsApprovedForPrivate',
-    ...config,
-  } as UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"addressIsRecipient"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"addressIsRecipient"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositAddressIsRecipient<
-  TFunctionName extends 'addressIsRecipient',
-  TSelectData = ReadContractResult<typeof depositABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useReadDepositAddressIsRecipient =
+  /*#__PURE__*/ createUseReadContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'addressIsRecipient',
-    ...config,
-  } as UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"approvedAddresses"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"approvedAddresses"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositApprovedAddresses<
-  TFunctionName extends 'approvedAddresses',
-  TSelectData = ReadContractResult<typeof depositABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useReadDepositApprovedAddresses =
+  /*#__PURE__*/ createUseReadContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'approvedAddresses',
-    ...config,
-  } as UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"currentDepositorCount"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"currentDepositorCount"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositCurrentDepositorCount<
-  TFunctionName extends 'currentDepositorCount',
-  TSelectData = ReadContractResult<typeof depositABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useReadDepositCurrentDepositorCount =
+  /*#__PURE__*/ createUseReadContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'currentDepositorCount',
-    ...config,
-  } as UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"delegateContract"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"delegateContract"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositDelegateContract<
-  TFunctionName extends 'delegateContract',
-  TSelectData = ReadContractResult<typeof depositABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useReadDepositDelegateContract =
+  /*#__PURE__*/ createUseReadContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'delegateContract',
-    ...config,
-  } as UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"depositorToIndex"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"depositorToIndex"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositDepositorToIndex<
-  TFunctionName extends 'depositorToIndex',
-  TSelectData = ReadContractResult<typeof depositABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useReadDepositDepositorToIndex =
+  /*#__PURE__*/ createUseReadContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'depositorToIndex',
-    ...config,
-  } as UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"depositors"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"depositors"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositDepositors<
-  TFunctionName extends 'depositors',
-  TSelectData = ReadContractResult<typeof depositABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: depositABI,
-    address: depositAddress[11155111],
-    functionName: 'depositors',
-    ...config,
-  } as UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>)
-}
+export const useReadDepositDepositors = /*#__PURE__*/ createUseReadContract({
+  abi: depositAbi,
+  address: depositAddress,
+  functionName: 'depositors',
+})
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"depositorsToRecipients"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"depositorsToRecipients"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositDepositorsToRecipients<
-  TFunctionName extends 'depositorsToRecipients',
-  TSelectData = ReadContractResult<typeof depositABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useReadDepositDepositorsToRecipients =
+  /*#__PURE__*/ createUseReadContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'depositorsToRecipients',
-    ...config,
-  } as UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"depositsCompleted"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"depositsCompleted"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositDepositsCompleted<
-  TFunctionName extends 'depositsCompleted',
-  TSelectData = ReadContractResult<typeof depositABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useReadDepositDepositsCompleted =
+  /*#__PURE__*/ createUseReadContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'depositsCompleted',
-    ...config,
-  } as UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"getAllApprovedAddresses"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"getAllApprovedAddresses"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositGetAllApprovedAddresses<
-  TFunctionName extends 'getAllApprovedAddresses',
-  TSelectData = ReadContractResult<typeof depositABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useReadDepositGetAllApprovedAddresses =
+  /*#__PURE__*/ createUseReadContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'getAllApprovedAddresses',
-    ...config,
-  } as UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"getAllDepositors"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"getAllDepositors"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositGetAllDepositors<
-  TFunctionName extends 'getAllDepositors',
-  TSelectData = ReadContractResult<typeof depositABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useReadDepositGetAllDepositors =
+  /*#__PURE__*/ createUseReadContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'getAllDepositors',
-    ...config,
-  } as UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"getAllRecipientAddresses"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"getAllRecipientAddresses"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositGetAllRecipientAddresses<
-  TFunctionName extends 'getAllRecipientAddresses',
-  TSelectData = ReadContractResult<typeof depositABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useReadDepositGetAllRecipientAddresses =
+  /*#__PURE__*/ createUseReadContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'getAllRecipientAddresses',
-    ...config,
-  } as UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"getContractStatus"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"getContractStatus"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositGetContractStatus<
-  TFunctionName extends 'getContractStatus',
-  TSelectData = ReadContractResult<typeof depositABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useReadDepositGetContractStatus =
+  /*#__PURE__*/ createUseReadContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'getContractStatus',
-    ...config,
-  } as UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"getInitiativeDetails"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"getInitiativeDetails"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositGetInitiativeDetails<
-  TFunctionName extends 'getInitiativeDetails',
-  TSelectData = ReadContractResult<typeof depositABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useReadDepositGetInitiativeDetails =
+  /*#__PURE__*/ createUseReadContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'getInitiativeDetails',
-    ...config,
-  } as UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"owner"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"owner"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositOwner<
-  TFunctionName extends 'owner',
-  TSelectData = ReadContractResult<typeof depositABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: depositABI,
-    address: depositAddress[11155111],
-    functionName: 'owner',
-    ...config,
-  } as UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>)
-}
+export const useReadDepositOwner = /*#__PURE__*/ createUseReadContract({
+  abi: depositAbi,
+  address: depositAddress,
+  functionName: 'owner',
+})
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"privateDepositsEnabled"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"privateDepositsEnabled"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositPrivateDepositsEnabled<
-  TFunctionName extends 'privateDepositsEnabled',
-  TSelectData = ReadContractResult<typeof depositABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useReadDepositPrivateDepositsEnabled =
+  /*#__PURE__*/ createUseReadContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'privateDepositsEnabled',
-    ...config,
-  } as UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"publicDepositsEnabled"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"publicDepositsEnabled"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositPublicDepositsEnabled<
-  TFunctionName extends 'publicDepositsEnabled',
-  TSelectData = ReadContractResult<typeof depositABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useReadDepositPublicDepositsEnabled =
+  /*#__PURE__*/ createUseReadContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'publicDepositsEnabled',
-    ...config,
-  } as UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"receivedDiscount"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"receivedDiscount"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositReceivedDiscount<
-  TFunctionName extends 'receivedDiscount',
-  TSelectData = ReadContractResult<typeof depositABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useReadDepositReceivedDiscount =
+  /*#__PURE__*/ createUseReadContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'receivedDiscount',
-    ...config,
-  } as UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"recipientAddresses"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"recipientAddresses"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositRecipientAddresses<
-  TFunctionName extends 'recipientAddresses',
-  TSelectData = ReadContractResult<typeof depositABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useReadDepositRecipientAddresses =
+  /*#__PURE__*/ createUseReadContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'recipientAddresses',
-    ...config,
-  } as UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"thisDepositInitiative"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"thisDepositInitiative"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositThisDepositInitiative<
-  TFunctionName extends 'thisDepositInitiative',
-  TSelectData = ReadContractResult<typeof depositABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useReadDepositThisDepositInitiative =
+  /*#__PURE__*/ createUseReadContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'thisDepositInitiative',
-    ...config,
-  } as UseContractReadConfig<typeof depositABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link depositABI}__.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link depositAbi}__
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositWrite<
-  TFunctionName extends string,
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof depositAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<typeof depositABI, string>['request']['abi'],
-        TFunctionName,
-        TMode
-      > & { address?: Address; chainId?: TChainId }
-    : UseContractWriteConfig<typeof depositABI, TFunctionName, TMode> & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-      } = {} as any,
-) {
-  return useContractWrite<typeof depositABI, TFunctionName, TMode>({
-    abi: depositABI,
-    address: depositAddress[11155111],
-    ...config,
-  } as any)
-}
+export const useWriteDeposit = /*#__PURE__*/ createUseWriteContract({
+  abi: depositAbi,
+  address: depositAddress,
+})
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"CANCEL_AND_REFUND"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"CANCEL_AND_REFUND"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositCancelAndRefund<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof depositAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof depositABI,
-          'CANCEL_AND_REFUND'
-        >['request']['abi'],
-        'CANCEL_AND_REFUND',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'CANCEL_AND_REFUND'
-      }
-    : UseContractWriteConfig<typeof depositABI, 'CANCEL_AND_REFUND', TMode> & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'CANCEL_AND_REFUND'
-      } = {} as any,
-) {
-  return useContractWrite<typeof depositABI, 'CANCEL_AND_REFUND', TMode>({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useWriteDepositCancelAndRefund =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'CANCEL_AND_REFUND',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"DEPOSIT_AND_SET_ANOTHER_RECEVIER"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"DEPOSIT_AND_SET_ANOTHER_RECEVIER"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositDepositAndSetAnotherRecevier<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof depositAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof depositABI,
-          'DEPOSIT_AND_SET_ANOTHER_RECEVIER'
-        >['request']['abi'],
-        'DEPOSIT_AND_SET_ANOTHER_RECEVIER',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'DEPOSIT_AND_SET_ANOTHER_RECEVIER'
-      }
-    : UseContractWriteConfig<
-        typeof depositABI,
-        'DEPOSIT_AND_SET_ANOTHER_RECEVIER',
-        TMode
-      > & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'DEPOSIT_AND_SET_ANOTHER_RECEVIER'
-      } = {} as any,
-) {
-  return useContractWrite<
-    typeof depositABI,
-    'DEPOSIT_AND_SET_ANOTHER_RECEVIER',
-    TMode
-  >({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useWriteDepositDepositAndSetAnotherRecevier =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'DEPOSIT_AND_SET_ANOTHER_RECEVIER',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"DEPOSIT_AND_SET_SELF_AS_RECEIVER"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"DEPOSIT_AND_SET_SELF_AS_RECEIVER"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositDepositAndSetSelfAsReceiver<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof depositAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof depositABI,
-          'DEPOSIT_AND_SET_SELF_AS_RECEIVER'
-        >['request']['abi'],
-        'DEPOSIT_AND_SET_SELF_AS_RECEIVER',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'DEPOSIT_AND_SET_SELF_AS_RECEIVER'
-      }
-    : UseContractWriteConfig<
-        typeof depositABI,
-        'DEPOSIT_AND_SET_SELF_AS_RECEIVER',
-        TMode
-      > & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'DEPOSIT_AND_SET_SELF_AS_RECEIVER'
-      } = {} as any,
-) {
-  return useContractWrite<
-    typeof depositABI,
-    'DEPOSIT_AND_SET_SELF_AS_RECEIVER',
-    TMode
-  >({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useWriteDepositDepositAndSetSelfAsReceiver =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'DEPOSIT_AND_SET_SELF_AS_RECEIVER',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"DEPOSIT_WITH_TOKEN_GATE_AND_SET_HOLDING_ADDRESS"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"DEPOSIT_WITH_TOKEN_GATE_AND_SET_HOLDING_ADDRESS"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositDepositWithTokenGateAndSetHoldingAddress<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof depositAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof depositABI,
-          'DEPOSIT_WITH_TOKEN_GATE_AND_SET_HOLDING_ADDRESS'
-        >['request']['abi'],
-        'DEPOSIT_WITH_TOKEN_GATE_AND_SET_HOLDING_ADDRESS',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'DEPOSIT_WITH_TOKEN_GATE_AND_SET_HOLDING_ADDRESS'
-      }
-    : UseContractWriteConfig<
-        typeof depositABI,
-        'DEPOSIT_WITH_TOKEN_GATE_AND_SET_HOLDING_ADDRESS',
-        TMode
-      > & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'DEPOSIT_WITH_TOKEN_GATE_AND_SET_HOLDING_ADDRESS'
-      } = {} as any,
-) {
-  return useContractWrite<
-    typeof depositABI,
-    'DEPOSIT_WITH_TOKEN_GATE_AND_SET_HOLDING_ADDRESS',
-    TMode
-  >({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useWriteDepositDepositWithTokenGateAndSetHoldingAddress =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'DEPOSIT_WITH_TOKEN_GATE_AND_SET_HOLDING_ADDRESS',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"approveAddresses"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"approveAddresses"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositApproveAddresses<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof depositAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof depositABI,
-          'approveAddresses'
-        >['request']['abi'],
-        'approveAddresses',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'approveAddresses'
-      }
-    : UseContractWriteConfig<typeof depositABI, 'approveAddresses', TMode> & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'approveAddresses'
-      } = {} as any,
-) {
-  return useContractWrite<typeof depositABI, 'approveAddresses', TMode>({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useWriteDepositApproveAddresses =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'approveAddresses',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"artistCancelAndRefundDeposit"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"artistCancelAndRefundDeposit"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositArtistCancelAndRefundDeposit<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof depositAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof depositABI,
-          'artistCancelAndRefundDeposit'
-        >['request']['abi'],
-        'artistCancelAndRefundDeposit',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'artistCancelAndRefundDeposit'
-      }
-    : UseContractWriteConfig<
-        typeof depositABI,
-        'artistCancelAndRefundDeposit',
-        TMode
-      > & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'artistCancelAndRefundDeposit'
-      } = {} as any,
-) {
-  return useContractWrite<
-    typeof depositABI,
-    'artistCancelAndRefundDeposit',
-    TMode
-  >({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useWriteDepositArtistCancelAndRefundDeposit =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'artistCancelAndRefundDeposit',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"endInitiative"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"endInitiative"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositEndInitiative<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof depositAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof depositABI,
-          'endInitiative'
-        >['request']['abi'],
-        'endInitiative',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'endInitiative'
-      }
-    : UseContractWriteConfig<typeof depositABI, 'endInitiative', TMode> & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'endInitiative'
-      } = {} as any,
-) {
-  return useContractWrite<typeof depositABI, 'endInitiative', TMode>({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useWriteDepositEndInitiative =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'endInitiative',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"newInitiative"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"newInitiative"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositNewInitiative<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof depositAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof depositABI,
-          'newInitiative'
-        >['request']['abi'],
-        'newInitiative',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'newInitiative'
-      }
-    : UseContractWriteConfig<typeof depositABI, 'newInitiative', TMode> & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'newInitiative'
-      } = {} as any,
-) {
-  return useContractWrite<typeof depositABI, 'newInitiative', TMode>({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useWriteDepositNewInitiative =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'newInitiative',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"renounceOwnership"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"renounceOwnership"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositRenounceOwnership<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof depositAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof depositABI,
-          'renounceOwnership'
-        >['request']['abi'],
-        'renounceOwnership',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'renounceOwnership'
-      }
-    : UseContractWriteConfig<typeof depositABI, 'renounceOwnership', TMode> & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'renounceOwnership'
-      } = {} as any,
-) {
-  return useContractWrite<typeof depositABI, 'renounceOwnership', TMode>({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useWriteDepositRenounceOwnership =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'renounceOwnership',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"setPrivateDepositBool"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"setPrivateDepositBool"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositSetPrivateDepositBool<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof depositAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof depositABI,
-          'setPrivateDepositBool'
-        >['request']['abi'],
-        'setPrivateDepositBool',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'setPrivateDepositBool'
-      }
-    : UseContractWriteConfig<
-        typeof depositABI,
-        'setPrivateDepositBool',
-        TMode
-      > & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'setPrivateDepositBool'
-      } = {} as any,
-) {
-  return useContractWrite<typeof depositABI, 'setPrivateDepositBool', TMode>({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useWriteDepositSetPrivateDepositBool =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'setPrivateDepositBool',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"setPublicDepositBool"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"setPublicDepositBool"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositSetPublicDepositBool<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof depositAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof depositABI,
-          'setPublicDepositBool'
-        >['request']['abi'],
-        'setPublicDepositBool',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'setPublicDepositBool'
-      }
-    : UseContractWriteConfig<
-        typeof depositABI,
-        'setPublicDepositBool',
-        TMode
-      > & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'setPublicDepositBool'
-      } = {} as any,
-) {
-  return useContractWrite<typeof depositABI, 'setPublicDepositBool', TMode>({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useWriteDepositSetPublicDepositBool =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'setPublicDepositBool',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"transferOwnership"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"transferOwnership"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositTransferOwnership<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof depositAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof depositABI,
-          'transferOwnership'
-        >['request']['abi'],
-        'transferOwnership',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'transferOwnership'
-      }
-    : UseContractWriteConfig<typeof depositABI, 'transferOwnership', TMode> & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'transferOwnership'
-      } = {} as any,
-) {
-  return useContractWrite<typeof depositABI, 'transferOwnership', TMode>({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useWriteDepositTransferOwnership =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'transferOwnership',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"updateArtistAddress"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"updateArtistAddress"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositUpdateArtistAddress<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof depositAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof depositABI,
-          'updateArtistAddress'
-        >['request']['abi'],
-        'updateArtistAddress',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'updateArtistAddress'
-      }
-    : UseContractWriteConfig<
-        typeof depositABI,
-        'updateArtistAddress',
-        TMode
-      > & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'updateArtistAddress'
-      } = {} as any,
-) {
-  return useContractWrite<typeof depositABI, 'updateArtistAddress', TMode>({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useWriteDepositUpdateArtistAddress =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'updateArtistAddress',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"updateDelegateContract"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"updateDelegateContract"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositUpdateDelegateContract<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof depositAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof depositABI,
-          'updateDelegateContract'
-        >['request']['abi'],
-        'updateDelegateContract',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'updateDelegateContract'
-      }
-    : UseContractWriteConfig<
-        typeof depositABI,
-        'updateDelegateContract',
-        TMode
-      > & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'updateDelegateContract'
-      } = {} as any,
-) {
-  return useContractWrite<typeof depositABI, 'updateDelegateContract', TMode>({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useWriteDepositUpdateDelegateContract =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'updateDelegateContract',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"updatePlatformAddress"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"updatePlatformAddress"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositUpdatePlatformAddress<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof depositAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof depositABI,
-          'updatePlatformAddress'
-        >['request']['abi'],
-        'updatePlatformAddress',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'updatePlatformAddress'
-      }
-    : UseContractWriteConfig<
-        typeof depositABI,
-        'updatePlatformAddress',
-        TMode
-      > & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'updatePlatformAddress'
-      } = {} as any,
-) {
-  return useContractWrite<typeof depositABI, 'updatePlatformAddress', TMode>({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useWriteDepositUpdatePlatformAddress =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'updatePlatformAddress',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"withdrawAllFunds"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"withdrawAllFunds"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositWithdrawAllFunds<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof depositAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof depositABI,
-          'withdrawAllFunds'
-        >['request']['abi'],
-        'withdrawAllFunds',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'withdrawAllFunds'
-      }
-    : UseContractWriteConfig<typeof depositABI, 'withdrawAllFunds', TMode> & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'withdrawAllFunds'
-      } = {} as any,
-) {
-  return useContractWrite<typeof depositABI, 'withdrawAllFunds', TMode>({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useWriteDepositWithdrawAllFunds =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'withdrawAllFunds',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link depositABI}__.
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link depositAbi}__
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function usePrepareDepositWrite<TFunctionName extends string>(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof depositABI, TFunctionName>,
-    'abi' | 'address'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: depositABI,
-    address: depositAddress[11155111],
-    ...config,
-  } as UsePrepareContractWriteConfig<typeof depositABI, TFunctionName>)
-}
+export const useSimulateDeposit = /*#__PURE__*/ createUseSimulateContract({
+  abi: depositAbi,
+  address: depositAddress,
+})
 
 /**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"CANCEL_AND_REFUND"`.
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"CANCEL_AND_REFUND"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function usePrepareDepositCancelAndRefund(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof depositABI, 'CANCEL_AND_REFUND'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useSimulateDepositCancelAndRefund =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'CANCEL_AND_REFUND',
-    ...config,
-  } as UsePrepareContractWriteConfig<typeof depositABI, 'CANCEL_AND_REFUND'>)
-}
+  })
 
 /**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"DEPOSIT_AND_SET_ANOTHER_RECEVIER"`.
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"DEPOSIT_AND_SET_ANOTHER_RECEVIER"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function usePrepareDepositDepositAndSetAnotherRecevier(
-  config: Omit<
-    UsePrepareContractWriteConfig<
-      typeof depositABI,
-      'DEPOSIT_AND_SET_ANOTHER_RECEVIER'
-    >,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useSimulateDepositDepositAndSetAnotherRecevier =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'DEPOSIT_AND_SET_ANOTHER_RECEVIER',
-    ...config,
-  } as UsePrepareContractWriteConfig<
-    typeof depositABI,
-    'DEPOSIT_AND_SET_ANOTHER_RECEVIER'
-  >)
-}
+  })
 
 /**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"DEPOSIT_AND_SET_SELF_AS_RECEIVER"`.
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"DEPOSIT_AND_SET_SELF_AS_RECEIVER"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function usePrepareDepositDepositAndSetSelfAsReceiver(
-  config: Omit<
-    UsePrepareContractWriteConfig<
-      typeof depositABI,
-      'DEPOSIT_AND_SET_SELF_AS_RECEIVER'
-    >,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useSimulateDepositDepositAndSetSelfAsReceiver =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'DEPOSIT_AND_SET_SELF_AS_RECEIVER',
-    ...config,
-  } as UsePrepareContractWriteConfig<
-    typeof depositABI,
-    'DEPOSIT_AND_SET_SELF_AS_RECEIVER'
-  >)
-}
+  })
 
 /**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"DEPOSIT_WITH_TOKEN_GATE_AND_SET_HOLDING_ADDRESS"`.
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"DEPOSIT_WITH_TOKEN_GATE_AND_SET_HOLDING_ADDRESS"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function usePrepareDepositDepositWithTokenGateAndSetHoldingAddress(
-  config: Omit<
-    UsePrepareContractWriteConfig<
-      typeof depositABI,
-      'DEPOSIT_WITH_TOKEN_GATE_AND_SET_HOLDING_ADDRESS'
-    >,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useSimulateDepositDepositWithTokenGateAndSetHoldingAddress =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'DEPOSIT_WITH_TOKEN_GATE_AND_SET_HOLDING_ADDRESS',
-    ...config,
-  } as UsePrepareContractWriteConfig<
-    typeof depositABI,
-    'DEPOSIT_WITH_TOKEN_GATE_AND_SET_HOLDING_ADDRESS'
-  >)
-}
+  })
 
 /**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"approveAddresses"`.
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"approveAddresses"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function usePrepareDepositApproveAddresses(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof depositABI, 'approveAddresses'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useSimulateDepositApproveAddresses =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'approveAddresses',
-    ...config,
-  } as UsePrepareContractWriteConfig<typeof depositABI, 'approveAddresses'>)
-}
+  })
 
 /**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"artistCancelAndRefundDeposit"`.
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"artistCancelAndRefundDeposit"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function usePrepareDepositArtistCancelAndRefundDeposit(
-  config: Omit<
-    UsePrepareContractWriteConfig<
-      typeof depositABI,
-      'artistCancelAndRefundDeposit'
-    >,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useSimulateDepositArtistCancelAndRefundDeposit =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'artistCancelAndRefundDeposit',
-    ...config,
-  } as UsePrepareContractWriteConfig<
-    typeof depositABI,
-    'artistCancelAndRefundDeposit'
-  >)
-}
+  })
 
 /**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"endInitiative"`.
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"endInitiative"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function usePrepareDepositEndInitiative(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof depositABI, 'endInitiative'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useSimulateDepositEndInitiative =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'endInitiative',
-    ...config,
-  } as UsePrepareContractWriteConfig<typeof depositABI, 'endInitiative'>)
-}
+  })
 
 /**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"newInitiative"`.
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"newInitiative"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function usePrepareDepositNewInitiative(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof depositABI, 'newInitiative'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useSimulateDepositNewInitiative =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'newInitiative',
-    ...config,
-  } as UsePrepareContractWriteConfig<typeof depositABI, 'newInitiative'>)
-}
+  })
 
 /**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"renounceOwnership"`.
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"renounceOwnership"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function usePrepareDepositRenounceOwnership(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof depositABI, 'renounceOwnership'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useSimulateDepositRenounceOwnership =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'renounceOwnership',
-    ...config,
-  } as UsePrepareContractWriteConfig<typeof depositABI, 'renounceOwnership'>)
-}
+  })
 
 /**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"setPrivateDepositBool"`.
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"setPrivateDepositBool"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function usePrepareDepositSetPrivateDepositBool(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof depositABI, 'setPrivateDepositBool'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useSimulateDepositSetPrivateDepositBool =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'setPrivateDepositBool',
-    ...config,
-  } as UsePrepareContractWriteConfig<
-    typeof depositABI,
-    'setPrivateDepositBool'
-  >)
-}
+  })
 
 /**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"setPublicDepositBool"`.
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"setPublicDepositBool"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function usePrepareDepositSetPublicDepositBool(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof depositABI, 'setPublicDepositBool'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useSimulateDepositSetPublicDepositBool =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'setPublicDepositBool',
-    ...config,
-  } as UsePrepareContractWriteConfig<typeof depositABI, 'setPublicDepositBool'>)
-}
+  })
 
 /**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"transferOwnership"`.
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"transferOwnership"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function usePrepareDepositTransferOwnership(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof depositABI, 'transferOwnership'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useSimulateDepositTransferOwnership =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'transferOwnership',
-    ...config,
-  } as UsePrepareContractWriteConfig<typeof depositABI, 'transferOwnership'>)
-}
+  })
 
 /**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"updateArtistAddress"`.
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"updateArtistAddress"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function usePrepareDepositUpdateArtistAddress(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof depositABI, 'updateArtistAddress'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useSimulateDepositUpdateArtistAddress =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'updateArtistAddress',
-    ...config,
-  } as UsePrepareContractWriteConfig<typeof depositABI, 'updateArtistAddress'>)
-}
+  })
 
 /**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"updateDelegateContract"`.
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"updateDelegateContract"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function usePrepareDepositUpdateDelegateContract(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof depositABI, 'updateDelegateContract'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useSimulateDepositUpdateDelegateContract =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'updateDelegateContract',
-    ...config,
-  } as UsePrepareContractWriteConfig<
-    typeof depositABI,
-    'updateDelegateContract'
-  >)
-}
+  })
 
 /**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"updatePlatformAddress"`.
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"updatePlatformAddress"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function usePrepareDepositUpdatePlatformAddress(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof depositABI, 'updatePlatformAddress'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useSimulateDepositUpdatePlatformAddress =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'updatePlatformAddress',
-    ...config,
-  } as UsePrepareContractWriteConfig<
-    typeof depositABI,
-    'updatePlatformAddress'
-  >)
-}
+  })
 
 /**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link depositABI}__ and `functionName` set to `"withdrawAllFunds"`.
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link depositAbi}__ and `functionName` set to `"withdrawAllFunds"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function usePrepareDepositWithdrawAllFunds(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof depositABI, 'withdrawAllFunds'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useSimulateDepositWithdrawAllFunds =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: depositAbi,
+    address: depositAddress,
     functionName: 'withdrawAllFunds',
-    ...config,
-  } as UsePrepareContractWriteConfig<typeof depositABI, 'withdrawAllFunds'>)
-}
+  })
 
 /**
- * Wraps __{@link useContractEvent}__ with `abi` set to __{@link depositABI}__.
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link depositAbi}__
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositEvent<TEventName extends string>(
-  config: Omit<
-    UseContractEventConfig<typeof depositABI, TEventName>,
-    'abi' | 'address'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return useContractEvent({
-    abi: depositABI,
-    address: depositAddress[11155111],
-    ...config,
-  } as UseContractEventConfig<typeof depositABI, TEventName>)
-}
+export const useWatchDepositEvent = /*#__PURE__*/ createUseWatchContractEvent({
+  abi: depositAbi,
+  address: depositAddress,
+})
 
 /**
- * Wraps __{@link useContractEvent}__ with `abi` set to __{@link depositABI}__ and `eventName` set to `"Cancel"`.
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link depositAbi}__ and `eventName` set to `"Cancel"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositCancelEvent(
-  config: Omit<
-    UseContractEventConfig<typeof depositABI, 'Cancel'>,
-    'abi' | 'address' | 'eventName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return useContractEvent({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useWatchDepositCancelEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: depositAbi,
+    address: depositAddress,
     eventName: 'Cancel',
-    ...config,
-  } as UseContractEventConfig<typeof depositABI, 'Cancel'>)
-}
+  })
 
 /**
- * Wraps __{@link useContractEvent}__ with `abi` set to __{@link depositABI}__ and `eventName` set to `"Deposit"`.
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link depositAbi}__ and `eventName` set to `"Deposit"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositDepositEvent(
-  config: Omit<
-    UseContractEventConfig<typeof depositABI, 'Deposit'>,
-    'abi' | 'address' | 'eventName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return useContractEvent({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useWatchDepositDepositEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: depositAbi,
+    address: depositAddress,
     eventName: 'Deposit',
-    ...config,
-  } as UseContractEventConfig<typeof depositABI, 'Deposit'>)
-}
+  })
 
 /**
- * Wraps __{@link useContractEvent}__ with `abi` set to __{@link depositABI}__ and `eventName` set to `"FundsWithdrawn"`.
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link depositAbi}__ and `eventName` set to `"FundsWithdrawn"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositFundsWithdrawnEvent(
-  config: Omit<
-    UseContractEventConfig<typeof depositABI, 'FundsWithdrawn'>,
-    'abi' | 'address' | 'eventName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return useContractEvent({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useWatchDepositFundsWithdrawnEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: depositAbi,
+    address: depositAddress,
     eventName: 'FundsWithdrawn',
-    ...config,
-  } as UseContractEventConfig<typeof depositABI, 'FundsWithdrawn'>)
-}
+  })
 
 /**
- * Wraps __{@link useContractEvent}__ with `abi` set to __{@link depositABI}__ and `eventName` set to `"NewInitiative"`.
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link depositAbi}__ and `eventName` set to `"NewInitiative"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositNewInitiativeEvent(
-  config: Omit<
-    UseContractEventConfig<typeof depositABI, 'NewInitiative'>,
-    'abi' | 'address' | 'eventName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return useContractEvent({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useWatchDepositNewInitiativeEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: depositAbi,
+    address: depositAddress,
     eventName: 'NewInitiative',
-    ...config,
-  } as UseContractEventConfig<typeof depositABI, 'NewInitiative'>)
-}
+  })
 
 /**
- * Wraps __{@link useContractEvent}__ with `abi` set to __{@link depositABI}__ and `eventName` set to `"OwnershipTransferred"`.
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link depositAbi}__ and `eventName` set to `"OwnershipTransferred"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositOwnershipTransferredEvent(
-  config: Omit<
-    UseContractEventConfig<typeof depositABI, 'OwnershipTransferred'>,
-    'abi' | 'address' | 'eventName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return useContractEvent({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useWatchDepositOwnershipTransferredEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: depositAbi,
+    address: depositAddress,
     eventName: 'OwnershipTransferred',
-    ...config,
-  } as UseContractEventConfig<typeof depositABI, 'OwnershipTransferred'>)
-}
+  })
 
 /**
- * Wraps __{@link useContractEvent}__ with `abi` set to __{@link depositABI}__ and `eventName` set to `"TokenGateUsed"`.
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link depositAbi}__ and `eventName` set to `"TokenGateUsed"`
  *
  * [__View Contract on Sepolia Etherscan__](https://sepolia.etherscan.io/address/0x6FFdEF0A5dDFF6AF79E6A2B2e77A081D170C8d4B)
  */
-export function useDepositTokenGateUsedEvent(
-  config: Omit<
-    UseContractEventConfig<typeof depositABI, 'TokenGateUsed'>,
-    'abi' | 'address' | 'eventName'
-  > & { chainId?: keyof typeof depositAddress } = {} as any,
-) {
-  return useContractEvent({
-    abi: depositABI,
-    address: depositAddress[11155111],
+export const useWatchDepositTokenGateUsedEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: depositAbi,
+    address: depositAddress,
     eventName: 'TokenGateUsed',
-    ...config,
-  } as UseContractEventConfig<typeof depositABI, 'TokenGateUsed'>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXRead<
-  TFunctionName extends string,
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+export const useReadOneHundredX = /*#__PURE__*/ createUseReadContract({
+  abi: oneHundredXAbi,
+  address: oneHundredXAddress,
+})
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"SVGfilter"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"SVGfilter"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXSvGfilter<
-  TFunctionName extends 'SVGfilter',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'SVGfilter',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+export const useReadOneHundredXSvGfilter = /*#__PURE__*/ createUseReadContract({
+  abi: oneHundredXAbi,
+  address: oneHundredXAddress,
+  functionName: 'SVGfilter',
+})
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"SVGstart"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"SVGstart"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXSvGstart<
-  TFunctionName extends 'SVGstart',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'SVGstart',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+export const useReadOneHundredXSvGstart = /*#__PURE__*/ createUseReadContract({
+  abi: oneHundredXAbi,
+  address: oneHundredXAddress,
+  functionName: 'SVGstart',
+})
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"additionalData"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"additionalData"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXAdditionalData<
-  TFunctionName extends 'additionalData',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXAdditionalData =
+  /*#__PURE__*/ createUseReadContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'additionalData',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"artistAddress"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"artistAddress"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXArtistAddress<
-  TFunctionName extends 'artistAddress',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXArtistAddress =
+  /*#__PURE__*/ createUseReadContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'artistAddress',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"artistName"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"artistName"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXArtistName<
-  TFunctionName extends 'artistName',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXArtistName = /*#__PURE__*/ createUseReadContract(
+  {
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'artistName',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  },
+)
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"balanceOf"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"balanceOf"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXBalanceOf<
-  TFunctionName extends 'balanceOf',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'balanceOf',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+export const useReadOneHundredXBalanceOf = /*#__PURE__*/ createUseReadContract({
+  abi: oneHundredXAbi,
+  address: oneHundredXAddress,
+  functionName: 'balanceOf',
+})
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"baseShuffleFee"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"baseShuffleFee"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXBaseShuffleFee<
-  TFunctionName extends 'baseShuffleFee',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXBaseShuffleFee =
+  /*#__PURE__*/ createUseReadContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'baseShuffleFee',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"baseURI"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"baseURI"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXBaseUri<
-  TFunctionName extends 'baseURI',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'baseURI',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+export const useReadOneHundredXBaseUri = /*#__PURE__*/ createUseReadContract({
+  abi: oneHundredXAbi,
+  address: oneHundredXAddress,
+  functionName: 'baseURI',
+})
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"blackBackground"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"blackBackground"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXBlackBackground<
-  TFunctionName extends 'blackBackground',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXBlackBackground =
+  /*#__PURE__*/ createUseReadContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'blackBackground',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"blackBackgroundDefault"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"blackBackgroundDefault"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXBlackBackgroundDefault<
-  TFunctionName extends 'blackBackgroundDefault',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXBlackBackgroundDefault =
+  /*#__PURE__*/ createUseReadContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'blackBackgroundDefault',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"collection"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"collection"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXCollection<
-  TFunctionName extends 'collection',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXCollection = /*#__PURE__*/ createUseReadContract(
+  {
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'collection',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  },
+)
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"collectionDescription"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"collectionDescription"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXCollectionDescription<
-  TFunctionName extends 'collectionDescription',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXCollectionDescription =
+  /*#__PURE__*/ createUseReadContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'collectionDescription',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"collectionNotes"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"collectionNotes"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXCollectionNotes<
-  TFunctionName extends 'collectionNotes',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXCollectionNotes =
+  /*#__PURE__*/ createUseReadContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'collectionNotes',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"contractsFrozen"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"contractsFrozen"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXContractsFrozen<
-  TFunctionName extends 'contractsFrozen',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXContractsFrozen =
+  /*#__PURE__*/ createUseReadContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'contractsFrozen',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"croppedCompositeDefault"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"croppedCompositeDefault"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXCroppedCompositeDefault<
-  TFunctionName extends 'croppedCompositeDefault',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXCroppedCompositeDefault =
+  /*#__PURE__*/ createUseReadContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'croppedCompositeDefault',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"externalUrl"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"externalUrl"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXExternalUrl<
-  TFunctionName extends 'externalUrl',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXExternalUrl =
+  /*#__PURE__*/ createUseReadContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'externalUrl',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"getAltCompositeSVG"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"getAltCompositeSVG"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXGetAltCompositeSvg<
-  TFunctionName extends 'getAltCompositeSVG',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXGetAltCompositeSvg =
+  /*#__PURE__*/ createUseReadContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'getAltCompositeSVG',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"getAltTokenSVG"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"getAltTokenSVG"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXGetAltTokenSvg<
-  TFunctionName extends 'getAltTokenSVG',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXGetAltTokenSvg =
+  /*#__PURE__*/ createUseReadContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'getAltTokenSVG',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"getApproved"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"getApproved"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXGetApproved<
-  TFunctionName extends 'getApproved',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXGetApproved =
+  /*#__PURE__*/ createUseReadContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'getApproved',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"getCompositeSVG"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"getCompositeSVG"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXGetCompositeSvg<
-  TFunctionName extends 'getCompositeSVG',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXGetCompositeSvg =
+  /*#__PURE__*/ createUseReadContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'getCompositeSVG',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"getMethodFees"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"getMethodFees"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXGetMethodFees<
-  TFunctionName extends 'getMethodFees',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXGetMethodFees =
+  /*#__PURE__*/ createUseReadContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'getMethodFees',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"getOrder"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"getOrder"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXGetOrder<
-  TFunctionName extends 'getOrder',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'getOrder',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+export const useReadOneHundredXGetOrder = /*#__PURE__*/ createUseReadContract({
+  abi: oneHundredXAbi,
+  address: oneHundredXAddress,
+  functionName: 'getOrder',
+})
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"getTokenSVG"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"getTokenSVG"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXGetTokenSvg<
-  TFunctionName extends 'getTokenSVG',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXGetTokenSvg =
+  /*#__PURE__*/ createUseReadContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'getTokenSVG',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"getTokenTraits"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"getTokenTraits"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXGetTokenTraits<
-  TFunctionName extends 'getTokenTraits',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXGetTokenTraits =
+  /*#__PURE__*/ createUseReadContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'getTokenTraits',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"isApprovedForAll"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"isApprovedForAll"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXIsApprovedForAll<
-  TFunctionName extends 'isApprovedForAll',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXIsApprovedForAll =
+  /*#__PURE__*/ createUseReadContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'isApprovedForAll',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"layerContentFrozen"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"layerContentFrozen"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXLayerContentFrozen<
-  TFunctionName extends 'layerContentFrozen',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXLayerContentFrozen =
+  /*#__PURE__*/ createUseReadContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'layerContentFrozen',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"maxSupply"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"maxSupply"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXMaxSupply<
-  TFunctionName extends 'maxSupply',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'maxSupply',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+export const useReadOneHundredXMaxSupply = /*#__PURE__*/ createUseReadContract({
+  abi: oneHundredXAbi,
+  address: oneHundredXAddress,
+  functionName: 'maxSupply',
+})
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"methodDescriptions"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"methodDescriptions"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXMethodDescriptions<
-  TFunctionName extends 'methodDescriptions',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXMethodDescriptions =
+  /*#__PURE__*/ createUseReadContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'methodDescriptions',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"minterAddress"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"minterAddress"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXMinterAddress<
-  TFunctionName extends 'minterAddress',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXMinterAddress =
+  /*#__PURE__*/ createUseReadContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'minterAddress',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"name"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"name"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXName<
-  TFunctionName extends 'name',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'name',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+export const useReadOneHundredXName = /*#__PURE__*/ createUseReadContract({
+  abi: oneHundredXAbi,
+  address: oneHundredXAddress,
+  functionName: 'name',
+})
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"owner"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"owner"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXOwner<
-  TFunctionName extends 'owner',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'owner',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+export const useReadOneHundredXOwner = /*#__PURE__*/ createUseReadContract({
+  abi: oneHundredXAbi,
+  address: oneHundredXAddress,
+  functionName: 'owner',
+})
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"ownerOf"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"ownerOf"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXOwnerOf<
-  TFunctionName extends 'ownerOf',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'ownerOf',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+export const useReadOneHundredXOwnerOf = /*#__PURE__*/ createUseReadContract({
+  abi: oneHundredXAbi,
+  address: oneHundredXAddress,
+  functionName: 'ownerOf',
+})
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"platformAddress"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"platformAddress"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXPlatformAddress<
-  TFunctionName extends 'platformAddress',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXPlatformAddress =
+  /*#__PURE__*/ createUseReadContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'platformAddress',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"platformBPS"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"platformBPS"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXPlatformBps<
-  TFunctionName extends 'platformBPS',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXPlatformBps =
+  /*#__PURE__*/ createUseReadContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'platformBPS',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"royaltyAddress"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"royaltyAddress"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXRoyaltyAddress<
-  TFunctionName extends 'royaltyAddress',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXRoyaltyAddress =
+  /*#__PURE__*/ createUseReadContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'royaltyAddress',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"royaltyBPS"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"royaltyBPS"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXRoyaltyBps<
-  TFunctionName extends 'royaltyBPS',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXRoyaltyBps = /*#__PURE__*/ createUseReadContract(
+  {
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'royaltyBPS',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  },
+)
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"royaltyInfo"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"royaltyInfo"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXRoyaltyInfo<
-  TFunctionName extends 'royaltyInfo',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXRoyaltyInfo =
+  /*#__PURE__*/ createUseReadContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'royaltyInfo',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"shuffleContract"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"shuffleContract"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXShuffleContract<
-  TFunctionName extends 'shuffleContract',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXShuffleContract =
+  /*#__PURE__*/ createUseReadContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'shuffleContract',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"shuffleable"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"shuffleable"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXShuffleable<
-  TFunctionName extends 'shuffleable',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXShuffleable =
+  /*#__PURE__*/ createUseReadContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'shuffleable',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"supportsInterface"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"supportsInterface"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXSupportsInterface<
-  TFunctionName extends 'supportsInterface',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXSupportsInterface =
+  /*#__PURE__*/ createUseReadContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'supportsInterface',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"svgContract"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"svgContract"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXSvgContract<
-  TFunctionName extends 'svgContract',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXSvgContract =
+  /*#__PURE__*/ createUseReadContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'svgContract',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"symbol"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"symbol"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXSymbol<
-  TFunctionName extends 'symbol',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'symbol',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+export const useReadOneHundredXSymbol = /*#__PURE__*/ createUseReadContract({
+  abi: oneHundredXAbi,
+  address: oneHundredXAddress,
+  functionName: 'symbol',
+})
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"token0ExtraDescription"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"token0ExtraDescription"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXToken0ExtraDescription<
-  TFunctionName extends 'token0ExtraDescription',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXToken0ExtraDescription =
+  /*#__PURE__*/ createUseReadContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'token0ExtraDescription',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"tokenDataOf"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"tokenDataOf"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXTokenDataOf<
-  TFunctionName extends 'tokenDataOf',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXTokenDataOf =
+  /*#__PURE__*/ createUseReadContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'tokenDataOf',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"tokenEntropy"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"tokenEntropy"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXTokenEntropy<
-  TFunctionName extends 'tokenEntropy',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXTokenEntropy =
+  /*#__PURE__*/ createUseReadContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'tokenEntropy',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"tokenURI"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"tokenURI"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXTokenUri<
-  TFunctionName extends 'tokenURI',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'tokenURI',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+export const useReadOneHundredXTokenUri = /*#__PURE__*/ createUseReadContract({
+  abi: oneHundredXAbi,
+  address: oneHundredXAddress,
+  functionName: 'tokenURI',
+})
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"tokensMinted"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"tokensMinted"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXTokensMinted<
-  TFunctionName extends 'tokensMinted',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXTokensMinted =
+  /*#__PURE__*/ createUseReadContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'tokensMinted',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"tokensOwned"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"tokensOwned"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXTokensOwned<
-  TFunctionName extends 'tokensOwned',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useReadOneHundredXTokensOwned =
+  /*#__PURE__*/ createUseReadContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'tokensOwned',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+  })
 
 /**
- * Wraps __{@link useContractRead}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"website"`.
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"website"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXWebsite<
-  TFunctionName extends 'website',
-  TSelectData = ReadContractResult<typeof oneHundredXABI, TFunctionName>,
->(
-  config: Omit<
-    UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractRead({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'website',
-    ...config,
-  } as UseContractReadConfig<typeof oneHundredXABI, TFunctionName, TSelectData>)
-}
+export const useReadOneHundredXWebsite = /*#__PURE__*/ createUseReadContract({
+  abi: oneHundredXAbi,
+  address: oneHundredXAddress,
+  functionName: 'website',
+})
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXWrite<
-  TFunctionName extends string,
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          string
-        >['request']['abi'],
-        TFunctionName,
-        TMode
-      > & { address?: Address; chainId?: TChainId }
-    : UseContractWriteConfig<typeof oneHundredXABI, TFunctionName, TMode> & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-      } = {} as any,
-) {
-  return useContractWrite<typeof oneHundredXABI, TFunctionName, TMode>({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    ...config,
-  } as any)
-}
+export const useWriteOneHundredX = /*#__PURE__*/ createUseWriteContract({
+  abi: oneHundredXAbi,
+  address: oneHundredXAddress,
+})
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"SHUFFLE"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"SHUFFLE"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXShuffle<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'SHUFFLE'
-        >['request']['abi'],
-        'SHUFFLE',
-        TMode
-      > & { address?: Address; chainId?: TChainId; functionName?: 'SHUFFLE' }
-    : UseContractWriteConfig<typeof oneHundredXABI, 'SHUFFLE', TMode> & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'SHUFFLE'
-      } = {} as any,
-) {
-  return useContractWrite<typeof oneHundredXABI, 'SHUFFLE', TMode>({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'SHUFFLE',
-    ...config,
-  } as any)
-}
+export const useWriteOneHundredXShuffle = /*#__PURE__*/ createUseWriteContract({
+  abi: oneHundredXAbi,
+  address: oneHundredXAddress,
+  functionName: 'SHUFFLE',
+})
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"TOP"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"TOP"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXTop<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'TOP'
-        >['request']['abi'],
-        'TOP',
-        TMode
-      > & { address?: Address; chainId?: TChainId; functionName?: 'TOP' }
-    : UseContractWriteConfig<typeof oneHundredXABI, 'TOP', TMode> & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'TOP'
-      } = {} as any,
-) {
-  return useContractWrite<typeof oneHundredXABI, 'TOP', TMode>({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'TOP',
-    ...config,
-  } as any)
-}
+export const useWriteOneHundredXTop = /*#__PURE__*/ createUseWriteContract({
+  abi: oneHundredXAbi,
+  address: oneHundredXAddress,
+  functionName: 'TOP',
+})
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"approve"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"approve"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXApprove<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'approve'
-        >['request']['abi'],
-        'approve',
-        TMode
-      > & { address?: Address; chainId?: TChainId; functionName?: 'approve' }
-    : UseContractWriteConfig<typeof oneHundredXABI, 'approve', TMode> & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'approve'
-      } = {} as any,
-) {
-  return useContractWrite<typeof oneHundredXABI, 'approve', TMode>({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'approve',
-    ...config,
-  } as any)
-}
+export const useWriteOneHundredXApprove = /*#__PURE__*/ createUseWriteContract({
+  abi: oneHundredXAbi,
+  address: oneHundredXAddress,
+  functionName: 'approve',
+})
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"freezeContracts"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"freezeContracts"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXFreezeContracts<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'freezeContracts'
-        >['request']['abi'],
-        'freezeContracts',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'freezeContracts'
-      }
-    : UseContractWriteConfig<
-        typeof oneHundredXABI,
-        'freezeContracts',
-        TMode
-      > & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'freezeContracts'
-      } = {} as any,
-) {
-  return useContractWrite<typeof oneHundredXABI, 'freezeContracts', TMode>({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWriteOneHundredXFreezeContracts =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'freezeContracts',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"freezeLayerContent"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"freezeLayerContent"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXFreezeLayerContent<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'freezeLayerContent'
-        >['request']['abi'],
-        'freezeLayerContent',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'freezeLayerContent'
-      }
-    : UseContractWriteConfig<
-        typeof oneHundredXABI,
-        'freezeLayerContent',
-        TMode
-      > & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'freezeLayerContent'
-      } = {} as any,
-) {
-  return useContractWrite<typeof oneHundredXABI, 'freezeLayerContent', TMode>({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWriteOneHundredXFreezeLayerContent =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'freezeLayerContent',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"loanToken0"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"loanToken0"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXLoanToken0<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'loanToken0'
-        >['request']['abi'],
-        'loanToken0',
-        TMode
-      > & { address?: Address; chainId?: TChainId; functionName?: 'loanToken0' }
-    : UseContractWriteConfig<typeof oneHundredXABI, 'loanToken0', TMode> & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'loanToken0'
-      } = {} as any,
-) {
-  return useContractWrite<typeof oneHundredXABI, 'loanToken0', TMode>({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWriteOneHundredXLoanToken0 =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'loanToken0',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"mintToAddress"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"mintToAddress"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXMintToAddress<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'mintToAddress'
-        >['request']['abi'],
-        'mintToAddress',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'mintToAddress'
-      }
-    : UseContractWriteConfig<typeof oneHundredXABI, 'mintToAddress', TMode> & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'mintToAddress'
-      } = {} as any,
-) {
-  return useContractWrite<typeof oneHundredXABI, 'mintToAddress', TMode>({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWriteOneHundredXMintToAddress =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'mintToAddress',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"overrideLayer"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"overrideLayer"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXOverrideLayer<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'overrideLayer'
-        >['request']['abi'],
-        'overrideLayer',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'overrideLayer'
-      }
-    : UseContractWriteConfig<typeof oneHundredXABI, 'overrideLayer', TMode> & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'overrideLayer'
-      } = {} as any,
-) {
-  return useContractWrite<typeof oneHundredXABI, 'overrideLayer', TMode>({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWriteOneHundredXOverrideLayer =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'overrideLayer',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"renounceOwnership"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"renounceOwnership"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXRenounceOwnership<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'renounceOwnership'
-        >['request']['abi'],
-        'renounceOwnership',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'renounceOwnership'
-      }
-    : UseContractWriteConfig<
-        typeof oneHundredXABI,
-        'renounceOwnership',
-        TMode
-      > & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'renounceOwnership'
-      } = {} as any,
-) {
-  return useContractWrite<typeof oneHundredXABI, 'renounceOwnership', TMode>({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWriteOneHundredXRenounceOwnership =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'renounceOwnership',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"retrieveToken0"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"retrieveToken0"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXRetrieveToken0<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'retrieveToken0'
-        >['request']['abi'],
-        'retrieveToken0',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'retrieveToken0'
-      }
-    : UseContractWriteConfig<typeof oneHundredXABI, 'retrieveToken0', TMode> & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'retrieveToken0'
-      } = {} as any,
-) {
-  return useContractWrite<typeof oneHundredXABI, 'retrieveToken0', TMode>({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWriteOneHundredXRetrieveToken0 =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'retrieveToken0',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"safeTransferFrom"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"safeTransferFrom"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXSafeTransferFrom<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'safeTransferFrom'
-        >['request']['abi'],
-        'safeTransferFrom',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'safeTransferFrom'
-      }
-    : UseContractWriteConfig<
-        typeof oneHundredXABI,
-        'safeTransferFrom',
-        TMode
-      > & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'safeTransferFrom'
-      } = {} as any,
-) {
-  return useContractWrite<typeof oneHundredXABI, 'safeTransferFrom', TMode>({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWriteOneHundredXSafeTransferFrom =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'safeTransferFrom',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setAdditionalData"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setAdditionalData"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXSetAdditionalData<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'setAdditionalData'
-        >['request']['abi'],
-        'setAdditionalData',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'setAdditionalData'
-      }
-    : UseContractWriteConfig<
-        typeof oneHundredXABI,
-        'setAdditionalData',
-        TMode
-      > & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'setAdditionalData'
-      } = {} as any,
-) {
-  return useContractWrite<typeof oneHundredXABI, 'setAdditionalData', TMode>({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWriteOneHundredXSetAdditionalData =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'setAdditionalData',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setApprovalForAll"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setApprovalForAll"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXSetApprovalForAll<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'setApprovalForAll'
-        >['request']['abi'],
-        'setApprovalForAll',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'setApprovalForAll'
-      }
-    : UseContractWriteConfig<
-        typeof oneHundredXABI,
-        'setApprovalForAll',
-        TMode
-      > & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'setApprovalForAll'
-      } = {} as any,
-) {
-  return useContractWrite<typeof oneHundredXABI, 'setApprovalForAll', TMode>({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWriteOneHundredXSetApprovalForAll =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'setApprovalForAll',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setArtistName"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setArtistName"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXSetArtistName<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'setArtistName'
-        >['request']['abi'],
-        'setArtistName',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'setArtistName'
-      }
-    : UseContractWriteConfig<typeof oneHundredXABI, 'setArtistName', TMode> & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'setArtistName'
-      } = {} as any,
-) {
-  return useContractWrite<typeof oneHundredXABI, 'setArtistName', TMode>({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWriteOneHundredXSetArtistName =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'setArtistName',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setBaseShuffleFee"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setBaseShuffleFee"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXSetBaseShuffleFee<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'setBaseShuffleFee'
-        >['request']['abi'],
-        'setBaseShuffleFee',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'setBaseShuffleFee'
-      }
-    : UseContractWriteConfig<
-        typeof oneHundredXABI,
-        'setBaseShuffleFee',
-        TMode
-      > & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'setBaseShuffleFee'
-      } = {} as any,
-) {
-  return useContractWrite<typeof oneHundredXABI, 'setBaseShuffleFee', TMode>({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWriteOneHundredXSetBaseShuffleFee =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'setBaseShuffleFee',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setBlackBackground"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setBlackBackground"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXSetBlackBackground<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'setBlackBackground'
-        >['request']['abi'],
-        'setBlackBackground',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'setBlackBackground'
-      }
-    : UseContractWriteConfig<
-        typeof oneHundredXABI,
-        'setBlackBackground',
-        TMode
-      > & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'setBlackBackground'
-      } = {} as any,
-) {
-  return useContractWrite<typeof oneHundredXABI, 'setBlackBackground', TMode>({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWriteOneHundredXSetBlackBackground =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'setBlackBackground',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setCollection"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setCollection"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXSetCollection<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'setCollection'
-        >['request']['abi'],
-        'setCollection',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'setCollection'
-      }
-    : UseContractWriteConfig<typeof oneHundredXABI, 'setCollection', TMode> & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'setCollection'
-      } = {} as any,
-) {
-  return useContractWrite<typeof oneHundredXABI, 'setCollection', TMode>({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWriteOneHundredXSetCollection =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'setCollection',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setCollectionDescription"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setCollectionDescription"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXSetCollectionDescription<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'setCollectionDescription'
-        >['request']['abi'],
-        'setCollectionDescription',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'setCollectionDescription'
-      }
-    : UseContractWriteConfig<
-        typeof oneHundredXABI,
-        'setCollectionDescription',
-        TMode
-      > & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'setCollectionDescription'
-      } = {} as any,
-) {
-  return useContractWrite<
-    typeof oneHundredXABI,
-    'setCollectionDescription',
-    TMode
-  >({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWriteOneHundredXSetCollectionDescription =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'setCollectionDescription',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setCollectionNotes"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setCollectionNotes"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXSetCollectionNotes<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'setCollectionNotes'
-        >['request']['abi'],
-        'setCollectionNotes',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'setCollectionNotes'
-      }
-    : UseContractWriteConfig<
-        typeof oneHundredXABI,
-        'setCollectionNotes',
-        TMode
-      > & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'setCollectionNotes'
-      } = {} as any,
-) {
-  return useContractWrite<typeof oneHundredXABI, 'setCollectionNotes', TMode>({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWriteOneHundredXSetCollectionNotes =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'setCollectionNotes',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setExternalUrl"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setExternalUrl"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXSetExternalUrl<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'setExternalUrl'
-        >['request']['abi'],
-        'setExternalUrl',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'setExternalUrl'
-      }
-    : UseContractWriteConfig<typeof oneHundredXABI, 'setExternalUrl', TMode> & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'setExternalUrl'
-      } = {} as any,
-) {
-  return useContractWrite<typeof oneHundredXABI, 'setExternalUrl', TMode>({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWriteOneHundredXSetExternalUrl =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'setExternalUrl',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setInterfaces"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setInterfaces"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXSetInterfaces<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'setInterfaces'
-        >['request']['abi'],
-        'setInterfaces',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'setInterfaces'
-      }
-    : UseContractWriteConfig<typeof oneHundredXABI, 'setInterfaces', TMode> & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'setInterfaces'
-      } = {} as any,
-) {
-  return useContractWrite<typeof oneHundredXABI, 'setInterfaces', TMode>({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWriteOneHundredXSetInterfaces =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'setInterfaces',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setMinterAddress"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setMinterAddress"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXSetMinterAddress<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'setMinterAddress'
-        >['request']['abi'],
-        'setMinterAddress',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'setMinterAddress'
-      }
-    : UseContractWriteConfig<
-        typeof oneHundredXABI,
-        'setMinterAddress',
-        TMode
-      > & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'setMinterAddress'
-      } = {} as any,
-) {
-  return useContractWrite<typeof oneHundredXABI, 'setMinterAddress', TMode>({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWriteOneHundredXSetMinterAddress =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'setMinterAddress',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setOrder"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setOrder"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXSetOrder<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'setOrder'
-        >['request']['abi'],
-        'setOrder',
-        TMode
-      > & { address?: Address; chainId?: TChainId; functionName?: 'setOrder' }
-    : UseContractWriteConfig<typeof oneHundredXABI, 'setOrder', TMode> & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'setOrder'
-      } = {} as any,
-) {
-  return useContractWrite<typeof oneHundredXABI, 'setOrder', TMode>({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWriteOneHundredXSetOrder = /*#__PURE__*/ createUseWriteContract(
+  {
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'setOrder',
-    ...config,
-  } as any)
-}
+  },
+)
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setPrimaryData"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setPrimaryData"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXSetPrimaryData<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'setPrimaryData'
-        >['request']['abi'],
-        'setPrimaryData',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'setPrimaryData'
-      }
-    : UseContractWriteConfig<typeof oneHundredXABI, 'setPrimaryData', TMode> & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'setPrimaryData'
-      } = {} as any,
-) {
-  return useContractWrite<typeof oneHundredXABI, 'setPrimaryData', TMode>({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWriteOneHundredXSetPrimaryData =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'setPrimaryData',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setRoyaltyData"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setRoyaltyData"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXSetRoyaltyData<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'setRoyaltyData'
-        >['request']['abi'],
-        'setRoyaltyData',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'setRoyaltyData'
-      }
-    : UseContractWriteConfig<typeof oneHundredXABI, 'setRoyaltyData', TMode> & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'setRoyaltyData'
-      } = {} as any,
-) {
-  return useContractWrite<typeof oneHundredXABI, 'setRoyaltyData', TMode>({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWriteOneHundredXSetRoyaltyData =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'setRoyaltyData',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setSVGfilter"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setSVGfilter"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXSetSvGfilter<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'setSVGfilter'
-        >['request']['abi'],
-        'setSVGfilter',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'setSVGfilter'
-      }
-    : UseContractWriteConfig<typeof oneHundredXABI, 'setSVGfilter', TMode> & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'setSVGfilter'
-      } = {} as any,
-) {
-  return useContractWrite<typeof oneHundredXABI, 'setSVGfilter', TMode>({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWriteOneHundredXSetSvGfilter =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'setSVGfilter',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setSVGstart"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setSVGstart"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXSetSvGstart<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'setSVGstart'
-        >['request']['abi'],
-        'setSVGstart',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'setSVGstart'
-      }
-    : UseContractWriteConfig<typeof oneHundredXABI, 'setSVGstart', TMode> & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'setSVGstart'
-      } = {} as any,
-) {
-  return useContractWrite<typeof oneHundredXABI, 'setSVGstart', TMode>({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWriteOneHundredXSetSvGstart =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'setSVGstart',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setToken0ExtraDescription"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setToken0ExtraDescription"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXSetToken0ExtraDescription<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'setToken0ExtraDescription'
-        >['request']['abi'],
-        'setToken0ExtraDescription',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'setToken0ExtraDescription'
-      }
-    : UseContractWriteConfig<
-        typeof oneHundredXABI,
-        'setToken0ExtraDescription',
-        TMode
-      > & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'setToken0ExtraDescription'
-      } = {} as any,
-) {
-  return useContractWrite<
-    typeof oneHundredXABI,
-    'setToken0ExtraDescription',
-    TMode
-  >({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWriteOneHundredXSetToken0ExtraDescription =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'setToken0ExtraDescription',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setURI"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setURI"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXSetUri<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'setURI'
-        >['request']['abi'],
-        'setURI',
-        TMode
-      > & { address?: Address; chainId?: TChainId; functionName?: 'setURI' }
-    : UseContractWriteConfig<typeof oneHundredXABI, 'setURI', TMode> & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'setURI'
-      } = {} as any,
-) {
-  return useContractWrite<typeof oneHundredXABI, 'setURI', TMode>({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'setURI',
-    ...config,
-  } as any)
-}
+export const useWriteOneHundredXSetUri = /*#__PURE__*/ createUseWriteContract({
+  abi: oneHundredXAbi,
+  address: oneHundredXAddress,
+  functionName: 'setURI',
+})
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setWebsite"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setWebsite"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXSetWebsite<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'setWebsite'
-        >['request']['abi'],
-        'setWebsite',
-        TMode
-      > & { address?: Address; chainId?: TChainId; functionName?: 'setWebsite' }
-    : UseContractWriteConfig<typeof oneHundredXABI, 'setWebsite', TMode> & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'setWebsite'
-      } = {} as any,
-) {
-  return useContractWrite<typeof oneHundredXABI, 'setWebsite', TMode>({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWriteOneHundredXSetWebsite =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'setWebsite',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"toggleBlackBackgroundDefault"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"toggleBlackBackgroundDefault"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXToggleBlackBackgroundDefault<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'toggleBlackBackgroundDefault'
-        >['request']['abi'],
-        'toggleBlackBackgroundDefault',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'toggleBlackBackgroundDefault'
-      }
-    : UseContractWriteConfig<
-        typeof oneHundredXABI,
-        'toggleBlackBackgroundDefault',
-        TMode
-      > & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'toggleBlackBackgroundDefault'
-      } = {} as any,
-) {
-  return useContractWrite<
-    typeof oneHundredXABI,
-    'toggleBlackBackgroundDefault',
-    TMode
-  >({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWriteOneHundredXToggleBlackBackgroundDefault =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'toggleBlackBackgroundDefault',
-    ...config,
-  } as any)
-}
+  })
 
 /**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"toggleCroppedDefault"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"toggleCroppedDefault"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXToggleCroppedDefault<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'toggleCroppedDefault'
-        >['request']['abi'],
-        'toggleCroppedDefault',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'toggleCroppedDefault'
-      }
-    : UseContractWriteConfig<
-        typeof oneHundredXABI,
-        'toggleCroppedDefault',
-        TMode
-      > & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'toggleCroppedDefault'
-      } = {} as any,
-) {
-  return useContractWrite<typeof oneHundredXABI, 'toggleCroppedDefault', TMode>(
-    {
-      abi: oneHundredXABI,
-      address: oneHundredXAddress[5],
-      functionName: 'toggleCroppedDefault',
-      ...config,
-    } as any,
-  )
-}
-
-/**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"toggleShuffling"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function useOneHundredXToggleShuffling<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'toggleShuffling'
-        >['request']['abi'],
-        'toggleShuffling',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'toggleShuffling'
-      }
-    : UseContractWriteConfig<
-        typeof oneHundredXABI,
-        'toggleShuffling',
-        TMode
-      > & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'toggleShuffling'
-      } = {} as any,
-) {
-  return useContractWrite<typeof oneHundredXABI, 'toggleShuffling', TMode>({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'toggleShuffling',
-    ...config,
-  } as any)
-}
-
-/**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"transferFrom"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function useOneHundredXTransferFrom<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'transferFrom'
-        >['request']['abi'],
-        'transferFrom',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'transferFrom'
-      }
-    : UseContractWriteConfig<typeof oneHundredXABI, 'transferFrom', TMode> & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'transferFrom'
-      } = {} as any,
-) {
-  return useContractWrite<typeof oneHundredXABI, 'transferFrom', TMode>({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'transferFrom',
-    ...config,
-  } as any)
-}
-
-/**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"transferOwnership"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function useOneHundredXTransferOwnership<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'transferOwnership'
-        >['request']['abi'],
-        'transferOwnership',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'transferOwnership'
-      }
-    : UseContractWriteConfig<
-        typeof oneHundredXABI,
-        'transferOwnership',
-        TMode
-      > & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'transferOwnership'
-      } = {} as any,
-) {
-  return useContractWrite<typeof oneHundredXABI, 'transferOwnership', TMode>({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'transferOwnership',
-    ...config,
-  } as any)
-}
-
-/**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"updateDelegateContract"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function useOneHundredXUpdateDelegateContract<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'updateDelegateContract'
-        >['request']['abi'],
-        'updateDelegateContract',
-        TMode
-      > & {
-        address?: Address
-        chainId?: TChainId
-        functionName?: 'updateDelegateContract'
-      }
-    : UseContractWriteConfig<
-        typeof oneHundredXABI,
-        'updateDelegateContract',
-        TMode
-      > & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'updateDelegateContract'
-      } = {} as any,
-) {
-  return useContractWrite<
-    typeof oneHundredXABI,
-    'updateDelegateContract',
-    TMode
-  >({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'updateDelegateContract',
-    ...config,
-  } as any)
-}
-
-/**
- * Wraps __{@link useContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"withdraw"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function useOneHundredXWithdraw<
-  TMode extends WriteContractMode = undefined,
-  TChainId extends number = keyof typeof oneHundredXAddress,
->(
-  config: TMode extends 'prepared'
-    ? UseContractWriteConfig<
-        PrepareWriteContractResult<
-          typeof oneHundredXABI,
-          'withdraw'
-        >['request']['abi'],
-        'withdraw',
-        TMode
-      > & { address?: Address; chainId?: TChainId; functionName?: 'withdraw' }
-    : UseContractWriteConfig<typeof oneHundredXABI, 'withdraw', TMode> & {
-        abi?: never
-        address?: never
-        chainId?: TChainId
-        functionName?: 'withdraw'
-      } = {} as any,
-) {
-  return useContractWrite<typeof oneHundredXABI, 'withdraw', TMode>({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'withdraw',
-    ...config,
-  } as any)
-}
-
-/**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function usePrepareOneHundredXWrite<TFunctionName extends string>(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof oneHundredXABI, TFunctionName>,
-    'abi' | 'address'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    ...config,
-  } as UsePrepareContractWriteConfig<typeof oneHundredXABI, TFunctionName>)
-}
-
-/**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"SHUFFLE"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function usePrepareOneHundredXShuffle(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof oneHundredXABI, 'SHUFFLE'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'SHUFFLE',
-    ...config,
-  } as UsePrepareContractWriteConfig<typeof oneHundredXABI, 'SHUFFLE'>)
-}
-
-/**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"TOP"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function usePrepareOneHundredXTop(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof oneHundredXABI, 'TOP'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'TOP',
-    ...config,
-  } as UsePrepareContractWriteConfig<typeof oneHundredXABI, 'TOP'>)
-}
-
-/**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"approve"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function usePrepareOneHundredXApprove(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof oneHundredXABI, 'approve'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'approve',
-    ...config,
-  } as UsePrepareContractWriteConfig<typeof oneHundredXABI, 'approve'>)
-}
-
-/**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"freezeContracts"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function usePrepareOneHundredXFreezeContracts(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof oneHundredXABI, 'freezeContracts'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'freezeContracts',
-    ...config,
-  } as UsePrepareContractWriteConfig<typeof oneHundredXABI, 'freezeContracts'>)
-}
-
-/**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"freezeLayerContent"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function usePrepareOneHundredXFreezeLayerContent(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof oneHundredXABI, 'freezeLayerContent'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'freezeLayerContent',
-    ...config,
-  } as UsePrepareContractWriteConfig<
-    typeof oneHundredXABI,
-    'freezeLayerContent'
-  >)
-}
-
-/**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"loanToken0"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function usePrepareOneHundredXLoanToken0(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof oneHundredXABI, 'loanToken0'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'loanToken0',
-    ...config,
-  } as UsePrepareContractWriteConfig<typeof oneHundredXABI, 'loanToken0'>)
-}
-
-/**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"mintToAddress"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function usePrepareOneHundredXMintToAddress(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof oneHundredXABI, 'mintToAddress'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'mintToAddress',
-    ...config,
-  } as UsePrepareContractWriteConfig<typeof oneHundredXABI, 'mintToAddress'>)
-}
-
-/**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"overrideLayer"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function usePrepareOneHundredXOverrideLayer(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof oneHundredXABI, 'overrideLayer'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'overrideLayer',
-    ...config,
-  } as UsePrepareContractWriteConfig<typeof oneHundredXABI, 'overrideLayer'>)
-}
-
-/**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"renounceOwnership"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function usePrepareOneHundredXRenounceOwnership(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof oneHundredXABI, 'renounceOwnership'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'renounceOwnership',
-    ...config,
-  } as UsePrepareContractWriteConfig<
-    typeof oneHundredXABI,
-    'renounceOwnership'
-  >)
-}
-
-/**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"retrieveToken0"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function usePrepareOneHundredXRetrieveToken0(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof oneHundredXABI, 'retrieveToken0'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'retrieveToken0',
-    ...config,
-  } as UsePrepareContractWriteConfig<typeof oneHundredXABI, 'retrieveToken0'>)
-}
-
-/**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"safeTransferFrom"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function usePrepareOneHundredXSafeTransferFrom(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof oneHundredXABI, 'safeTransferFrom'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'safeTransferFrom',
-    ...config,
-  } as UsePrepareContractWriteConfig<typeof oneHundredXABI, 'safeTransferFrom'>)
-}
-
-/**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setAdditionalData"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function usePrepareOneHundredXSetAdditionalData(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof oneHundredXABI, 'setAdditionalData'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'setAdditionalData',
-    ...config,
-  } as UsePrepareContractWriteConfig<
-    typeof oneHundredXABI,
-    'setAdditionalData'
-  >)
-}
-
-/**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setApprovalForAll"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function usePrepareOneHundredXSetApprovalForAll(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof oneHundredXABI, 'setApprovalForAll'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'setApprovalForAll',
-    ...config,
-  } as UsePrepareContractWriteConfig<
-    typeof oneHundredXABI,
-    'setApprovalForAll'
-  >)
-}
-
-/**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setArtistName"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function usePrepareOneHundredXSetArtistName(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof oneHundredXABI, 'setArtistName'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'setArtistName',
-    ...config,
-  } as UsePrepareContractWriteConfig<typeof oneHundredXABI, 'setArtistName'>)
-}
-
-/**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setBaseShuffleFee"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function usePrepareOneHundredXSetBaseShuffleFee(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof oneHundredXABI, 'setBaseShuffleFee'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'setBaseShuffleFee',
-    ...config,
-  } as UsePrepareContractWriteConfig<
-    typeof oneHundredXABI,
-    'setBaseShuffleFee'
-  >)
-}
-
-/**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setBlackBackground"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function usePrepareOneHundredXSetBlackBackground(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof oneHundredXABI, 'setBlackBackground'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'setBlackBackground',
-    ...config,
-  } as UsePrepareContractWriteConfig<
-    typeof oneHundredXABI,
-    'setBlackBackground'
-  >)
-}
-
-/**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setCollection"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function usePrepareOneHundredXSetCollection(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof oneHundredXABI, 'setCollection'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'setCollection',
-    ...config,
-  } as UsePrepareContractWriteConfig<typeof oneHundredXABI, 'setCollection'>)
-}
-
-/**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setCollectionDescription"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function usePrepareOneHundredXSetCollectionDescription(
-  config: Omit<
-    UsePrepareContractWriteConfig<
-      typeof oneHundredXABI,
-      'setCollectionDescription'
-    >,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'setCollectionDescription',
-    ...config,
-  } as UsePrepareContractWriteConfig<
-    typeof oneHundredXABI,
-    'setCollectionDescription'
-  >)
-}
-
-/**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setCollectionNotes"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function usePrepareOneHundredXSetCollectionNotes(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof oneHundredXABI, 'setCollectionNotes'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'setCollectionNotes',
-    ...config,
-  } as UsePrepareContractWriteConfig<
-    typeof oneHundredXABI,
-    'setCollectionNotes'
-  >)
-}
-
-/**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setExternalUrl"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function usePrepareOneHundredXSetExternalUrl(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof oneHundredXABI, 'setExternalUrl'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'setExternalUrl',
-    ...config,
-  } as UsePrepareContractWriteConfig<typeof oneHundredXABI, 'setExternalUrl'>)
-}
-
-/**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setInterfaces"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function usePrepareOneHundredXSetInterfaces(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof oneHundredXABI, 'setInterfaces'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'setInterfaces',
-    ...config,
-  } as UsePrepareContractWriteConfig<typeof oneHundredXABI, 'setInterfaces'>)
-}
-
-/**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setMinterAddress"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function usePrepareOneHundredXSetMinterAddress(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof oneHundredXABI, 'setMinterAddress'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'setMinterAddress',
-    ...config,
-  } as UsePrepareContractWriteConfig<typeof oneHundredXABI, 'setMinterAddress'>)
-}
-
-/**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setOrder"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function usePrepareOneHundredXSetOrder(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof oneHundredXABI, 'setOrder'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'setOrder',
-    ...config,
-  } as UsePrepareContractWriteConfig<typeof oneHundredXABI, 'setOrder'>)
-}
-
-/**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setPrimaryData"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function usePrepareOneHundredXSetPrimaryData(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof oneHundredXABI, 'setPrimaryData'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'setPrimaryData',
-    ...config,
-  } as UsePrepareContractWriteConfig<typeof oneHundredXABI, 'setPrimaryData'>)
-}
-
-/**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setRoyaltyData"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function usePrepareOneHundredXSetRoyaltyData(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof oneHundredXABI, 'setRoyaltyData'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'setRoyaltyData',
-    ...config,
-  } as UsePrepareContractWriteConfig<typeof oneHundredXABI, 'setRoyaltyData'>)
-}
-
-/**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setSVGfilter"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function usePrepareOneHundredXSetSvGfilter(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof oneHundredXABI, 'setSVGfilter'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'setSVGfilter',
-    ...config,
-  } as UsePrepareContractWriteConfig<typeof oneHundredXABI, 'setSVGfilter'>)
-}
-
-/**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setSVGstart"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function usePrepareOneHundredXSetSvGstart(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof oneHundredXABI, 'setSVGstart'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'setSVGstart',
-    ...config,
-  } as UsePrepareContractWriteConfig<typeof oneHundredXABI, 'setSVGstart'>)
-}
-
-/**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setToken0ExtraDescription"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function usePrepareOneHundredXSetToken0ExtraDescription(
-  config: Omit<
-    UsePrepareContractWriteConfig<
-      typeof oneHundredXABI,
-      'setToken0ExtraDescription'
-    >,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'setToken0ExtraDescription',
-    ...config,
-  } as UsePrepareContractWriteConfig<
-    typeof oneHundredXABI,
-    'setToken0ExtraDescription'
-  >)
-}
-
-/**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setURI"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function usePrepareOneHundredXSetUri(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof oneHundredXABI, 'setURI'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'setURI',
-    ...config,
-  } as UsePrepareContractWriteConfig<typeof oneHundredXABI, 'setURI'>)
-}
-
-/**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"setWebsite"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function usePrepareOneHundredXSetWebsite(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof oneHundredXABI, 'setWebsite'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'setWebsite',
-    ...config,
-  } as UsePrepareContractWriteConfig<typeof oneHundredXABI, 'setWebsite'>)
-}
-
-/**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"toggleBlackBackgroundDefault"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function usePrepareOneHundredXToggleBlackBackgroundDefault(
-  config: Omit<
-    UsePrepareContractWriteConfig<
-      typeof oneHundredXABI,
-      'toggleBlackBackgroundDefault'
-    >,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    functionName: 'toggleBlackBackgroundDefault',
-    ...config,
-  } as UsePrepareContractWriteConfig<
-    typeof oneHundredXABI,
-    'toggleBlackBackgroundDefault'
-  >)
-}
-
-/**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"toggleCroppedDefault"`.
- *
- * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
- */
-export function usePrepareOneHundredXToggleCroppedDefault(
-  config: Omit<
-    UsePrepareContractWriteConfig<
-      typeof oneHundredXABI,
-      'toggleCroppedDefault'
-    >,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWriteOneHundredXToggleCroppedDefault =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'toggleCroppedDefault',
-    ...config,
-  } as UsePrepareContractWriteConfig<
-    typeof oneHundredXABI,
-    'toggleCroppedDefault'
-  >)
-}
+  })
 
 /**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"toggleShuffling"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"toggleShuffling"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function usePrepareOneHundredXToggleShuffling(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof oneHundredXABI, 'toggleShuffling'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWriteOneHundredXToggleShuffling =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'toggleShuffling',
-    ...config,
-  } as UsePrepareContractWriteConfig<typeof oneHundredXABI, 'toggleShuffling'>)
-}
+  })
 
 /**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"transferFrom"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"transferFrom"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function usePrepareOneHundredXTransferFrom(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof oneHundredXABI, 'transferFrom'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWriteOneHundredXTransferFrom =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'transferFrom',
-    ...config,
-  } as UsePrepareContractWriteConfig<typeof oneHundredXABI, 'transferFrom'>)
-}
+  })
 
 /**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"transferOwnership"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"transferOwnership"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function usePrepareOneHundredXTransferOwnership(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof oneHundredXABI, 'transferOwnership'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWriteOneHundredXTransferOwnership =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'transferOwnership',
-    ...config,
-  } as UsePrepareContractWriteConfig<
-    typeof oneHundredXABI,
-    'transferOwnership'
-  >)
-}
+  })
 
 /**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"updateDelegateContract"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"updateDelegateContract"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function usePrepareOneHundredXUpdateDelegateContract(
-  config: Omit<
-    UsePrepareContractWriteConfig<
-      typeof oneHundredXABI,
-      'updateDelegateContract'
-    >,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWriteOneHundredXUpdateDelegateContract =
+  /*#__PURE__*/ createUseWriteContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'updateDelegateContract',
-    ...config,
-  } as UsePrepareContractWriteConfig<
-    typeof oneHundredXABI,
-    'updateDelegateContract'
-  >)
-}
+  })
 
 /**
- * Wraps __{@link usePrepareContractWrite}__ with `abi` set to __{@link oneHundredXABI}__ and `functionName` set to `"withdraw"`.
+ * Wraps __{@link useWriteContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"withdraw"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function usePrepareOneHundredXWithdraw(
-  config: Omit<
-    UsePrepareContractWriteConfig<typeof oneHundredXABI, 'withdraw'>,
-    'abi' | 'address' | 'functionName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return usePrepareContractWrite({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWriteOneHundredXWithdraw = /*#__PURE__*/ createUseWriteContract(
+  {
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     functionName: 'withdraw',
-    ...config,
-  } as UsePrepareContractWriteConfig<typeof oneHundredXABI, 'withdraw'>)
-}
+  },
+)
 
 /**
- * Wraps __{@link useContractEvent}__ with `abi` set to __{@link oneHundredXABI}__.
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXEvent<TEventName extends string>(
-  config: Omit<
-    UseContractEventConfig<typeof oneHundredXABI, TEventName>,
-    'abi' | 'address'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractEvent({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
-    ...config,
-  } as UseContractEventConfig<typeof oneHundredXABI, TEventName>)
-}
+export const useSimulateOneHundredX = /*#__PURE__*/ createUseSimulateContract({
+  abi: oneHundredXAbi,
+  address: oneHundredXAddress,
+})
 
 /**
- * Wraps __{@link useContractEvent}__ with `abi` set to __{@link oneHundredXABI}__ and `eventName` set to `"Approval"`.
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"SHUFFLE"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXApprovalEvent(
-  config: Omit<
-    UseContractEventConfig<typeof oneHundredXABI, 'Approval'>,
-    'abi' | 'address' | 'eventName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractEvent({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useSimulateOneHundredXShuffle =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'SHUFFLE',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"TOP"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXTop =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'TOP',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"approve"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXApprove =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'approve',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"freezeContracts"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXFreezeContracts =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'freezeContracts',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"freezeLayerContent"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXFreezeLayerContent =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'freezeLayerContent',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"loanToken0"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXLoanToken0 =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'loanToken0',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"mintToAddress"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXMintToAddress =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'mintToAddress',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"overrideLayer"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXOverrideLayer =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'overrideLayer',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"renounceOwnership"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXRenounceOwnership =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'renounceOwnership',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"retrieveToken0"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXRetrieveToken0 =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'retrieveToken0',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"safeTransferFrom"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXSafeTransferFrom =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'safeTransferFrom',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setAdditionalData"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXSetAdditionalData =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'setAdditionalData',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setApprovalForAll"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXSetApprovalForAll =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'setApprovalForAll',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setArtistName"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXSetArtistName =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'setArtistName',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setBaseShuffleFee"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXSetBaseShuffleFee =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'setBaseShuffleFee',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setBlackBackground"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXSetBlackBackground =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'setBlackBackground',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setCollection"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXSetCollection =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'setCollection',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setCollectionDescription"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXSetCollectionDescription =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'setCollectionDescription',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setCollectionNotes"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXSetCollectionNotes =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'setCollectionNotes',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setExternalUrl"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXSetExternalUrl =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'setExternalUrl',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setInterfaces"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXSetInterfaces =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'setInterfaces',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setMinterAddress"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXSetMinterAddress =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'setMinterAddress',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setOrder"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXSetOrder =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'setOrder',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setPrimaryData"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXSetPrimaryData =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'setPrimaryData',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setRoyaltyData"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXSetRoyaltyData =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'setRoyaltyData',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setSVGfilter"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXSetSvGfilter =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'setSVGfilter',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setSVGstart"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXSetSvGstart =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'setSVGstart',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setToken0ExtraDescription"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXSetToken0ExtraDescription =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'setToken0ExtraDescription',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setURI"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXSetUri =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'setURI',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"setWebsite"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXSetWebsite =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'setWebsite',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"toggleBlackBackgroundDefault"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXToggleBlackBackgroundDefault =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'toggleBlackBackgroundDefault',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"toggleCroppedDefault"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXToggleCroppedDefault =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'toggleCroppedDefault',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"toggleShuffling"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXToggleShuffling =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'toggleShuffling',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"transferFrom"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXTransferFrom =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'transferFrom',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"transferOwnership"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXTransferOwnership =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'transferOwnership',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"updateDelegateContract"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXUpdateDelegateContract =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'updateDelegateContract',
+  })
+
+/**
+ * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link oneHundredXAbi}__ and `functionName` set to `"withdraw"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useSimulateOneHundredXWithdraw =
+  /*#__PURE__*/ createUseSimulateContract({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+    functionName: 'withdraw',
+  })
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link oneHundredXAbi}__
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useWatchOneHundredXEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
+  })
+
+/**
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link oneHundredXAbi}__ and `eventName` set to `"Approval"`
+ *
+ * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
+ */
+export const useWatchOneHundredXApprovalEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     eventName: 'Approval',
-    ...config,
-  } as UseContractEventConfig<typeof oneHundredXABI, 'Approval'>)
-}
+  })
 
 /**
- * Wraps __{@link useContractEvent}__ with `abi` set to __{@link oneHundredXABI}__ and `eventName` set to `"ApprovalForAll"`.
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link oneHundredXAbi}__ and `eventName` set to `"ApprovalForAll"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXApprovalForAllEvent(
-  config: Omit<
-    UseContractEventConfig<typeof oneHundredXABI, 'ApprovalForAll'>,
-    'abi' | 'address' | 'eventName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractEvent({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWatchOneHundredXApprovalForAllEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     eventName: 'ApprovalForAll',
-    ...config,
-  } as UseContractEventConfig<typeof oneHundredXABI, 'ApprovalForAll'>)
-}
+  })
 
 /**
- * Wraps __{@link useContractEvent}__ with `abi` set to __{@link oneHundredXABI}__ and `eventName` set to `"OrderChanged"`.
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link oneHundredXAbi}__ and `eventName` set to `"OrderChanged"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXOrderChangedEvent(
-  config: Omit<
-    UseContractEventConfig<typeof oneHundredXABI, 'OrderChanged'>,
-    'abi' | 'address' | 'eventName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractEvent({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWatchOneHundredXOrderChangedEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     eventName: 'OrderChanged',
-    ...config,
-  } as UseContractEventConfig<typeof oneHundredXABI, 'OrderChanged'>)
-}
+  })
 
 /**
- * Wraps __{@link useContractEvent}__ with `abi` set to __{@link oneHundredXABI}__ and `eventName` set to `"OwnershipTransferred"`.
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link oneHundredXAbi}__ and `eventName` set to `"OwnershipTransferred"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXOwnershipTransferredEvent(
-  config: Omit<
-    UseContractEventConfig<typeof oneHundredXABI, 'OwnershipTransferred'>,
-    'abi' | 'address' | 'eventName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractEvent({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWatchOneHundredXOwnershipTransferredEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     eventName: 'OwnershipTransferred',
-    ...config,
-  } as UseContractEventConfig<typeof oneHundredXABI, 'OwnershipTransferred'>)
-}
+  })
 
 /**
- * Wraps __{@link useContractEvent}__ with `abi` set to __{@link oneHundredXABI}__ and `eventName` set to `"Transfer"`.
+ * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link oneHundredXAbi}__ and `eventName` set to `"Transfer"`
  *
  * [__View Contract on Goerli Etherscan__](https://goerli.etherscan.io/address/0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3)
  */
-export function useOneHundredXTransferEvent(
-  config: Omit<
-    UseContractEventConfig<typeof oneHundredXABI, 'Transfer'>,
-    'abi' | 'address' | 'eventName'
-  > & { chainId?: keyof typeof oneHundredXAddress } = {} as any,
-) {
-  return useContractEvent({
-    abi: oneHundredXABI,
-    address: oneHundredXAddress[5],
+export const useWatchOneHundredXTransferEvent =
+  /*#__PURE__*/ createUseWatchContractEvent({
+    abi: oneHundredXAbi,
+    address: oneHundredXAddress,
     eventName: 'Transfer',
-    ...config,
-  } as UseContractEventConfig<typeof oneHundredXABI, 'Transfer'>)
-}
+  })

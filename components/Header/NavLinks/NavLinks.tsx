@@ -46,24 +46,11 @@ const NavLinks = ({ setShowMobileNav }: Props): JSX.Element => {
   const artistsTab = (
     <>
       <St.Tab
-        onClick={
-          !isMobile ?
-            () => {
-              //setShowProjectsDropDown(false);
-              setShowArtistsDropDown((prev) => !prev);
-            }
-          : () => {
-              setShowArtistsDropDown((prev) => !prev);
-            }
-        }
+        onClick={() => {
+          setShowArtistsDropDown((prev) => !prev);
+        }}
       >
-        <St.Text
-        //onClick={() => {
-        //setShowMobileNav(false);
-        //}}
-        >
-          Artists
-        </St.Text>
+        <St.Text>Artists</St.Text>
 
         <St.DropdownIcon
           className={showArtistsDropDown ? "dropdown-flip" : ""}

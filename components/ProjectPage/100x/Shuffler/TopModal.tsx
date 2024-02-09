@@ -6,6 +6,7 @@ import {
   formatEther,
   isAddressEqual,
 } from "viem";
+import { useWaitForTransactionReceipt } from "wagmi";
 
 import type { SetState } from "utils/types";
 
@@ -36,19 +37,16 @@ const TopModal = ({
   const isTokenOwner =
     ownerAddress ? isAddressEqual(vault ?? address, ownerAddress) : null;
 
+  const [hash, setHash] = useState<Hash | undefined>();
   const [error, setError] = useState<string | undefined>();
   const [loading, setLoading] = useState<boolean>(true);
+  const [firstLoad, setFirstLoad] = useState(false);
 
   const fee = formatEther(methodFee);
   const subText = `This method will cost ${fee} ETH.`;
 
   const handleSuccess = (hash: Hash) => {
-    setLoading(false);
-    setShowModal(false);
-    launchSuccessModal(
-      `Token ${tokenId} has been sent to the top! Check back in about 15 minutes for the updated composite image.`,
-      hash,
-    );
+    setHash(hash);
   };
 
   const handleError = (error: Error) => {
@@ -76,8 +74,11 @@ const TopModal = ({
   });
 
   useEffect(() => {
-    if (write) setLoading(false);
-  }, [write]);
+    if (write && !firstLoad) {
+      setLoading(false);
+      setFirstLoad(true);
+    }
+  }, [firstLoad, write]);
 
   useEffect(() => {
     if (isSuccess && !isTokenOwner) {
@@ -89,6 +90,19 @@ const TopModal = ({
     setLoading(true);
     write?.();
   };
+
+  const { data } = useWaitForTransactionReceipt({ hash });
+
+  useEffect(() => {
+    if (data) {
+      setLoading(false);
+      setShowModal(false);
+      launchSuccessModal(
+        `Token ${tokenId} has been sent to the top! Check back in about 15 minutes for the updated composite image.`,
+        data.transactionHash,
+      );
+    }
+  }, [data, setShowModal, launchSuccessModal, tokenId]);
 
   return (
     <TransactionModal

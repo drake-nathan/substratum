@@ -1,9 +1,10 @@
-import { useDepositCurrentDepositorCount } from "../../wagmi/generated";
+import { useReadDepositCurrentDepositorCount } from "../../wagmi/generated";
 
 export const useCurrentDepositers = (): number | undefined => {
-  const { data, error } = useDepositCurrentDepositorCount();
+  const { data, error } = useReadDepositCurrentDepositorCount();
 
   if (error) {
+    // eslint-disable-next-line @typescript-eslint/no-throw-literal
     throw error;
   }
 

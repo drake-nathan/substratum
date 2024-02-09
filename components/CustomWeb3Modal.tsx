@@ -1,9 +1,9 @@
 import { createWeb3Modal, useWeb3ModalTheme } from "@web3modal/wagmi/react";
 import React, { useEffect } from "react";
 import { useTheme } from "styled-components";
-import { WagmiConfig } from "wagmi";
+import { WagmiProvider } from "wagmi";
 
-import { chains, wagmiConfig } from "services/wagmi";
+import { wagmiConfig } from "services/wagmi";
 
 const projectId = process.env.NEXT_PUBLIC_W3M_PROJECT_ID;
 
@@ -12,7 +12,7 @@ if (!projectId) {
 }
 
 createWeb3Modal({
-  chains,
+  enableAnalytics: true,
   projectId,
   wagmiConfig,
 });
@@ -31,8 +31,7 @@ const Web3Modal = ({
     setThemeMode(themeMode);
   }, [setThemeMode, themeMode]);
 
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-explicit-any
-  return <WagmiConfig config={wagmiConfig as any}>{children}</WagmiConfig>;
+  return <WagmiProvider config={wagmiConfig}>{children}</WagmiProvider>;
 };
 
 export default Web3Modal;

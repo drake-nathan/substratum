@@ -1,13 +1,20 @@
-import { useState } from "react";
+import { formatEther } from "viem";
+import { useChainId } from "wagmi";
 
+import { depositAddress } from "../../../wagmi/generated";
 import * as St from "./DepositMain.styled";
+import CancelButton from "./Interactions/CancelButton";
+import StandardDeposit from "./StandardDeposit";
+import { useCurrentDepositers } from "hooks/deposit/useCurrentDepositers";
+import { useDepositInitiative } from "hooks/deposit/useDepositInitiative";
+import { useDepositStatus } from "hooks/deposit/useDepositStatus";
+import { getEtherscanUrl } from "utils/helpers";
 
 const DepositMain = (): React.JSX.Element => {
-  const [isDepositOpen] = useState(true);
-
-  const [isMintPublic] = useState(false);
-
-  const [isMintPrivate] = useState(true);
+  const chainId = useChainId();
+  const depositInitiative = useDepositInitiative();
+  const numOfDepositers = useCurrentDepositers();
+  const { isDepositOpen, isMintPrivate, isMintPublic } = useDepositStatus();
 
   const apos = "'";
 
@@ -128,7 +135,8 @@ const DepositMain = (): React.JSX.Element => {
                 The following includes live data pulled from the{" "}
                 <span style={{ textDecoration: "underline" }}>
                   <a
-                    href="https://goerli.etherscan.io/address/0xCC55af23d9861e41C5875F1e76fb3c4122E8C4Fa"
+                    // @ts-expect-error not all chains exist
+                    href={getEtherscanUrl(chainId, depositAddress[chainId])}
                     target="_blank"
                   >
                     contract
@@ -136,34 +144,30 @@ const DepositMain = (): React.JSX.Element => {
                 </span>
                 :
               </h6>
-              <p>Goal Number of Depositors: ____ </p>
-              <p>Current Depositors: ____ amazing supporters</p>
-              <p>Standard Deposit Amount: ____ ETH </p>
-              <p>Discounted Deposit Amount: ____ ETH</p>
+              {depositInitiative && (
+                <>
+                  <p>
+                    Goal Number of Depositors:{" "}
+                    {depositInitiative.numberOfDepositsAllowed}{" "}
+                  </p>
+                  <p>
+                    Current Depositors: {numOfDepositers} amazing supporters
+                  </p>
+                  <p>
+                    Standard Deposit Amount:{" "}
+                    {formatEther(depositInitiative.fullDeposit)} ETH{" "}
+                  </p>
+                  <p>
+                    Discounted Deposit Amount:{" "}
+                    {formatEther(depositInitiative.tokenGateDepositAmount)} ETH
+                  </p>
+                </>
+              )}
             </St.ContractBody>
           </St.ContractSection>
         </St.Left>
         <St.Right>
-          <St.StandardDeposit>
-            <h2>Contract Interactions</h2>
-            <h6>Standard Deposit</h6>
-            <p>
-              You can set an address to be the recipient of this project's token
-              (0x form only - no ENS). If left blank, the depositing account
-              will be set as recipient. Please consider using a vault that is
-              delegated to a depositing account. The 100x10x1-A interactive
-              functions support delegation through delegate.xyz.
-            </p>
-            <St.ButtonRow className="dark:border-3 dark:border-white">
-              <St.UserInput
-                className="border-none bg-offset p-4 font-sans outline-none dark:text-black max-sm:text-[12px]"
-                placeholder="Optional: 0x address recipient"
-              />
-              <St.DepositButton className="hover:bg-hover-light dark:bg-white dark:text-black dark:hover:bg-hover-dark">
-                SUBMIT ___ETH
-              </St.DepositButton>
-            </St.ButtonRow>
-          </St.StandardDeposit>
+          <StandardDeposit />
           <St.TokenDeposit>
             <h6>Token-Gated Deposit</h6>
             <p>
@@ -194,9 +198,7 @@ const DepositMain = (): React.JSX.Element => {
               reused.
             </p>
             <St.CancelButtonRow>
-              <St.CancelButton className="hover:bg-hover-light dark:bg-white dark:text-black dark:hover:bg-hover-dark">
-                CANCEL DEPOSIT
-              </St.CancelButton>
+              <CancelButton />
             </St.CancelButtonRow>
           </St.CancelDeposit>
         </St.Right>
