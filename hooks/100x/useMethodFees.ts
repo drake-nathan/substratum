@@ -1,9 +1,9 @@
 import { z } from "zod";
 
-import { useOneHundredXGetMethodFees } from "../../wagmi/generated";
+import { useReadOneHundredXGetMethodFees } from "../../wagmi/generated";
 
 export const useMethodFees = () => {
-  const { data, error } = useOneHundredXGetMethodFees();
+  const { data, error } = useReadOneHundredXGetMethodFees();
 
   if (error) {
     console.error("Error fetching method fees:", error);

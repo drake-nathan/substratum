@@ -2,7 +2,7 @@ import type { Address } from "viem";
 
 import { z } from "zod";
 
-import { useDepositGetInitiativeDetails } from "../../wagmi/generated";
+import { useReadDepositGetInitiativeDetails } from "../../wagmi/generated";
 import { zodAddress, zodJsonToBigInt, zodJsonToNumber } from "utils/zod";
 
 const schema = z.object({
@@ -16,6 +16,8 @@ const schema = z.object({
   token_gate_deposit_amount: zodJsonToBigInt,
 });
 
+type Schema = z.infer<typeof schema>;
+
 interface DepositInitiative {
   artist: Address;
   fullDeposit: bigint;
@@ -27,28 +29,33 @@ interface DepositInitiative {
   tokenGateDepositAmount: bigint;
 }
 
-export const useDepositInitiative = (): DepositInitiative => {
-  const { data, error } = useDepositGetInitiativeDetails();
+export const useDepositInitiative = (): DepositInitiative | null => {
+  const query = useReadDepositGetInitiativeDetails();
 
-  if (error) {
-    console.error(error);
+  if (query.error) {
+    console.error(query.error);
   }
 
   let parsed: unknown;
-  if (data) {
-    parsed = JSON.parse(data);
+  if (query.data) {
+    parsed = JSON.parse(query.data);
   }
 
-  const validated = schema.parse(parsed);
+  let validated: Schema | undefined;
+  if (query.isFetched) {
+    validated = schema.parse(parsed);
+  }
 
-  return {
-    artist: validated.artist,
-    fullDeposit: validated.full_deposit_amount,
-    name: validated.name,
-    numberOfDepositsAllowed: validated.number_of_deposits_allowed,
-    platform: validated.platform,
-    platformFeeBps: validated.platform_fee_bps,
-    tokenGateContract: validated.token_gate_contract,
-    tokenGateDepositAmount: validated.token_gate_deposit_amount,
-  };
+  return validated ?
+      {
+        artist: validated.artist,
+        fullDeposit: validated.full_deposit_amount,
+        name: validated.name,
+        numberOfDepositsAllowed: validated.number_of_deposits_allowed,
+        platform: validated.platform,
+        platformFeeBps: validated.platform_fee_bps,
+        tokenGateContract: validated.token_gate_contract,
+        tokenGateDepositAmount: validated.token_gate_deposit_amount,
+      }
+    : null;
 };

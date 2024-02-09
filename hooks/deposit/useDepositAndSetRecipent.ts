@@ -1,8 +1,8 @@
 import type { Hash } from "viem";
 
 import {
-  useSimulateDepositCancelAndRefund,
-  useWriteDepositCancelAndRefund,
+  useSimulateDepositDepositAndSetSelfAsReceiver,
+  useWriteDepositDepositAndSetSelfAsReceiver,
 } from "../../wagmi/generated";
 
 interface Params {
@@ -10,15 +10,18 @@ interface Params {
   handleSuccess: (data: Hash) => void;
 }
 
-export const useCancelDeposit = ({ handleError, handleSuccess }: Params) => {
-  const { data, error } = useSimulateDepositCancelAndRefund();
+export const useDepositAndSetRecipent = ({
+  handleError,
+  handleSuccess,
+}: Params) => {
+  const { data, error } = useSimulateDepositDepositAndSetSelfAsReceiver();
 
   if (error) {
     handleError(error);
     console.error(error);
   }
 
-  const { writeContract } = useWriteDepositCancelAndRefund();
+  const { writeContract } = useWriteDepositDepositAndSetSelfAsReceiver();
 
   return {
     ready: !error && data?.request,

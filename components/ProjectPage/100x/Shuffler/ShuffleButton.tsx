@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { isAddress } from "viem";
 import { useAccount } from "wagmi";
 
-import { useOneHundredXShuffleable } from "../../../../wagmi/generated";
+import { useReadOneHundredXShuffleable } from "../../../../wagmi/generated";
 import ShuffleModal from "./ShuffleModal";
 import { type Method, methods } from "./methods";
 import BigButton from "components/BigButton";
@@ -20,7 +20,7 @@ const ShuffleButton = ({ method, vault }: Props): React.JSX.Element => {
   const { launchAlertModal } = useModal();
   const { address } = useAccount();
   const { methodFees } = useMethodFees();
-  const { data: shuffleable } = useOneHundredXShuffleable();
+  const { data: shuffleable } = useReadOneHundredXShuffleable();
 
   const [showShuffleModal, setShowShuffleModal] = useState<boolean>(false);
 
