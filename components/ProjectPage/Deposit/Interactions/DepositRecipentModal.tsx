@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { type Hash, TransactionExecutionError } from "viem";
+import { useWaitForTransactionReceipt } from "wagmi";
 
 import type { SetState } from "utils/types";
 
@@ -14,12 +15,12 @@ interface Props {
 const DepositRecipentModal = ({ setShowModal }: Props): React.JSX.Element => {
   const { launchAlertModal, launchSuccessModal } = useModal();
 
-  const [loading, setLoading] = useState<boolean>(true);
+  const [hash, setHash] = useState<Hash | undefined>();
+  const [loading, setLoading] = useState(true);
+  const [firstLoad, setFirstLoad] = useState(false);
 
   const handleSuccess = (hash: Hash) => {
-    setLoading(false);
-    setShowModal(false);
-    launchSuccessModal("Deposit successfully made.", hash);
+    setHash(hash);
   };
 
   const handleError = (error: Error) => {
@@ -41,13 +42,26 @@ const DepositRecipentModal = ({ setShowModal }: Props): React.JSX.Element => {
   });
 
   useEffect(() => {
-    if (write) setLoading(false);
-  }, [write]);
+    if (write && !firstLoad) {
+      setLoading(false);
+      setFirstLoad(true);
+    }
+  }, [firstLoad, write]);
 
   const proceedHandler = () => {
     setLoading(true);
     write?.();
   };
+
+  const { data } = useWaitForTransactionReceipt({ hash });
+
+  useEffect(() => {
+    if (data) {
+      setLoading(false);
+      setShowModal(false);
+      launchSuccessModal("Deposit successfully made.", data.transactionHash);
+    }
+  }, [data, setShowModal, launchSuccessModal]);
 
   return (
     <TransactionModal
