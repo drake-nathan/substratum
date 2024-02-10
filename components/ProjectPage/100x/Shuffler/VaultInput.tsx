@@ -1,4 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
+import React from "react";
 import { useForm } from "react-hook-form";
 import { FaSearch } from "react-icons/fa";
 import { z } from "zod";
@@ -17,7 +18,7 @@ const schema = z.object({
   vault: zodAddress.nullable(),
 });
 
-const VaultInput = ({ setVault, vault }: Props): JSX.Element => {
+const VaultInput = ({ setVault, vault }: Props): React.JSX.Element => {
   const { launchAlertModal } = useModal();
   const { handleSubmit, register } = useForm({
     mode: "all",
@@ -30,9 +31,9 @@ const VaultInput = ({ setVault, vault }: Props): JSX.Element => {
   return (
     <>
       <form
-        className="flex shrink grow"
-        onSubmit={void handleSubmit(onValid, onInvalid)}
-        style={{ flexBasis: "100%", gridArea: "vault" }}
+        className="flex shrink grow basis-full"
+        onSubmit={handleSubmit(onValid, onInvalid)}
+        style={{ gridArea: "vault" }}
       >
         <input
           {...register("vault")}

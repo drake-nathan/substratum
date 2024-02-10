@@ -1,27 +1,29 @@
-import type { Hash } from "viem";
+import type { Address, Hash } from "viem";
 
 import {
-  useSimulateDepositDepositAndSetSelfAsReceiver,
-  useWriteDepositDepositAndSetSelfAsReceiver,
+  useSimulateDepositDepositAndSetAnotherRecevier,
+  useWriteDepositDepositAndSetAnotherRecevier,
 } from "../../wagmi/generated";
-
-interface Params {
-  handleError: (error: Error) => void;
-  handleSuccess: (data: Hash) => void;
-}
 
 export const useDepositAndSetRecipent = ({
   handleError,
   handleSuccess,
-}: Params) => {
-  const { data, error } = useSimulateDepositDepositAndSetSelfAsReceiver();
+  recipientAddress,
+}: {
+  handleError: (error: Error) => void;
+  handleSuccess: (data: Hash) => void;
+  recipientAddress: Address;
+}) => {
+  const { data, error } = useSimulateDepositDepositAndSetAnotherRecevier({
+    args: [recipientAddress],
+  });
 
   if (error) {
     handleError(error);
     console.error(error);
   }
 
-  const { writeContract } = useWriteDepositDepositAndSetSelfAsReceiver();
+  const { writeContract } = useWriteDepositDepositAndSetAnotherRecevier();
 
   return {
     ready: !error && data?.request,

@@ -8,11 +8,11 @@ import TransactionModal from "components/Modals/TransactionModal";
 import { useDepositAndSetSelf } from "hooks/deposit/useDepositAndSetSelf";
 import { useModal } from "hooks/useModal";
 
-interface Props {
+const DepositSelfModal = ({
+  setShowModal,
+}: {
   setShowModal: SetState<boolean>;
-}
-
-const DepositSelfModal = ({ setShowModal }: Props): React.JSX.Element => {
+}): React.JSX.Element => {
   const { launchAlertModal, launchSuccessModal } = useModal();
 
   const [hash, setHash] = useState<Hash | undefined>();

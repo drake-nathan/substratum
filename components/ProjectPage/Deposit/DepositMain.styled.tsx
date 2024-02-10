@@ -274,7 +274,7 @@ export const InteractionsSection = styled.div`
   }
 `;
 
-export const StandardDeposit = styled.div`
+export const TokenDeposit = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -297,10 +297,9 @@ export const StandardDeposit = styled.div`
   }
 `;
 
-export const TokenDeposit = styled(StandardDeposit)``;
-
 export const ButtonRow = styled.div`
   display: grid;
+  width: 100%;
   grid-template-columns: 65% 35%;
   min-width: 600px;
   margin-top: 20px;
@@ -315,8 +314,6 @@ export const ButtonRow = styled.div`
 export const UserInput = styled.input`
   height: 56px;
   min-width: 325px;
-  padding-left: 10px;
-  display: flex;
 `;
 
 export const DepositButton = styled.button`

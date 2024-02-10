@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { type Hash, TransactionExecutionError } from "viem";
+import { type Address, type Hash, TransactionExecutionError } from "viem";
 import { useWaitForTransactionReceipt } from "wagmi";
 
 import type { SetState } from "utils/types";
@@ -8,11 +8,13 @@ import TransactionModal from "components/Modals/TransactionModal";
 import { useDepositAndSetRecipent } from "hooks/deposit/useDepositAndSetRecipent";
 import { useModal } from "hooks/useModal";
 
-interface Props {
+const DepositRecipentModal = ({
+  recipientAddress,
+  setShowModal,
+}: {
+  recipientAddress: Address;
   setShowModal: SetState<boolean>;
-}
-
-const DepositRecipentModal = ({ setShowModal }: Props): React.JSX.Element => {
+}): React.JSX.Element => {
   const { launchAlertModal, launchSuccessModal } = useModal();
 
   const [hash, setHash] = useState<Hash | undefined>();
@@ -39,6 +41,7 @@ const DepositRecipentModal = ({ setShowModal }: Props): React.JSX.Element => {
   const { write } = useDepositAndSetRecipent({
     handleError,
     handleSuccess,
+    recipientAddress,
   });
 
   useEffect(() => {
