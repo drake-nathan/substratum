@@ -1,5 +1,5 @@
 import { RxCaretLeft, RxCaretRight } from "react-icons/rx";
-import styled from "styled-components";
+import { styled } from "styled-components";
 
 export const DepositHeadContainer = styled.div`
   @media (max-width: 768px) {

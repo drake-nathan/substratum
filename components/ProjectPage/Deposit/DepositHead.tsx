@@ -9,9 +9,10 @@ import {
   DepositHeader,
   DepositSubHeader,
   DepositText,
+  LeftArrowIcon,
   LinkRow,
+  RightArrowIcon,
 } from "./DepositHead.styled";
-import { LeftArrowIcon, RightArrowIcon } from "./DepositHead.styled";
 import {
   AllowListAddresses,
   Description,

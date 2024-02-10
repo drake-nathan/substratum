@@ -1,5 +1,5 @@
 import { RxCaretDown } from "react-icons/rx";
-import styled from "styled-components";
+import { styled } from "styled-components";
 
 export const Tab = styled.div`
   display: flex;

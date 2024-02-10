@@ -1,5 +1,5 @@
 import { RxOpenInNewWindow } from "react-icons/rx";
-import styled from "styled-components";
+import { styled } from "styled-components";
 
 interface ShowDropDown {
   $showDropDown: boolean;

@@ -3,7 +3,7 @@ import {
   MdOutlineCheckBox,
   MdOutlineCheckBoxOutlineBlank,
 } from "react-icons/md";
-import styled from "styled-components";
+import { styled } from "styled-components";
 
 export const NoteFromMattoContainer = styled.div`
   display: flex;

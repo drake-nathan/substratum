@@ -4,6 +4,8 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/strict-type-checked",
     "plugin:@typescript-eslint/stylistic-type-checked",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
     "plugin:perfectionist/recommended-natural",
     "plugin:tailwindcss/recommended",
     "prettier"
@@ -12,7 +14,7 @@
   "parserOptions": {
     "project": "./tsconfig.json"
   },
-  "plugins": ["@typescript-eslint", "perfectionist", "tailwindcss"],
+  "plugins": ["@typescript-eslint", "import", "perfectionist", "tailwindcss"],
   "root": true,
   "rules": {
     "@typescript-eslint/consistent-type-exports": "error",
@@ -83,6 +85,10 @@
     "tailwindcss/classnames-order": "off"
   },
   "settings": {
+    "import/resolver": {
+      "node": true,
+      "typescript": true
+    },
     "tailwindcss": {
       "whitelist": [
         "dropdown-flip",

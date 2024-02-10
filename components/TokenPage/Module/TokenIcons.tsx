@@ -1,5 +1,4 @@
-import { MdMobileFriendly } from "react-icons/md";
-import { MdOutlinePhoto } from "react-icons/md";
+import { MdMobileFriendly, MdOutlinePhoto } from "react-icons/md";
 import { Tooltip } from "react-tooltip";
 
 import type { Project } from "data/projects";
