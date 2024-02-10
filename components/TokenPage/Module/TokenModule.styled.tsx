@@ -1,22 +1,5 @@
 import { styled } from "styled-components";
 
-export const Container = styled.div`
-  width: 100%;
-  padding: 3em 5em;
-
-  @media (max-width: 1200px) {
-    padding: 2em 5em;
-  }
-
-  @media (max-width: 800px) {
-    padding: 2em 3em;
-  }
-
-  @media (max-width: 500px) {
-    padding: 1.5em 2em;
-  }
-`;
-
 export const TitleSection = styled.div`
   grid-area: token-name;
   margin-bottom: 5em;
@@ -32,27 +15,6 @@ export const TokenName = styled.h3`
 export const TokenOwner = styled.h6`
   font-weight: 300;
   font-size: 26px;
-`;
-
-export const InfoGrid = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0 5em;
-
-  grid-template-areas:
-    "token-name token-name"
-    "generator traits"
-    "generator stats"
-    "generator buy";
-
-  @media (max-width: 1200px) {
-    grid-template-areas:
-      "token-name token-name"
-      "generator generator"
-      "traits traits"
-      "stats stats"
-      "buy buy";
-  }
 `;
 
 export const ImageSection = styled.div`

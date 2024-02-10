@@ -1,3 +1,4 @@
+import { clsx } from "clsx";
 import React, { useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { Tooltip } from "react-tooltip";
@@ -43,10 +44,10 @@ const Shuffler = ({
     }
   };
 
-  const classes = `${st.shufflerGrid} mt-4 grid grid-cols-2 gap-x-4 gap-y-5`;
-
   return (
-    <div className={classes}>
+    <div
+      className={clsx("mt-4 grid grid-cols-2 gap-x-4 gap-y-5", st.shufflerGrid)}
+    >
       <div className="flex flex-col" style={{ gridArea: "top" }}>
         <a
           data-tooltip-content={methodDescriptions.top}

@@ -1,3 +1,5 @@
+import { clsx } from "clsx";
+
 import type { Project } from "data/projects";
 import type { IToken } from "services/azureApi/types";
 
@@ -7,6 +9,7 @@ import OtherTokens from "./OtherTokens/OtherTokens";
 import TokenImage from "./TokenImage";
 import TokenInfo from "./TokenInfo/TokenInfo";
 import * as St from "./TokenModule.styled";
+import st from "./tokenModule.module.css";
 import { useCurrentSupply } from "hooks/useCurrentSupply";
 import { intlNumberFormat } from "utils/helpers";
 
@@ -30,11 +33,14 @@ const TokenModule = ({ project, token }: Props): JSX.Element => {
   const currentSupply = useCurrentSupply(projectSlug);
 
   return (
-    <St.Container>
-      <St.InfoGrid>
+    <div
+      className="w-full px-8 py-6 sm:px-12 sm:py-8 md:px-20 lg:py-12"
+      id="token-module-container"
+    >
+      <div className={clsx("grid grid-cols-2 gap-x-20", st["info-grid"])}>
         <St.TitleSection>
           <St.TokenName>{token.name}</St.TokenName>
-          {/* FIXME */}
+          {/* TODO */}
           {/* <St.TokenOwner className="special-artist-name">
             Owner: 0x1abc7154748d1ce5144478cdeb574ae244b939b5
           </St.TokenOwner> */}
@@ -65,7 +71,7 @@ const TokenModule = ({ project, token }: Props): JSX.Element => {
             {isZeroIndexed ? tokenId + 1 : tokenId} of{" "}
             {currentSupply && intlNumberFormat(currentSupply)}
           </St.TokenIndex>
-          {/* FIXME needs api data for transactions on a token */}
+          {/* TODO needs api data for transactions on a token */}
           {/* <St.MintDateTime>Minted Apr 3, 2023, 9:23pm GMT-5</St.MintDateTime> */}
         </St.StatsSection>
 
@@ -79,10 +85,10 @@ const TokenModule = ({ project, token }: Props): JSX.Element => {
             Connect to Buy
           </St.BuyButton>
         </St.BuyToken> */}
-      </St.InfoGrid>
+      </div>
 
       <OtherTokens project={project} token={token} />
-    </St.Container>
+    </div>
   );
 };
 
