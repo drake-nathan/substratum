@@ -13,7 +13,7 @@ const TokenGateModal = ({
   tokenId,
 }: {
   setShowModal: SetState<boolean>;
-  tokenId: string;
+  tokenId: number;
 }): React.JSX.Element => {
   const { launchAlertModal, launchSuccessModal } = useModal();
 

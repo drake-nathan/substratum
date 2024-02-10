@@ -1,24 +1,19 @@
-import { zodResolver } from "@hookform/resolvers/zod";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 
 import TokenGateButton from "./Interactions/TokenGateButton";
+import { useCurrentSupply } from "hooks/useCurrentSupply";
 import { useModal } from "hooks/useModal";
-import { zodJsonToNumber } from "utils/zod";
-
-const schema = z.object({
-  tokenId: zodJsonToNumber.or(z.literal("")),
-});
 
 const TokenGateDeposit = (): React.JSX.Element => {
   const { launchAlertModal } = useModal();
   const { handleSubmit, register } = useForm({
     mode: "all",
-    resolver: zodResolver(schema),
   });
 
-  const [tokenId, setTokenId] = useState("");
+  const currectSupply = useCurrentSupply("chainlife");
+
+  const [tokenId, setTokenId] = useState<number>();
 
   const onValid = () => undefined;
   const onInvalid = () => launchAlertModal("Invalid Token Id");
@@ -38,12 +33,17 @@ const TokenGateDeposit = (): React.JSX.Element => {
         onSubmit={handleSubmit(onValid, onInvalid)}
       >
         <input
-          {...register("tokenId")}
+          {...register("tokenId", {
+            max: currectSupply ? currectSupply - 1 : 400,
+            min: 0,
+            onChange: (e) => setTokenId(e.target.valueAsNumber),
+            required: true,
+            value: tokenId,
+            valueAsNumber: true,
+          })}
           className="h-14 border-none bg-offset p-4 font-sans outline-none dark:text-black max-sm:text-[12px]"
-          onChange={(e) => setTokenId(e.target.value)}
           placeholder="Chainlife token ID required"
-          type="text"
-          value={tokenId}
+          type="number"
         />
 
         <TokenGateButton tokenId={tokenId} />

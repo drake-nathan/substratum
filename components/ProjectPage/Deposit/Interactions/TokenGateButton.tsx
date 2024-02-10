@@ -10,7 +10,7 @@ import { useModal } from "hooks/useModal";
 const TokenGateButton = ({
   tokenId,
 }: {
-  tokenId: string;
+  tokenId: number | undefined;
 }): React.JSX.Element => {
   const { address } = useAccount();
   const { launchAlertModal } = useModal();
@@ -47,7 +47,7 @@ const TokenGateButton = ({
         ETH
       </button>
 
-      {showModal && (
+      {showModal && tokenId && (
         <TokenGateModal setShowModal={setShowModal} tokenId={tokenId} />
       )}
     </>

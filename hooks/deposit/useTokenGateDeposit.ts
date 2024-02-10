@@ -12,7 +12,7 @@ export const useTokenGateDeposit = ({
 }: {
   handleError: (error: Error) => void;
   handleSuccess: (data: Hash) => void;
-  tokenId: string;
+  tokenId: number;
 }) => {
   const { data, error } =
     useSimulateDepositDepositWithTokenGateAndSetHoldingAddress({
