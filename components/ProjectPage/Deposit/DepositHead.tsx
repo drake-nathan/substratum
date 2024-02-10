@@ -72,7 +72,7 @@ const DepositHead = () => {
       <DepositSubHeader className="font-semibold">
         {subHeaderText}
       </DepositSubHeader>
-      <AllowListAddressContainer className="py-8 pt-4 font-light">
+      <AllowListAddressContainer className="pb-8 pt-4 font-light">
         {allowListJsx?.length ? allowListJsx : "No addresses found..."}
       </AllowListAddressContainer>
       <LinkRow className="flex flex-row max-sm:mb-10">

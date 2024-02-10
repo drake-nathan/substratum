@@ -33,12 +33,11 @@ export const Address = styled.li`
 
 export const AllowListAddressContainer = styled.ul`
   line-height: 2;
-  height: 275px;
+  max-height: 275px;
   overflow-y: scroll;
   margin-bottom: 1.5rem;
   margin-top: 0.5rem;
   overflow-x: hidden;
-  //list-style: inside;
 
   &:-webkit-scrollbar {
     display: none; /* Safari and Chrome */
