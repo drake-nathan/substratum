@@ -5,6 +5,7 @@ import { depositAddress } from "../../../wagmi/generated";
 import * as St from "./DepositMain.styled";
 import CancelButton from "./Interactions/CancelButton";
 import StandardDeposit from "./StandardDeposit";
+import TokenGateDeposit from "./TokenGateDeposit";
 import { useCurrentDepositers } from "hooks/deposit/useCurrentDepositers";
 import { useDepositInitiative } from "hooks/deposit/useDepositInitiative";
 import { useDepositStatus } from "hooks/deposit/useDepositStatus";
@@ -26,27 +27,21 @@ const DepositMain = (): React.JSX.Element => {
           <St.NoteText>
             100x10x1 Composition A is unique in that full functionality of the
             project only happens
-            <span style={{ fontSize: "16px", fontWeight: "bold" }}>
-              {" "}
-              after a full mint
-            </span>{" "}
-            of its 100 tokens. Also, there is a{" "}
-            <span style={{ fontSize: "16px", fontStyle: "italic" }}>
+            <span className="text-base font-bold"> after a full mint</span> of
+            its 100 tokens. Also, there is a{" "}
+            <span className="text-base italic">
               benefit to all participants{" "}
             </span>
             if they are {apos}individual{apos} and able to communicate with each
             other. Based on these aspects and my general disdain for{" "}
-            <span style={{ fontSize: "16px", fontStyle: "italic" }}>FOMO </span>
-            , I wrote this reusable contract that allows allow lists,
-            token-gated discounts, and for participants to cancel their bid at
-            any time up to{" "}
-            <span style={{ fontSize: "16px", textDecoration: "underline" }}>
-              raise-closing*
-            </span>{" "}
-            .
+            <span className="text-base italic">FOMO</span>, I wrote this
+            reusable contract that allows allow lists, token-gated discounts,
+            and for participants to cancel their bid at any time up to{" "}
+            <span className="text-base italic">raise-closing*</span> .
           </St.NoteText>
         </St.NoteBox>
       </St.NoteFromMattoContainer>
+
       <St.MintStage>
         <St.StageStatus>
           <St.BoldText>STAGE:</St.BoldText>
@@ -66,35 +61,33 @@ const DepositMain = (): React.JSX.Element => {
           : <St.Locked />}
         </St.DepositsStatus>{" "}
       </St.MintStage>
+
       <St.BodyContainer>
         <St.Left>
           <St.HowSection>
             <h2>How The Contract Works</h2>
             <p>
               This deposit contract allows only{" "}
-              <span style={{ fontSize: "16px", fontWeight: "bold" }}>
+              <span className="text-base font-bold">
                 {" "}
-                1 deposit per account{" "}
+                1 deposit per account
               </span>
               , only
-              <span style={{ fontSize: "16px", fontWeight: "bold" }}>
+              <span className="text-base font-bold">
                 {" "}
                 1 mint per receiving account
               </span>
               , and it{" "}
-              <span style={{ fontSize: "16px", fontWeight: "bold" }}>
+              <span className="text-base font-bold">
                 {" "}
-                allows the artist to cancel (and refund) any deposits{" "}
+                allows the artist to cancel (and refund) any deposits
               </span>
               . If a mint is assigned to an account that the artist doesn{apos}t
               think will be a good participant in this project, the artist can
               cancel the corresponding deposit.{" "}
             </p>
             <p>
-              This is an{" "}
-              <span style={{ fontSize: "16px", fontStyle: "italic" }}>
-                experimental{" "}
-              </span>
+              This is an <span className="text-base italic">experimental </span>
               project and funding mechanism. After raise-close, depositors will
               have a{" "}
               <span style={{ fontSize: "16px", textDecoration: "underline" }}>
@@ -109,15 +102,21 @@ const DepositMain = (): React.JSX.Element => {
               reached, but if unreached the artist may manually close it.
             </p>
           </St.HowSection>
+
           <St.DiscountSection>
             <h2>Token-Gated Discount</h2>
             <St.DiscountGrid className="dark:border-3 dark:border-white">
               <p>
                 To be eligible for a discount the depositing account or a vault
                 that delegates to it must own a{" "}
-                <span style={{ fontSize: "16px", textDecoration: "underline" }}>
-                  Chainlife token
-                </span>{" "}
+                <a
+                  className="cursor-pointer text-base underline hover:text-hover-light dark:hover:text-hover-dark"
+                  href="https://www.chainlife.xyz/"
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  Chainlife token.
+                </a>{" "}
                 The address that holds the qualifying token will be recorded as
                 the recipient of the 100x10x1-A token.
               </p>
@@ -128,6 +127,7 @@ const DepositMain = (): React.JSX.Element => {
               />
             </St.DiscountGrid>
           </St.DiscountSection>
+
           <St.ContractSection>
             <h2>Funding Status</h2>
             <St.ContractBody className="dark:border-3 dark:border-white">
@@ -166,26 +166,12 @@ const DepositMain = (): React.JSX.Element => {
             </St.ContractBody>
           </St.ContractSection>
         </St.Left>
+
         <St.Right>
           <StandardDeposit />
-          <St.TokenDeposit>
-            <h6>Token-Gated Deposit</h6>
-            <p>
-              To receive the discount, enter the eligible token's ID. This token
-              must be owned by the depositing account or a vault that delegates
-              to it. The recipient account will be set to whichever account owns
-              the eligible token.
-            </p>
-            <St.ButtonRow className="dark:border-3 dark:border-white">
-              <St.UserInput
-                className="border-none bg-offset p-4 font-sans outline-none dark:text-black max-sm:text-[12px]"
-                placeholder="Chainlife tokenID required"
-              />
-              <St.DepositButton className="hover:bg-hover-light dark:bg-white dark:text-black dark:hover:bg-hover-dark">
-                SUBMIT ___ETH
-              </St.DepositButton>
-            </St.ButtonRow>
-          </St.TokenDeposit>
+
+          <TokenGateDeposit />
+
           <St.CancelDeposit>
             <h6>Cancel Deposit</h6>
             <p>

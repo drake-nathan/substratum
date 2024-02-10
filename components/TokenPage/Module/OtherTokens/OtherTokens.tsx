@@ -42,7 +42,8 @@ const OtherTokens = ({ project, token }: Props): JSX.Element => {
 
   return (
     <St.OtherTokensContainer>
-      {(!isLoading && error) ?? !response?.tokens.length ? null : (
+      {/* eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing */}
+      {(!isLoading && error) || !response?.tokens.length ? null : (
         <>
           <St.OtherTokensHeader>Other Tokens</St.OtherTokensHeader>
           <St.OtherTokens>

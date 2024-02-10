@@ -274,7 +274,7 @@ export const InteractionsSection = styled.div`
   }
 `;
 
-export const TokenDeposit = styled.div`
+export const CancelDeposit = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -316,24 +316,6 @@ export const UserInput = styled.input`
   min-width: 325px;
 `;
 
-export const DepositButton = styled.button`
-  background: #0f0f0f;
-  color: #f5f5f5;
-  height: 56px;
-  font-size: 18px;
-  font-weight: bold;
-
-  @media (max-width: 768px) {
-    font-size: 16px;
-    padding: 8px;
-    font-weight: 600;
-  }
-
-  @media (max-width: 500px) {
-    font-size: 13px;
-    font-weight: 600;
-  }
-`;
 export const CancelButton = styled.button`
   background: #0f0f0f;
   color: #f5f5f5;
@@ -358,5 +340,3 @@ export const CancelButtonRow = styled.div`
   justify-content: center;
   width: 100%;
 `;
-
-export const CancelDeposit = styled(TokenDeposit)``;

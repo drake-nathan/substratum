@@ -1,26 +1,23 @@
 import React, { useState } from "react";
-import { type Address, formatEther } from "viem";
+import { formatEther } from "viem";
 import { useAccount } from "wagmi";
 
-import DepositRecipentModal from "./DepositRecipentModal";
-import DepositSelfModal from "./DepositSelfModal";
+import TokenGateModal from "./TokenGateModal";
 import { useDepositInitiative } from "hooks/deposit/useDepositInitiative";
 import { useDepositStatus } from "hooks/deposit/useDepositStatus";
 import { useModal } from "hooks/useModal";
 
-const DepositButton = ({
-  recipientAddress,
+const TokenGateButton = ({
+  tokenId,
 }: {
-  recipientAddress: string;
+  tokenId: string;
 }): React.JSX.Element => {
   const { address } = useAccount();
   const { launchAlertModal } = useModal();
   const depositInitiative = useDepositInitiative();
   const { isDepositOpen } = useDepositStatus();
 
-  const [showDepositSelfModal, setShowDepositSelfModal] = useState(false);
-  const [showDepositRecipentModal, setShowDepositRecipentModal] =
-    useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const handleClick = () => {
     if (!isDepositOpen) {
@@ -33,11 +30,7 @@ const DepositButton = ({
       return;
     }
 
-    if (recipientAddress) {
-      setShowDepositRecipentModal(true);
-    } else {
-      setShowDepositSelfModal(true);
-    }
+    setShowModal(true);
   };
 
   return (
@@ -48,22 +41,17 @@ const DepositButton = ({
         type="submit"
       >
         SUBMIT{" "}
-        {depositInitiative ? formatEther(depositInitiative.fullDeposit) : ""}{" "}
+        {depositInitiative ?
+          formatEther(depositInitiative.tokenGateDepositAmount)
+        : ""}{" "}
         ETH
       </button>
 
-      {showDepositSelfModal && (
-        <DepositSelfModal setShowModal={setShowDepositSelfModal} />
-      )}
-
-      {showDepositRecipentModal && (
-        <DepositRecipentModal
-          recipientAddress={recipientAddress as Address}
-          setShowModal={setShowDepositSelfModal}
-        />
+      {showModal && (
+        <TokenGateModal setShowModal={setShowModal} tokenId={tokenId} />
       )}
     </>
   );
 };
 
-export default DepositButton;
+export default TokenGateButton;

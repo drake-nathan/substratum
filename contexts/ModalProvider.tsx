@@ -1,6 +1,6 @@
 import type { Hash } from "viem";
 
-import { createContext, useState } from "react";
+import React, { createContext, useState } from "react";
 
 import AlertModal from "components/Modals/AlertModal";
 import SuccessModal from "components/Modals/SuccessModal";
@@ -19,7 +19,7 @@ const ModalProvider = ({
   children,
 }: {
   children: React.ReactNode;
-}): JSX.Element => {
+}): React.JSX.Element => {
   const [showAlertModal, setShowAlertModal] = useState(false);
   const [alertText, setAlertText] = useState("");
 

@@ -13,19 +13,17 @@ import {
   LinkRow,
   RightArrowIcon,
 } from "./DepositHead.styled";
-import {
-  AllowListAddresses,
-  Description,
-  Headers,
-  SubHeaders,
-} from "./DepositHelper";
+import { Description, Headers, SubHeaders } from "./constants";
+import { useAllowlist } from "hooks/deposit/useDepositAllowlist";
 
 const DepositHead = () => {
   const [headerText, setHeaderText] = useState(Headers[0]);
 
   const [subHeaderText, setSubHeaderText] = useState(SubHeaders[0]);
 
-  const allowList = AllowListAddresses.map((address, index) => (
+  const allowlist = useAllowlist();
+
+  const allowListJsx = allowlist?.map((address, index) => (
     <Address key={index}>{address}</Address>
   ));
 
@@ -41,7 +39,7 @@ const DepositHead = () => {
     }
   };
 
-  if (headerText === Headers[0])
+  if (headerText === Headers[0]) {
     return (
       <DepositHeadContainer className="-mt-3 flex min-w-80 max-w-xl flex-col">
         <DepositHeader>{headerText}</DepositHeader>
@@ -66,24 +64,25 @@ const DepositHead = () => {
         </LinkRow>
       </DepositHeadContainer>
     );
-  else
-    return (
-      <DepositHeadContainer className="-mt-3 flex min-w-80 max-w-xl flex-col">
-        <DepositHeader>{headerText}</DepositHeader>
-        <DepositSubHeader className="font-semibold">
-          {subHeaderText}
-        </DepositSubHeader>
-        <AllowListAddressContainer className="py-8 pt-4 font-light">
-          {allowList}
-        </AllowListAddressContainer>
-        <LinkRow className="flex flex-row max-sm:mb-10">
-          <LeftArrowIcon className="cursor-pointer" onClick={handleLinkClick} />
-          <BackLink className="underline" href="" onClick={handleLinkClick}>
-            Back
-          </BackLink>
-        </LinkRow>
-      </DepositHeadContainer>
-    );
+  }
+
+  return (
+    <DepositHeadContainer className="-mt-3 flex min-w-80 max-w-xl flex-col">
+      <DepositHeader>{headerText}</DepositHeader>
+      <DepositSubHeader className="font-semibold">
+        {subHeaderText}
+      </DepositSubHeader>
+      <AllowListAddressContainer className="py-8 pt-4 font-light">
+        {allowListJsx?.length ? allowListJsx : "No addresses found..."}
+      </AllowListAddressContainer>
+      <LinkRow className="flex flex-row max-sm:mb-10">
+        <LeftArrowIcon className="cursor-pointer" onClick={handleLinkClick} />
+        <BackLink className="underline" href="" onClick={handleLinkClick}>
+          Back
+        </BackLink>
+      </LinkRow>
+    </DepositHeadContainer>
+  );
 };
 
 export default DepositHead;
