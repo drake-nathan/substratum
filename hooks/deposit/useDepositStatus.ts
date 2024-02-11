@@ -25,9 +25,15 @@ export const useDepositStatus = () => {
 
   return validated ?
       {
-        isDepositOpen: validated[2],
+        isDepositCompleted: validated[2],
+        isDepositOpen: validated[0] || validated[1],
         isMintPrivate: validated[0],
         isMintPublic: validated[1],
       }
-    : { isDepositOpen: false, isMintPrivate: false, isMintPublic: false };
+    : {
+        isDepositCompleted: false,
+        isDepositOpen: false,
+        isMintPrivate: false,
+        isMintPublic: false,
+      };
 };

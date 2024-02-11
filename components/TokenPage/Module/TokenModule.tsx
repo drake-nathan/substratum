@@ -38,13 +38,13 @@ const TokenModule = ({ project, token }: Props): JSX.Element => {
       id="token-module-container"
     >
       <div className={clsx("grid grid-cols-2 gap-x-20", st["info-grid"])}>
-        <St.TitleSection>
+        <div className="mb-8 lg:mb-20" style={{ gridArea: "token-name" }}>
           <St.TokenName>{token.name}</St.TokenName>
           {/* TODO */}
           {/* <St.TokenOwner className="special-artist-name">
             Owner: 0x1abc7154748d1ce5144478cdeb574ae244b939b5
           </St.TokenOwner> */}
-        </St.TitleSection>
+        </div>
 
         <St.ImageSection>
           <TokenImage

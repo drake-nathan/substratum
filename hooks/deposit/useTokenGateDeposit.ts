@@ -4,6 +4,7 @@ import {
   useSimulateDepositDepositWithTokenGateAndSetHoldingAddress,
   useWriteDepositDepositWithTokenGateAndSetHoldingAddress,
 } from "../../wagmi/generated";
+import { useDepositInitiative } from "./useDepositInitiative";
 
 export const useTokenGateDeposit = ({
   handleError,
@@ -14,9 +15,12 @@ export const useTokenGateDeposit = ({
   handleSuccess: (data: Hash) => void;
   tokenId: number;
 }) => {
+  const depositInitiative = useDepositInitiative();
+
   const { data, error } =
     useSimulateDepositDepositWithTokenGateAndSetHoldingAddress({
       args: [BigInt(tokenId)],
+      value: depositInitiative?.tokenGateDepositAmount,
     });
 
   if (error) {

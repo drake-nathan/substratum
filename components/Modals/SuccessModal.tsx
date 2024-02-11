@@ -6,7 +6,7 @@ import type { SetState } from "utils/types";
 
 import ModalBase from "./ModalBase";
 import Button from "components/Button";
-import { getEtherscanLink } from "utils/links";
+import { getEtherscanUrl } from "utils/helpers";
 
 interface Props {
   hash: Hash;
@@ -16,9 +16,8 @@ interface Props {
 
 const SuccessModal = ({ hash, setShowModal, text }: Props): JSX.Element => {
   const chainId = useChainId();
-  const chain = chainId === 1 ? "mainnet" : "goerli";
 
-  const link = getEtherscanLink({ chain, type: "tx", value: hash });
+  const link = getEtherscanUrl({ chainId, type: "tx", value: hash });
 
   return (
     <ModalBase setShowModal={setShowModal}>

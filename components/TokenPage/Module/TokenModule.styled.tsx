@@ -1,17 +1,9 @@
 import { styled } from "styled-components";
 
-export const TitleSection = styled.div`
-  grid-area: token-name;
-  margin-bottom: 5em;
-
-  @media (max-width: 1200px) {
-    margin-bottom: 2em;
-  }
-`;
-
 export const TokenName = styled.h3`
   font-weight: 500;
 `;
+
 export const TokenOwner = styled.h6`
   font-weight: 300;
   font-size: 26px;

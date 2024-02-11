@@ -4,6 +4,7 @@ import {
   useSimulateDepositDepositAndSetAnotherRecevier,
   useWriteDepositDepositAndSetAnotherRecevier,
 } from "../../wagmi/generated";
+import { useDepositInitiative } from "./useDepositInitiative";
 
 export const useDepositAndSetRecipent = ({
   handleError,
@@ -14,8 +15,11 @@ export const useDepositAndSetRecipent = ({
   handleSuccess: (data: Hash) => void;
   recipientAddress: Address;
 }) => {
+  const depositInitiative = useDepositInitiative();
+
   const { data, error } = useSimulateDepositDepositAndSetAnotherRecevier({
     args: [recipientAddress],
+    value: depositInitiative?.fullDeposit,
   });
 
   if (error) {

@@ -4,6 +4,7 @@ import {
   useSimulateDepositDepositAndSetSelfAsReceiver,
   useWriteDepositDepositAndSetSelfAsReceiver,
 } from "../../wagmi/generated";
+import { useDepositInitiative } from "./useDepositInitiative";
 
 interface Params {
   handleError: (error: Error) => void;
@@ -14,7 +15,11 @@ export const useDepositAndSetSelf = ({
   handleError,
   handleSuccess,
 }: Params) => {
-  const { data, error } = useSimulateDepositDepositAndSetSelfAsReceiver();
+  const depositInitiative = useDepositInitiative();
+
+  const { data, error } = useSimulateDepositDepositAndSetSelfAsReceiver({
+    value: depositInitiative?.fullDeposit,
+  });
 
   if (error) {
     handleError(error);

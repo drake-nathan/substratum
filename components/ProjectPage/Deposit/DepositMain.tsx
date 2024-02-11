@@ -136,7 +136,10 @@ const DepositMain = (): React.JSX.Element => {
                 <span style={{ textDecoration: "underline" }}>
                   <a
                     // @ts-expect-error not all chains exist
-                    href={getEtherscanUrl(chainId, depositAddress[chainId])}
+                    href={getEtherscanUrl({
+                      chainId,
+                      value: depositAddress[chainId],
+                    })}
                     target="_blank"
                   >
                     contract

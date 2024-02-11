@@ -4,6 +4,7 @@ import { useAccount } from "wagmi";
 
 import DepositRecipentModal from "./DepositRecipentModal";
 import DepositSelfModal from "./DepositSelfModal";
+import { useAllowlist } from "hooks/deposit/useDepositAllowlist";
 import { useDepositInitiative } from "hooks/deposit/useDepositInitiative";
 import { useDepositStatus } from "hooks/deposit/useDepositStatus";
 import { useModal } from "hooks/useModal";
@@ -16,7 +17,8 @@ const DepositButton = ({
   const { address } = useAccount();
   const { launchAlertModal } = useModal();
   const depositInitiative = useDepositInitiative();
-  const { isDepositOpen } = useDepositStatus();
+  const { isDepositOpen, isMintPrivate } = useDepositStatus();
+  const allowlist = useAllowlist();
 
   const [showDepositSelfModal, setShowDepositSelfModal] = useState(false);
   const [showDepositRecipentModal, setShowDepositRecipentModal] =
@@ -31,6 +33,22 @@ const DepositButton = ({
     if (!address) {
       launchAlertModal("Please connect your wallet");
       return;
+    }
+
+    if (isMintPrivate) {
+      if (allowlist) {
+        if (!allowlist.includes(address)) {
+          launchAlertModal(
+            "This account is not on the allowlist, come back for the public phase",
+          );
+          return;
+        }
+      } else {
+        launchAlertModal(
+          "Deposit is in private phase, but we are struggling to load the allowlist. Please try again later.",
+        );
+        return;
+      }
     }
 
     if (recipientAddress) {
