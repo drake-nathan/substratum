@@ -1,10 +1,10 @@
+import { clsx } from "clsx";
 import { parseAsStringEnum, useQueryState } from "next-usequerystate";
 
 import type { InfoTab } from "./types";
 import type { IAttribute } from "services/azureApi/types";
 
 import Info from "./Info";
-import * as St from "./TokenInfo.styled";
 
 interface Props {
   additionalDescription: string | undefined;
@@ -31,31 +31,43 @@ const TokenInfo = ({
   );
 
   return (
-    <St.Container>
-      <St.TabWrapper>
-        <St.Tab
-          $active={tab === "description"}
+    <div className="flex flex-col gap-4 pb-16" id="token-info-container">
+      <div className="mb-4 flex justify-between" id="token-info-tab-wrapper">
+        <button
+          className={clsx(
+            tab === "description" &&
+              "border-b-2 border-black dark:border-white",
+          )}
           onClick={() => void setTab("description")}
         >
-          <h3>{projectSlug === "haiku" ? "Poem" : "Description"}</h3>
-        </St.Tab>
+          <h3 className="max-md:text-lg">
+            {projectSlug === "haiku" ? "Poem" : "Description"}
+          </h3>
+        </button>
 
         {additionalDescription && (
-          <St.Tab
-            $active={tab === "more-info"}
+          <button
+            className={clsx(
+              tab === "more-info" &&
+                "border-b-2 border-black dark:border-white",
+            )}
             onClick={() => void setTab("more-info")}
           >
-            <h3>{projectSlug === "haiku" ? "AI Analysis" : "More Info"}</h3>
-          </St.Tab>
+            <h3 className="max-md:text-lg">
+              {projectSlug === "haiku" ? "AI Analysis" : "More Info"}
+            </h3>
+          </button>
         )}
 
-        <St.Tab
-          $active={tab === "traits"}
+        <button
+          className={clsx(
+            tab === "traits" && "border-b-2 border-black dark:border-white",
+          )}
           onClick={() => void setTab("traits")}
         >
-          <h3>Traits</h3>
-        </St.Tab>
-      </St.TabWrapper>
+          <h3 className="max-md:text-lg">Traits</h3>
+        </button>
+      </div>
 
       <Info
         additionalDescription={additionalDescription}
@@ -65,7 +77,7 @@ const TokenInfo = ({
         tab={tab}
         traits={traits}
       />
-    </St.Container>
+    </div>
   );
 };
 

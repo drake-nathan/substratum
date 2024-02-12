@@ -4,7 +4,6 @@ import { Tooltip } from "react-tooltip";
 import type { InfoTab } from "./types";
 import type { IAttribute } from "services/azureApi/types";
 
-import * as St from "./TokenInfo.styled";
 import { formatNewLines, shortenTrait } from "./utils";
 import { useWindowSize } from "hooks/useWindowSize";
 import { isString } from "utils/helpers";
@@ -38,13 +37,17 @@ const Info = ({
 
   const infoSection: Record<InfoTab, JSX.Element> = {
     description: (
-      <St.Description>
+      <p className="mb-4 text-justify max-md:text-sm">
         {projectSlug === "haiku" && poem ? formatNewLines(poem) : description}
-      </St.Description>
+      </p>
     ),
-    "more-info": <St.Description>{additionalDescription}</St.Description>,
+    "more-info": (
+      <p className="mb-4 text-justify max-md:text-sm">
+        {additionalDescription}
+      </p>
+    ),
     traits: (
-      <St.Table>
+      <div className="flex w-full flex-col gap-2" id="info-table">
         {traits.map((trait) => {
           const { trait_type: name, value } = trait;
           const processedValue =
@@ -54,14 +57,33 @@ const Info = ({
           const isLink = isString(value) && value.includes("http");
 
           return (
-            <St.Row key={name}>
-              <St.Name>{name}</St.Name>
+            <div
+              className="relative grid grid-cols-2 overflow-hidden max-md:text-sm"
+              key={name}
+            >
+              <span className="overflow-hidden text-lg font-semibold">
+                {name}
+              </span>
 
               {isLink ?
-                <a href={value} id={name} rel="noreferrer" target="_blank">
-                  <St.Value>{processedValue}</St.Value>
+                <a
+                  className="justify-self-end hover:underline"
+                  href={value}
+                  id={name}
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  <span className="justify-self-end overflow-hidden whitespace-nowrap text-lg">
+                    {processedValue}
+                  </span>
                 </a>
-              : <St.Value id={name}>{processedValue}</St.Value>}
+              : <div
+                  className="justify-self-end overflow-hidden whitespace-nowrap text-lg"
+                  id={name}
+                >
+                  {processedValue}
+                </div>
+              }
 
               {isTraitShortened && (
                 <Tooltip
@@ -70,10 +92,10 @@ const Info = ({
                   positionStrategy="fixed"
                 />
               )}
-            </St.Row>
+            </div>
           );
         })}
-      </St.Table>
+      </div>
     ),
   };
 
