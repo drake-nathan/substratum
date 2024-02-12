@@ -3,12 +3,10 @@ import { clsx } from "clsx";
 import type { Project } from "data/projects";
 import type { IToken } from "services/azureApi/types";
 
-// import PriceIcon from 'public/icons/PriceIcon.svg';
 import BottomBar from "./BottomBar";
 import OtherTokens from "./OtherTokens/OtherTokens";
 import TokenImage from "./TokenImage";
 import TokenInfo from "./TokenInfo/TokenInfo";
-import * as St from "./TokenModule.styled";
 import st from "./tokenModule.module.css";
 import { useCurrentSupply } from "hooks/useCurrentSupply";
 import { intlNumberFormat } from "utils/helpers";
@@ -39,24 +37,33 @@ const TokenModule = ({ project, token }: Props): JSX.Element => {
     >
       <div className={clsx("grid grid-cols-2 gap-x-20", st["info-grid"])}>
         <div className="mb-8 lg:mb-20" style={{ gridArea: "token-name" }}>
-          <St.TokenName>{token.name}</St.TokenName>
+          <h3 className="font-medium">{token.name}</h3>
           {/* TODO */}
-          {/* <St.TokenOwner className="special-artist-name">
+          {/* <h6 className="text-2xl font-light">
             Owner: 0x1abc7154748d1ce5144478cdeb574ae244b939b5
-          </St.TokenOwner> */}
+          </h6> */}
         </div>
 
-        <St.ImageSection>
+        <div
+          className="h-max border border-black dark:border-white max-xl:mb-8"
+          id="token-module-image-section"
+          style={{ gridArea: "generator" }}
+        >
           <TokenImage
             aspectRatio={aspectRatio}
             generatorUrl={generatorUrl}
             image={image}
             imageMid={imageMid}
           />
-          <BottomBar project={project} token={token} />
-        </St.ImageSection>
 
-        <St.InfoSection>
+          <BottomBar project={project} token={token} />
+        </div>
+
+        <div
+          className="w-full self-stretch border-b border-black dark:border-white"
+          id="token-module-info-section"
+          style={{ gridArea: "traits" }}
+        >
           <TokenInfo
             additionalDescription={additional_info?.additional_description}
             description={description}
@@ -64,27 +71,19 @@ const TokenModule = ({ project, token }: Props): JSX.Element => {
             projectSlug={projectSlug}
             traits={attributes}
           />
-        </St.InfoSection>
+        </div>
 
-        <St.StatsSection>
-          <St.TokenIndex>
+        <div
+          className="flex flex-col justify-center border-b border-black py-4 dark:border-white"
+          style={{ gridArea: "stats" }}
+        >
+          <h3>
             {isZeroIndexed ? tokenId + 1 : tokenId} of{" "}
             {currentSupply && intlNumberFormat(currentSupply)}
-          </St.TokenIndex>
+          </h3>
           {/* TODO needs api data for transactions on a token */}
-          {/* <St.MintDateTime>Minted Apr 3, 2023, 9:23pm GMT-5</St.MintDateTime> */}
-        </St.StatsSection>
-
-        {/* <St.BuyToken>
-          <St.InfoTitle>Price</St.InfoTitle>
-          <St.Price>
-            20
-            <PriceIcon className="coins" />
-          </St.Price>
-          <St.BuyButton onClick={() => alert('Coming soon!')}>
-            Connect to Buy
-          </St.BuyButton>
-        </St.BuyToken> */}
+          {/* <p>Minted Apr 3, 2023, 9:23pm GMT-5</p> */}
+        </div>
       </div>
 
       <OtherTokens project={project} token={token} />
