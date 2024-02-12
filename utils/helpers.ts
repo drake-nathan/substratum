@@ -20,11 +20,11 @@ type ChainId = 1 | 5 | 11155111;
 const chainIds = [1, 5, 11155111];
 export const getEtherscanUrl = ({
   chainId,
-  type,
+  type = "address",
   value,
 }: {
   chainId: number;
-  type: "address" | "tx";
+  type?: "address" | "tx";
   // I know they're the same type, but the semantic helps
   // eslint-disable-next-line @typescript-eslint/no-duplicate-type-constituents
   value: Address | Hash;

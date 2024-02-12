@@ -135,9 +135,9 @@ const DepositMain = (): React.JSX.Element => {
                 The following includes live data pulled from the{" "}
                 <span style={{ textDecoration: "underline" }}>
                   <a
-                    // @ts-expect-error not all chains exist
                     href={getEtherscanUrl({
                       chainId,
+                      // @ts-expect-error - Not all chains exist
                       value: depositAddress[chainId],
                     })}
                     target="_blank"
