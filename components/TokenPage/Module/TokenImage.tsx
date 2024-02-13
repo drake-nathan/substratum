@@ -1,5 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
-
 import Generator from "components/Generator";
 
 interface Props {

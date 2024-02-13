@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import type { Project } from "data/projects";
 import type { CollectionResponse, IToken } from "services/azureApi/types";
 
-import * as St from "./OtherTokens.styled";
 import TokenCard from "./TokenCard";
 import { useCurrentSupply } from "hooks/useCurrentSupply";
 import { fetchCollectionTokens } from "services/azureApi/fetches";
@@ -41,19 +40,20 @@ const OtherTokens = ({ project, token }: Props): JSX.Element => {
   }, [refetch, tokenId]);
 
   return (
-    <St.OtherTokensContainer>
+    <div className="mt-12">
       {/* eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing */}
       {(!isLoading && error) || !response?.tokens.length ? null : (
         <>
-          <St.OtherTokensHeader>Other Tokens</St.OtherTokensHeader>
-          <St.OtherTokens>
+          <h2 className="mb-2">Other Tokens</h2>
+
+          <div className="flex w-full justify-between gap-8 max-md:flex-wrap max-md:justify-evenly">
             {response.tokens.length ?
               response.tokens.map((t) => <TokenCard key={t.name} token={t} />)
             : null}
-          </St.OtherTokens>
+          </div>
         </>
       )}
-    </St.OtherTokensContainer>
+    </div>
   );
 };
 

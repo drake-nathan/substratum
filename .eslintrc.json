@@ -17,6 +17,7 @@
   "plugins": ["@typescript-eslint", "import", "perfectionist", "tailwindcss"],
   "root": true,
   "rules": {
+    "@next/next/no-img-element": "off",
     "@typescript-eslint/consistent-type-exports": "error",
     "@typescript-eslint/consistent-type-imports": [
       "error",
