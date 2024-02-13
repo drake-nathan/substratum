@@ -1,11 +1,11 @@
 import { clsx } from "clsx";
 import Link from "next/link";
 import React from "react";
+import { RxOpenInNewWindow } from "react-icons/rx";
 import { useTheme } from "styled-components";
 
 import type { SetState } from "utils/types";
 
-import * as St from "./DropDowns.styled";
 import { projects } from "data/projects";
 
 interface Props {
@@ -27,7 +27,12 @@ const ProjectsDropDown = ({
   };
 
   const renderProjectItem = (name: string) => (
-    <St.Project onClick={closeBothMenus}>{name}</St.Project>
+    <div
+      className="font-semibold tracking-normal hover:cursor-pointer hover:font-bold max-md:my-2 max-md:text-xl"
+      onClick={closeBothMenus}
+    >
+      {name}
+    </div>
   );
 
   const projectsListJsx = projects.map(
@@ -36,15 +41,16 @@ const ProjectsDropDown = ({
         <Link href={`/project/${projectSlug}`} key={name}>
           {renderProjectItem(name)}
         </Link>
-      : <St.RowLink
+      : <a
+          className="flex items-center gap-1 max-md:-mt-1"
           href={externalUrl}
           key={name}
           rel="noreferrer"
           target="_blank"
         >
-          <St.OpenInNewIcon />
+          <RxOpenInNewWindow className="font-medium" />
           {renderProjectItem(name)}
-        </St.RowLink>,
+        </a>,
   );
 
   return !isMobile ?

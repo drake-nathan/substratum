@@ -1,7 +1,7 @@
 import { Squash as Hamburger } from "hamburger-react";
 import Link from "next/link";
 import Substratum from "public/substratum/substratum.svg";
-import { useState } from "react";
+import React, { useState } from "react";
 import { CgSun } from "react-icons/cg";
 import { MdOutlineDarkMode } from "react-icons/md";
 import { useTheme } from "styled-components";
@@ -11,7 +11,7 @@ import MobileNav from "./MobileNav";
 import NavLinks from "./NavLinks/NavLinks";
 import SocialIcons from "./SocialIcons";
 
-const Header = (): JSX.Element => {
+const Header = (): React.JSX.Element => {
   const { colors, isDark, isMobile, isMobileNav, toggleTheme } = useTheme();
 
   const [showMobileNav, setShowMobileNav] = useState(false);

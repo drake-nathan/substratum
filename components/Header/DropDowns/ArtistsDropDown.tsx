@@ -1,16 +1,18 @@
 import { clsx } from "clsx";
 import React from "react";
+import { RxOpenInNewWindow } from "react-icons/rx";
 import { useTheme } from "styled-components";
 
-import * as St from "./DropDowns.styled";
+import type { SetState } from "utils/types";
+
 import { artistUrls, projects } from "data/projects";
 
 const artists = projects.map(({ artist }) => artist);
 const uniqueArtists = [...new Set(artists)];
 
 interface Props {
-  setShowDropDown: React.Dispatch<React.SetStateAction<boolean>>;
-  setShowMobileNav: React.Dispatch<React.SetStateAction<boolean>>;
+  setShowDropDown: SetState<boolean>;
+  setShowMobileNav: SetState<boolean>;
   showDropDown: boolean;
 }
 
@@ -27,17 +29,28 @@ const ArtistsDropDown = ({
   };
 
   const renderItem = (name: string) => (
-    <St.Project onClick={closeBothMenus}>{name}</St.Project>
+    <div
+      className="font-semibold tracking-normal hover:cursor-pointer hover:font-bold max-md:my-2 max-md:text-xl"
+      onClick={closeBothMenus}
+    >
+      {name}
+    </div>
   );
 
   const artistListJsx = uniqueArtists.map((artist) => {
     const url = artistUrls[artist];
 
     return (
-      <St.RowLink href={url} key={artist} rel="noreferrer" target="_blank">
-        <St.OpenInNewIcon />
+      <a
+        className="flex items-center gap-1 max-md:-mt-1"
+        href={url}
+        key={artist}
+        rel="noreferrer"
+        target="_blank"
+      >
+        <RxOpenInNewWindow className="font-medium" />
         {renderItem(artist)}
-      </St.RowLink>
+      </a>
     );
   });
 
