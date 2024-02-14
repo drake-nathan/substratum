@@ -1,11 +1,12 @@
 import type { InfiniteData } from "@tanstack/react-query";
 
+import React from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 
 import type { CollectionResponse } from "services/azureApi/types";
 
-import TokenCard from "../TokenCard/TokenCard";
-import * as St from "./TokenGrid.styled";
+import Loader from "./Loader";
+import TokenCard from "./TokenCard";
 
 interface Props {
   currentLength: number;
@@ -27,16 +28,16 @@ const TokenGrid = ({
   isFetching,
   isLoading,
   isTokenIdInTitle,
-}: Props): JSX.Element => (
-  <St.Container>
+}: Props): React.JSX.Element => (
+  <div className="mb-12 flex min-h-[500px] w-full flex-col items-center">
     {tokens ?
       <InfiniteScroll
         dataLength={currentLength}
         hasMore={hasMore}
-        loader={<St.H1>Loading...</St.H1>}
+        loader={<Loader loading>Loading...</Loader>}
         next={fetchNextPage}
       >
-        <St.Grid>
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {tokens.pages.map((page) =>
             page.tokens.map((token) => (
               <TokenCard
@@ -46,11 +47,11 @@ const TokenGrid = ({
               />
             )),
           )}
-        </St.Grid>
+        </div>
       </InfiniteScroll>
     : error && (!isLoading || !isFetching) ?
-      <St.H1>Unable to fetch tokens right now.</St.H1>
-    : <St.H1>Loading...</St.H1>}
-  </St.Container>
+      <Loader>Unable to fetch tokens right now.</Loader>
+    : <Loader loading>Loading...</Loader>}
+  </div>
 );
 export default TokenGrid;

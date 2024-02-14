@@ -29,7 +29,7 @@ const TokenMenu = ({
   const { projectSlug } = project;
 
   return (
-    <St.Container>
+    <div className="my-12 flex w-full flex-nowrap items-center justify-between gap-4 bg-offset py-4 max-md:my-4 max-md:py-2">
       <TokenSearch
         project={project}
         refetch={refetch}
@@ -37,7 +37,7 @@ const TokenMenu = ({
         tokenId={tokenSearchId}
       />
 
-      <St.SortDiv>
+      <div className="" id="token-menu-sort-div">
         <St.TextButton
           className={`${
             sortType === "tokenId" ? "" : "inactive"
@@ -84,8 +84,8 @@ const TokenMenu = ({
             />
           }
         </St.SortButton>
-      </St.SortDiv>
-    </St.Container>
+      </div>
+    </div>
   );
 };
 

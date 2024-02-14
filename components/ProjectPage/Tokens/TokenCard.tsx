@@ -2,8 +2,6 @@ import Link from "next/link";
 
 import type { TokenAbbr } from "services/azureApi/types";
 
-import * as St from "./TokenCard.styled";
-
 interface Props {
   isTokenIdInTitle: boolean;
   token: TokenAbbr;
@@ -25,35 +23,37 @@ const TokenCard = ({ isTokenIdInTitle, token }: Props): JSX.Element => {
   const alt = `${name} token`;
 
   return (
-    <St.Wrapper>
+    <div className="flex w-full flex-col rounded-b-sm border border-black dark:border-white">
       <Link href={tokenLink}>
-        <St.PreviewImage alt={alt} src={imgSrc} />
+        <img alt={alt} className="h-auto w-full cursor-pointer" src={imgSrc} />
       </Link>
 
-      <St.DescriptionDiv>
+      <div className="flex flex-col items-start justify-between gap-2 p-4">
         <Link href={tokenLink}>
-          <St.Title>{name}</St.Title>
-          {/* FIXME - needs real owner data */}
-          {/* <St.Owner>Owner: 0x1abc7154748d1ce5144478cdeb574ae244b939b5</St.Owner> */}
+          <h4 className="cursor-pointer text-lg">{name}</h4>
+          {/* TODO - needs real owner data */}
+          {/* <p className="max-w-36 truncate text-base font-light italic">
+            Owner: 0x1abc7154748d1ce5144478cdeb574ae244b939b5
+          </p> */}
         </Link>
 
-        {!isTokenIdInTitle && <St.Text>Token ID: {tokenId}</St.Text>}
+        {!isTokenIdInTitle && <p>Token ID: {tokenId}</p>}
 
         {scriptInputs?.level_shift === undefined ? null : (
-          <St.Text>
+          <p>
             Level Shift:
             {scriptInputs.level_shift}
-          </St.Text>
+          </p>
         )}
 
         {scriptInputs?.transfer_count === undefined ? null : (
-          <St.Text>
+          <p>
             Transfers:
             {scriptInputs.transfer_count}
-          </St.Text>
+          </p>
         )}
-      </St.DescriptionDiv>
-    </St.Wrapper>
+      </div>
+    </div>
   );
 };
 

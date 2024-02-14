@@ -5,9 +5,8 @@ import { useEffect, useState } from "react";
 import type { Project } from "data/projects";
 import type { CollectionResponse } from "services/azureApi/types";
 
-import TokenGrid from "./TokenGrid/TokenGrid";
+import TokenGrid from "./TokenGrid";
 import TokenMenu from "./TokenMenu/TokenMenu";
-import { TokensContainer } from "./Tokens.styled";
 import { fetchCollectionTokens } from "services/azureApi/fetches";
 
 interface Props {
@@ -79,7 +78,7 @@ const Tokens = ({ project, projectSlug }: Props): JSX.Element => {
   }, [tokenSearchId]);
 
   return (
-    <TokensContainer>
+    <div className="w-full px-6 sm:px-20">
       <TokenMenu
         project={project}
         refetch={() => void refetch()}
@@ -102,7 +101,7 @@ const Tokens = ({ project, projectSlug }: Props): JSX.Element => {
         isLoading={isLoading}
         isTokenIdInTitle={isTokenIdInTitle}
       />
-    </TokensContainer>
+    </div>
   );
 };
 
