@@ -1,8 +1,8 @@
+import React from "react";
 import { Tooltip } from "react-tooltip";
 
 import type { Project } from "data/projects";
 
-import * as St from "./MarketIcons.styled";
 import {
   Market,
   getProjectMarketLink,
@@ -15,14 +15,14 @@ interface Props {
   tokenId?: number | string;
 }
 
-const MarketIcons = ({ project, tokenId }: Props): JSX.Element => {
+const MarketIcons = ({ project, tokenId }: Props): React.JSX.Element => {
   const { contractAddress, openSeaSlug } = project;
 
   // need this since zero is falsy
   const isToken = tokenId !== undefined;
 
   return (
-    <St.Container>
+    <div className="relative mb-1 flex items-center gap-2">
       {icons.map((icon) => {
         // skip etherscan for token version
         if (icon.market === Market.Etherscan && isToken) return null;
@@ -30,8 +30,6 @@ const MarketIcons = ({ project, tokenId }: Props): JSX.Element => {
           altCollection,
           altToken,
           id,
-          // necessary for svgr
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
           src: Icon,
           tooltipCollection,
           tooltipToken,
@@ -46,7 +44,11 @@ const MarketIcons = ({ project, tokenId }: Props): JSX.Element => {
 
         return (
           <a href={link} key={id} rel="noreferrer" target="_blank">
-            <Icon alt={alt} className="icon" id={id} />
+            <Icon
+              alt={alt}
+              className="text-xl hover:text-hover-light dark:hover:text-hover-dark"
+              id={id}
+            />
 
             <Tooltip
               anchorId={id}
@@ -57,7 +59,7 @@ const MarketIcons = ({ project, tokenId }: Props): JSX.Element => {
           </a>
         );
       })}
-    </St.Container>
+    </div>
   );
 };
 

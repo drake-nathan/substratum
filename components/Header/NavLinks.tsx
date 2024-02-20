@@ -1,15 +1,16 @@
-import { useState } from "react";
+import { clsx } from "clsx";
+import React, { useState } from "react";
+import { RxCaretDown } from "react-icons/rx";
 import { useTheme } from "styled-components";
 
-import ArtistsDropDown from "../DropDowns/ArtistsDropDown";
-import ProjectsDropDown from "../DropDowns/ProjectsDropDown";
-import * as St from "./NavLinks.styled";
+import ArtistsDropDown from "./DropDowns/ArtistsDropDown";
+import ProjectsDropDown from "./DropDowns/ProjectsDropDown";
 
 interface Props {
   setShowMobileNav: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const NavLinks = ({ setShowMobileNav }: Props): JSX.Element => {
+const NavLinks = ({ setShowMobileNav }: Props): React.JSX.Element => {
   const { isMobile } = useTheme();
 
   const [showProjectsDropDown, setShowProjectsDropDown] = useState(false);
@@ -17,16 +18,21 @@ const NavLinks = ({ setShowMobileNav }: Props): JSX.Element => {
 
   const projectsTab = (
     <>
-      <St.Tab
+      <button
+        className="flex cursor-pointer items-center hover:underline"
         onClick={() => {
           setShowProjectsDropDown((prev) => !prev);
         }}
       >
-        <St.Text>Projects</St.Text>
-        <St.DropdownIcon
-          className={showProjectsDropDown ? "dropdown-flip" : ""}
+        <h6 className="uppercase max-md:text-2xl">Projects</h6>
+
+        <RxCaretDown
+          className={clsx(
+            "text-3xl transition-transform duration-300",
+            showProjectsDropDown && "rotate-180",
+          )}
         />
-      </St.Tab>
+      </button>
 
       <ProjectsDropDown
         setShowDropDown={setShowProjectsDropDown}
@@ -38,17 +44,21 @@ const NavLinks = ({ setShowMobileNav }: Props): JSX.Element => {
 
   const artistsTab = (
     <>
-      <St.Tab
+      <button
+        className="flex cursor-pointer items-center hover:underline"
         onClick={() => {
           setShowArtistsDropDown((prev) => !prev);
         }}
       >
-        <St.Text>Artists</St.Text>
+        <h6 className="uppercase max-md:text-2xl">Artists</h6>
 
-        <St.DropdownIcon
-          className={showArtistsDropDown ? "dropdown-flip" : ""}
+        <RxCaretDown
+          className={clsx(
+            "text-3xl transition-transform duration-300",
+            showArtistsDropDown && "rotate-180",
+          )}
         />
-      </St.Tab>
+      </button>
 
       <ArtistsDropDown
         setShowDropDown={setShowArtistsDropDown}
@@ -74,20 +84,20 @@ const NavLinks = ({ setShowMobileNav }: Props): JSX.Element => {
         </div>
       }
 
-      <St.Tab>
+      <button className="flex cursor-pointer items-center hover:underline">
         <a
           href="https://market.substratum.art/"
           rel="noreferrer"
           target="_blank"
         >
-          <span
-            className="text-3xl font-normal uppercase md:text-lg"
+          <h6
+            className="uppercase max-md:text-2xl"
             onClick={() => setShowMobileNav(false)}
           >
             Market
-          </span>
+          </h6>
         </a>
-      </St.Tab>
+      </button>
     </div>
   );
 };

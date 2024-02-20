@@ -4,7 +4,7 @@ import React from "react";
 import type { SetState } from "utils/types";
 
 import ConnectButton from "./ConnectButton";
-import NavLinks from "./NavLinks/NavLinks";
+import NavLinks from "./NavLinks";
 import SocialIcons from "./SocialIcons";
 
 interface Props {

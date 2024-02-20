@@ -8,7 +8,7 @@ import { useTheme } from "styled-components";
 
 import ConnectButton from "./ConnectButton";
 import MobileNav from "./MobileNav";
-import NavLinks from "./NavLinks/NavLinks";
+import NavLinks from "./NavLinks";
 import SocialIcons from "./SocialIcons";
 
 const Header = (): React.JSX.Element => {
