@@ -47,6 +47,7 @@ export interface Project {
     tools: string;
   };
   projectSlug: string;
+  sansaSlug?: string;
   scriptType?: string;
   status: Status;
   useTokenName?: boolean;
@@ -107,6 +108,7 @@ export const projects: Project[] = [
       tools: "Solidity, Stable Diffusion, Transformer LLM, GAN, CNN",
     },
     projectSlug: "haiku",
+    sansaSlug: "651d85db72a482be8d9417b2",
     status: Status.Minting,
     usesTransfers: false,
     website: "https://matto.xyz/project/freestyle-h-ai-ku/",
@@ -193,6 +195,7 @@ export const projects: Project[] = [
       tools: "Canon 300D and A700, p5.js",
     },
     projectSlug: "mathare-memories",
+    sansaSlug: "mathare-memories-by-matto",
     scriptType: "p5.js",
     status: Status.Closed,
     usesTransfers: true,
@@ -220,6 +223,7 @@ export const projects: Project[] = [
       tools: "Solidity",
     },
     projectSlug: "texture-and-hues",
+    sansaSlug: "texture-and-hues-by-matto",
     scriptType: "solidity",
     status: Status.Closed,
     usesTransfers: false,
@@ -248,6 +252,7 @@ export const projects: Project[] = [
       tools: "Solidity, JavaScript, p5.js, Azure",
     },
     projectSlug: "chainlife",
+    sansaSlug: "chainlife-by-matto",
     scriptType: "p5.js",
     status: Status.Minting,
     usesTransfers: true,
@@ -276,6 +281,7 @@ export const projects: Project[] = [
       tools: "Solidity",
     },
     projectSlug: "blonks",
+    sansaSlug: "blonks-by-matto",
     status: Status.Closed,
     usesTransfers: true,
     website: "https://matto.xyz",
