@@ -2,10 +2,12 @@ import type { Address } from "viem";
 
 import { z } from "zod";
 
-import { useOneHundredXTokensOwned } from "../../wagmi/generated";
+import { useReadOneHundredXTokensOwned } from "../../wagmi/generated";
 
 export const useTokensOwned = (wallet: Address, vault: Address | undefined) => {
-  const { data, error, isError, isSuccess } = useOneHundredXTokensOwned({
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment, @typescript-eslint/prefer-ts-expect-error
+  // @ts-ignore
+  const { data, error, isError, isSuccess } = useReadOneHundredXTokensOwned({
     args: [vault ?? wallet],
   });
 

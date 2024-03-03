@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { useState } from "react";
 import { RxOpenInNewWindow } from "react-icons/rx";
 
@@ -39,13 +38,13 @@ const Details = ({ project }: { project: Project }): JSX.Element => {
   const [imageTokenId, setImageTokenId] = useState<number>(0);
 
   const image =
-    imageTokenId === 0
-      ? project.image
-      : `${process.env.NEXT_PUBLIC_BLOB_ROOT}/images/100x10x1-a-goerli_${imageTokenId}.png`;
+    imageTokenId === 0 ?
+      project.image
+    : `${process.env.NEXT_PUBLIC_BLOB_ROOT}/images/100x10x1-a-goerli_${imageTokenId}.png`;
 
   return (
-    <div className="mt-12 grid w-full grid-cols-2 gap-8 px-20 max-sm:mt-[23px] max-sm:py-[23px]">
-      <div className="mt-4 flex min-w-[400px] flex-col max-md:col-span-2 max-md:col-start-1 max-md:m-0 max-md:min-w-[auto]">
+    <div className="mt-12 grid w-full grid-cols-2 gap-8 px-20 max-sm:mt-[23px] max-sm:px-6 max-sm:py-[23px]">
+      <div className="mt-4 flex min-w-[400px] flex-col max-md:col-span-2 max-md:col-start-1 max-md:m-0 max-md:min-w-[Auto]">
         <img
           alt="Project image"
           className="w-full border border-black object-cover dark:border-white"
@@ -74,7 +73,7 @@ const Details = ({ project }: { project: Project }): JSX.Element => {
               rel="noreferrer"
               target="_blank"
             >
-              <div className="g-1 mt-4 flex items-center text-lg hover:text-black dark:hover:text-white">
+              <div className="mt-4 flex items-center gap-1 text-lg hover:text-black dark:hover:text-white">
                 <span className="underline">All SVGs</span>
                 <RxOpenInNewWindow className="font-medium" />
               </div>

@@ -95,9 +95,9 @@ const Home: NextPage = () => {
   };
 
   const title =
-    projectName && tokenId
-      ? `substratum | ${projectName} #${tokenId}`
-      : "substratum";
+    projectName && tokenId ?
+      `substratum | ${projectName} #${tokenId}`
+    : "substratum";
 
   return (
     <>

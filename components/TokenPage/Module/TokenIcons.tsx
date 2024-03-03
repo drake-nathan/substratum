@@ -1,5 +1,4 @@
-import { MdMobileFriendly } from "react-icons/md";
-import { MdOutlinePhoto } from "react-icons/md";
+import { MdMobileFriendly, MdOutlinePhoto } from "react-icons/md";
 import { Tooltip } from "react-tooltip";
 
 import type { Project } from "data/projects";
@@ -25,9 +24,8 @@ const TokenIcons = ({ project, token }: Props): JSX.Element => {
     tokenId === 0 &&
     (projectSlug === "100x10x1-a-goerli" || projectSlug === "100x10x1-a");
 
-  const fullScreenUrl = is100xComposite
-    ? svgGen || image
-    : generatorUrl || svgGen || image;
+  const fullScreenUrl =
+    is100xComposite ? svgGen || image : generatorUrl || svgGen || image;
 
   const mobileUrl = generatorUrl ? new URL(generatorUrl) : null;
 

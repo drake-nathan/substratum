@@ -1,0 +1,22 @@
+.grid {
+  grid-template-areas:
+    "top top cut cut faro faro"
+    "overhand overhand wash wash reverse reverse";
+
+  @media (max-width: 1280px) {
+    grid-template-areas:
+      "top top top cut cut cut"
+      "faro faro faro overhand overhand overhand"
+      "wash wash wash reverse reverse reverse";
+  }
+
+  @media (max-width: 768px) {
+    grid-template-areas:
+      "top top top top top top"
+      "cut cut cut cut cut cut"
+      "faro faro faro faro faro faro"
+      "overhand overhand overhand overhand overhand overhand"
+      "wash wash wash wash wash wash"
+      "reverse reverse reverse reverse reverse reverse";
+  }
+}

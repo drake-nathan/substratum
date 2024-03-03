@@ -1,8 +1,8 @@
+import React from "react";
 import { Tooltip } from "react-tooltip";
 
 import type { Project } from "data/projects";
 
-import * as St from "./MarketIcons.styled";
 import {
   Market,
   getProjectMarketLink,
@@ -15,23 +15,24 @@ interface Props {
   tokenId?: number | string;
 }
 
-const MarketIcons = ({ project, tokenId }: Props): JSX.Element => {
-  const { contractAddress, openSeaSlug } = project;
+const MarketIcons = ({ project, tokenId }: Props): React.JSX.Element => {
+  const { contractAddress, sansaSlug } = project;
 
   // need this since zero is falsy
   const isToken = tokenId !== undefined;
 
   return (
-    <St.Container>
+    <div className="relative mb-1 flex items-center gap-2">
       {icons.map((icon) => {
         // skip etherscan for token version
         if (icon.market === Market.Etherscan && isToken) return null;
+        // skip sansa if no slug
+        if (icon.market === Market.Sansa && !sansaSlug) return null;
+
         const {
           altCollection,
           altToken,
           id,
-          // necessary for svgr
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
           src: Icon,
           tooltipCollection,
           tooltipToken,
@@ -39,13 +40,22 @@ const MarketIcons = ({ project, tokenId }: Props): JSX.Element => {
 
         const alt = isToken ? altToken : altCollection;
         const tooltip = isToken ? tooltipToken : tooltipCollection;
-        const link = isToken
-          ? getTokenMarketLink(icon, contractAddress, tokenId)
-          : getProjectMarketLink(icon, openSeaSlug, contractAddress);
+        const link =
+          isToken ?
+            getTokenMarketLink({ address: contractAddress, icon, tokenId })
+          : getProjectMarketLink({
+              address: contractAddress,
+              icon,
+              sansaSlug,
+            });
 
         return (
           <a href={link} key={id} rel="noreferrer" target="_blank">
-            <Icon alt={alt} className="icon" id={id} />
+            <Icon
+              alt={alt}
+              className="text-xl hover:text-hover-light dark:hover:text-hover-dark"
+              id={id}
+            />
 
             <Tooltip
               anchorId={id}
@@ -56,7 +66,7 @@ const MarketIcons = ({ project, tokenId }: Props): JSX.Element => {
           </a>
         );
       })}
-    </St.Container>
+    </div>
   );
 };
 

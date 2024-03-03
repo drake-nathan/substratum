@@ -6,7 +6,6 @@ import type { Project } from "data/projects";
 import type { IToken } from "services/azureApi/types";
 
 import TokenModule from "./Module/TokenModule";
-import * as St from "./TokenPage.styled";
 import MarketIcons from "components/MarketIcons/MarketIcons";
 import { fetchToken } from "services/azureApi/fetches";
 
@@ -57,33 +56,52 @@ const TokenPage = ({ project, tokenId }: Props): JSX.Element => {
   };
 
   return (
-    <St.Container>
-      <St.TokenHead>
-        <Link href={projectLink} style={{ width: "max-content" }}>
-          <St.Title>{`${name} #${tokenId}`}</St.Title>
+    <div className="flex w-full flex-col" id="token-page-container">
+      <div
+        className="mt-7 flex w-full flex-col p-20 max-md:mt-5 max-md:p-12 max-sm:mt-4 max-sm:p-6"
+        id="token-page-head"
+      >
+        <Link
+          className="w-max hover:cursor-pointer hover:text-hover-light dark:hover:text-hover-dark"
+          href={projectLink}
+        >
+          <h1
+            className="max-md:text-3xl max-sm:text-2xl"
+            id="token-page-token-title"
+          >{`${name} #${tokenId}`}</h1>
         </Link>
 
-        <St.ArtistDiv>
-          <St.By>By</St.By>
-
+        <div className="mb-6 flex gap-1 sm:gap-2" id="token-page-artist-div">
+          <h3 className="font-sans text-3xl capitalize italic max-md:text-2xl max-sm:text-xl">
+            By
+          </h3>
           <a href={website} rel="noreferrer" target="_blank">
-            <St.ArtistName>{artist}</St.ArtistName>
+            <h3 className="font-sans text-3xl capitalize italic hover:text-hover-light dark:hover:text-hover-dark max-md:text-2xl max-sm:text-xl">
+              {artist}
+            </h3>
           </a>
-        </St.ArtistDiv>
+        </div>
 
-        <St.MarketIconsWrapper>
+        <div className="ml-1">
           <MarketIcons project={project} tokenId={tokenId} />
-        </St.MarketIconsWrapper>
+        </div>
 
-        <St.TokenStatus>Token ID: {tokenId}</St.TokenStatus>
-      </St.TokenHead>
+        <div className="font-sans text-lg italic sm:text-xl md:text-2xl">
+          Token ID: {tokenId}
+        </div>
+      </div>
 
-      <St.TokenInfoHeading>
-        <St.Header>Token Information</St.Header>
-      </St.TokenInfoHeading>
+      <div
+        className="flex w-full items-start border-b border-black px-6 dark:border-white sm:px-12 md:px-20"
+        id="token-page-divider"
+      >
+        <h2 className="mb-1 max-md:text-2xl max-sm:text-xl">
+          Token Information
+        </h2>
+      </div>
 
       {renderToken()}
-    </St.Container>
+    </div>
   );
 };
 

@@ -4,8 +4,9 @@ import { z } from "zod";
 import type { CollectionResponse, IProject, IToken, TxCounts } from "./types";
 
 const rootApiUrl = process.env.NEXT_PUBLIC_API_ROOT;
+const env = process.env.NODE_ENV;
 
-if (!rootApiUrl) {
+if (!rootApiUrl && env !== "test") {
   throw new Error("NEXT_PUBLIC_API_ROOT env var is not defined");
 }
 

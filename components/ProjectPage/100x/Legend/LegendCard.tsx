@@ -1,7 +1,9 @@
+import { clsx } from "clsx";
+import { FaPlus } from "react-icons/fa";
+
 import type { VisibilityMatrix } from "./Legend";
 
 import { type Method, methodDescriptions } from "../Shuffler/methods";
-import * as St from "./Legend.styled";
 
 interface Props {
   isVisible: boolean;
@@ -16,19 +18,37 @@ const LegendCard = ({
 }: Props): JSX.Element => {
   return (
     <>
-      <St.ActionTitle onClick={() => toggleMatrixProp(method)}>
-        <St.Name>{method.charAt(0).toUpperCase() + method.slice(1)}</St.Name>
+      <div
+        className="flex cursor-pointer items-center justify-between border-2 border-black bg-white p-4 dark:border-white dark:bg-black"
+        id="legend-action-title"
+        onClick={() => toggleMatrixProp(method)}
+      >
+        <h4 className="font-sans text-2xl capitalize">{method}</h4>
 
-        <St.ExpandWrapper>
-          <St.ExpandKeyIcon className={isVisible ? "rotated" : ""} />
-        </St.ExpandWrapper>
-      </St.ActionTitle>
+        <span className="flex items-center rounded-2xl bg-black p-2 dark:bg-white">
+          <FaPlus
+            className={clsx(
+              "text-white duration-500 dark:text-black",
+              isVisible ? "rotate-[135deg]" : "",
+            )}
+          />
+        </span>
+      </div>
 
-      <St.InfoDropdown className={isVisible ? "" : "hide"}>
-        <St.Description>{methodDescriptions[method]}</St.Description>
+      <div
+        className={clsx(
+          "flex flex-col gap-4 overflow-hidden bg-black transition-all duration-500 dark:bg-white",
+          isVisible ? "max-h-[80%] p-4" : "max-h-0 py-0",
+        )}
+      >
+        <p className="text-white dark:text-black">
+          {methodDescriptions[method]}
+        </p>
 
-        <St.PriceInfo>There will be a small fee for this action.</St.PriceInfo>
-      </St.InfoDropdown>
+        <p className="text-hover-light dark:text-hover-dark">
+          There will be a small fee for this action.
+        </p>
+      </div>
     </>
   );
 };

@@ -1,32 +1,36 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import EtherscanLogo from "public/icons/EtherscanLogo.svg";
 import FirstMateLogo from "public/icons/FirstMateLogo.svg";
-import LooksRareLogo from "public/icons/LooksRareLogo.svg";
+import MagicEdenLogo from "public/icons/MagicEdenLogo.svg";
+import SansaLogo from "public/icons/SansaLogo.svg";
 import X2y2Logo from "public/icons/X2y2Logo.svg";
 
 export enum Market {
   Etherscan,
   FirstMate,
-  LooksRare,
+  MagicEden,
   X2y2,
+  Sansa,
 }
 
 enum UrlParam {
-  slug,
+  openseaSlug,
   address,
+  sansaSlug,
 }
 
 const MarketRootsCollection = {
   [Market.Etherscan]: "https://etherscan.io/address",
-  [Market.FirstMate]: "https://market.substratum.art/1/collections/",
-  [Market.LooksRare]: "https://looksrare.org/collections",
+  [Market.FirstMate]: "https://market.substratum.art/1/collections",
+  [Market.MagicEden]: "https://magiceden.io/collections/ethereum",
+  [Market.Sansa]: "https://sansa.xyz/collections",
   [Market.X2y2]: "https://x2y2.io/collection",
 } satisfies Record<Market, string>;
 
 const MarketRootsToken = {
   [Market.Etherscan]: "",
-  [Market.FirstMate]: "https://market.substratum.art/1/",
-  [Market.LooksRare]: "https://looksrare.org/collections",
+  [Market.FirstMate]: "https://market.substratum.art/1",
+  [Market.MagicEden]: "https://magiceden.io/item-details/ethereum",
+  [Market.Sansa]: "https://sansa.xyz/asset",
   [Market.X2y2]: "https://x2y2.io/eth",
 } satisfies Record<Market, string>;
 
@@ -43,29 +47,33 @@ interface Icon {
   urlParam: UrlParam;
 }
 
-export const getProjectMarketLink = (
-  icon: Icon,
-  slug: string,
-  address: string,
-): string => {
-  const { market, urlParam } = icon;
-
+export const getProjectMarketLink = ({
+  address,
+  icon: { market, urlParam },
+  sansaSlug,
+}: {
+  address: string;
+  icon: Icon;
+  sansaSlug: string | undefined;
+}): string => {
   const root = MarketRootsCollection[market];
-  const param = urlParam === UrlParam.slug ? slug : address;
+  const param = urlParam === UrlParam.sansaSlug ? sansaSlug : address;
 
   return `${root}/${param}`;
 };
 
-export const getTokenMarketLink = (
-  icon: Icon,
-  address: string,
-  tokenId: number | string,
-): string => {
-  const { market } = icon;
-
+export const getTokenMarketLink = ({
+  address,
+  icon: { market },
+  tokenId,
+}: {
+  address: string;
+  icon: Icon;
+  tokenId: number | string;
+}): string => {
   const root = MarketRootsToken[market];
 
-  return `${root}/${address}/${tokenId}`;
+  return `${root}/${address.toLowerCase()}/${tokenId}`;
 };
 
 export const icons: Icon[] = [
@@ -90,14 +98,24 @@ export const icons: Icon[] = [
     urlParam: UrlParam.address,
   },
   {
-    altCollection: "LooksRare external collection link.",
-    altToken: "LooksRare token link.",
-    id: "LooksRare",
-    market: Market.LooksRare,
-    src: LooksRareLogo,
-    tooltipCollection: "LooksRare collection page",
-    tooltipToken: "LooksRare token page",
+    altCollection: "MagicEden external collection link.",
+    altToken: "MagicEden token link.",
+    id: "MagicEden",
+    market: Market.MagicEden,
+    src: MagicEdenLogo,
+    tooltipCollection: "MagicEden collection page",
+    tooltipToken: "MagicEden token page",
     urlParam: UrlParam.address,
+  },
+  {
+    altCollection: "Sansa external collection link.",
+    altToken: "Sansa token link.",
+    id: "Sansa",
+    market: Market.Sansa,
+    src: SansaLogo,
+    tooltipCollection: "Sansa collection page",
+    tooltipToken: "Sansa token page",
+    urlParam: UrlParam.sansaSlug,
   },
   {
     altCollection: "X2y2 external collection link.",

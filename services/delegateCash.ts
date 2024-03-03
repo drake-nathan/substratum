@@ -12,4 +12,4 @@ const chainName = chainEnv === "goerli" ? "goerli" : "mainnet";
 
 const rpc = `https://${chainName}.infura.io/v3/${infuraKey}`;
 
-export const delegate = new DelegateV2(http(rpc));
+export const delegate = new DelegateV2(http(rpc) as TODO);

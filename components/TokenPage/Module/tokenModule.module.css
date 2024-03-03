@@ -1,0 +1,16 @@
+.info-grid {
+  grid-template-areas:
+    "token-name token-name"
+    "generator traits"
+    "generator stats"
+    "generator buy";
+
+  @media (max-width: 1200px) {
+    grid-template-areas:
+      "token-name token-name"
+      "generator generator"
+      "traits traits"
+      "stats stats"
+      "buy buy";
+  }
+}

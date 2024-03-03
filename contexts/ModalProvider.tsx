@@ -1,6 +1,6 @@
 import type { Hash } from "viem";
 
-import { createContext, useState } from "react";
+import React, { createContext, useState } from "react";
 
 import AlertModal from "components/Modals/AlertModal";
 import SuccessModal from "components/Modals/SuccessModal";
@@ -11,15 +11,15 @@ export interface IModalContext {
 }
 
 export const ModalContext = createContext<IModalContext>({
-  launchAlertModal: () => {},
-  launchSuccessModal: () => {},
+  launchAlertModal: () => undefined,
+  launchSuccessModal: () => undefined,
 });
 
-interface Props {
+const ModalProvider = ({
+  children,
+}: {
   children: React.ReactNode;
-}
-
-const ModalProvider = ({ children }: Props): JSX.Element => {
+}): React.JSX.Element => {
   const [showAlertModal, setShowAlertModal] = useState(false);
   const [alertText, setAlertText] = useState("");
 

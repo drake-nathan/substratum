@@ -1,3 +1,4 @@
+import { clsx } from "clsx";
 import React, { useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { Tooltip } from "react-tooltip";
@@ -43,13 +44,13 @@ const Shuffler = ({
     }
   };
 
-  const classes = `${st.shufflerGrid} mt-4 grid grid-cols-2 gap-x-4 gap-y-5`;
-
   return (
-    <div className={classes}>
+    <div
+      className={clsx("mt-4 grid grid-cols-2 gap-x-4 gap-y-5", st.shufflerGrid)}
+    >
       <div className="flex flex-col" style={{ gridArea: "top" }}>
         <a
-          data-tooltip-content={methodDescriptions["top"]}
+          data-tooltip-content={methodDescriptions.top}
           data-tooltip-id="cut-tooltip"
           data-tooltip-place={tooltipPlace}
           data-tooltip-variant={tooltipVariant}
@@ -58,13 +59,10 @@ const Shuffler = ({
         </a>
         <Tooltip className="max-w-[30ch]" id="top-tooltip" />
 
-        <div
-          className="flex flex-shrink flex-grow"
-          style={{ flexBasis: "100%" }}
-        >
+        <div className="flex shrink grow" style={{ flexBasis: "100%" }}>
           <input
             aria-label="Token ID for Top method"
-            className="flex-shrink flex-grow basis-full border-none bg-offset p-4 font-sans outline-none dark:text-black"
+            className="shrink grow basis-full border-none bg-offset p-4 font-sans outline-none dark:text-black"
             max="100"
             onChange={(e) => setTokenId(e.target.value)}
             placeholder="Token ID to Top"
@@ -93,7 +91,7 @@ const Shuffler = ({
       </div>
 
       <a
-        data-tooltip-content={methodDescriptions["cut"]}
+        data-tooltip-content={methodDescriptions.cut}
         data-tooltip-id="cut-tooltip"
         data-tooltip-place={tooltipPlace}
         data-tooltip-variant={tooltipVariant}
@@ -103,7 +101,7 @@ const Shuffler = ({
       <Tooltip className="max-w-[30ch]" id="cut-tooltip" />
 
       <a
-        data-tooltip-content={methodDescriptions["overhand"]}
+        data-tooltip-content={methodDescriptions.overhand}
         data-tooltip-id="cut-tooltip"
         data-tooltip-place={tooltipPlace}
         data-tooltip-variant={tooltipVariant}
@@ -113,7 +111,7 @@ const Shuffler = ({
       <Tooltip className="max-w-[30ch]" id="overhand-tooltip" />
 
       <a
-        data-tooltip-content={methodDescriptions["faro"]}
+        data-tooltip-content={methodDescriptions.faro}
         data-tooltip-id="cut-tooltip"
         data-tooltip-place={tooltipPlace}
         data-tooltip-variant={tooltipVariant}
@@ -123,7 +121,7 @@ const Shuffler = ({
       <Tooltip className="max-w-[30ch]" id="faro-tooltip" />
 
       <a
-        data-tooltip-content={methodDescriptions["wash"]}
+        data-tooltip-content={methodDescriptions.wash}
         data-tooltip-id="cut-tooltip"
         data-tooltip-place={tooltipPlace}
         data-tooltip-variant={tooltipVariant}
@@ -133,7 +131,7 @@ const Shuffler = ({
       <Tooltip className="max-w-[30ch]" id="wash-tooltip" />
 
       <a
-        data-tooltip-content={methodDescriptions["reverse"]}
+        data-tooltip-content={methodDescriptions.reverse}
         data-tooltip-id="cut-tooltip"
         data-tooltip-place={tooltipPlace}
         data-tooltip-variant={tooltipVariant}

@@ -29,7 +29,7 @@ const TokenMenu = ({
   const { projectSlug } = project;
 
   return (
-    <St.Container>
+    <div className="my-12 flex w-full flex-nowrap items-center justify-between gap-4 bg-offset py-4 max-md:my-4 max-md:py-2">
       <TokenSearch
         project={project}
         refetch={refetch}
@@ -37,7 +37,7 @@ const TokenMenu = ({
         tokenId={tokenSearchId}
       />
 
-      <St.SortDiv>
+      <div className="" id="token-menu-sort-div">
         <St.TextButton
           className={`${
             sortType === "tokenId" ? "" : "inactive"
@@ -62,29 +62,30 @@ const TokenMenu = ({
                 setSortType("worldLevel");
               }}
             >
-              {projectSlug === "chainlife" ||
-              projectSlug === "chainlife-testnet"
-                ? "World Level"
-                : "Transfers"}
+              {(
+                projectSlug === "chainlife" ||
+                projectSlug === "chainlife-testnet"
+              ) ?
+                "World Level"
+              : "Transfers"}
             </St.TextButton>
           </>
         )}
 
         <St.SortButton>
-          {sortDir === "asc" ? (
+          {sortDir === "asc" ?
             <St.SortIconAsc
               className="icon"
               onClick={() => setSortDir("desc")}
             />
-          ) : (
-            <St.SortIconDesc
+          : <St.SortIconDesc
               className="icon"
               onClick={() => setSortDir("asc")}
             />
-          )}
+          }
         </St.SortButton>
-      </St.SortDiv>
-    </St.Container>
+      </div>
+    </div>
   );
 };
 

@@ -23,9 +23,9 @@ const TokenOwnerOfModal = ({
     if (!ownerAddress) return "Loading token owner...";
 
     return `Token ${tokenId} is owned by ${shortenAddress(ownerAddress)}, ${
-      ownerAddress.toLowerCase() === address.toLowerCase()
-        ? "that's you!"
-        : "that's not you!"
+      ownerAddress.toLowerCase() === address.toLowerCase() ?
+        "that's you!"
+      : "that's not you!"
     }`;
   };
 

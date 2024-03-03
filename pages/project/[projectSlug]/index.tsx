@@ -5,10 +5,9 @@ import { useRouter } from "next/router";
 import { parseAsStringEnum, useQueryState } from "next-usequerystate";
 import React, { useEffect, useState } from "react";
 
-import Details from "components/ProjectPage/Details/Details";
 import ProjectHead from "components/ProjectPage/ProjectHead";
+import ProjectMain from "components/ProjectPage/ProjectMain";
 import Tabs from "components/ProjectPage/Tabs";
-import Tokens from "components/ProjectPage/Tokens/Tokens";
 import { type Project, projects } from "data/projects";
 import { isString } from "utils/helpers";
 
@@ -19,7 +18,7 @@ const Home: NextPage = () => {
   const [error, setError] = useState<string>();
   const [tab, setTab] = useQueryState(
     "tab",
-    parseAsStringEnum(["details", "tokens", "mint"])
+    parseAsStringEnum(["details", "mint", "tokens"])
       .withDefault("details")
       .withOptions({
         history: "push",
@@ -28,7 +27,7 @@ const Home: NextPage = () => {
   );
 
   useEffect(() => {
-    if (projectSlug && isString(projectSlug)) {
+    if (isString(projectSlug)) {
       const localProject = projects.find((p) => p.projectSlug === projectSlug);
 
       if (localProject) {
@@ -49,20 +48,17 @@ const Home: NextPage = () => {
         <meta content="substratum" name="description" />
       </Head>
 
-      {projectSlug && isString(projectSlug) && project && (
+      {isString(projectSlug) && project && (
         <>
-          <ProjectHead project={project} />
+          <ProjectHead project={project} tab={tab} />
+
           <Tabs
             projectSlug={projectSlug}
             setTab={(tab) => void setTab(tab)}
             tab={tab}
           />
 
-          {tab === "tokens" ? (
-            <Tokens project={project} projectSlug={projectSlug} />
-          ) : (
-            <Details project={project} />
-          )}
+          <ProjectMain project={project} projectSlug={projectSlug} tab={tab} />
         </>
       )}
 

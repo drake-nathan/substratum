@@ -1,27 +1,5 @@
 import { CgSortAz, CgSortZa } from "react-icons/cg";
-import styled from "styled-components";
-
-export const Container = styled.div`
-  display: flex;
-  justify-content: space-between;
-  gap: 1em;
-  /* flex-direction: row-reverse; */
-  align-items: center;
-  flex-wrap: nowrap;
-
-  background-color: #f4f1ed;
-  width: 100%;
-  padding: 1em 0;
-  margin: 3em 0;
-
-  @media (max-width: 800px) {
-    padding: 0.5em 0;
-  }
-
-  @media (max-width: 800px) {
-    margin: 1em 0;
-  }
-`;
+import { styled } from "styled-components";
 
 export const SortDiv = styled.div`
   flex: 0 0 auto;
