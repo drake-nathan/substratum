@@ -16,7 +16,7 @@ interface Props {
 }
 
 const MarketIcons = ({ project, tokenId }: Props): React.JSX.Element => {
-  const { contractAddress, openSeaSlug } = project;
+  const { contractAddress, sansaSlug } = project;
 
   // need this since zero is falsy
   const isToken = tokenId !== undefined;
@@ -26,6 +26,9 @@ const MarketIcons = ({ project, tokenId }: Props): React.JSX.Element => {
       {icons.map((icon) => {
         // skip etherscan for token version
         if (icon.market === Market.Etherscan && isToken) return null;
+        // skip sansa if no slug
+        if (icon.market === Market.Sansa && !sansaSlug) return null;
+
         const {
           altCollection,
           altToken,
@@ -39,8 +42,12 @@ const MarketIcons = ({ project, tokenId }: Props): React.JSX.Element => {
         const tooltip = isToken ? tooltipToken : tooltipCollection;
         const link =
           isToken ?
-            getTokenMarketLink(icon, contractAddress, tokenId)
-          : getProjectMarketLink(icon, openSeaSlug, contractAddress);
+            getTokenMarketLink({ address: contractAddress, icon, tokenId })
+          : getProjectMarketLink({
+              address: contractAddress,
+              icon,
+              sansaSlug,
+            });
 
         return (
           <a href={link} key={id} rel="noreferrer" target="_blank">
