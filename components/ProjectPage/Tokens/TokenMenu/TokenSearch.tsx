@@ -3,7 +3,6 @@ import { type SubmitHandler, useForm } from "react-hook-form";
 
 import type { Project } from "data/projects";
 
-import * as St from "./TokenSearch.styled";
 import { useCurrentSupply } from "hooks/useCurrentSupply";
 
 interface IToken {
@@ -80,9 +79,13 @@ const TokenSearch = ({
 
   return (
     <>
-      <St.Form id="token-page-form" onSubmit={void handleSubmit(onSubmit)}>
-        <St.Input
-          className="special-artist-name"
+      <form
+        className="h-full min-w-48 shrink basis-full"
+        id="token-page-form"
+        onSubmit={void handleSubmit(onSubmit)}
+      >
+        <input
+          className="w-full bg-transparent p-2 font-sans text-base italic hover:shadow-even focus:outline-black"
           type="number"
           {...register("tokenId", {
             max: {
@@ -103,10 +106,9 @@ const TokenSearch = ({
           placeholder="Search By Token ID"
           value={tokenId ?? ""}
         />
-      </St.Form>
-      {errorText && (
-        <St.ErrorText className="special-artist-name">{errorText}</St.ErrorText>
-      )}
+      </form>
+
+      {errorText && <p className="font-sans text-base italic">{errorText}</p>}
     </>
   );
 };

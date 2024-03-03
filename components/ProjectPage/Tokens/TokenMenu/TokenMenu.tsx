@@ -1,6 +1,7 @@
+import { CgSortAz, CgSortZa } from "react-icons/cg";
+
 import type { Project } from "data/projects";
 
-import * as St from "./TokenMenu.styled";
 import TokenSearch from "./TokenSearch";
 
 interface Props {
@@ -19,17 +20,12 @@ const TokenMenu = ({
   project,
   refetch,
   setSortDir,
-  setSortType,
   setTokenSearchId,
   sortDir,
-  sortType,
   tokenSearchId,
-  usesTransfers,
 }: Props): JSX.Element => {
-  const { projectSlug } = project;
-
   return (
-    <div className="my-12 flex w-full flex-nowrap items-center justify-between gap-4 bg-offset py-4 max-md:my-4 max-md:py-2">
+    <div className="my-12 flex w-full flex-nowrap items-center justify-between gap-4 bg-offset p-4 max-md:my-4 max-md:py-2">
       <TokenSearch
         project={project}
         refetch={refetch}
@@ -37,26 +33,21 @@ const TokenMenu = ({
         tokenId={tokenSearchId}
       />
 
-      <div className="" id="token-menu-sort-div">
-        <St.TextButton
-          className={`${
-            sortType === "tokenId" ? "" : "inactive"
-          } special-artist-name`}
+      <div className="flex items-center gap-3" id="token-menu-sort-div">
+        {/* <button
+          className="font-sans font-semibold text-hover-light hover:text-hover-dark"
           onClick={() => {
             if (sortType === "worldLevel") setSortDir("asc");
             setSortType("tokenId");
           }}
         >
           ID
-        </St.TextButton>
+        </button>
 
         {usesTransfers && (
           <>
-            <St.SubtleText className="special-artist-name">|</St.SubtleText>
-            <St.TextButton
-              className={`${
-                sortType === "worldLevel" ? "" : "inactive"
-              } special-artist-name`}
+            <button
+              className="font-sans font-semibold text-hover-light hover:text-hover-dark"
               onClick={() => {
                 if (sortType === "tokenId") setSortDir("desc");
                 setSortType("worldLevel");
@@ -68,22 +59,15 @@ const TokenMenu = ({
               ) ?
                 "World Level"
               : "Transfers"}
-            </St.TextButton>
+            </button>
           </>
-        )}
+        )} */}
 
-        <St.SortButton>
+        <button className="rounded-full p-1 text-2xl font-light text-hover-light hover:shadow-even">
           {sortDir === "asc" ?
-            <St.SortIconAsc
-              className="icon"
-              onClick={() => setSortDir("desc")}
-            />
-          : <St.SortIconDesc
-              className="icon"
-              onClick={() => setSortDir("asc")}
-            />
-          }
-        </St.SortButton>
+            <CgSortZa onClick={() => setSortDir("desc")} />
+          : <CgSortAz onClick={() => setSortDir("asc")} />}
+        </button>
       </div>
     </div>
   );

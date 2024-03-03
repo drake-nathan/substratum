@@ -15,6 +15,9 @@ export default {
       borderWidth: {
         3: "3px",
       },
+      boxShadow: {
+        even: "0px 2px 10px 0px rgba(0, 0, 0, 0.2)",
+      },
       colors: {
         black: "#0f0f0f",
         hover: {

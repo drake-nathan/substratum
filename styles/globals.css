@@ -76,9 +76,3 @@ p {
   font-family: "basic-sans", sans-serif;
   font-size: 1.25rem; /* 20px */
 }
-
-.special-artist-name {
-  font-family: "basic-sans", sans-serif;
-  font-style: italic;
-  font-size: 1rem; /* 16px */
-}
