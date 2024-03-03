@@ -21,11 +21,11 @@ const Tabs = ({ projectSlug, setTab, tab }: Props): JSX.Element => {
           Tokens
         </Tab>
 
-        {is100x && (
+        {/* {is100x && (
           <Tab active={tab === "mint"} onClick={() => setTab("mint")}>
             Mint
           </Tab>
-        )}
+        )} */}
       </div>
     </div>
   );
