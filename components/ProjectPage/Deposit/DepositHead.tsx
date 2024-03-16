@@ -1,18 +1,6 @@
 import { useState } from "react";
+import { RxCaretLeft, RxCaretRight } from "react-icons/rx";
 
-import {
-  Address,
-  AllowListAddressContainer,
-  AllowListLink,
-  BackLink,
-  DepositHeadContainer,
-  DepositHeader,
-  DepositSubHeader,
-  DepositText,
-  LeftArrowIcon,
-  LinkRow,
-  RightArrowIcon,
-} from "./DepositHead.styled";
 import { Description, Headers, SubHeaders } from "./constants";
 import { useAllowlist } from "hooks/deposit/useDepositAllowlist";
 
@@ -24,10 +12,12 @@ const DepositHead = () => {
   const allowlist = useAllowlist();
 
   const allowListJsx = allowlist?.map((address, index) => (
-    <Address key={index}>{address}</Address>
+    <li className="max-md:text-sm" key={index}>
+      {address}
+    </li>
   ));
 
-  const handleLinkClick = (e: { preventDefault: () => void }) => {
+  const handleLinkClick = (e: React.MouseEvent) => {
     e.preventDefault();
 
     if (headerText === Headers[0]) {
@@ -41,47 +31,56 @@ const DepositHead = () => {
 
   if (headerText === Headers[0]) {
     return (
-      <DepositHeadContainer className="-mt-3 flex min-w-80 max-w-xl flex-col">
-        <DepositHeader>{headerText}</DepositHeader>
-        <DepositSubHeader className="font-semibold">
-          {subHeaderText}
-        </DepositSubHeader>
-        <DepositText className="pb-6 pt-4 font-light">
-          {Description}
-        </DepositText>
-        <LinkRow className="flex flex-row justify-end max-sm:mb-10">
-          <AllowListLink
-            className="underline"
-            href=""
-            onClick={handleLinkClick}
-          >
+      <div
+        className="-mt-3 flex min-w-80 max-w-xl flex-col max-md:mt-8"
+        id="deposit-head-container"
+      >
+        <h1 className="max-md:text-2xl">{headerText}</h1>
+        <h5 className="font-semibold max-md:text-base">{subHeaderText}</h5>
+        <p className="pb-6 pt-4 font-light max-md:text-base">{Description}</p>
+
+        <div className="flex items-center justify-end max-md:justify-start max-sm:mb-10">
+          <a className="underline " href="" onClick={handleLinkClick}>
             View Allow List
-          </AllowListLink>
-          <RightArrowIcon
-            className="cursor-pointer"
+          </a>
+          <RxCaretRight
+            className="cursor-pointer text-3xl"
             onClick={handleLinkClick}
           />
-        </LinkRow>
-      </DepositHeadContainer>
+        </div>
+      </div>
     );
   }
 
   return (
-    <DepositHeadContainer className="-mt-3 flex min-w-80 max-w-xl flex-col">
-      <DepositHeader>{headerText}</DepositHeader>
-      <DepositSubHeader className="font-semibold">
-        {subHeaderText}
-      </DepositSubHeader>
-      <AllowListAddressContainer className="pb-8 pt-4 font-light">
+    <div
+      className="-mt-3 flex min-w-80 max-w-xl flex-col max-md:mt-8"
+      id="deposit-head-container"
+    >
+      <h1 className="max-md:text-2xl">{headerText}</h1>
+      <h5 className="font-semibold max-md:text-base">{subHeaderText}</h5>
+
+      <ul
+        className="mb-6 mt-2 max-h-72 overflow-x-hidden overflow-y-scroll pb-8 pt-4 font-light leading-8"
+        id="allowlist-container"
+      >
         {allowListJsx?.length ? allowListJsx : "No addresses found..."}
-      </AllowListAddressContainer>
-      <LinkRow className="flex flex-row max-sm:mb-10">
-        <LeftArrowIcon className="cursor-pointer" onClick={handleLinkClick} />
-        <BackLink className="underline" href="" onClick={handleLinkClick}>
+      </ul>
+
+      <div className="flex items-center max-md:justify-start max-sm:mb-10">
+        <RxCaretLeft
+          className="mt-px cursor-pointer align-middle text-3xl"
+          onClick={handleLinkClick}
+        />
+        <a
+          className="underline max-sm:text-sm"
+          href=""
+          onClick={handleLinkClick}
+        >
           Back
-        </BackLink>
-      </LinkRow>
-    </DepositHeadContainer>
+        </a>
+      </div>
+    </div>
   );
 };
 
