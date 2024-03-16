@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 import React from "react";
 
 import ModalProvider from "./ModalProvider";
-import ThemeProvider from "./ThemeProvider";
+import { ThemeProvider } from "./ThemeProvider";
 
 const Web3Modal = dynamic(() => import("../components/CustomWeb3Modal"), {
   ssr: false,

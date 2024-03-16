@@ -52,10 +52,7 @@ const DepositMain = (): React.JSX.Element => {
         </div>
       </div>
 
-      <div
-        className="flex items-center justify-center gap-8"
-        id="mint-stage-container"
-      >
+      <div className="flex items-center gap-8" id="mint-stage-container">
         <div className="flex items-center gap-2" id="stage-status-container">
           <p className="text-center font-extrabold max-md:text-base">STAGE:</p>
           <p className="text-center max-md:text-base">ALLOW LIST</p>
@@ -84,7 +81,10 @@ const DepositMain = (): React.JSX.Element => {
         className="grid w-full max-w-[2000px] grid-cols-2 max-xl:flex max-xl:max-w-[1000px] max-xl:flex-col max-xl:items-center max-xl:justify-center max-xl:gap-8 max-xl:p-10"
         id="deposit-body-container"
       >
-        <div className="grid grid-rows-3 gap-12 px-16 max-xl:flex max-xl:flex-col max-xl:items-center max-xl:justify-center max-md:px-1 max-sm:w-full">
+        <div
+          className="grid grid-rows-3 gap-12 px-16 max-xl:flex max-xl:flex-col max-xl:items-center max-xl:justify-center max-md:px-1 max-sm:w-full"
+          id="deposit-left-container"
+        >
           <div className="flex flex-col items-center justify-start gap-4">
             <h2 className="mb-4 text-3xl">How The Contract Works</h2>
             <p>
@@ -124,7 +124,7 @@ const DepositMain = (): React.JSX.Element => {
             </p>
           </div>
 
-          <div className="flex flex-col items-center justify-center gap-4">
+          <div className="flex flex-col items-center gap-4">
             <h2 className="mb-4 text-3xl">Token-Gated Discount</h2>
 
             <div className="grid min-w-0 max-w-full grid-cols-[5fr_1fr] border-3 border-black dark:border-white sm:min-w-[500px] sm:max-w-[650px] sm:grid-cols-[2fr_1fr]">
@@ -210,7 +210,7 @@ const DepositMain = (): React.JSX.Element => {
           <TokenGateDeposit />
 
           <div
-            className="flex flex-col items-start justify-center gap-4 max-sm:items-center"
+            className="flex flex-col items-start gap-4 max-sm:items-center"
             id="deposit-cancel"
           >
             <h6 className="mb-4 font-bold">Cancel Deposit</h6>

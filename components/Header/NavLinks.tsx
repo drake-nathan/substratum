@@ -1,10 +1,10 @@
 import { clsx } from "clsx";
 import React, { useState } from "react";
 import { RxCaretDown } from "react-icons/rx";
-import { useTheme } from "styled-components";
 
 import ArtistsDropDown from "./DropDowns/ArtistsDropDown";
 import ProjectsDropDown from "./DropDowns/ProjectsDropDown";
+import { useTheme } from "contexts/ThemeProvider";
 
 interface Props {
   setShowMobileNav: React.Dispatch<React.SetStateAction<boolean>>;

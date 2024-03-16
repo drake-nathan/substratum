@@ -19,7 +19,7 @@ const TokenGateDeposit = (): React.JSX.Element => {
   const onInvalid = () => launchAlertModal("Invalid Token Id");
 
   return (
-    <div className="flex flex-col items-start justify-center gap-4 max-[650px]:items-center">
+    <div className="flex flex-col items-start gap-4 max-[650px]:items-center">
       <h6 className="mb-4 font-bold">Token-Gated Deposit</h6>
       <p>
         To receive the discount, enter the eligible token's ID. This token must

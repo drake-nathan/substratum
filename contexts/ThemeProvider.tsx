@@ -1,27 +1,51 @@
-import { type ReactElement, type ReactNode, useEffect, useState } from "react";
-import { ThemeProvider as StyledThemeProvider } from "styled-components";
-
 import {
-  type Colors,
-  darkColors,
-  defaultTheme,
-  lightColors,
-} from "../styles/theme";
+  type ReactElement,
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
+
 import { useWindowSize } from "hooks/useWindowSize";
 
-interface Props {
-  children: ReactNode;
+export type Theme = "dark" | "light" | "system";
+
+interface ThemeProviderProps {
+  children: React.ReactNode;
+  storageKey?: string;
 }
 
-const ThemeProvider = ({ children }: Props): ReactElement => {
+interface ThemeProviderState {
+  isDark: boolean;
+  isMiniCard: boolean;
+  isMobile: boolean;
+  isMobileNav: boolean;
+  setTheme: (theme: Theme) => void;
+  theme: Theme;
+}
+
+const initialState: ThemeProviderState = {
+  isDark: false,
+  isMiniCard: false,
+  isMobile: false,
+  isMobileNav: false,
+  setTheme: () => null,
+  theme: "system",
+};
+
+const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
+
+export const ThemeProvider = ({
+  children,
+  storageKey = "substratum-theme",
+}: ThemeProviderProps): ReactElement => {
   const { windowWidth } = useWindowSize();
 
+  const [theme, setTheme] = useState<Theme>("system");
+  const [isDark, setIsDark] = useState(false);
   const [isMiniCard, setIsMiniCard] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isMobileNav, setIsMobileNav] = useState(false);
-  const [colors, setColors] = useState<Colors>(lightColors);
-
-  const isDark = colors === darkColors;
 
   useEffect(() => {
     if (windowWidth < 650 && windowWidth > 390) setIsMiniCard(true);
@@ -34,51 +58,53 @@ const ThemeProvider = ({ children }: Props): ReactElement => {
     else setIsMobileNav(false);
   }, [windowWidth]);
 
-  const toggleTheme = () => {
-    if (colors === lightColors) {
-      setColors(darkColors);
-      localStorage.setItem("substratum-theme", "dark");
-      document.documentElement.classList.add("dark");
-    } else {
-      setColors(lightColors);
-      localStorage.setItem("substratum-theme", "light");
-      document.documentElement.classList.remove("dark");
-    }
+  useEffect(() => {
+    const root = window.document.documentElement;
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+    const handleChange = () => {
+      root.classList.remove("light", "dark");
+
+      if (theme === "system") {
+        const systemTheme = mediaQuery.matches ? "dark" : "light";
+        setIsDark(systemTheme === "dark");
+        root.classList.add(systemTheme);
+      } else {
+        setIsDark(theme === "dark");
+        root.classList.add(theme);
+      }
+    };
+
+    handleChange();
+
+    mediaQuery.addEventListener("change", handleChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleChange);
+    };
+  }, [theme]);
+
+  const value: ThemeProviderState = {
+    isDark,
+    isMiniCard,
+    isMobile,
+    isMobileNav,
+    setTheme: (theme: Theme) => {
+      localStorage.setItem(storageKey, theme);
+      setTheme(theme);
+    },
+    theme,
   };
 
-  useEffect(() => {
-    const savedTheme = localStorage.getItem("substratum-theme");
-
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)",
-    ).matches;
-
-    if (savedTheme && ["dark", "light"].includes(savedTheme)) {
-      setColors(savedTheme === "dark" ? darkColors : lightColors);
-      localStorage.setItem("substratum-theme", savedTheme);
-      document.documentElement.classList.toggle("dark", savedTheme === "dark");
-    } else if (prefersDark) {
-      setColors(darkColors);
-      localStorage.setItem("substratum-theme", "dark");
-      document.documentElement.classList.add("dark");
-    }
-  }, []);
-
   return (
-    <StyledThemeProvider
-      theme={{
-        ...defaultTheme,
-        colors,
-        isDark,
-        isMiniCard,
-        isMobile,
-        isMobileNav,
-        toggleTheme,
-      }}
-    >
+    <ThemeProviderContext.Provider value={value}>
       {children}
-    </StyledThemeProvider>
+    </ThemeProviderContext.Provider>
   );
 };
 
-export default ThemeProvider;
+export const useTheme = () => {
+  const context = useContext(ThemeProviderContext);
+
+  return context;
+};

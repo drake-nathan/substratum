@@ -4,24 +4,24 @@ import Substratum from "public/substratum/substratum.svg";
 import React, { useState } from "react";
 import { CgSun } from "react-icons/cg";
 import { MdOutlineDarkMode } from "react-icons/md";
-import { useTheme } from "styled-components";
 
 import ConnectButton from "./ConnectButton";
 import MobileNav from "./MobileNav";
 import NavLinks from "./NavLinks";
 import SocialIcons from "./SocialIcons";
+import { useTheme } from "contexts/ThemeProvider";
 
 const Header = (): React.JSX.Element => {
-  const { colors, isDark, isMobile, isMobileNav, toggleTheme } = useTheme();
+  const { isDark, isMobile, isMobileNav, setTheme, theme } = useTheme();
 
   const [showMobileNav, setShowMobileNav] = useState(false);
 
   const iconSize = !isMobile ? 80 : 42;
 
   return (
-    <header className="flex w-full items-center gap-4 border-b border-black dark:border-white md:justify-between md:gap-8 md:border-b-[3px]">
+    <header className="flex w-full items-center gap-4 border-b border-black dark:border-white md:justify-between md:gap-8 md:border-b-3">
       <Link href="/">
-        <div className="flex size-12 items-center justify-center border-r-[1px] border-white bg-black md:size-[90px]">
+        <div className="flex size-12 items-center justify-center border-r border-white bg-black md:size-[90px]">
           <Substratum height={iconSize} width={iconSize} />
         </div>
       </Link>
@@ -40,7 +40,7 @@ const Header = (): React.JSX.Element => {
 
           <button
             className="hover:text-hover-light dark:hover:text-hover-dark"
-            onClick={toggleTheme}
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           >
             {!isDark ?
               <MdOutlineDarkMode className="text-xl" />
@@ -58,7 +58,7 @@ const Header = (): React.JSX.Element => {
 
           <div className="ml-auto mr-1">
             <Hamburger
-              color={colors.textMain}
+              color={isDark ? "#fffcf9" : "#0f0f0f"}
               label="Show menu"
               size={isMobile ? 20 : 36}
               toggle={setShowMobileNav}

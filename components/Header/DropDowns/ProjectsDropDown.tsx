@@ -2,10 +2,10 @@ import { clsx } from "clsx";
 import Link from "next/link";
 import React from "react";
 import { RxOpenInNewWindow } from "react-icons/rx";
-import { useTheme } from "styled-components";
 
 import type { SetState } from "utils/types";
 
+import { useTheme } from "contexts/ThemeProvider";
 import { projects } from "data/projects";
 
 interface Props {

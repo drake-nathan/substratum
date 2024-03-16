@@ -1,10 +1,10 @@
 import { clsx } from "clsx";
 import React from "react";
 import { RxOpenInNewWindow } from "react-icons/rx";
-import { useTheme } from "styled-components";
 
 import type { SetState } from "utils/types";
 
+import { useTheme } from "contexts/ThemeProvider";
 import { artistUrls, projects } from "data/projects";
 
 const artists = projects.map(({ artist }) => artist);
