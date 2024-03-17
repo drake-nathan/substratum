@@ -4,7 +4,6 @@ import { RxOpenInNewWindow } from "react-icons/rx";
 
 import type { SetState } from "utils/types";
 
-import { useTheme } from "contexts/ThemeProvider";
 import { artistUrls, projects } from "data/projects";
 
 const artists = projects.map(({ artist }) => artist);
@@ -21,8 +20,6 @@ const ArtistsDropDown = ({
   setShowMobileNav,
   showDropDown,
 }: Props): JSX.Element => {
-  const { isMobile } = useTheme();
-
   const closeBothMenus = () => {
     setShowDropDown(false);
     setShowMobileNav(false);
@@ -54,42 +51,30 @@ const ArtistsDropDown = ({
     );
   });
 
-  return !isMobile ?
-      <>
-        {showDropDown && (
-          <div
-            className="fixed left-0 top-0 z-10 h-screen w-full"
-            onClick={() => setShowDropDown(false)}
-          />
+  return (
+    <>
+      {showDropDown && (
+        <div
+          className="fixed left-0 top-0 z-10 h-screen w-full"
+          onClick={() => setShowDropDown(false)}
+        />
+      )}
+      <div
+        className={clsx(
+          "absolute top-[31.5px] z-40 h-0 min-w-56 overflow-y-hidden bg-white transition-all duration-300 dark:bg-black",
+          "md:left-[153px] md:top-[31.5px]",
+          {
+            "h-24 overflow-hidden px-5 pb-2 pt-3 outline outline-1 outline-black dark:outline-white":
+              showDropDown,
+            "md:h-max md:px-5 md:pb-2 md:pt-3": showDropDown,
+            "overflow-auto px-2 py-0": !showDropDown,
+          },
         )}
-        <div
-          className={clsx(
-            "absolute left-[153px] top-[31.5px] z-40 h-0 min-w-56 overflow-y-hidden bg-white transition-all duration-300 dark:bg-black",
-            {
-              "h-24 overflow-hidden px-5 pb-2 pt-3 outline outline-1 outline-black dark:outline-white":
-                showDropDown,
-              "overflow-auto px-2 py-0": !showDropDown,
-            },
-          )}
-        >
-          {artistListJsx}
-        </div>
-      </>
-    : <>
-        {showDropDown && <div className="fixed left-0 top-0 z-10 flex-col" />}
-        <div
-          className={clsx(
-            "top-[50.5px] z-40 h-0 min-w-56 overflow-y-hidden bg-white transition-all duration-300 dark:bg-black",
-            {
-              "h-max px-5 pb-2 pt-3 outline outline-1 outline-black dark:outline-white":
-                showDropDown,
-              "overflow-auto px-2 py-0": !showDropDown,
-            },
-          )}
-        >
-          {artistListJsx}
-        </div>
-      </>;
+      >
+        {artistListJsx}
+      </div>
+    </>
+  );
 };
 
 export default ArtistsDropDown;

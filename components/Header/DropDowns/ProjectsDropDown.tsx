@@ -5,7 +5,6 @@ import { RxOpenInNewWindow } from "react-icons/rx";
 
 import type { SetState } from "utils/types";
 
-import { useTheme } from "contexts/ThemeProvider";
 import { projects } from "data/projects";
 
 interface Props {
@@ -19,8 +18,6 @@ const ProjectsDropDown = ({
   setShowMobileNav,
   showDropDown,
 }: Props): React.JSX.Element => {
-  const { isMobile } = useTheme();
-
   const closeBothMenus = () => {
     setShowDropDown(false);
     setShowMobileNav(false);
@@ -53,42 +50,30 @@ const ProjectsDropDown = ({
         </a>,
   );
 
-  return !isMobile ?
-      <>
-        {showDropDown && (
-          <div
-            className="fixed left-0 top-0 z-10 h-screen w-full"
-            onClick={() => setShowDropDown(false)}
-          />
+  return (
+    <>
+      {showDropDown && (
+        <div
+          className="fixed left-0 top-0 z-10 h-screen w-full"
+          onClick={() => setShowDropDown(false)}
+        />
+      )}
+
+      <div
+        className={clsx(
+          "absolute left-0 z-40 h-0 min-w-56 overflow-y-hidden bg-white transition-all duration-300 dark:bg-black",
+          {
+            "h-56 overflow-hidden px-5 pb-2 pt-3 outline outline-1 outline-black dark:outline-white md:h-max md:px-5 md:py-5":
+              showDropDown,
+            "overflow-auto px-2 py-0": !showDropDown,
+            "top-[31.5px] md:top-[50.5px]": true, // Adjust the top value based on screen size
+          },
         )}
-        <div
-          className={clsx(
-            "absolute left-0 top-[31.5px] z-40 h-0 min-w-56 overflow-y-hidden bg-white transition-all duration-300 dark:bg-black",
-            {
-              "h-56 overflow-hidden px-5 pb-2 pt-3 outline outline-1 outline-black dark:outline-white":
-                showDropDown,
-              "overflow-auto px-2 py-0": !showDropDown,
-            },
-          )}
-        >
-          {projectsListJsx}
-        </div>
-      </>
-    : <>
-        {showDropDown && <div className="fixed left-0 top-0 z-10 flex-col" />}
-        <div
-          className={clsx(
-            "top-[50.5px] z-40 h-0 min-w-56 overflow-y-hidden bg-white transition-all duration-300 dark:bg-black",
-            {
-              "h-max px-5 py-5 outline outline-1 outline-black dark:outline-white":
-                showDropDown,
-              "overflow-auto px-2 py-0": !showDropDown,
-            },
-          )}
-        >
-          {projectsListJsx}
-        </div>
-      </>;
+      >
+        {projectsListJsx}
+      </div>
+    </>
+  );
 };
 
 export default ProjectsDropDown;
