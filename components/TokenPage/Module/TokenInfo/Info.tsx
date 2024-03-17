@@ -1,11 +1,9 @@
-import { useEffect, useState } from "react";
 import { Tooltip } from "react-tooltip";
 
 import type { InfoTab } from "./types";
 import type { IAttribute } from "services/azureApi/types";
 
 import { formatNewLines, shortenTrait } from "./utils";
-import { useWindowSize } from "hooks/useWindowSize";
 import { isString } from "utils/helpers";
 
 interface Props {
@@ -25,15 +23,8 @@ const Info = ({
   tab,
   traits,
 }: Props): JSX.Element => {
-  const { windowWidth } = useWindowSize();
-
-  const [maxTraitLength, setMaxTraitLength] = useState<number>(22);
-
-  useEffect(() => {
-    if (windowWidth > 450) setMaxTraitLength(22);
-    else if (windowWidth <= 450 && windowWidth > 400) setMaxTraitLength(20);
-    else setMaxTraitLength(18);
-  }, [windowWidth]);
+  // TODO: re-check responsiveness here
+  const maxTraitLength = 20;
 
   const infoSection: Record<InfoTab, JSX.Element> = {
     description: (

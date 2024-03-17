@@ -7,7 +7,7 @@ const Hero = ({ width }: Props) => (
     className="mt-20 flex max-w-[calc(100%-180px)] flex-col max-sm:mt-8 max-sm:max-w-[calc(100%-3em)]"
     style={{ width }}
   >
-    <h1 className="mb-[-0.75rem] font-exo text-[2.75rem] font-extralight leading-[60px] tracking-[1px] max-sm:text-[1.75rem]">
+    <h1 className="-mb-3 font-exo text-[2.75rem] font-extralight leading-[60px] tracking-[1px] max-sm:text-[1.75rem]">
       sub·stra·tum
     </h1>
     <h4 className="text-[1.375rem] font-medium lowercase italic max-sm:text-base">
@@ -29,12 +29,12 @@ const Hero = ({ width }: Props) => (
       </li>
     </ul>
 
-    <p className="mb-3 max-w-[60ch] text-base font-light leading-[1.25rem] max-sm:text-xs">
+    <p className="mb-3 max-w-[60ch] text-base font-light leading-5 max-sm:text-xs">
       Substratum is a platform built from the ground up to support dynamic and
       experimental crypto art projects.
     </p>
 
-    <p className="mb-3 max-w-[60ch] text-base font-light leading-[1.25rem] max-sm:text-xs">
+    <p className="mb-3 max-w-[60ch] text-base font-light leading-5 max-sm:text-xs">
       (It works great for regular projects, too.)
     </p>
   </div>

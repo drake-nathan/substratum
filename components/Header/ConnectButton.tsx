@@ -1,11 +1,21 @@
 import { useWeb3Modal, useWeb3ModalState } from "@web3modal/wagmi/react";
 import { useEffect, useState } from "react";
+import { formatUnits } from "viem";
 import { useAccount, useBalance, useEnsName } from "wagmi";
 
 import { useIsClient } from "hooks/useIsClient";
+import { cn } from "utils/helpers";
 import { shortenAddress, shortenEth, shortenText } from "utils/shorteners";
 
-const ConnectButton = (): JSX.Element => {
+type ButtonProps = Omit<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  "onClick"
+>;
+
+const ConnectButton = ({
+  className,
+  ...props
+}: ButtonProps): React.JSX.Element => {
   const { isClient } = useIsClient();
   const { close, open } = useWeb3Modal();
   const { open: isOpen } = useWeb3ModalState();
@@ -29,13 +39,17 @@ const ConnectButton = (): JSX.Element => {
     }
   };
 
-  const eth = balance?.formatted ? shortenEth(balance.formatted) : null;
+  const eth =
+    balance ? shortenEth(formatUnits(balance.value, balance.decimals)) : null;
 
   return (
     <button
-      className="flex h-[90px] w-[300px] items-center justify-center  bg-black font-bold text-white hover:underline"
+      className={cn(
+        "flex h-[90px] w-[300px] items-center justify-center  border-l border-white bg-black font-bold text-white hover:underline",
+        className,
+      )}
       onClick={clickHandler}
-      style={{ borderLeft: "1px solid #fffcf9" }}
+      {...props}
     >
       {address && isClient ?
         <div className="flex flex-col items-center gap-2">

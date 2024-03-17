@@ -2,73 +2,60 @@ import { Squash as Hamburger } from "hamburger-react";
 import Link from "next/link";
 import Substratum from "public/substratum/substratum.svg";
 import React, { useState } from "react";
-import { CgSun } from "react-icons/cg";
-import { MdOutlineDarkMode } from "react-icons/md";
 
 import ConnectButton from "./ConnectButton";
 import MobileNav from "./MobileNav";
 import NavLinks from "./NavLinks";
 import SocialIcons from "./SocialIcons";
+import ThemeToggle from "components/shadcn/ThemeToggle";
 import { useTheme } from "contexts/ThemeProvider";
 
 const Header = (): React.JSX.Element => {
-  const { isDark, isMobile, isMobileNav, setTheme, theme } = useTheme();
+  const { isDark } = useTheme();
 
   const [showMobileNav, setShowMobileNav] = useState(false);
 
-  const iconSize = !isMobile ? 80 : 42;
-
   return (
-    <header className="flex w-full items-center gap-4 border-b border-black dark:border-white md:justify-between md:gap-8 md:border-b-3">
+    <header className="flex w-full items-center border-b border-black dark:border-white md:justify-between md:border-b-3">
       <Link href="/">
         <div className="flex size-12 items-center justify-center border-r border-white bg-black md:size-[90px]">
-          <Substratum height={iconSize} width={iconSize} />
+          <Substratum className="size-[42px] md:size-[80px]" />{" "}
+          {/* Adjusted sizes for xl breakpoint */}
         </div>
       </Link>
 
-      {!isMobileNav ?
-        <>
-          <div className="flex w-full items-center justify-between">
-            <Link href="/">
-              <h1 className="">substratum</h1>
-            </Link>
-
-            <NavLinks setShowMobileNav={setShowMobileNav} />
-
-            <SocialIcons />
-          </div>
-
-          <button
-            className="hover:text-hover-light dark:hover:text-hover-dark"
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-          >
-            {!isDark ?
-              <MdOutlineDarkMode className="text-xl" />
-            : <CgSun className="text-xl" />}
-          </button>
-
-          <ConnectButton />
-        </>
-      : <>
+      {/* Desktop layout */}
+      <div className="hidden w-full items-center justify-between xl:flex">
+        <div className="flex w-full items-center justify-between px-8">
           <Link href="/">
-            <h1 className="flex w-full items-center justify-between text-2xl">
-              substratum
-            </h1>
+            <h1>substratum</h1>
           </Link>
+          <NavLinks setShowMobileNav={setShowMobileNav} />
+          <SocialIcons />
+          <ThemeToggle />
+        </div>
 
-          <div className="ml-auto mr-1">
-            <Hamburger
-              color={isDark ? "#fffcf9" : "#0f0f0f"}
-              label="Show menu"
-              size={isMobile ? 20 : 36}
-              toggle={setShowMobileNav}
-              toggled={showMobileNav}
-            />
-          </div>
+        <ConnectButton />
+      </div>
 
-          <MobileNav isOpen={showMobileNav} setIsOpen={setShowMobileNav} />
-        </>
-      }
+      {/* Mobile layout */}
+      <div className="flex w-full items-center justify-between pl-4 xl:hidden">
+        <Link href="/">
+          <h1 className="text-2xl">substratum</h1>
+        </Link>
+
+        <div className="ml-auto mr-1">
+          <Hamburger
+            color={isDark ? "#fffcf9" : "#0f0f0f"}
+            label="Show menu"
+            size={20} // You can adjust the size if needed
+            toggle={setShowMobileNav}
+            toggled={showMobileNav}
+          />
+        </div>
+
+        <MobileNav isOpen={showMobileNav} setIsOpen={setShowMobileNav} />
+      </div>
     </header>
   );
 };

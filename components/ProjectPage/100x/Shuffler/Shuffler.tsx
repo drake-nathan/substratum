@@ -2,7 +2,6 @@ import { clsx } from "clsx";
 import React, { useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { Tooltip } from "react-tooltip";
-import { useTheme } from "styled-components";
 import { useAccount } from "wagmi";
 
 import type { SetState } from "utils/types";
@@ -13,6 +12,7 @@ import TopButton from "./TopButton";
 import VaultInput from "./VaultInput";
 import { methodDescriptions } from "./methods";
 import st from "./shuffler.module.css";
+import { useTheme } from "contexts/ThemeProvider";
 import { useModal } from "hooks/useModal";
 
 const Shuffler = ({

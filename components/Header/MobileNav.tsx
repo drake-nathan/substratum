@@ -19,7 +19,7 @@ const MobileNav = ({ isOpen, setIsOpen }: Props): React.JSX.Element => (
       isOpen ? "translate-x-0" : "translate-x-full",
     )}
   >
-    <ConnectButton />
+    <ConnectButton className="border-none" />
 
     <NavLinks setShowMobileNav={setIsOpen} />
 
