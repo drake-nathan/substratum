@@ -10,7 +10,7 @@ const DepositTest: NextPage = () => {
         <meta content="Deposit Testing" name="description" />
       </Head>
 
-      <h1>About Page</h1>
+      <h1>About</h1>
     </div>
   );
 };
