@@ -27,9 +27,9 @@ export default {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
-        background: "var(--background)",
+        background: "hsl(var(--background))",
         black: "#0f0f0f",
-        border: "var(--border)",
+        border: "hsl(var(--border))",
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
@@ -38,7 +38,7 @@ export default {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
         },
-        foreground: "var(--foreground)",
+        foreground: "hsl(var(--foreground))",
         hover: {
           dark: "#b9b7b6",
           light: "#7e7e7e",
@@ -56,8 +56,8 @@ export default {
         offset: "#f4f1ed",
         overlay: "rgba(0, 0, 0, 0.6)",
         popover: {
-          DEFAULT: "var(--popover)",
-          foreground: "var(--popover-foreground)",
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",
