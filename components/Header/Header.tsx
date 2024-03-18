@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import ConnectButton from "./ConnectButton";
 import MobileNav from "./MobileNav";
 import NavLinks from "./NavLinks";
+import { NavigationMenuDemo } from "./NewNav";
 import SocialIcons from "./SocialIcons";
 import ThemeToggle from "components/shadcn/ThemeToggle";
 import { useTheme } from "contexts/ThemeProvider";
@@ -30,7 +31,8 @@ const Header = (): React.JSX.Element => {
           <Link href="/">
             <h1>substratum</h1>
           </Link>
-          <NavLinks setShowMobileNav={setShowMobileNav} />
+          <NavigationMenuDemo />
+          {/* <NavLinks setShowMobileNav={setShowMobileNav} /> */}
           <SocialIcons />
           <ThemeToggle />
         </div>
