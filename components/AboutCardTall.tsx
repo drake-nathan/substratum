@@ -17,7 +17,7 @@ export const AboutCardTall = ({
     return (
       <div className="aspect-[1/2] w-full self-start border">
         <img alt="" className="h-3/4 w-full object-cover" src={imgURL} />
-        <div className="flex flex-col gap-5 px-12 py-10">
+        <div className="flex w-full flex-col gap-5 p-5 md:px-12 md:py-10">
           <h2>{titleText}</h2>
           <p>{bodyText}</p>
         </div>
@@ -26,7 +26,7 @@ export const AboutCardTall = ({
   } else {
     return (
       <div className="aspect-[1/2] w-full self-start border">
-        <div className="flex flex-col gap-5 px-12 py-10">
+        <div className="flex w-full flex-col gap-5 p-5 md:px-12 md:py-5">
           <h2>{titleText}</h2>
           <p>{bodyText}</p>
         </div>

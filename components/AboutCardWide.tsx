@@ -15,9 +15,13 @@ export const AboutCardWide = ({
 }: Props) => {
   if (!reverse) {
     return (
-      <div className="flex aspect-auto h-[50svh] w-full flex-col items-center overflow-hidden border md:flex-row">
-        <img alt="" className="w-1/2 object-cover" src={imgURL} />
-        <div className="h-fit w-1/2 gap-10 p-20">
+      <div className="flex aspect-auto h-fit w-full flex-col items-center overflow-hidden border md:h-[50svh] md:flex-row">
+        <img
+          alt=""
+          className="h-1/2 object-cover md:h-auto md:w-1/2"
+          src={imgURL}
+        />
+        <div className="h-1/2 w-full gap-10 p-5 md:h-auto md:w-1/2 md:p-20">
           <h2 className="mb-5">{titleText}</h2>
           <p>{bodyText}</p>
         </div>
@@ -25,12 +29,16 @@ export const AboutCardWide = ({
     );
   } else {
     return (
-      <div className="flex aspect-auto h-[50svh] w-full flex-col items-center overflow-hidden border md:flex-row">
-        <div className="h-fit w-1/2 gap-10 p-20">
+      <div className="flex aspect-auto h-1/2 w-full flex-col-reverse items-center overflow-hidden border md:h-[50svh] md:flex-row">
+        <div className="h-fit w-full gap-10 p-5 md:p-20">
           <h2 className="mb-5">{titleText}</h2>
           <p>{bodyText}</p>
         </div>
-        <img alt="" className="w-1/2 object-cover" src={imgURL} />
+        <img
+          alt=""
+          className="h-1/2 object-cover md:h-auto md:w-1/2"
+          src={imgURL}
+        />
       </div>
     );
   }

@@ -16,18 +16,18 @@ export const AboutCard = ({ bodyText, imgURL, reverse, titleText }: Props) => {
           className="aspect-video w-full object-cover"
           src={imgURL}
         ></img>
-        <div className="my-10 flex w-full items-center justify-around">
-          <h2 className="w-1/5">{titleText}</h2>
-          <p className="w-3/5">{bodyText}</p>
+        <div className="flex w-full flex-col justify-around gap-5 p-5 md:my-10 md:flex-row md:items-center">
+          <h2 className="md:w-1/5">{titleText}</h2>
+          <p className="md:w-3/5">{bodyText}</p>
         </div>
       </div>
     );
   } else {
     return (
       <div className="flex w-full flex-col border">
-        <div className="my-10 flex w-full items-center justify-around">
-          <h2 className="w-1/5">{titleText}</h2>
-          <p className="w-3/5">{bodyText}</p>
+        <div className="flex w-full flex-col justify-around gap-5 p-5 md:my-10 md:flex-row md:items-center">
+          <h2 className="md:w-1/5">{titleText}</h2>
+          <p className="md:w-3/5">{bodyText}</p>
         </div>
         <img
           alt=""
