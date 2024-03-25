@@ -1,7 +1,5 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
 
-import StyledComponentsRegistry from "lib/registry";
-
 class MyDocument extends Document {
   render() {
     return (
@@ -11,10 +9,8 @@ class MyDocument extends Document {
         </Head>
 
         <body>
-          <StyledComponentsRegistry>
-            <Main />
-            <NextScript />
-          </StyledComponentsRegistry>
+          <Main />
+          <NextScript />
         </body>
       </Html>
     );

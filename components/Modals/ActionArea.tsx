@@ -1,8 +1,8 @@
 import React from "react";
 import { PuffLoader } from "react-spinners";
-import { useTheme } from "styled-components";
 
 import Button from "components/Button";
+import { useTheme } from "contexts/ThemeProvider";
 
 interface Props {
   error: string | undefined;
@@ -15,7 +15,7 @@ const ActionArea = ({
   handleClick,
   loading,
 }: Props): React.JSX.Element => {
-  const { colors } = useTheme();
+  const { isDark } = useTheme();
 
   if (error)
     return (
@@ -24,7 +24,7 @@ const ActionArea = ({
       </p>
     );
 
-  if (loading) return <PuffLoader color={colors.textMain} />;
+  if (loading) return <PuffLoader color={isDark ? "#fffcf9" : "#0f0f0f"} />;
 
   return (
     <Button onClick={handleClick}>

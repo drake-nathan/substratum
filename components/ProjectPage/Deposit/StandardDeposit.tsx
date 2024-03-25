@@ -24,7 +24,7 @@ const StandardDeposit = () => {
   const onInvalid = () => launchAlertModal("Invalid Address");
 
   return (
-    <div className="flex flex-col items-start justify-center gap-4 max-[650px]:items-center">
+    <div className="flex flex-col items-start gap-4 max-[650px]:items-center">
       <h2 className="mb-4 text-center text-3xl">Contract Interactions</h2>
       <h6 className="mb-4 font-bold">Standard Deposit</h6>
       <p>
