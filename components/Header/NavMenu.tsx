@@ -17,7 +17,7 @@ import { cn } from "utils/helpers";
 const artists = projects.map(({ artist }) => artist);
 const uniqueArtists = [...new Set(artists)];
 
-export const NavigationMenuDemo = () => {
+export const NavMenu = () => {
   return (
     <NavigationMenu>
       <NavigationMenuList>
