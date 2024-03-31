@@ -38,10 +38,3 @@ export const AboutCard = ({ bodyText, imgURL, reverse, titleText }: Props) => {
     );
   }
 };
-
-AboutCard.defaultProps = {
-  bodyText: "Lorem Ipsum",
-  imgUrl: "substratum/substratum.png",
-  reverse: false,
-  titleText: "Title",
-};

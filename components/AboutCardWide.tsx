@@ -43,10 +43,3 @@ export const AboutCardWide = ({
     );
   }
 };
-
-AboutCardWide.defaultProps = {
-  bodyText: "Lorem Ipsum",
-  imgURL: "substratum/substratum.png",
-  reverse: false,
-  titleText: "Title",
-};
