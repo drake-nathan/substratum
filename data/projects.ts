@@ -58,7 +58,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     artist: Artist.Matto,
-    artistAddress: "0xF8d9056db2C2189155bc25A30269dc5dDeD15d46",
+    // artistAddress: "0xF8d9056db2C2189155bc25A30269dc5dDeD15d46", //removed for now, causing errors when retrieving image data
     aspectRatio: 0.5625,
     contractAddress: "0xCC55af23d9861e41C5875F1e76fb3c4122E8C4Fa",
     externalUrl: "https://substratum.art/project/100x10x1",
@@ -174,6 +174,7 @@ export const projects: Project[] = [
   },
   {
     artist: Artist.Matto,
+    artistAddress: "0xF8d9056db2C2189155bc25A30269dc5dDeD15d46",
     aspectRatio: 1,
     contractAddress: "0x2eEa9f8eb2a3365175c7cb25Db9ae277bE218806",
     image: "/projects/mathare-memories.png",
@@ -205,6 +206,7 @@ export const projects: Project[] = [
   },
   {
     artist: Artist.Matto,
+    artistAddress: "0xF8d9056db2C2189155bc25A30269dc5dDeD15d46",
     aspectRatio: 1,
     contractAddress: "0x15BF7610a7d50541e865EfA3adad434147a4E1A9",
     image: "/projects/texture.svg",
@@ -233,6 +235,7 @@ export const projects: Project[] = [
   },
   {
     artist: Artist.Matto,
+    artistAddress: "0xF8d9056db2C2189155bc25A30269dc5dDeD15d46",
     aspectRatio: 1,
     contractAddress: "0x4E171e0F14a9046e14B93221f31Acd2EC4Af8429",
     externalUrl: "https://chainlife.xyz/",
@@ -262,6 +265,7 @@ export const projects: Project[] = [
   },
   {
     artist: Artist.Matto,
+    artistAddress: "0xF8d9056db2C2189155bc25A30269dc5dDeD15d46",
     aspectRatio: 1,
     contractAddress: "0x7f463b874eC264dC7BD8C780f5790b4Fc371F11f",
     externalUrl: "https://blonks.xyz/",
