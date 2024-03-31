@@ -5,25 +5,18 @@ if (!blobRoot && env !== "test") {
   throw new Error("NEXT_PUBLIC_BLOB_ROOT is not defined");
 }
 
-export enum Status {
-  Closed = "Closed",
-  Minting = "Minting",
-  Upcoming = "Upcoming",
-}
+export type Status = "Closed" | "Minting" | "Upcoming";
 
-export enum Artist {
-  ImmutableComputer = "Immutable Computer",
-  Matto = "Matto",
-}
+export type Artist = "immutable-computer" | "matto";
 
 export const artistUrls: Record<Artist, string> = {
-  [Artist.ImmutableComputer]: "http://immutablecomputer.com/",
-  [Artist.Matto]: "https://matto.xyz",
+  "immutable-computer": "http://immutablecomputer.com/",
+  matto: "https://matto.xyz",
 };
 
 export interface Project {
-  artist: Artist;
   artistAddress?: string;
+  artistSlug: Artist;
   aspectRatio: number;
   contractAddress: string;
   externalUrl?: string;
@@ -57,8 +50,8 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    artist: Artist.Matto,
-    artistAddress: "0xF8d9056db2C2189155bc25A30269dc5dDeD15d46",
+    artistSlug: "matto",
+    // artistAddress: "0xF8d9056db2C2189155bc25A30269dc5dDeD15d46", //removed for now, causing errors when retrieving image data
     aspectRatio: 0.5625,
     contractAddress: "0xCC55af23d9861e41C5875F1e76fb3c4122E8C4Fa",
     externalUrl: "https://substratum.art/project/100x10x1",
@@ -84,12 +77,13 @@ export const projects: Project[] = [
     },
     projectSlug: "100x10x1-a-goerli",
     scriptType: "Solidity",
-    status: Status.Upcoming,
+    status: "Upcoming",
     usesTransfers: false,
     website: "https://matto.xyz/project/100x10x1",
   },
   {
-    artist: Artist.Matto,
+    artistAddress: "0xF8d9056db2C2189155bc25A30269dc5dDeD15d46",
+    artistSlug: "matto",
     aspectRatio: 1,
     contractAddress: "0x74C093fD987Fff140677Aa83B6CC4680B8ef2956",
     image: "/projects/haiku.png",
@@ -109,12 +103,13 @@ export const projects: Project[] = [
     },
     projectSlug: "haiku",
     sansaSlug: "651d85db72a482be8d9417b2",
-    status: Status.Minting,
+    status: "Minting",
     usesTransfers: false,
     website: "https://matto.xyz/project/freestyle-h-ai-ku/",
   },
   {
-    artist: Artist.Matto,
+    artistAddress: "0xF8d9056db2C2189155bc25A30269dc5dDeD15d46",
+    artistSlug: "matto",
     aspectRatio: 1,
     contractAddress: "0x5B17395A9699D2819a9d009bA375a0825b077385",
     image: "/projects/crystallized-illusions.png",
@@ -138,13 +133,13 @@ export const projects: Project[] = [
     },
     projectSlug: "crystallized-illusions",
     scriptType: "p5",
-    status: Status.Closed,
+    status: "Closed",
     useTokenName: true,
     usesTransfers: false,
     website: "https://matto.xyz",
   },
   {
-    artist: Artist.ImmutableComputer,
+    artistSlug: "immutable-computer",
     aspectRatio: 1.777777777777777,
     contractAddress: "0xa9132D23886b63D29858Fe541214fEad5815d64A",
     image: "/projects/negative-carbon.png",
@@ -161,17 +156,18 @@ export const projects: Project[] = [
         "Each Negative Carbon NFT (NCNFT) offsets more than its carbon footprint using rigorously validated, third-party audited, retired, carbon offsets. Each token is assigned an offset certificate and mint, and that certificate's serial number becomes the token's generative art's entropy. For more information, visit http://immutablecomputer.com/carbon.html.",
       license: "CC BY-NC 4.0",
       notes:
-        "Token entropy is determined by its carbon offset serial number, and is not publicly mintable. The artist is minting, giving, and selling tokens as they see fit.",
+        "Token entropy is determined by its carbon offset serial number, and is not publicly mintable. The artist is Minting, giving, and selling tokens as they see fit.",
       tools: "Solidity, p5.js",
     },
     projectSlug: "negative-carbon",
     scriptType: "p5.js",
-    status: Status.Minting,
+    status: "Minting",
     usesTransfers: true,
     website: "http://immutablecomputer.com/carbon.html",
   },
   {
-    artist: Artist.Matto,
+    artistAddress: "0xF8d9056db2C2189155bc25A30269dc5dDeD15d46",
+    artistSlug: "matto",
     aspectRatio: 1,
     contractAddress: "0x2eEa9f8eb2a3365175c7cb25Db9ae277bE218806",
     image: "/projects/mathare-memories.png",
@@ -197,12 +193,13 @@ export const projects: Project[] = [
     projectSlug: "mathare-memories",
     sansaSlug: "mathare-memories-by-matto",
     scriptType: "p5.js",
-    status: Status.Closed,
+    status: "Closed",
     usesTransfers: true,
     website: "https://matto.xyz",
   },
   {
-    artist: Artist.Matto,
+    artistAddress: "0xF8d9056db2C2189155bc25A30269dc5dDeD15d46",
+    artistSlug: "matto",
     aspectRatio: 1,
     contractAddress: "0x15BF7610a7d50541e865EfA3adad434147a4E1A9",
     image: "/projects/texture.svg",
@@ -225,12 +222,13 @@ export const projects: Project[] = [
     projectSlug: "texture-and-hues",
     sansaSlug: "texture-and-hues-by-matto",
     scriptType: "solidity",
-    status: Status.Closed,
+    status: "Closed",
     usesTransfers: false,
     website: "https://matto.xyz",
   },
   {
-    artist: Artist.Matto,
+    artistAddress: "0xF8d9056db2C2189155bc25A30269dc5dDeD15d46",
+    artistSlug: "matto",
     aspectRatio: 1,
     contractAddress: "0x4E171e0F14a9046e14B93221f31Acd2EC4Af8429",
     externalUrl: "https://chainlife.xyz/",
@@ -254,12 +252,13 @@ export const projects: Project[] = [
     projectSlug: "chainlife",
     sansaSlug: "chainlife-by-matto",
     scriptType: "p5.js",
-    status: Status.Minting,
+    status: "Minting",
     usesTransfers: true,
     website: "https://matto.xyz",
   },
   {
-    artist: Artist.Matto,
+    artistAddress: "0xF8d9056db2C2189155bc25A30269dc5dDeD15d46",
+    artistSlug: "matto",
     aspectRatio: 1,
     contractAddress: "0x7f463b874eC264dC7BD8C780f5790b4Fc371F11f",
     externalUrl: "https://blonks.xyz/",
@@ -282,10 +281,10 @@ export const projects: Project[] = [
     },
     projectSlug: "blonks",
     sansaSlug: "blonks-by-matto",
-    status: Status.Closed,
+    status: "Closed",
     usesTransfers: true,
     website: "https://matto.xyz",
   },
 ];
 
-export type ProjectSort = "all" | "closed" | "minting" | "upcoming";
+export type ProjectSort = "Closed" | "Minting" | "Upcoming" | "all";

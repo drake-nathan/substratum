@@ -12,7 +12,7 @@ interface Props {
 
 const Card = ({ project }: Props): React.JSX.Element => {
   const {
-    artist,
+    artistSlug: artist,
     externalUrl,
     image,
     local,

@@ -7,16 +7,16 @@ import type { SetState } from "utils/types";
 
 import ConnectButton from "./ConnectButton";
 import SocialIcons from "./SocialIcons";
-import { artistUrls, projects } from "data/projects";
-import { cn } from "utils/helpers";
+import { projects } from "data/projects";
+import { cn, deKebabify } from "utils/helpers";
 
 interface Props {
   isOpen: boolean;
   setIsOpen: SetState<boolean>;
 }
 
-const artists = projects.map(({ artist }) => artist);
-const uniqueArtists = [...new Set(artists)];
+const artistSlugs = projects.map(({ artistSlug }) => artistSlug);
+const uniqueArtists = [...new Set(artistSlugs)];
 
 const MobileNav = ({ isOpen, setIsOpen }: Props): React.JSX.Element => {
   const clickHandler = () => setIsOpen(false);
@@ -56,19 +56,15 @@ const MobileNav = ({ isOpen, setIsOpen }: Props): React.JSX.Element => {
 
         <h4 className="underline">Artists</h4>
         <ul className="grid w-full grid-cols-2 gap-2 p-2">
-          {uniqueArtists.map((artist) => {
-            const url = artistUrls[artist];
-
+          {uniqueArtists.map((slug) => {
             return (
-              <ExternalListItem
-                href={url}
-                key={artist}
+              <InternalListItem
+                href={`/artist/${slug}`}
+                key={slug}
                 onClick={clickHandler}
-                rel="noreferrer"
-                target="_blank"
               >
-                {artist}
-              </ExternalListItem>
+                {deKebabify(slug)}
+              </InternalListItem>
             );
           })}
         </ul>

@@ -11,7 +11,7 @@ interface Props {
 }
 
 const ProjectHead = ({ project, tab }: Props) => {
-  const { artist, maxSupply, name, projectSlug, website } = project;
+  const { artistSlug: artist, maxSupply, name, projectSlug, website } = project;
 
   const currentSupply = useCurrentSupply(projectSlug);
   const maxSupplyText = maxSupply > 999_999 ? "?" : intlNumberFormat(maxSupply);
