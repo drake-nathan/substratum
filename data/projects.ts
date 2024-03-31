@@ -90,6 +90,7 @@ export const projects: Project[] = [
   },
   {
     artist: Artist.Matto,
+    artistAddress: "0xF8d9056db2C2189155bc25A30269dc5dDeD15d46",
     aspectRatio: 1,
     contractAddress: "0x74C093fD987Fff140677Aa83B6CC4680B8ef2956",
     image: "/projects/haiku.png",
@@ -115,6 +116,7 @@ export const projects: Project[] = [
   },
   {
     artist: Artist.Matto,
+    artistAddress: "0xF8d9056db2C2189155bc25A30269dc5dDeD15d46",
     aspectRatio: 1,
     contractAddress: "0x5B17395A9699D2819a9d009bA375a0825b077385",
     image: "/projects/crystallized-illusions.png",
