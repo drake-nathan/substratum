@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-import { type ProjectSort, Status, projects } from "../../data/projects";
 import Card from "../LandingPage/Projects/Card";
 import ArtistTabBar from "./ArtistTabBar";
 import Collectors from "./Collectors";
+import { projects } from "data/projects";
 
 interface Props {
   artistAddress: string;

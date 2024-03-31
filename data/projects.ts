@@ -5,11 +5,7 @@ if (!blobRoot && env !== "test") {
   throw new Error("NEXT_PUBLIC_BLOB_ROOT is not defined");
 }
 
-export enum Status {
-  Closed = "Closed",
-  Minting = "Minting",
-  Upcoming = "Upcoming",
-}
+export type Status = "closed" | "minting" | "upcoming";
 
 export enum Artist {
   ImmutableComputer = "Immutable Computer",
@@ -84,7 +80,7 @@ export const projects: Project[] = [
     },
     projectSlug: "100x10x1-a-goerli",
     scriptType: "Solidity",
-    status: Status.Upcoming,
+    status: "upcoming",
     usesTransfers: false,
     website: "https://matto.xyz/project/100x10x1",
   },
@@ -110,7 +106,7 @@ export const projects: Project[] = [
     },
     projectSlug: "haiku",
     sansaSlug: "651d85db72a482be8d9417b2",
-    status: Status.Minting,
+    status: "minting",
     usesTransfers: false,
     website: "https://matto.xyz/project/freestyle-h-ai-ku/",
   },
@@ -140,7 +136,7 @@ export const projects: Project[] = [
     },
     projectSlug: "crystallized-illusions",
     scriptType: "p5",
-    status: Status.Closed,
+    status: "closed",
     useTokenName: true,
     usesTransfers: false,
     website: "https://matto.xyz",
@@ -168,7 +164,7 @@ export const projects: Project[] = [
     },
     projectSlug: "negative-carbon",
     scriptType: "p5.js",
-    status: Status.Minting,
+    status: "minting",
     usesTransfers: true,
     website: "http://immutablecomputer.com/carbon.html",
   },
@@ -200,7 +196,7 @@ export const projects: Project[] = [
     projectSlug: "mathare-memories",
     sansaSlug: "mathare-memories-by-matto",
     scriptType: "p5.js",
-    status: Status.Closed,
+    status: "closed",
     usesTransfers: true,
     website: "https://matto.xyz",
   },
@@ -229,7 +225,7 @@ export const projects: Project[] = [
     projectSlug: "texture-and-hues",
     sansaSlug: "texture-and-hues-by-matto",
     scriptType: "solidity",
-    status: Status.Closed,
+    status: "closed",
     usesTransfers: false,
     website: "https://matto.xyz",
   },
@@ -259,7 +255,7 @@ export const projects: Project[] = [
     projectSlug: "chainlife",
     sansaSlug: "chainlife-by-matto",
     scriptType: "p5.js",
-    status: Status.Minting,
+    status: "minting",
     usesTransfers: true,
     website: "https://matto.xyz",
   },
@@ -288,7 +284,7 @@ export const projects: Project[] = [
     },
     projectSlug: "blonks",
     sansaSlug: "blonks-by-matto",
-    status: Status.Closed,
+    status: "closed",
     usesTransfers: true,
     website: "https://matto.xyz",
   },

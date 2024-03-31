@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { type ProjectSort, Status, projects } from "../../../data/projects";
+import { type ProjectSort, projects } from "../../../data/projects";
 import Card from "./Card";
 import TabBar from "./TabBar";
 
@@ -13,13 +13,13 @@ const Grid = ({ width }: Props): React.JSX.Element => {
 
   const filteredProjects = projects.filter((project) => {
     if (activeTab === "minting") {
-      return project.status === Status.Minting;
+      return project.status === "minting";
     }
     if (activeTab === "upcoming") {
-      return project.status === Status.Upcoming;
+      return project.status === "upcoming";
     }
     if (activeTab === "closed") {
-      return project.status === Status.Closed;
+      return project.status === "closed";
     }
     return true;
   });
