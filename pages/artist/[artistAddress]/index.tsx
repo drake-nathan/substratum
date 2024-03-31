@@ -25,7 +25,7 @@ const Artist: NextPage = () => {
 
       // Would be thisInfo.bio when using data object returned by API
       setBio(
-        "a bio for an artist that takes up a bit more space so we know how much room we're really working with in a situation like this.",
+        "A bio for an artist that takes up a bit more space so we know how much room we're really working with in a situation like this.",
       );
     } else {
       setName("Artist doesn't exist");
