@@ -35,10 +35,3 @@ export const AboutCardTall = ({
     );
   }
 };
-
-AboutCardTall.defaultProps = {
-  bodyText: "Lorem Ipsum",
-  imgURL: "substratum/substratum.png",
-  reverse: false,
-  titleText: "Title",
-};
