@@ -3,11 +3,16 @@ import React from "react";
 interface Props {
   bodyText: string;
   imgURL: string;
-  reverse: boolean;
+  reverse?: boolean;
   titleText: string;
 }
 
-export const AboutCard = ({ bodyText, imgURL, reverse, titleText }: Props) => {
+export const AboutCard = ({
+  bodyText,
+  imgURL,
+  reverse = false,
+  titleText,
+}: Props) => {
   if (!reverse) {
     return (
       <div className="flex w-full flex-col border">
