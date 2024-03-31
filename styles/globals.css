@@ -152,3 +152,17 @@ p {
   font-family: "basic-sans", sans-serif;
   font-size: 1.25rem; /* 20px */
 }
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.375rem; /* 22px */
+  }
+
+  h2 {
+    font-size: 1.25rem; /* 38px */
+  }
+
+  p {
+    font-size: 1rem; /* 16px */
+  }
+}
