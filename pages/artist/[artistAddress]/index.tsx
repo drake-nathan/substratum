@@ -10,6 +10,7 @@ import { projects } from "data/projects";
 
 const Artist: NextPage = () => {
   const { artistAddress } = useRouter().query;
+
   const [name, setName] = useState("");
   const [bio, setBio] = useState("");
 
@@ -17,12 +18,12 @@ const Artist: NextPage = () => {
   // Find artist info from projects
   // useEffect for future database hookup
   useEffect(() => {
-    // Find an entry with matching address
+    // Find an entry with matching address and pull artist data
     const thisInfo = projects.find((p) => p.artistAddress === artistAddress);
     if (thisInfo) {
       setName(thisInfo.artist);
 
-      // Would be thisInfo.bio when account is updated
+      // Would be thisInfo.bio when using data object returned by API
       setBio(
         "a bio for an artist that takes up a bit more space so we know how much room we're really working with in a situation like this.",
       );
@@ -38,12 +39,12 @@ const Artist: NextPage = () => {
         <meta content="Deposit Testing" name="description" />
       </Head>
       <ArtistHead
-        artistAddress={artistAddress}
+        artistAddress={typeof artistAddress == "string" ? artistAddress : ""}
         artistBio={bio}
         artistName={name}
       />
       <ArtistContent
-        artistAddress="0xF8d9056db2C2189155bc25A30269dc5dDeD15d46"
+        artistAddress={typeof artistAddress == "string" ? artistAddress : ""}
         width={window.innerWidth}
       />
     </div>

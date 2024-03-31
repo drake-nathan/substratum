@@ -1,14 +1,14 @@
-interface OwnedItem {
+export interface OwnedItem {
   editionsOwned: number[];
   title: string;
 }
 
-interface CollectorData {
+export interface CollectorData {
   name: string;
   owned: OwnedItem[];
 }
 
-const collectorData: CollectorData[] = [
+export const collectorData: CollectorData[] = [
   {
     name: "collector.eth",
     owned: [

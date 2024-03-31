@@ -10,7 +10,7 @@ interface Props {
   width: number;
 }
 
-const ArtistContent = ({ artistAddress, width }: Props): React.JSX.Element => {
+const ArtistContent = ({ artistAddress, width }: Props) => {
   const [mainContent, setMainContent] = useState<string>("projects");
 
   if (mainContent == "projects") {

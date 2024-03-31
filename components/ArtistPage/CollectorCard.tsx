@@ -32,7 +32,7 @@ const CollectorCard = ({ collectorName, projects }: Props) => {
   };
 
   return (
-    <div className="mb-10 flex h-fit w-full flex-col border-y border-l md:w-4/5 md:flex-row">
+    <div className="mb-10 flex h-fit w-full flex-col border-y border-l md:w-4/5 md:flex-row md:border-l-0">
       <div className="flex w-full items-center justify-center border-b md:w-1/4 md:border-b-0 md:border-r">
         <p className="font-bold">{collectorName}</p>
       </div>
