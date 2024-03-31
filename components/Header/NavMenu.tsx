@@ -11,11 +11,11 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "components/shadcn/NavigationMenu";
-import { artistUrls, projects } from "data/projects";
-import { cn } from "utils/helpers";
+import { projects } from "data/projects";
+import { cn, deKebabify } from "utils/helpers";
 
-const artists = projects.map(({ artist }) => artist);
-const uniqueArtists = [...new Set(artists)];
+const artistSlugs = projects.map(({ artistSlug }) => artistSlug);
+const uniqueArtists = [...new Set(artistSlugs)];
 
 export const NavMenu = () => {
   return (
@@ -50,18 +50,11 @@ export const NavMenu = () => {
           <NavigationMenuTrigger>Artists</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-1 p-2 md:w-[500px] md:grid-cols-2">
-              {uniqueArtists.map((artist) => {
-                const url = artistUrls[artist];
-
+              {uniqueArtists.map((slug) => {
                 return (
-                  <ExternalListItem
-                    href={url}
-                    key={artist}
-                    rel="noreferrer"
-                    target="_blank"
-                  >
-                    {artist}
-                  </ExternalListItem>
+                  <InternalListItem href={`/artist/${slug}`} key={slug}>
+                    {deKebabify(slug)}
+                  </InternalListItem>
                 );
               })}
             </ul>

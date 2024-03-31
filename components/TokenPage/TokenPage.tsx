@@ -15,7 +15,7 @@ interface Props {
 }
 
 const TokenPage = ({ project, tokenId }: Props): JSX.Element => {
-  const { artist, name, projectSlug, website } = project;
+  const { artistSlug: artist, name, projectSlug, website } = project;
 
   const projectLink = `/project/${projectSlug}`;
 

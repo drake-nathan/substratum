@@ -6,7 +6,7 @@ import Collectors from "./Collectors";
 import { projects } from "data/projects";
 
 interface Props {
-  artistAddress: string;
+  artistAddress: string | undefined;
   width: number;
 }
 
