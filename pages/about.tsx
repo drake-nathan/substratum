@@ -2,9 +2,9 @@ import type { NextPage } from "next";
 
 import Head from "next/head";
 
-import { AboutCard } from "components/AboutCard";
-import { AboutCardTall } from "components/AboutCardTall";
-import { AboutCardWide } from "components/AboutCardWide";
+import { AboutCard } from "components/AboutPage/AboutCard";
+import { AboutCardTall } from "components/AboutPage/AboutCardTall";
+import { AboutCardWide } from "components/AboutPage/AboutCardWide";
 
 const DepositTest: NextPage = () => {
   return (
