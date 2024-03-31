@@ -12,14 +12,14 @@ const Grid = ({ width }: Props): React.JSX.Element => {
   const [activeTab, setActiveTab] = useState<ProjectSort>("all");
 
   const filteredProjects = projects.filter((project) => {
-    if (activeTab === "minting") {
-      return project.status === "minting";
+    if (activeTab === "Minting") {
+      return project.status === "Minting";
     }
-    if (activeTab === "upcoming") {
-      return project.status === "upcoming";
+    if (activeTab === "Upcoming") {
+      return project.status === "Upcoming";
     }
-    if (activeTab === "closed") {
-      return project.status === "closed";
+    if (activeTab === "Closed") {
+      return project.status === "Closed";
     }
     return true;
   });

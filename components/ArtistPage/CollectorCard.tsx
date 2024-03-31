@@ -23,7 +23,9 @@ const CollectorCard = ({ collectorName, projects }: Props) => {
         <div className="my-2 w-fit max-w-[50%]">
           {editionsOwned.map((e, index) => (
             <span key={index}>
-              {index == editionsOwned.length - 1 ? "#" + e : "#" + e + ", "}
+              {index == editionsOwned.length - 1 ?
+                "#" + e.toString()
+              : "#" + e.toString() + ", "}
             </span>
           ))}
         </div>

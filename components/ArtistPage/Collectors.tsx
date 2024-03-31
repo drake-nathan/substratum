@@ -1,7 +1,7 @@
 import React from "react";
 
 import CollectorCard from "./CollectorCard";
-import collectorData from "data/collectors";
+import { collectorData } from "data/collectors";
 
 interface OwnedItem {
   editionsOwned: number[];

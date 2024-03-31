@@ -29,22 +29,22 @@ const TabBar = ({
       </Tab>
 
       <Tab
-        active={activeTab === "minting"}
-        onClick={() => setActiveTab("minting")}
+        active={activeTab === "Minting"}
+        onClick={() => setActiveTab("Minting")}
       >
         Minting
       </Tab>
 
       <Tab
-        active={activeTab === "upcoming"}
-        onClick={() => setActiveTab("upcoming")}
+        active={activeTab === "Upcoming"}
+        onClick={() => setActiveTab("Upcoming")}
       >
         Upcoming
       </Tab>
 
       <Tab
-        active={activeTab === "closed"}
-        onClick={() => setActiveTab("closed")}
+        active={activeTab === "Closed"}
+        onClick={() => setActiveTab("Closed")}
       >
         Closed
       </Tab>

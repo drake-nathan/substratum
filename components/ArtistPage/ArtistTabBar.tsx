@@ -1,7 +1,3 @@
-import { useState } from "react";
-
-import type { ProjectSort } from "../../data/projects";
-
 import Tab from "../LandingPage/Projects/Tab";
 
 interface Props {
