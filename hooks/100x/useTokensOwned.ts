@@ -5,7 +5,7 @@ import { z } from "zod";
 import { useReadOneHundredXTokensOwned } from "../../wagmi/generated";
 
 export const useTokensOwned = (wallet: Address, vault: Address | undefined) => {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment, @typescript-eslint/prefer-ts-expect-error
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   const { data, error, isError, isSuccess } = useReadOneHundredXTokensOwned({
     args: [vault ?? wallet],

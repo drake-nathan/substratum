@@ -1,6 +1,7 @@
 import {
   type ReactElement,
   createContext,
+  useCallback,
   useContext,
   useEffect,
   useState,
@@ -39,23 +40,23 @@ export const ThemeProvider = ({
   // TODO: re-check responsiveness here
   const isMiniCard = false;
 
+  const root = window.document.documentElement;
+  const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+  const handleChange = useCallback(() => {
+    root.classList.remove("light", "dark");
+
+    if (theme === "system") {
+      const systemTheme = mediaQuery.matches ? "dark" : "light";
+      setIsDark(systemTheme === "dark");
+      root.classList.add(systemTheme);
+    } else {
+      setIsDark(theme === "dark");
+      root.classList.add(theme);
+    }
+  }, [mediaQuery.matches, root.classList, theme]);
+
   useEffect(() => {
-    const root = window.document.documentElement;
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-
-    const handleChange = () => {
-      root.classList.remove("light", "dark");
-
-      if (theme === "system") {
-        const systemTheme = mediaQuery.matches ? "dark" : "light";
-        setIsDark(systemTheme === "dark");
-        root.classList.add(systemTheme);
-      } else {
-        setIsDark(theme === "dark");
-        root.classList.add(theme);
-      }
-    };
-
     handleChange();
 
     mediaQuery.addEventListener("change", handleChange);
@@ -63,7 +64,7 @@ export const ThemeProvider = ({
     return () => {
       mediaQuery.removeEventListener("change", handleChange);
     };
-  }, [theme]);
+  }, [handleChange, mediaQuery, theme]);
 
   const value: ThemeProviderState = {
     isDark,
