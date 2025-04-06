@@ -16,9 +16,9 @@ interface Props {
   token: IToken;
 }
 
-const TokenModule = ({ project, token }: Props): JSX.Element => {
+const TokenModule = ({ project, token }: Props): React.JSX.Element => {
   const {
-    additional_info,
+    additional_info: additionalInfo,
     attributes,
     description,
     generator_url: generatorUrl,
@@ -65,9 +65,9 @@ const TokenModule = ({ project, token }: Props): JSX.Element => {
           style={{ gridArea: "traits" }}
         >
           <TokenInfo
-            additionalDescription={additional_info?.additional_description}
+            additionalDescription={additionalInfo?.additional_description}
             description={description}
-            poem={additional_info?.poem}
+            poem={additionalInfo?.poem}
             projectSlug={projectSlug}
             traits={attributes}
           />

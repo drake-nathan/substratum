@@ -51,6 +51,7 @@ const ConnectButton = ({
         className,
       )}
       onClick={clickHandler}
+      type="button"
       {...props}
     >
       {address && isClient ?

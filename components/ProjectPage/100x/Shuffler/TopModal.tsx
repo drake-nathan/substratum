@@ -30,7 +30,7 @@ const TopModal = ({
   setShowModal,
   tokenId,
   vault,
-}: Props): JSX.Element => {
+}: Props): React.JSX.Element => {
   const { launchAlertModal, launchSuccessModal } = useModal();
   const { isSuccess, ownerAddress } = useTokenOwnerOf(tokenId);
 

@@ -23,11 +23,11 @@ const Info = ({
   projectSlug,
   tab,
   traits,
-}: Props): JSX.Element => {
+}: Props): React.JSX.Element => {
   // TODO: re-check responsiveness here
   const maxTraitLength = 20;
 
-  const infoSection: Record<InfoTab, JSX.Element> = {
+  const infoSection: Record<InfoTab, React.JSX.Element> = {
     description: (
       <p className="mb-4 text-justify max-md:text-sm">
         {projectSlug === "haiku" && poem ? formatNewLines(poem) : description}
@@ -79,6 +79,7 @@ const Info = ({
 
               {isTraitShortened ?
                 <Tooltip
+                  // eslint-disable-next-line @typescript-eslint/no-deprecated
                   anchorId={name}
                   content={value.toString()}
                   positionStrategy="fixed"

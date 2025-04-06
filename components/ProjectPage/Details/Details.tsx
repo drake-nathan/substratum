@@ -18,7 +18,7 @@ const getRelatedCollections = (project: Project) => {
   return initialProjects;
 };
 
-const Details = ({ project }: { project: Project }): JSX.Element => {
+const Details = ({ project }: { project: Project }): React.JSX.Element => {
   const {
     aspectRatio,
     name,

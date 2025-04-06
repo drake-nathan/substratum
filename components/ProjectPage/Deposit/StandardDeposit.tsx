@@ -30,15 +30,16 @@ const StandardDeposit = () => {
       <h2 className="mb-4 text-center text-3xl">Contract Interactions</h2>
       <h6 className="mb-4 font-bold">Standard Deposit</h6>
       <p>
-        You can set an address to be the recipient of this project's token (0x
-        form only - no ENS). If left blank, the depositing account will be set
-        as recipient. Please consider using a vault that is delegated to a
+        You can set an address to be the recipient of this project&apos;s token
+        (0x form only - no ENS). If left blank, the depositing account will be
+        set as recipient. Please consider using a vault that is delegated to a
         depositing account. The 100x10x1-A interactive functions support
         delegation through delegate.xyz.
       </p>
 
       <form
         className="mt-5 grid w-full min-w-[600px] grid-cols-[65%,35%] dark:border-3 dark:border-white max-[650px]:min-w-0 max-[650px]:max-w-[365px] max-[650px]:grid-cols-[70%,30%]"
+        // eslint-disable-next-line @typescript-eslint/no-misused-promises
         onSubmit={handleSubmit(onValid, onInvalid)}
       >
         <input

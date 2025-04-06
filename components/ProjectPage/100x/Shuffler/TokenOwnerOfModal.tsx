@@ -15,7 +15,7 @@ const TokenOwnerOfModal = ({
   address,
   setShowModal,
   tokenId,
-}: Props): JSX.Element => {
+}: Props): React.JSX.Element => {
   const { ownerAddress } = useTokenOwnerOf(Number(tokenId));
 
   const getText = () => {

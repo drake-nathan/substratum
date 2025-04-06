@@ -20,7 +20,7 @@ const TokenSearch = ({
   refetch,
   setTokenId,
   tokenId,
-}: Props): JSX.Element => {
+}: Props): React.JSX.Element => {
   const { isZeroIndexed, maxSupply, projectSlug } = project;
 
   const currentSupply = useCurrentSupply(projectSlug);

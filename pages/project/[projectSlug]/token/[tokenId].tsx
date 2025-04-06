@@ -80,7 +80,7 @@ const Home: NextPage = () => {
     setIsTokenIdValid(true);
   }, [tokenId, project, currentSupply]);
 
-  const renderTokenPage = (): JSX.Element => {
+  const renderTokenPage = (): React.JSX.Element => {
     if (project && tokenId !== null && isTokenIdValid) {
       return <TokenPage project={project} tokenId={tokenId} />;
     }

@@ -77,6 +77,7 @@ const Shuffler = ({
             className="flex h-full w-[50px] justify-center bg-icon-light hover:bg-icon-dark"
             id="view-token-owner"
             onClick={handleViewClick}
+            type="button"
           >
             <a
               className="self-center"

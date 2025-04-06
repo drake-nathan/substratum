@@ -18,6 +18,7 @@ const Tab = ({
         active ? "border-black dark:border-white" : "border-transparent",
         className,
       )}
+      type="button"
       {...props}
     >
       {children}

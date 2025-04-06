@@ -13,7 +13,11 @@ interface Props {
   text: string;
 }
 
-const SuccessModal = ({ hash, setShowModal, text }: Props): JSX.Element => {
+const SuccessModal = ({
+  hash,
+  setShowModal,
+  text,
+}: Props): React.JSX.Element => {
   const chainId = useChainId();
 
   const link = getEtherscanUrl({ chainId, type: "tx", value: hash });

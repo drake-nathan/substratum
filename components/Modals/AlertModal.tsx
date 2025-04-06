@@ -9,7 +9,7 @@ interface Props {
   text: string;
 }
 
-const AlertModal = ({ setShowModal, text }: Props): JSX.Element => {
+const AlertModal = ({ setShowModal, text }: Props): React.JSX.Element => {
   return (
     <ModalBase setShowModal={setShowModal}>
       <p className="max-w-[30ch] text-center font-semibold">{text}</p>

@@ -6,7 +6,7 @@ interface Props {
   tab: "details" | "mint" | "tokens";
 }
 
-const Tabs = ({ projectSlug, setTab, tab }: Props): JSX.Element => {
+const Tabs = ({ projectSlug, setTab, tab }: Props): React.JSX.Element => {
   const is100x =
     projectSlug === "100x10x1-a-goerli" || projectSlug === "100x10x1-a";
 

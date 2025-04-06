@@ -15,7 +15,7 @@ const LegendCard = ({
   isVisible,
   method,
   toggleMatrixProp,
-}: Props): JSX.Element => {
+}: Props): React.JSX.Element => {
   return (
     <>
       <div

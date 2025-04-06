@@ -11,8 +11,8 @@ const DepositHead = () => {
 
   const allowlist = useAllowlist();
 
-  const allowListJsx = allowlist?.map((address, index) => (
-    <li className="max-md:text-sm" key={index}>
+  const allowListJsx = allowlist?.map((address) => (
+    <li className="max-md:text-sm" key={address}>
       {address}
     </li>
   ));

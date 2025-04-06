@@ -62,6 +62,7 @@ const MarketIcons = ({ project, tokenId }: Props): React.JSX.Element => {
             />
 
             <Tooltip
+              // eslint-disable-next-line @typescript-eslint/no-deprecated
               anchorId={id}
               content={tooltip}
               place={isToken ? "top" : "bottom"}

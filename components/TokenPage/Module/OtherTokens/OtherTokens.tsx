@@ -13,7 +13,7 @@ interface Props {
   token: IToken;
 }
 
-const OtherTokens = ({ project, token }: Props): JSX.Element => {
+const OtherTokens = ({ project, token }: Props): React.JSX.Element => {
   const { projectSlug } = project;
   const { token_id: tokenId } = token;
 

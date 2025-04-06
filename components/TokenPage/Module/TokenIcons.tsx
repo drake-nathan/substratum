@@ -10,7 +10,7 @@ interface Props {
   token: IToken;
 }
 
-const TokenIcons = ({ project, token }: Props): JSX.Element => {
+const TokenIcons = ({ project, token }: Props): React.JSX.Element => {
   const {
     generator_url: generatorUrl,
     image,
@@ -41,6 +41,7 @@ const TokenIcons = ({ project, token }: Props): JSX.Element => {
           <MdOutlinePhoto className="text-2xl" id="fullscreen" />
 
           <Tooltip
+            // eslint-disable-next-line @typescript-eslint/no-deprecated
             anchorId="fullscreen"
             content="View full screen"
             positionStrategy="fixed"
@@ -53,6 +54,7 @@ const TokenIcons = ({ project, token }: Props): JSX.Element => {
           <MdMobileFriendly className="text-2xl" id="mobile" />
 
           <Tooltip
+            // eslint-disable-next-line @typescript-eslint/no-deprecated
             anchorId="mobile"
             content="Launch generator with mobile controls"
             positionStrategy="fixed"

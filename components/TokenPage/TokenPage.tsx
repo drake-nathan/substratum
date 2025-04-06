@@ -14,7 +14,7 @@ interface Props {
   tokenId: number;
 }
 
-const TokenPage = ({ project, tokenId }: Props): JSX.Element => {
+const TokenPage = ({ project, tokenId }: Props): React.JSX.Element => {
   const { artist, name, projectSlug, website } = project;
 
   const projectLink = `/project/${projectSlug}`;
@@ -33,7 +33,7 @@ const TokenPage = ({ project, tokenId }: Props): JSX.Element => {
     void refetch();
   }, [refetch, tokenId]);
 
-  const renderToken = (): JSX.Element => {
+  const renderToken = (): React.JSX.Element => {
     if (isLoading) {
       return <h1>Loading...</h1>;
     }

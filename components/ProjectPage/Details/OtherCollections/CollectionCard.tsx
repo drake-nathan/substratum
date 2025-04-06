@@ -8,7 +8,7 @@ interface Props {
   project: Project;
 }
 
-const Card = ({ project }: Props): JSX.Element => {
+const Card = ({ project }: Props): React.JSX.Element => {
   const {
     artist,
     externalUrl,

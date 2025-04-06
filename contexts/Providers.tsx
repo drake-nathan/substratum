@@ -13,7 +13,7 @@ interface Props {
   children: React.ReactNode;
 }
 
-const Providers = ({ children }: Props): JSX.Element => {
+const Providers = ({ children }: Props): React.JSX.Element => {
   const queryClient = new QueryClient();
 
   return (

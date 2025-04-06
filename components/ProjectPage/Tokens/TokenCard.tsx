@@ -7,7 +7,7 @@ interface Props {
   token: TokenAbbr;
 }
 
-const TokenCard = ({ isTokenIdInTitle, token }: Props): JSX.Element => {
+const TokenCard = ({ isTokenIdInTitle, token }: Props): React.JSX.Element => {
   const {
     image,
     image_mid: imageMid,

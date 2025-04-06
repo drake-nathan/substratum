@@ -23,7 +23,7 @@ const TokenMenu = ({
   setTokenSearchId,
   sortDir,
   tokenSearchId,
-}: Props): JSX.Element => {
+}: Props): React.JSX.Element => {
   return (
     <div className="my-12 flex w-full flex-nowrap items-center justify-between gap-4 bg-offset p-4 max-md:my-4 max-md:py-2">
       <TokenSearch
@@ -63,7 +63,10 @@ const TokenMenu = ({
           </>
         )} */}
 
-        <button className="rounded-full p-1 text-2xl font-light text-hover-light hover:shadow-even">
+        <button
+          className="rounded-full p-1 text-2xl font-light text-hover-light hover:shadow-even"
+          type="button"
+        >
           {sortDir === "asc" ?
             <CgSortZa
               onClick={() => {

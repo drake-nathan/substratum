@@ -34,6 +34,7 @@ const VaultInput = ({ setVault, vault }: Props): React.JSX.Element => {
   return (
     <form
       className="flex shrink grow basis-full"
+      // eslint-disable-next-line @typescript-eslint/no-misused-promises
       onSubmit={handleSubmit(onValid, onInvalid)}
       style={{ gridArea: "vault" }}
     >

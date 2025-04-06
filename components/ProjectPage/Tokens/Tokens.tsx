@@ -14,7 +14,7 @@ interface Props {
   projectSlug: string;
 }
 
-const Tokens = ({ project, projectSlug }: Props): JSX.Element => {
+const Tokens = ({ project, projectSlug }: Props): React.JSX.Element => {
   const { isTokenIdInTitle, usesTransfers } = project;
 
   // infinite scroll state

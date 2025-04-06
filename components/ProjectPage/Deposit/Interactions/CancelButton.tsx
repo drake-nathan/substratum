@@ -31,6 +31,7 @@ const CancelButton = (): React.JSX.Element => {
       <button
         className="mt-5 h-16 w-96 bg-black text-lg font-bold uppercase text-white hover:bg-hover-light dark:bg-white dark:text-black dark:hover:bg-hover-dark max-sm:w-full max-sm:p-2 max-sm:text-base max-sm:font-semibold"
         onClick={handleClick}
+        type="button"
       >
         Cancel Deposit
       </button>

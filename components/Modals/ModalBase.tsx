@@ -5,7 +5,7 @@ interface Props {
   setShowModal: SetState<boolean>;
 }
 
-const ModalBase = ({ children, setShowModal }: Props): JSX.Element => {
+const ModalBase = ({ children, setShowModal }: Props): React.JSX.Element => {
   return (
     <>
       <div

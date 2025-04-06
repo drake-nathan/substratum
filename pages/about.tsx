@@ -90,14 +90,14 @@ const DepositTest: NextPage = () => {
         <div className="my-10 flex h-fit w-full flex-col justify-center text-center md:w-2/3">
           <h2>Join The Substratum Community</h2>
           <p>
-            Whether you're an artist, collector, or investor, we invite you to
-            join the Substratum community. By joining our platform, you'll have
-            access to a vibrant community of like-minded individuals who share
-            your passion for art and NFTs. You'll also have the opportunity to
-            showcase your work, discover new artists, and expand your
-            collection. We believe that the Substratum community is one of the
-            strongest and most supportive in the NFT world, and we're excited to
-            welcome you to it.
+            Whether you&apos;re an artist, collector, or investor, we invite you
+            to join the Substratum community. By joining our platform,
+            you&apos;ll have access to a vibrant community of like-minded
+            individuals who share your passion for art and NFTs. You&apos;ll
+            also have the opportunity to showcase your work, discover new
+            artists, and expand your collection. We believe that the Substratum
+            community is one of the strongest and most supportive in the NFT
+            world, and we&apos;re excited to welcome you to it.
           </p>
         </div>
       </div>

@@ -20,7 +20,7 @@ const Web3Modal = ({
   children,
 }: {
   children: React.ReactNode;
-}): JSX.Element => {
+}): React.JSX.Element => {
   const { isDark } = useTheme();
   const { setThemeMode } = useWeb3ModalTheme();
 
