@@ -1,5 +1,6 @@
-import { useReadOneHundredXOwnerOf } from "../../wagmi/generated";
 import { zodAddress } from "utils/zod";
+
+import { useReadOneHundredXOwnerOf } from "../../wagmi/generated";
 
 export const useTokenOwnerOf = (tokenId: number) => {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment

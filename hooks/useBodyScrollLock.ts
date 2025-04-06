@@ -9,7 +9,9 @@ const useBodyScrollLock = () => {
     bodyStyle.overflowY = isLocked ? "hidden" : "auto";
   }, [isLocked, bodyStyle]);
 
-  const toggle = () => setIslocked(!isLocked);
+  const toggle = () => {
+    setIslocked(!isLocked);
+  };
 
   return [isLocked, toggle];
 };

@@ -1,11 +1,10 @@
 import { useWeb3Modal, useWeb3ModalState } from "@web3modal/wagmi/react";
-import { useEffect, useState } from "react";
-import { formatUnits } from "viem";
-import { useAccount, useBalance, useEnsName } from "wagmi";
-
 import { useIsClient } from "hooks/useIsClient";
+import { useEffect, useState } from "react";
 import { cn } from "utils/helpers";
 import { shortenAddress, shortenEth, shortenText } from "utils/shorteners";
+import { formatUnits } from "viem";
+import { useAccount, useBalance, useEnsName } from "wagmi";
 
 type ButtonProps = Omit<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
@@ -27,8 +26,11 @@ const ConnectButton = ({
   const [accountText, setAccountText] = useState<string>();
 
   useEffect(() => {
-    if (ens) setAccountText(shortenText(ens));
-    else if (address) setAccountText(shortenAddress(address));
+    if (ens) {
+      setAccountText(shortenText(ens));
+    } else if (address) {
+      setAccountText(shortenAddress(address));
+    }
   }, [address, ens]);
 
   const clickHandler = () => {
@@ -54,7 +56,7 @@ const ConnectButton = ({
       {address && isClient ?
         <div className="flex flex-col items-center gap-2">
           <p>{accountText}</p>
-          <p>{eth && `${eth} ${balance?.symbol}`}</p>
+          <p>{eth ? `${eth} ${balance?.symbol}` : null}</p>
         </div>
       : <h3>Connect</h3>}
     </button>

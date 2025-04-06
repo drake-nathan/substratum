@@ -1,6 +1,6 @@
-import { CgSortAz, CgSortZa } from "react-icons/cg";
-
 import type { Project } from "data/projects";
+
+import { CgSortAz, CgSortZa } from "react-icons/cg";
 
 import TokenSearch from "./TokenSearch";
 
@@ -65,8 +65,17 @@ const TokenMenu = ({
 
         <button className="rounded-full p-1 text-2xl font-light text-hover-light hover:shadow-even">
           {sortDir === "asc" ?
-            <CgSortZa onClick={() => setSortDir("desc")} />
-          : <CgSortAz onClick={() => setSortDir("asc")} />}
+            <CgSortZa
+              onClick={() => {
+                setSortDir("desc");
+              }}
+            />
+          : <CgSortAz
+              onClick={() => {
+                setSortDir("asc");
+              }}
+            />
+          }
         </button>
       </div>
     </div>

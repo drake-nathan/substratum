@@ -1,11 +1,11 @@
+import { useDepositInitiative } from "hooks/deposit/useDepositInitiative";
+import { useDepositStatus } from "hooks/deposit/useDepositStatus";
+import { useModal } from "hooks/useModal";
 import React, { useState } from "react";
 import { formatEther } from "viem";
 import { useAccount } from "wagmi";
 
 import TokenGateModal from "./TokenGateModal";
-import { useDepositInitiative } from "hooks/deposit/useDepositInitiative";
-import { useDepositStatus } from "hooks/deposit/useDepositStatus";
-import { useModal } from "hooks/useModal";
 
 const TokenGateButton = ({
   tokenId,
@@ -47,9 +47,9 @@ const TokenGateButton = ({
         ETH
       </button>
 
-      {showModal && tokenId && (
+      {showModal && tokenId ?
         <TokenGateModal setShowModal={setShowModal} tokenId={tokenId} />
-      )}
+      : null}
     </>
   );
 };

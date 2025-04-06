@@ -24,27 +24,38 @@ const TabBar = ({
       className="flex items-center gap-2 sm:gap-12"
       id="project-tabs-container"
     >
-      <Tab active={activeTab === "all"} onClick={() => setActiveTab("all")}>
+      <Tab
+        active={activeTab === "all"}
+        onClick={() => {
+          setActiveTab("all");
+        }}
+      >
         All
       </Tab>
 
       <Tab
         active={activeTab === "minting"}
-        onClick={() => setActiveTab("minting")}
+        onClick={() => {
+          setActiveTab("minting");
+        }}
       >
         Minting
       </Tab>
 
       <Tab
         active={activeTab === "upcoming"}
-        onClick={() => setActiveTab("upcoming")}
+        onClick={() => {
+          setActiveTab("upcoming");
+        }}
       >
         Upcoming
       </Tab>
 
       <Tab
         active={activeTab === "closed"}
-        onClick={() => setActiveTab("closed")}
+        onClick={() => {
+          setActiveTab("closed");
+        }}
       >
         Closed
       </Tab>

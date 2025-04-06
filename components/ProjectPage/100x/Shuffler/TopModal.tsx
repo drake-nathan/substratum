@@ -1,20 +1,20 @@
-import { useEffect, useState } from "react";
-import {
-  type Address,
-  type Hash,
-  TransactionExecutionError,
-  formatEther,
-  isAddressEqual,
-} from "viem";
-import { useWaitForTransactionReceipt } from "wagmi";
-
 import type { SetState } from "utils/types";
 
-import { methodDescriptions } from "./methods";
 import TransactionModal from "components/Modals/TransactionModal";
 import { useTokenOwnerOf } from "hooks/100x/useTokenOwnerOf";
 import { useTop } from "hooks/100x/useTop";
 import { useModal } from "hooks/useModal";
+import { useEffect, useState } from "react";
+import {
+  type Address,
+  formatEther,
+  type Hash,
+  isAddressEqual,
+  TransactionExecutionError,
+} from "viem";
+import { useWaitForTransactionReceipt } from "wagmi";
+
+import { methodDescriptions } from "./methods";
 
 interface Props {
   address: Address;
@@ -51,7 +51,9 @@ const TopModal = ({
 
   const handleError = (error: Error) => {
     // This error is handled in the transaction modal
-    if (isSuccess && !isTokenOwner) return;
+    if (isSuccess && !isTokenOwner) {
+      return;
+    }
 
     if (
       error instanceof TransactionExecutionError &&
@@ -59,8 +61,11 @@ const TopModal = ({
     ) {
       setShowModal(false);
     } else {
-      if (vault) launchAlertModal("Vault/delegate may be invalid.");
-      else launchAlertModal("Something went wrong, please try again.");
+      if (vault) {
+        launchAlertModal("Vault/delegate may be invalid.");
+      } else {
+        launchAlertModal("Something went wrong, please try again.");
+      }
       setShowModal(false);
     }
   };

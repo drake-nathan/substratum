@@ -1,8 +1,8 @@
+import { useAllowlist } from "hooks/deposit/useDepositAllowlist";
 import { useState } from "react";
 import { RxCaretLeft, RxCaretRight } from "react-icons/rx";
 
 import { Description, Headers, SubHeaders } from "./constants";
-import { useAllowlist } from "hooks/deposit/useDepositAllowlist";
 
 const DepositHead = () => {
   const [headerText, setHeaderText] = useState(Headers[0]);

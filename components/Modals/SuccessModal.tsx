@@ -1,12 +1,11 @@
+import type { SetState } from "utils/types";
 import type { Hash } from "viem";
 
-import { useChainId } from "wagmi";
-
-import type { SetState } from "utils/types";
-
-import ModalBase from "./ModalBase";
 import Button from "components/Button";
 import { getEtherscanUrl } from "utils/helpers";
+import { useChainId } from "wagmi";
+
+import ModalBase from "./ModalBase";
 
 interface Props {
   hash: Hash;
@@ -33,7 +32,11 @@ const SuccessModal = ({ hash, setShowModal, text }: Props): JSX.Element => {
       </a>
 
       <div className="flex items-center justify-around">
-        <Button onClick={() => setShowModal(false)}>
+        <Button
+          onClick={() => {
+            setShowModal(false);
+          }}
+        >
           <h4>Close</h4>
         </Button>
       </div>

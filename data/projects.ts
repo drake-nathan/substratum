@@ -50,8 +50,8 @@ export interface Project {
   sansaSlug?: string;
   scriptType?: string;
   status: Status;
-  useTokenName?: boolean;
   usesTransfers: boolean;
+  useTokenName?: boolean;
   website: string;
 }
 
@@ -139,8 +139,8 @@ export const projects: Project[] = [
     projectSlug: "crystallized-illusions",
     scriptType: "p5",
     status: Status.Closed,
-    useTokenName: true,
     usesTransfers: false,
+    useTokenName: true,
     website: "https://matto.xyz",
   },
   {

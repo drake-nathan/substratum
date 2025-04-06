@@ -1,6 +1,6 @@
-import React from "react";
-
 import type { SetState } from "utils/types";
+
+import React from "react";
 
 import ActionArea from "./ActionArea";
 import ModalBase from "./ModalBase";
@@ -28,11 +28,11 @@ const TransactionModal = ({
 
       <p className="max-w-[30ch] text-center font-semibold">{text}</p>
 
-      {subText && (
+      {subText ?
         <p className="text-center text-hover-light dark:text-hover-dark">
           {subText}
         </p>
-      )}
+      : null}
 
       <div className="flex items-center justify-around">
         <ActionArea error={error} handleClick={onProceed} loading={loading} />

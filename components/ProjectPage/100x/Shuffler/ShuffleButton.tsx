@@ -1,13 +1,13 @@
+import BigButton from "components/BigButton";
+import { useMethodFees } from "hooks/100x/useMethodFees";
+import { useModal } from "hooks/useModal";
 import React, { useState } from "react";
 import { isAddress } from "viem";
 import { useAccount } from "wagmi";
 
 import { useReadOneHundredXShuffleable } from "../../../../wagmi/generated";
-import ShuffleModal from "./ShuffleModal";
 import { type Method, methods } from "./methods";
-import BigButton from "components/BigButton";
-import { useMethodFees } from "hooks/100x/useMethodFees";
-import { useModal } from "hooks/useModal";
+import ShuffleModal from "./ShuffleModal";
 
 interface Props {
   method: Method;
@@ -56,18 +56,20 @@ const ShuffleButton = ({ method, vault }: Props): React.JSX.Element => {
         {method}
       </BigButton>
 
-      {address &&
+      {(
+        address &&
         methodFees &&
         showShuffleModal &&
-        (vault === "" || isAddress(vault)) && (
-          <ShuffleModal
-            address={address}
-            method={method}
-            methodFee={methodFees[methodId]}
-            setShowModal={setShowShuffleModal}
-            vault={vault || undefined}
-          />
-        )}
+        (vault === "" || isAddress(vault))
+      ) ?
+        <ShuffleModal
+          address={address}
+          method={method}
+          methodFee={methodFees[methodId]}
+          setShowModal={setShowShuffleModal}
+          vault={vault || undefined}
+        />
+      : null}
     </>
   );
 };

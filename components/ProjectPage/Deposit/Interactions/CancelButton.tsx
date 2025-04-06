@@ -1,9 +1,9 @@
+import { useDepositStatus } from "hooks/deposit/useDepositStatus";
+import { useModal } from "hooks/useModal";
 import React, { useState } from "react";
 import { useAccount } from "wagmi";
 
 import CancelDepositModal from "./CancelModal";
-import { useDepositStatus } from "hooks/deposit/useDepositStatus";
-import { useModal } from "hooks/useModal";
 
 const CancelButton = (): React.JSX.Element => {
   const { address } = useAccount();
@@ -35,9 +35,9 @@ const CancelButton = (): React.JSX.Element => {
         Cancel Deposit
       </button>
 
-      {showCancelModal && (
+      {showCancelModal ?
         <CancelDepositModal setShowModal={setShowCancelModal} />
-      )}
+      : null}
     </>
   );
 };

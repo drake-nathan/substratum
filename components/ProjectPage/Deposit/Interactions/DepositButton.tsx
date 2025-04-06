@@ -1,13 +1,13 @@
+import { useAllowlist } from "hooks/deposit/useDepositAllowlist";
+import { useDepositInitiative } from "hooks/deposit/useDepositInitiative";
+import { useDepositStatus } from "hooks/deposit/useDepositStatus";
+import { useModal } from "hooks/useModal";
 import React, { useState } from "react";
 import { type Address, formatEther } from "viem";
 import { useAccount } from "wagmi";
 
 import DepositRecipentModal from "./DepositRecipentModal";
 import DepositSelfModal from "./DepositSelfModal";
-import { useAllowlist } from "hooks/deposit/useDepositAllowlist";
-import { useDepositInitiative } from "hooks/deposit/useDepositInitiative";
-import { useDepositStatus } from "hooks/deposit/useDepositStatus";
-import { useModal } from "hooks/useModal";
 
 const DepositButton = ({
   recipientAddress,
@@ -70,16 +70,16 @@ const DepositButton = ({
         ETH
       </button>
 
-      {showDepositSelfModal && (
+      {showDepositSelfModal ?
         <DepositSelfModal setShowModal={setShowDepositSelfModal} />
-      )}
+      : null}
 
-      {showDepositRecipentModal && (
+      {showDepositRecipentModal ?
         <DepositRecipentModal
           recipientAddress={recipientAddress as Address}
           setShowModal={setShowDepositSelfModal}
         />
-      )}
+      : null}
     </>
   );
 };

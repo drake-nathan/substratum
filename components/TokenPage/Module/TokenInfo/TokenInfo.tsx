@@ -1,8 +1,9 @@
+import type { IAttribute } from "services/azureApi/types";
+
 import { clsx } from "clsx";
 import { parseAsStringEnum, useQueryState } from "next-usequerystate";
 
 import type { InfoTab } from "./types";
-import type { IAttribute } from "services/azureApi/types";
 
 import Info from "./Info";
 
@@ -45,7 +46,7 @@ const TokenInfo = ({
           </h3>
         </button>
 
-        {additionalDescription && (
+        {additionalDescription ?
           <button
             className={clsx(
               tab === "more-info" &&
@@ -57,7 +58,7 @@ const TokenInfo = ({
               {projectSlug === "haiku" ? "AI Analysis" : "More Info"}
             </h3>
           </button>
-        )}
+        : null}
 
         <button
           className={clsx(

@@ -1,10 +1,9 @@
+import { useCurrentSupply } from "hooks/useCurrentSupply";
 import Link from "next/link";
 import React from "react";
+import { intlNumberFormat } from "utils/helpers";
 
 import type { Project } from "../../../data/projects";
-
-import { useCurrentSupply } from "hooks/useCurrentSupply";
-import { intlNumberFormat } from "utils/helpers";
 
 interface Props {
   project: Project;

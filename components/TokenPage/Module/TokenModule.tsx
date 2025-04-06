@@ -1,15 +1,15 @@
-import { clsx } from "clsx";
-
 import type { Project } from "data/projects";
 import type { IToken } from "services/azureApi/types";
+
+import { clsx } from "clsx";
+import { useCurrentSupply } from "hooks/useCurrentSupply";
+import { intlNumberFormat } from "utils/helpers";
 
 import BottomBar from "./BottomBar";
 import OtherTokens from "./OtherTokens/OtherTokens";
 import TokenImage from "./TokenImage";
 import TokenInfo from "./TokenInfo/TokenInfo";
 import st from "./tokenModule.module.css";
-import { useCurrentSupply } from "hooks/useCurrentSupply";
-import { intlNumberFormat } from "utils/helpers";
 
 interface Props {
   project: Project;
@@ -79,7 +79,7 @@ const TokenModule = ({ project, token }: Props): JSX.Element => {
         >
           <h3>
             {isZeroIndexed ? tokenId + 1 : tokenId} of{" "}
-            {currentSupply && intlNumberFormat(currentSupply)}
+            {currentSupply ? intlNumberFormat(currentSupply) : null}
           </h3>
           {/* TODO needs api data for transactions on a token */}
           {/* <p>Minted Apr 3, 2023, 9:23pm GMT-5</p> */}

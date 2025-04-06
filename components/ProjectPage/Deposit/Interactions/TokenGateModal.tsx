@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { type Hash, TransactionExecutionError } from "viem";
-import { useWaitForTransactionReceipt } from "wagmi";
-
 import type { SetState } from "utils/types";
 
 import TransactionModal from "components/Modals/TransactionModal";
 import { useTokenGateDeposit } from "hooks/deposit/useTokenGateDeposit";
 import { useModal } from "hooks/useModal";
+import React, { useEffect, useState } from "react";
+import { type Hash, TransactionExecutionError } from "viem";
+import { useWaitForTransactionReceipt } from "wagmi";
 
 const TokenGateModal = ({
   setShowModal,

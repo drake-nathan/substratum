@@ -1,9 +1,8 @@
 import type { Hash } from "viem";
 
-import React, { createContext, useState } from "react";
-
 import AlertModal from "components/Modals/AlertModal";
 import SuccessModal from "components/Modals/SuccessModal";
+import React, { createContext, useState } from "react";
 
 export interface IModalContext {
   launchAlertModal: (text: string) => void;
@@ -47,17 +46,17 @@ const ModalProvider = ({
     >
       {children}
 
-      {showAlertModal && (
+      {showAlertModal ?
         <AlertModal setShowModal={setShowAlertModal} text={alertText} />
-      )}
+      : null}
 
-      {hash && showSuccessModal && (
+      {hash && showSuccessModal ?
         <SuccessModal
           hash={hash}
           setShowModal={setShowSuccessModal}
           text={successText}
         />
-      )}
+      : null}
     </ModalContext.Provider>
   );
 };

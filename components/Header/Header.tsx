@@ -1,3 +1,5 @@
+import ThemeToggle from "components/shadcn/ThemeToggle";
+import { useTheme } from "contexts/ThemeProvider";
 import { Squash as Hamburger } from "hamburger-react";
 import Link from "next/link";
 import Substratum from "public/substratum/substratum.svg";
@@ -7,8 +9,6 @@ import ConnectButton from "./ConnectButton";
 import MobileNav from "./MobileNav";
 import { NavMenu } from "./NavMenu";
 import SocialIcons from "./SocialIcons";
-import ThemeToggle from "components/shadcn/ThemeToggle";
-import { useTheme } from "contexts/ThemeProvider";
 
 const Header = (): React.JSX.Element => {
   const { isDark } = useTheme();

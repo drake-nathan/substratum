@@ -1,9 +1,9 @@
+import { useCurrentSupply } from "hooks/useCurrentSupply";
+import { useModal } from "hooks/useModal";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
 import TokenGateButton from "./Interactions/TokenGateButton";
-import { useCurrentSupply } from "hooks/useCurrentSupply";
-import { useModal } from "hooks/useModal";
 
 const TokenGateDeposit = (): React.JSX.Element => {
   const { launchAlertModal } = useModal();
@@ -16,7 +16,9 @@ const TokenGateDeposit = (): React.JSX.Element => {
   const [tokenId, setTokenId] = useState<number>();
 
   const onValid = () => undefined;
-  const onInvalid = () => launchAlertModal("Invalid Token Id");
+  const onInvalid = () => {
+    launchAlertModal("Invalid Token Id");
+  };
 
   return (
     <div className="flex flex-col items-start gap-4 max-[650px]:items-center">
@@ -36,7 +38,9 @@ const TokenGateDeposit = (): React.JSX.Element => {
           {...register("tokenId", {
             max: currectSupply ? currectSupply - 1 : 400,
             min: 0,
-            onChange: (e) => setTokenId(e.target.valueAsNumber),
+            onChange: (e) => {
+              setTokenId(e.target.valueAsNumber);
+            },
             required: true,
             value: tokenId,
             valueAsNumber: true,

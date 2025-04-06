@@ -1,13 +1,14 @@
 import type { Address, Hash } from "viem";
 
 import {
-  useSimulateOneHundredXShuffle,
-  useWriteOneHundredXShuffle,
-} from "../../wagmi/generated";
-import {
   type Method,
   methods,
 } from "components/ProjectPage/100x/Shuffler/methods";
+
+import {
+  useSimulateOneHundredXShuffle,
+  useWriteOneHundredXShuffle,
+} from "../../wagmi/generated";
 
 interface Params {
   handleError: (error: Error) => void;
@@ -42,11 +43,12 @@ export const useShuffle = ({
   return {
     write:
       data ?
-        () =>
+        () => {
           writeContract(data.request as TODO, {
             onError: handleError,
             onSuccess: handleSuccess,
-          })
+          });
+        }
       : null,
   };
 };

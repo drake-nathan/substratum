@@ -1,3 +1,4 @@
+import { useTheme } from "contexts/ThemeProvider";
 import { Moon, Sun } from "lucide-react";
 
 import {
@@ -7,7 +8,6 @@ import {
   DropdownMenuTrigger,
 } from "./Dropdown";
 import { ShadButton } from "./ShadButton";
-import { useTheme } from "contexts/ThemeProvider";
 
 const ThemeToggle = (): React.JSX.Element => {
   const { setTheme } = useTheme();
@@ -22,13 +22,25 @@ const ThemeToggle = (): React.JSX.Element => {
         </ShadButton>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
+        <DropdownMenuItem
+          onClick={() => {
+            setTheme("light");
+          }}
+        >
           Light
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
+        <DropdownMenuItem
+          onClick={() => {
+            setTheme("dark");
+          }}
+        >
           Dark
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
+        <DropdownMenuItem
+          onClick={() => {
+            setTheme("system");
+          }}
+        >
           System
         </DropdownMenuItem>
       </DropdownMenuContent>

@@ -8,7 +8,9 @@ interface Props {
 }
 
 const TokenImage = ({ aspectRatio, generatorUrl, image, imageMid }: Props) => {
-  if (generatorUrl) return <Generator generatorUrl={generatorUrl} />;
+  if (generatorUrl) {
+    return <Generator generatorUrl={generatorUrl} />;
+  }
 
   return (
     <img

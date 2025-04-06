@@ -1,7 +1,3 @@
-import { ExternalLink } from "lucide-react";
-import Link from "next/link";
-import * as React from "react";
-
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -12,6 +8,9 @@ import {
   navigationMenuTriggerStyle,
 } from "components/shadcn/NavigationMenu";
 import { artistUrls, projects } from "data/projects";
+import { ExternalLink } from "lucide-react";
+import Link from "next/link";
+import * as React from "react";
 import { cn } from "utils/helpers";
 
 const artists = projects.map(({ artist }) => artist);

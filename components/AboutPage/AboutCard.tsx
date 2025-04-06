@@ -16,30 +16,21 @@ export const AboutCard = ({
   if (!reverse) {
     return (
       <div className="flex w-full flex-col border">
-        <img
-          alt=""
-          className="aspect-video w-full object-cover"
-          src={imgURL}
-        ></img>
+        <img alt="" className="aspect-video w-full object-cover" src={imgURL} />
         <div className="flex w-full flex-col justify-around gap-5 p-5 md:my-10 md:flex-row md:items-center">
           <h2 className="md:w-1/5">{titleText}</h2>
           <p className="md:w-3/5">{bodyText}</p>
         </div>
-      </div>
-    );
-  } else {
-    return (
-      <div className="flex w-full flex-col border">
-        <div className="flex w-full flex-col justify-around gap-5 p-5 md:my-10 md:flex-row md:items-center">
-          <h2 className="md:w-1/5">{titleText}</h2>
-          <p className="md:w-3/5">{bodyText}</p>
-        </div>
-        <img
-          alt=""
-          className="aspect-video w-full object-cover"
-          src={imgURL}
-        ></img>
       </div>
     );
   }
+  return (
+    <div className="flex w-full flex-col border">
+      <div className="flex w-full flex-col justify-around gap-5 p-5 md:my-10 md:flex-row md:items-center">
+        <h2 className="md:w-1/5">{titleText}</h2>
+        <p className="md:w-3/5">{bodyText}</p>
+      </div>
+      <img alt="" className="aspect-video w-full object-cover" src={imgURL} />
+    </div>
+  );
 };

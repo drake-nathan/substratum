@@ -1,9 +1,9 @@
 import type { Address } from "viem";
 
+import { zodAddress, zodJsonToBigInt, zodJsonToNumber } from "utils/zod";
 import { z } from "zod";
 
 import { useReadDepositGetInitiativeDetails } from "../../wagmi/generated";
-import { zodAddress, zodJsonToBigInt, zodJsonToNumber } from "utils/zod";
 
 const schema = z.object({
   artist: zodAddress,

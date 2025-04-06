@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from "react";
-import {
-  type Address,
-  type Hash,
-  TransactionExecutionError,
-  formatEther,
-} from "viem";
-import { useWaitForTransactionReceipt } from "wagmi";
-
 import type { SetState } from "utils/types";
 
-import { type Method, methodDescriptions } from "./methods";
 import TransactionModal from "components/Modals/TransactionModal";
 import { useShuffle } from "hooks/100x/useShuffle";
 import { useTokensOwned } from "hooks/100x/useTokensOwned";
 import { useModal } from "hooks/useModal";
+import React, { useEffect, useState } from "react";
+import {
+  type Address,
+  formatEther,
+  type Hash,
+  TransactionExecutionError,
+} from "viem";
+import { useWaitForTransactionReceipt } from "wagmi";
+
+import { type Method, methodDescriptions } from "./methods";
 
 interface Props {
   address: Address;
@@ -47,7 +47,9 @@ const ShuffleModal = ({
 
   const handleError = (error: Error) => {
     // This error is handled in the transaction modal
-    if (isSuccess && !tokensOwned) return;
+    if (isSuccess && !tokensOwned) {
+      return;
+    }
 
     if (
       error instanceof TransactionExecutionError &&
@@ -55,8 +57,11 @@ const ShuffleModal = ({
     ) {
       setShowModal(false);
     } else {
-      if (vault) launchAlertModal("Vault/delegate may be invalid.");
-      else launchAlertModal("Something went wrong, please try again.");
+      if (vault) {
+        launchAlertModal("Vault/delegate may be invalid.");
+      } else {
+        launchAlertModal("Something went wrong, please try again.");
+      }
       setShowModal(false);
     }
   };

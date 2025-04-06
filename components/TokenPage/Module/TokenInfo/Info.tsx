@@ -1,10 +1,11 @@
-import { Tooltip } from "react-tooltip";
-
-import type { InfoTab } from "./types";
 import type { IAttribute } from "services/azureApi/types";
 
-import { formatNewLines, shortenTrait } from "./utils";
+import { Tooltip } from "react-tooltip";
 import { isString } from "utils/helpers";
+
+import type { InfoTab } from "./types";
+
+import { formatNewLines, shortenTrait } from "./utils";
 
 interface Props {
   additionalDescription: string | undefined;
@@ -76,13 +77,13 @@ const Info = ({
                 </div>
               }
 
-              {isTraitShortened && (
+              {isTraitShortened ?
                 <Tooltip
                   anchorId={name}
                   content={value.toString()}
                   positionStrategy="fixed"
                 />
-              )}
+              : null}
             </div>
           );
         })}

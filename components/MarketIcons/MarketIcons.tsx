@@ -1,13 +1,13 @@
+import type { Project } from "data/projects";
+
 import React from "react";
 import { Tooltip } from "react-tooltip";
 
-import type { Project } from "data/projects";
-
 import {
-  Market,
   getProjectMarketLink,
   getTokenMarketLink,
   icons,
+  Market,
 } from "./icons";
 
 interface Props {
@@ -25,9 +25,13 @@ const MarketIcons = ({ project, tokenId }: Props): React.JSX.Element => {
     <div className="relative mb-1 flex items-center gap-2">
       {icons.map((icon) => {
         // skip etherscan for token version
-        if (icon.market === Market.Etherscan && isToken) return null;
+        if (icon.market === Market.Etherscan && isToken) {
+          return null;
+        }
         // skip sansa if no slug
-        if (icon.market === Market.Sansa && !sansaSlug) return null;
+        if (icon.market === Market.Sansa && !sansaSlug) {
+          return null;
+        }
 
         const {
           altCollection,

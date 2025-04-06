@@ -1,4 +1,3 @@
-/** @type {import('next').NextConfig} */
 export default {
   compiler: {
     styledComponents: true,
@@ -25,22 +24,20 @@ export default {
   },
   output: "standalone",
   reactStrictMode: true,
-  redirects() {
-    return [
-      {
-        destination: "/",
-        permanent: true,
-        source: "/project",
-      },
-      {
-        destination: "/project/:slug",
-        permanent: true,
-        source: "/project/:slug/token",
-      },
-    ];
-  },
+  redirects: () => [
+    {
+      destination: "/",
+      permanent: true,
+      source: "/project",
+    },
+    {
+      destination: "/project/:slug",
+      permanent: true,
+      source: "/project/:slug/token",
+    },
+  ],
   swcMinify: true,
-  webpack(config) {
+  webpack: (config) => {
     config.module.rules.push({
       issuer: /\.[jt]sx?$/,
       test: /\.svg$/i,

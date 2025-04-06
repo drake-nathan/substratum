@@ -1,7 +1,6 @@
 import type { Address } from "viem";
 
 import { useQuery } from "@tanstack/react-query";
-
 import { delegate } from "services/delegateCash";
 
 export const useDelegate = (

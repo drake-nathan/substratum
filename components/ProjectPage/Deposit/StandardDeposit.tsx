@@ -1,11 +1,11 @@
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useModal } from "hooks/useModal";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { zodAddress } from "utils/zod";
 import { z } from "zod";
 
 import DepositButton from "./Interactions/DepositButton";
-import { useModal } from "hooks/useModal";
-import { zodAddress } from "utils/zod";
 
 const schema = z.object({
   recipient: zodAddress.or(z.literal("")),
@@ -21,7 +21,9 @@ const StandardDeposit = () => {
   const [recipientAddress, setRecipientAddress] = useState("");
 
   const onValid = () => undefined;
-  const onInvalid = () => launchAlertModal("Invalid Address");
+  const onInvalid = () => {
+    launchAlertModal("Invalid Address");
+  };
 
   return (
     <div className="flex flex-col items-start gap-4 max-[650px]:items-center">
@@ -43,7 +45,9 @@ const StandardDeposit = () => {
           {...register("recipient")}
           autoComplete="off"
           className="h-14 border-none bg-offset p-4 font-sans outline-none dark:text-black max-sm:text-[12px]"
-          onChange={(e) => setRecipientAddress(e.target.value)}
+          onChange={(e) => {
+            setRecipientAddress(e.target.value);
+          }}
           placeholder="Optional: 0x address recipient"
           value={recipientAddress}
         />

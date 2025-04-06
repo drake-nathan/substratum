@@ -35,11 +35,12 @@ export const useTop = ({
   return {
     write:
       data ?
-        () =>
+        () => {
           writeContract(data.request as TODO, {
             onError: handleError,
             onSuccess: handleSuccess,
-          })
+          });
+        }
       : null,
   };
 };

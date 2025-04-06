@@ -23,15 +23,14 @@ export const AboutCardTall = ({
         </div>
       </div>
     );
-  } else {
-    return (
-      <div className="aspect-[1/2] w-full self-start border">
-        <div className="flex w-full flex-col gap-5 p-5 md:px-12 md:py-5">
-          <h2>{titleText}</h2>
-          <p>{bodyText}</p>
-        </div>
-        <img alt="" className="h-3/4 w-full object-cover" src={imgURL} />
-      </div>
-    );
   }
+  return (
+    <div className="aspect-[1/2] w-full self-start border">
+      <div className="flex w-full flex-col gap-5 p-5 md:px-12 md:py-5">
+        <h2>{titleText}</h2>
+        <p>{bodyText}</p>
+      </div>
+      <img alt="" className="h-3/4 w-full object-cover" src={imgURL} />
+    </div>
+  );
 };

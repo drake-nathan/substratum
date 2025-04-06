@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { type Hash, TransactionExecutionError } from "viem";
-import { useWaitForTransactionReceipt } from "wagmi";
-
 import type { SetState } from "utils/types";
 
 import TransactionModal from "components/Modals/TransactionModal";
 import { useDepositAndSetSelf } from "hooks/deposit/useDepositAndSetSelf";
 import { useModal } from "hooks/useModal";
+import React, { useEffect, useState } from "react";
+import { type Hash, TransactionExecutionError } from "viem";
+import { useWaitForTransactionReceipt } from "wagmi";
 
 const DepositSelfModal = ({
   setShowModal,

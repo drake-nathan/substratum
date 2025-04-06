@@ -1,6 +1,6 @@
-import Link from "next/link";
-
 import type { TokenAbbr } from "services/azureApi/types";
+
+import Link from "next/link";
 
 interface Props {
   isTokenIdInTitle: boolean;

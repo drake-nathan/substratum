@@ -1,7 +1,6 @@
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { Check, ChevronRight, Circle } from "lucide-react";
 import * as React from "react";
-
 import { cn } from "utils/helpers";
 
 const DropdownMenu = DropdownMenuPrimitive.Root;
@@ -18,9 +17,9 @@ const DropdownMenuRadioGroup = DropdownMenuPrimitive.RadioGroup;
 
 const DropdownMenuSubTrigger = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.SubTrigger>,
-  {
+  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubTrigger> & {
     inset?: boolean;
-  } & React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubTrigger>
+  }
 >(({ children, className, inset, ...props }, ref) => (
   <DropdownMenuPrimitive.SubTrigger
     className={cn(
@@ -74,9 +73,9 @@ DropdownMenuContent.displayName = DropdownMenuPrimitive.Content.displayName;
 
 const DropdownMenuItem = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Item>,
-  {
+  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item> & {
     inset?: boolean;
-  } & React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item>
+  }
 >(({ className, inset, ...props }, ref) => (
   <DropdownMenuPrimitive.Item
     className={cn(
@@ -138,9 +137,9 @@ DropdownMenuRadioItem.displayName = DropdownMenuPrimitive.RadioItem.displayName;
 
 const DropdownMenuLabel = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Label>,
-  {
+  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Label> & {
     inset?: boolean;
-  } & React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Label>
+  }
 >(({ className, inset, ...props }, ref) => (
   <DropdownMenuPrimitive.Label
     className={cn(

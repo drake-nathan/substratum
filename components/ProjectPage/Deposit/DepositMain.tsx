@@ -1,8 +1,12 @@
+import { useCurrentDepositers } from "hooks/deposit/useCurrentDepositers";
+import { useDepositInitiative } from "hooks/deposit/useDepositInitiative";
+import { useDepositStatus } from "hooks/deposit/useDepositStatus";
 import { IoLockClosed, IoLockOpen } from "react-icons/io5";
 import {
   MdOutlineCheckBox,
   MdOutlineCheckBoxOutlineBlank,
 } from "react-icons/md";
+import { getEtherscanUrl } from "utils/helpers";
 import { formatEther } from "viem";
 import { useChainId } from "wagmi";
 
@@ -10,10 +14,6 @@ import { depositAddress } from "../../../wagmi/generated";
 import CancelButton from "./Interactions/CancelButton";
 import StandardDeposit from "./StandardDeposit";
 import TokenGateDeposit from "./TokenGateDeposit";
-import { useCurrentDepositers } from "hooks/deposit/useCurrentDepositers";
-import { useDepositInitiative } from "hooks/deposit/useDepositInitiative";
-import { useDepositStatus } from "hooks/deposit/useDepositStatus";
-import { getEtherscanUrl } from "utils/helpers";
 
 const DepositMain = (): React.JSX.Element => {
   const chainId = useChainId();
@@ -170,6 +170,7 @@ const DepositMain = (): React.JSX.Element => {
                       // @ts-expect-error - Not all chains exist
                       value: depositAddress[chainId],
                     })}
+                    rel="noopener"
                     target="_blank"
                   >
                     contract
@@ -178,7 +179,7 @@ const DepositMain = (): React.JSX.Element => {
                 :
               </h6>
 
-              {depositInitiative && (
+              {depositInitiative ?
                 <>
                   <p className="max-2xl:text-lg">
                     Goal Number of Depositors:{" "}
@@ -196,7 +197,7 @@ const DepositMain = (): React.JSX.Element => {
                     {formatEther(depositInitiative.tokenGateDepositAmount)} ETH
                   </p>
                 </>
-              )}
+              : null}
             </div>
           </div>
         </div>

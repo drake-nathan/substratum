@@ -1,10 +1,9 @@
 import type { NextPage } from "next";
 
-import Head from "next/head";
-
 import { AboutCard } from "components/AboutPage/AboutCard";
 import { AboutCardTall } from "components/AboutPage/AboutCardTall";
 import { AboutCardWide } from "components/AboutPage/AboutCardWide";
+import Head from "next/head";
 
 const DepositTest: NextPage = () => {
   return (
@@ -17,7 +16,7 @@ const DepositTest: NextPage = () => {
       <h1 className="my-28 ml-5 self-start text-xl md:my-52 md:ml-20 md:text-4xl">
         About Substratum
       </h1>
-      <hr className="w-screen"></hr>
+      <hr className="w-screen" />
       <div
         className="flex w-full flex-col items-center justify-around gap-16 fade-in md:w-4/5 md:gap-28"
         id="body"
@@ -59,7 +58,7 @@ const DepositTest: NextPage = () => {
               every artist deserves to be recognized for their unique talent and
               creativity, and we strive to make that a reality."
             imgURL="projects/enso.jpeg"
-            reverse={true}
+            reverse
             titleText="The Future of Art Collecting"
           />
         </div>

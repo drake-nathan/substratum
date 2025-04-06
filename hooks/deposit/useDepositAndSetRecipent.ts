@@ -33,11 +33,12 @@ export const useDepositAndSetRecipent = ({
     ready: !error && data?.request,
     write:
       data ?
-        () =>
+        () => {
           writeContract(data.request, {
             onError: handleError,
             onSuccess: handleSuccess,
-          })
+          });
+        }
       : null,
   };
 };

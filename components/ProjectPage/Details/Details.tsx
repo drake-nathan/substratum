@@ -1,10 +1,10 @@
+import { type Project, projects } from "data/projects";
 import { useState } from "react";
 import { RxOpenInNewWindow } from "react-icons/rx";
 
 import Legend from "../100x/Legend/Legend";
 import Shuffler from "../100x/Shuffler/Shuffler";
 import CollectionCard from "./OtherCollections/CollectionCard";
-import { type Project, projects } from "data/projects";
 
 const getRelatedCollections = (project: Project) => {
   const projectIndex = projects.indexOf(project);
@@ -89,32 +89,32 @@ const Details = ({ project }: { project: Project }): JSX.Element => {
           <h4 className="mb-1 mt-4 font-sans font-bold capitalize">Tools</h4>
           <p className="max-w-prose whitespace-pre-line">{tools}</p>
 
-          {notes && (
+          {notes ?
             <>
               <h4 className="mb-1 mt-4 font-sans font-bold capitalize">
                 Notes
               </h4>
               <p className="max-w-prose whitespace-pre-line">{notes}</p>
             </>
-          )}
+          : null}
 
-          {interactivity && (
+          {interactivity ?
             <>
               <h4 className="mb-1 mt-4 font-sans font-bold capitalize">
                 Interactivity
               </h4>
               <p className="max-w-prose whitespace-pre-line">{interactivity}</p>
             </>
-          )}
+          : null}
 
-          {royalties && (
+          {royalties ?
             <>
               <h4 className="mb-1 mt-4 font-sans font-bold capitalize">
                 Royalties
               </h4>
               <p className="max-w-prose whitespace-pre-line">{royalties}</p>
             </>
-          )}
+          : null}
 
           <h4 className="mb-1 mt-4 font-sans font-bold capitalize">License</h4>
           <p className="max-w-prose whitespace-pre-line">{license}</p>

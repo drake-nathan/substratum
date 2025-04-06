@@ -1,12 +1,12 @@
-import { useQuery } from "@tanstack/react-query";
-import { useEffect } from "react";
-
 import type { Project } from "data/projects";
 import type { CollectionResponse, IToken } from "services/azureApi/types";
 
-import TokenCard from "./TokenCard";
+import { useQuery } from "@tanstack/react-query";
 import { useCurrentSupply } from "hooks/useCurrentSupply";
+import { useEffect } from "react";
 import { fetchCollectionTokens } from "services/azureApi/fetches";
+
+import TokenCard from "./TokenCard";
 
 interface Props {
   project: Project;
@@ -41,7 +41,7 @@ const OtherTokens = ({ project, token }: Props): JSX.Element => {
 
   return (
     <div className="mt-12">
-      {/* eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing */}
+      {}
       {(!isLoading && error) || !response?.tokens.length ? null : (
         <>
           <h2 className="mb-2">Other Tokens</h2>

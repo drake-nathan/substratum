@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
-import { type SubmitHandler, useForm } from "react-hook-form";
-
 import type { Project } from "data/projects";
 
 import { useCurrentSupply } from "hooks/useCurrentSupply";
+import { useEffect, useState } from "react";
+import { type SubmitHandler, useForm } from "react-hook-form";
 
 interface IToken {
   tokenId: number;
@@ -47,9 +46,13 @@ const TokenSearch = ({
   useEffect(() => {
     if (errors.tokenId?.message) {
       setErrorText(errors.tokenId.message);
-      setTimeout(() => setErrorText(""), 3000);
+      setTimeout(() => {
+        setErrorText("");
+      }, 3000);
     } else if (errorText) {
-      setTimeout(() => setErrorText(""), 3000);
+      setTimeout(() => {
+        setErrorText("");
+      }, 3000);
     }
   }, [errors.tokenId, errorText]);
 
@@ -63,7 +66,9 @@ const TokenSearch = ({
     } else if (tokenId && tokenId < 0) {
       setErrorText("Min Token ID is 0");
       setTokenId(0);
-    } else if (Number.isNaN(tokenId)) setTokenId(null);
+    } else if (Number.isNaN(tokenId)) {
+      setTokenId(null);
+    }
   }, [
     tokenId,
     currentSupply,
@@ -102,13 +107,17 @@ const TokenSearch = ({
               refetch();
             }
           }}
-          onChange={(e) => setTokenId(parseInt(e.target.value, 10))}
+          onChange={(e) => {
+            setTokenId(parseInt(e.target.value, 10));
+          }}
           placeholder="Search By Token ID"
           value={tokenId ?? ""}
         />
       </form>
 
-      {errorText && <p className="font-sans text-base italic">{errorText}</p>}
+      {errorText ?
+        <p className="font-sans text-base italic">{errorText}</p>
+      : null}
     </>
   );
 };

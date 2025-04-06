@@ -1,12 +1,11 @@
 import type { NextPage } from "next";
 
-import Head from "next/head";
-import { formatEther } from "viem";
-
 import CancelButton from "components/ProjectPage/Deposit/Interactions/CancelButton";
 import { useCurrentDepositers } from "hooks/deposit/useCurrentDepositers";
 import { useDepositBalance } from "hooks/deposit/useDepositBalance";
 import { useDepositInitiative } from "hooks/deposit/useDepositInitiative";
+import Head from "next/head";
+import { formatEther } from "viem";
 
 const DepositTest: NextPage = () => {
   const depositInitiative = useDepositInitiative();
@@ -23,7 +22,7 @@ const DepositTest: NextPage = () => {
       <div className="mt-12 w-96">
         <CancelButton />
         <p>Contract Balance: {balance ?? "..."}</p>
-        {depositInitiative && (
+        {depositInitiative ?
           <>
             <p>Initiative Name: {depositInitiative.name}</p>
             <p>
@@ -37,7 +36,7 @@ const DepositTest: NextPage = () => {
               Goal of Depositers: {depositInitiative.numberOfDepositsAllowed}
             </p>
           </>
-        )}
+        : null}
         <p>Current Number of Depositers: {numOfDepositers}</p>
       </div>
     </div>

@@ -1,14 +1,14 @@
+import type { SetState } from "utils/types";
+
 import { clsx } from "clsx";
+import { artistUrls, projects } from "data/projects";
 import { ExternalLink } from "lucide-react";
 import Link from "next/link";
 import React from "react";
-
-import type { SetState } from "utils/types";
+import { cn } from "utils/helpers";
 
 import ConnectButton from "./ConnectButton";
 import SocialIcons from "./SocialIcons";
-import { artistUrls, projects } from "data/projects";
-import { cn } from "utils/helpers";
 
 interface Props {
   isOpen: boolean;
@@ -19,7 +19,9 @@ const artists = projects.map(({ artist }) => artist);
 const uniqueArtists = [...new Set(artists)];
 
 const MobileNav = ({ isOpen, setIsOpen }: Props): React.JSX.Element => {
-  const clickHandler = () => setIsOpen(false);
+  const clickHandler = () => {
+    setIsOpen(false);
+  };
 
   return (
     <div

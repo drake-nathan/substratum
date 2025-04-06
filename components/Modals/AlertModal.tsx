@@ -1,7 +1,8 @@
 import type { SetState } from "utils/types";
 
-import ModalBase from "./ModalBase";
 import Button from "components/Button";
+
+import ModalBase from "./ModalBase";
 
 interface Props {
   setShowModal: SetState<boolean>;
@@ -14,7 +15,11 @@ const AlertModal = ({ setShowModal, text }: Props): JSX.Element => {
       <p className="max-w-[30ch] text-center font-semibold">{text}</p>
 
       <div className="flex items-center justify-around">
-        <Button onClick={() => setShowModal(false)}>
+        <Button
+          onClick={() => {
+            setShowModal(false);
+          }}
+        >
           <h4>Close</h4>
         </Button>
       </div>

@@ -1,6 +1,5 @@
-import type { Address } from "viem";
-
 import type { SetState } from "utils/types";
+import type { Address } from "viem";
 
 import AlertModal from "components/Modals/AlertModal";
 import { useTokenOwnerOf } from "hooks/100x/useTokenOwnerOf";
@@ -20,7 +19,9 @@ const TokenOwnerOfModal = ({
   const { ownerAddress } = useTokenOwnerOf(Number(tokenId));
 
   const getText = () => {
-    if (!ownerAddress) return "Loading token owner...";
+    if (!ownerAddress) {
+      return "Loading token owner...";
+    }
 
     return `Token ${tokenId} is owned by ${shortenAddress(ownerAddress)}, ${
       ownerAddress.toLowerCase() === address.toLowerCase() ?

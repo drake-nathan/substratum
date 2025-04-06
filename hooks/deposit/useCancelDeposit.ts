@@ -23,11 +23,12 @@ export const useCancelDeposit = ({ handleError, handleSuccess }: Params) => {
   return {
     write:
       data ?
-        () =>
+        () => {
           writeContract(data.request, {
             onError: handleError,
             onSuccess: handleSuccess,
-          })
+          });
+        }
       : null,
   };
 };

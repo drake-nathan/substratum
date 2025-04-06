@@ -1,7 +1,6 @@
 import { Slot } from "@radix-ui/react-slot";
-import { type VariantProps, cva } from "class-variance-authority";
+import { cva, type VariantProps } from "class-variance-authority";
 import { forwardRef } from "react";
-
 import { cn } from "utils/helpers";
 
 const buttonVariants = cva(
@@ -54,4 +53,4 @@ const ShadButton = forwardRef<HTMLButtonElement, ButtonProps>(
 );
 ShadButton.displayName = "ShadButton";
 
-export { ShadButton, buttonVariants };
+export { buttonVariants, ShadButton };

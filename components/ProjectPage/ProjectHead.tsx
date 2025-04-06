@@ -1,9 +1,10 @@
 import type { Project } from "data/projects";
 
-import DepositHead from "./Deposit/DepositHead";
 import MarketIcons from "components/MarketIcons/MarketIcons";
 import { useCurrentSupply } from "hooks/useCurrentSupply";
 import { intlNumberFormat } from "utils/helpers";
+
+import DepositHead from "./Deposit/DepositHead";
 
 interface Props {
   project: Project;

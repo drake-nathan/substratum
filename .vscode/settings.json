@@ -4,7 +4,11 @@
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
+  "eslint.runtime": "node",
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "style-kit.config.js": "eslint.config.js, prettier.config.js"
+  },
   "git.allowNoVerifyCommit": true,
-  "svg.preview.background": "black",
   "typescript.tsdk": "node_modules/typescript/lib"
 }

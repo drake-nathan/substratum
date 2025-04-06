@@ -21,7 +21,9 @@ const LegendCard = ({
       <div
         className="flex cursor-pointer items-center justify-between border-2 border-black bg-white p-4 dark:border-white dark:bg-black"
         id="legend-action-title"
-        onClick={() => toggleMatrixProp(method)}
+        onClick={() => {
+          toggleMatrixProp(method);
+        }}
       >
         <h4 className="font-sans text-2xl capitalize">{method}</h4>
 
