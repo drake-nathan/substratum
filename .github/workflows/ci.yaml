@@ -1,0 +1,54 @@
+name: CI
+
+permissions:
+  checks: write
+  pull-requests: write
+  contents: write
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    branches: ["main"]
+  push:
+    branches: ["main"]
+
+jobs:
+  ci:
+    name: CI
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+          token: ${{ secrets.GITHUB_TOKEN }}
+          ref: ${{ github.head_ref || github.ref_name }}
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Restore cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            node_modules
+            .turbo
+          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lock') }}-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-bun-${{ hashFiles('**/bun.lock') }}-
+            ${{ runner.os }}-bun-
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Prettier Check
+        run: bun run format:check
+
+      - name: ESLint
+        run: bun run lint -- --max-warnings 0
+
+      - name: Type Check
+        run: bun run typecheck
