@@ -1,5 +1,3 @@
-import type { ConfigOptions } from "@web3modal/wagmi/dist/types/src/utils/defaultWagmiCoreConfig";
-
 import { getInfuraUrl } from "utils/helpers";
 import { createConfig, http } from "wagmi";
 import { goerli, mainnet, sepolia } from "wagmi/chains";
@@ -15,7 +13,7 @@ if (!projectId || !infuraKey || !chainEnv) {
 
 export const chains = chainEnv === "goerli" ? [goerli, sepolia] : [mainnet];
 
-const metadata: ConfigOptions["metadata"] = {
+const metadata = {
   description: "Web3Modal Example",
   icons: ["https://avatars.githubusercontent.com/u/37784886"],
   name: "Web3Modal",

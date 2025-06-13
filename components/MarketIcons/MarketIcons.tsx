@@ -16,7 +16,7 @@ interface Props {
 }
 
 const MarketIcons = ({ project, tokenId }: Props): React.JSX.Element => {
-  const { contractAddress, sansaSlug } = project;
+  const { contractAddress } = project;
 
   // need this since zero is falsy
   const isToken = tokenId !== undefined;
@@ -26,10 +26,6 @@ const MarketIcons = ({ project, tokenId }: Props): React.JSX.Element => {
       {icons.map((icon) => {
         // skip etherscan for token version
         if (icon.market === Market.Etherscan && isToken) {
-          return null;
-        }
-        // skip sansa if no slug
-        if (icon.market === Market.Sansa && !sansaSlug) {
           return null;
         }
 
@@ -50,7 +46,6 @@ const MarketIcons = ({ project, tokenId }: Props): React.JSX.Element => {
           : getProjectMarketLink({
               address: contractAddress,
               icon,
-              sansaSlug,
             });
 
         return (

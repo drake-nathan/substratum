@@ -1,6 +1,6 @@
 import { defineConfig, loadEnv } from "@wagmi/cli";
 import { etherscan, react } from "@wagmi/cli/plugins";
-import { goerli, mainnet, sepolia } from "wagmi/chains";
+import { mainnet, sepolia } from "wagmi/chains";
 
 import { depositAbi } from "./data/depositAbi";
 
@@ -24,15 +24,8 @@ export default defineConfig(() => {
     plugins: [
       etherscan({
         apiKey: env.ETHERSCAN_API_KEY,
-        chainId: env.NEXT_PUBLIC_CHAIN === "mainnet" ? mainnet.id : goerli.id,
-        contracts: [
-          {
-            address: {
-              [goerli.id]: "0x6aBf38A6cB1f0ab87047E80Efd1B109C8E5CeFF3",
-            },
-            name: "oneHundredX",
-          },
-        ],
+        chainId: mainnet.id,
+        contracts: [],
       }),
       react(),
     ],

@@ -36,7 +36,6 @@ export default {
       source: "/project/:slug/token",
     },
   ],
-  swcMinify: true,
   webpack: (config) => {
     config.module.rules.push({
       issuer: /\.[jt]sx?$/,

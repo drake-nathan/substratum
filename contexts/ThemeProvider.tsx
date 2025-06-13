@@ -34,16 +34,29 @@ export const ThemeProvider = ({
   children,
   storageKey = "substratum-theme",
 }: ThemeProviderProps): ReactElement => {
-  const [theme, setTheme] = useState<Theme>("system");
+  const [theme, setTheme] = useState<Theme>(() => {
+    // Only access localStorage in browser environment
+    if (typeof window !== "undefined") {
+      const savedTheme = localStorage.getItem(storageKey) as null | Theme;
+      return savedTheme || "system";
+    }
+    return "system";
+  });
   const [isDark, setIsDark] = useState(false);
 
   // TODO: re-check responsiveness here
   const isMiniCard = false;
 
-  const root = window.document.documentElement;
-  const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+  // Initialize these refs as null and set them in useEffect
+  const [root, setRoot] = useState<HTMLElement | null>(null);
+  const [mediaQuery, setMediaQuery] = useState<MediaQueryList | null>(null);
 
+  // Safe handleChange function that checks for browser environment
   const handleChange = useCallback(() => {
+    if (!root || !mediaQuery) {
+      return;
+    }
+
     root.classList.remove("light", "dark");
 
     if (theme === "system") {
@@ -54,9 +67,23 @@ export const ThemeProvider = ({
       setIsDark(theme === "dark");
       root.classList.add(theme);
     }
-  }, [mediaQuery.matches, root.classList, theme]);
+  }, [mediaQuery, root, theme]);
 
+  // Initialize browser-only objects
   useEffect(() => {
+    // Only run in browser environment
+    if (typeof window !== "undefined") {
+      setRoot(window.document.documentElement);
+      setMediaQuery(window.matchMedia("(prefers-color-scheme: dark)"));
+    }
+  }, []);
+
+  // Handle theme changes
+  useEffect(() => {
+    if (!mediaQuery || !root) {
+      return;
+    }
+
     handleChange();
 
     mediaQuery.addEventListener("change", handleChange);
@@ -64,13 +91,16 @@ export const ThemeProvider = ({
     return () => {
       mediaQuery.removeEventListener("change", handleChange);
     };
-  }, [handleChange, mediaQuery, theme]);
+  }, [handleChange, mediaQuery, root, theme]);
 
   const value: ThemeProviderState = {
     isDark,
     isMiniCard,
     setTheme: (theme: Theme) => {
-      localStorage.setItem(storageKey, theme);
+      // Only access localStorage in browser environment
+      if (typeof window !== "undefined") {
+        localStorage.setItem(storageKey, theme);
+      }
       setTheme(theme);
     },
     theme,
