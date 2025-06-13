@@ -8,7 +8,7 @@ interface Props {
   token: IToken;
 }
 
-const BottomBar = ({ project, token }: Props): JSX.Element => (
+const BottomBar = ({ project, token }: Props): React.JSX.Element => (
   <div className="w-full p-4">
     <TokenIcons project={project} token={token} />
   </div>

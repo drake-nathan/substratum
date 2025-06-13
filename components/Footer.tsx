@@ -1,6 +1,6 @@
 import { MdCopyright } from "react-icons/md";
 
-const Footer = (): JSX.Element => {
+const Footer = (): React.JSX.Element => {
   const year = new Date().getFullYear();
 
   return (

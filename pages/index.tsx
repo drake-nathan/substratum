@@ -1,10 +1,9 @@
 import type { NextPage } from "next";
 
-import Head from "next/head";
-import React from "react";
-
 import Hero from "components/LandingPage/Hero";
 import Projects from "components/LandingPage/Projects/Grid";
+import Head from "next/head";
+import React from "react";
 
 const Home: NextPage = () => {
   const width = 1424;

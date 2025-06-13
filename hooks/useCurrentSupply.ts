@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-
 import { fetchCurrentSupplies } from "services/azureApi/fetches";
 
 export const useCurrentSupply = (projectSlug: string): number | undefined => {

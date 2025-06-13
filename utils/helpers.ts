@@ -1,5 +1,8 @@
 import type { Address, Hash } from "viem";
 
+import clsx, { type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
 export const intlNumberFormat = (value: number) =>
   new Intl.NumberFormat().format(value);
 
@@ -40,4 +43,8 @@ export const getEtherscanUrl = ({
   const chain = chainMap[_chainId as ChainId];
 
   return `https://${chain}etherscan.io/${type}/${value}`;
+};
+
+export const cn = (...inputs: ClassValue[]) => {
+  return twMerge(clsx(inputs));
 };

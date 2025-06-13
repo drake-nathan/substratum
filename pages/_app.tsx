@@ -1,7 +1,6 @@
 import type { AppProps } from "next/app";
 
 import { Analytics } from "@vercel/analytics/react";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import "react-tooltip/dist/react-tooltip.css";
 
 import "../styles/fonts.css";
@@ -26,7 +25,6 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
     </Providers>
 
     <Analytics />
-    <SpeedInsights />
   </>
 );
 

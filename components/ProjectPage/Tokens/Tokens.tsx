@@ -1,20 +1,20 @@
-import { useInfiniteQuery } from "@tanstack/react-query";
-import { parseAsStringEnum, useQueryState } from "next-usequerystate";
-import { useEffect, useState } from "react";
-
 import type { Project } from "data/projects";
 import type { CollectionResponse } from "services/azureApi/types";
 
+import { useInfiniteQuery } from "@tanstack/react-query";
+import { parseAsStringEnum, useQueryState } from "next-usequerystate";
+import { useEffect, useState } from "react";
+import { fetchCollectionTokens } from "services/azureApi/fetches";
+
 import TokenGrid from "./TokenGrid";
 import TokenMenu from "./TokenMenu/TokenMenu";
-import { fetchCollectionTokens } from "services/azureApi/fetches";
 
 interface Props {
   project: Project;
   projectSlug: string;
 }
 
-const Tokens = ({ project, projectSlug }: Props): JSX.Element => {
+const Tokens = ({ project, projectSlug }: Props): React.JSX.Element => {
   const { isTokenIdInTitle, usesTransfers } = project;
 
   // infinite scroll state
@@ -59,7 +59,9 @@ const Tokens = ({ project, projectSlug }: Props): JSX.Element => {
     });
 
   useEffect(() => {
-    if (error) console.error(error.message);
+    if (error) {
+      console.error(error.message);
+    }
 
     if (data) {
       const lastPage = data.pages[data.pages.length - 1];
@@ -74,7 +76,9 @@ const Tokens = ({ project, projectSlug }: Props): JSX.Element => {
   }, [sortDir, sortType, projectSlug, refetch]);
 
   useEffect(() => {
-    if (tokenSearchId) setHasMore(false);
+    if (tokenSearchId) {
+      setHasMore(false);
+    }
   }, [tokenSearchId]);
 
   return (

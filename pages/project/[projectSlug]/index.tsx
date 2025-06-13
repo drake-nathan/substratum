@@ -1,14 +1,13 @@
 import type { NextPage } from "next";
 
-import Head from "next/head";
-import { useRouter } from "next/router";
-import { parseAsStringEnum, useQueryState } from "next-usequerystate";
-import React, { useEffect, useState } from "react";
-
 import ProjectHead from "components/ProjectPage/ProjectHead";
 import ProjectMain from "components/ProjectPage/ProjectMain";
 import Tabs from "components/ProjectPage/Tabs";
 import { type Project, projects } from "data/projects";
+import { parseAsStringEnum, useQueryState } from "next-usequerystate";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 import { isString } from "utils/helpers";
 
 const Home: NextPage = () => {
@@ -48,7 +47,7 @@ const Home: NextPage = () => {
         <meta content="substratum" name="description" />
       </Head>
 
-      {isString(projectSlug) && project && (
+      {isString(projectSlug) && project ?
         <>
           <ProjectHead project={project} tab={tab} />
 
@@ -60,9 +59,11 @@ const Home: NextPage = () => {
 
           <ProjectMain project={project} projectSlug={projectSlug} tab={tab} />
         </>
-      )}
+      : null}
 
-      {error && <h1>{error}</h1>}
+      {error ?
+        <h1>{error}</h1>
+      : null}
     </div>
   );
 };

@@ -1,10 +1,8 @@
-import { useEffect, useState } from "react";
-import { type SubmitHandler, useForm } from "react-hook-form";
-
 import type { Project } from "data/projects";
 
-import * as St from "./TokenSearch.styled";
 import { useCurrentSupply } from "hooks/useCurrentSupply";
+import { useEffect, useState } from "react";
+import { type SubmitHandler, useForm } from "react-hook-form";
 
 interface IToken {
   tokenId: number;
@@ -22,7 +20,7 @@ const TokenSearch = ({
   refetch,
   setTokenId,
   tokenId,
-}: Props): JSX.Element => {
+}: Props): React.JSX.Element => {
   const { isZeroIndexed, maxSupply, projectSlug } = project;
 
   const currentSupply = useCurrentSupply(projectSlug);
@@ -48,9 +46,13 @@ const TokenSearch = ({
   useEffect(() => {
     if (errors.tokenId?.message) {
       setErrorText(errors.tokenId.message);
-      setTimeout(() => setErrorText(""), 3000);
+      setTimeout(() => {
+        setErrorText("");
+      }, 3000);
     } else if (errorText) {
-      setTimeout(() => setErrorText(""), 3000);
+      setTimeout(() => {
+        setErrorText("");
+      }, 3000);
     }
   }, [errors.tokenId, errorText]);
 
@@ -64,7 +66,9 @@ const TokenSearch = ({
     } else if (tokenId && tokenId < 0) {
       setErrorText("Min Token ID is 0");
       setTokenId(0);
-    } else if (Number.isNaN(tokenId)) setTokenId(null);
+    } else if (Number.isNaN(tokenId)) {
+      setTokenId(null);
+    }
   }, [
     tokenId,
     currentSupply,
@@ -80,9 +84,13 @@ const TokenSearch = ({
 
   return (
     <>
-      <St.Form id="token-page-form" onSubmit={void handleSubmit(onSubmit)}>
-        <St.Input
-          className="special-artist-name"
+      <form
+        className="h-full min-w-48 shrink basis-full"
+        id="token-page-form"
+        onSubmit={void handleSubmit(onSubmit)}
+      >
+        <input
+          className="w-full bg-transparent p-2 font-sans text-base italic hover:shadow-even focus:outline-black"
           type="number"
           {...register("tokenId", {
             max: {
@@ -99,14 +107,17 @@ const TokenSearch = ({
               refetch();
             }
           }}
-          onChange={(e) => setTokenId(parseInt(e.target.value, 10))}
+          onChange={(e) => {
+            setTokenId(parseInt(e.target.value, 10));
+          }}
           placeholder="Search By Token ID"
           value={tokenId ?? ""}
         />
-      </St.Form>
-      {errorText && (
-        <St.ErrorText className="special-artist-name">{errorText}</St.ErrorText>
-      )}
+      </form>
+
+      {errorText ?
+        <p className="font-sans text-base italic">{errorText}</p>
+      : null}
     </>
   );
 };

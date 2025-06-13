@@ -47,11 +47,10 @@ export interface Project {
     tools: string;
   };
   projectSlug: string;
-  sansaSlug?: string;
   scriptType?: string;
   status: Status;
-  useTokenName?: boolean;
   usesTransfers: boolean;
+  useTokenName?: boolean;
   website: string;
 }
 
@@ -108,7 +107,6 @@ export const projects: Project[] = [
       tools: "Solidity, Stable Diffusion, Transformer LLM, GAN, CNN",
     },
     projectSlug: "haiku",
-    sansaSlug: "651d85db72a482be8d9417b2",
     status: Status.Minting,
     usesTransfers: false,
     website: "https://matto.xyz/project/freestyle-h-ai-ku/",
@@ -139,8 +137,8 @@ export const projects: Project[] = [
     projectSlug: "crystallized-illusions",
     scriptType: "p5",
     status: Status.Closed,
-    useTokenName: true,
     usesTransfers: false,
+    useTokenName: true,
     website: "https://matto.xyz",
   },
   {
@@ -195,7 +193,6 @@ export const projects: Project[] = [
       tools: "Canon 300D and A700, p5.js",
     },
     projectSlug: "mathare-memories",
-    sansaSlug: "mathare-memories-by-matto",
     scriptType: "p5.js",
     status: Status.Closed,
     usesTransfers: true,
@@ -223,7 +220,6 @@ export const projects: Project[] = [
       tools: "Solidity",
     },
     projectSlug: "texture-and-hues",
-    sansaSlug: "texture-and-hues-by-matto",
     scriptType: "solidity",
     status: Status.Closed,
     usesTransfers: false,
@@ -238,11 +234,11 @@ export const projects: Project[] = [
     isTokenIdInTitle: true,
     isZeroIndexed: true,
     local: false,
-    maxSupply: 4_096,
+    maxSupply: 1_024,
     name: "Chainlife",
     openSeaSlug: "chainlife-by-matto",
     projectPageInfo: {
-      collectionDetails: "Algorithmic edition of 4096",
+      collectionDetails: "Algorithmic edition of 1024",
       date: "Nov. 6, 2022",
       description:
         "Chainlife is an interactive, evolving, collaborative, and extensible project exploring cellular automata. The individual tokens can be rendered in a variety of ways, and they combine together to form an everchanging world of on-chain data.",
@@ -252,9 +248,8 @@ export const projects: Project[] = [
       tools: "Solidity, JavaScript, p5.js, Azure",
     },
     projectSlug: "chainlife",
-    sansaSlug: "chainlife-by-matto",
     scriptType: "p5.js",
-    status: Status.Minting,
+    status: Status.Closed,
     usesTransfers: true,
     website: "https://matto.xyz",
   },
@@ -281,7 +276,6 @@ export const projects: Project[] = [
       tools: "Solidity",
     },
     projectSlug: "blonks",
-    sansaSlug: "blonks-by-matto",
     status: Status.Closed,
     usesTransfers: true,
     website: "https://matto.xyz",

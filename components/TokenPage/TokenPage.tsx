@@ -1,20 +1,20 @@
-import { useQuery } from "@tanstack/react-query";
-import Link from "next/link";
-import { useEffect } from "react";
-
 import type { Project } from "data/projects";
 import type { IToken } from "services/azureApi/types";
 
-import TokenModule from "./Module/TokenModule";
+import { useQuery } from "@tanstack/react-query";
 import MarketIcons from "components/MarketIcons/MarketIcons";
+import Link from "next/link";
+import { useEffect } from "react";
 import { fetchToken } from "services/azureApi/fetches";
+
+import TokenModule from "./Module/TokenModule";
 
 interface Props {
   project: Project;
   tokenId: number;
 }
 
-const TokenPage = ({ project, tokenId }: Props): JSX.Element => {
+const TokenPage = ({ project, tokenId }: Props): React.JSX.Element => {
   const { artist, name, projectSlug, website } = project;
 
   const projectLink = `/project/${projectSlug}`;
@@ -33,7 +33,7 @@ const TokenPage = ({ project, tokenId }: Props): JSX.Element => {
     void refetch();
   }, [refetch, tokenId]);
 
-  const renderToken = (): JSX.Element => {
+  const renderToken = (): React.JSX.Element => {
     if (isLoading) {
       return <h1>Loading...</h1>;
     }

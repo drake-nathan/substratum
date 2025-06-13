@@ -1,4 +1,5 @@
 export const Headers = ["Deposit Initiative", "Allow List"];
+
 export const SubHeaders = [
   "A custom and reusable fund-raise / deposit-withdraw contract written by Matto.",
   "The following addresses have been approved for the private stage of the 100x10x1-A Mint.",

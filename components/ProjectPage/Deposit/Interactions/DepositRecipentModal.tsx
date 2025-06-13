@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { type Address, type Hash, TransactionExecutionError } from "viem";
-import { useWaitForTransactionReceipt } from "wagmi";
-
 import type { SetState } from "utils/types";
 
 import TransactionModal from "components/Modals/TransactionModal";
 import { useDepositAndSetRecipent } from "hooks/deposit/useDepositAndSetRecipent";
 import { useModal } from "hooks/useModal";
+import React, { useEffect, useState } from "react";
+import { type Address, type Hash, TransactionExecutionError } from "viem";
+import { useWaitForTransactionReceipt } from "wagmi";
 
 const DepositRecipentModal = ({
   recipientAddress,

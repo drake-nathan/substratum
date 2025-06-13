@@ -1,13 +1,13 @@
+import type { Project } from "data/projects";
+
 import React from "react";
 import { Tooltip } from "react-tooltip";
 
-import type { Project } from "data/projects";
-
 import {
-  Market,
   getProjectMarketLink,
   getTokenMarketLink,
   icons,
+  Market,
 } from "./icons";
 
 interface Props {
@@ -16,7 +16,7 @@ interface Props {
 }
 
 const MarketIcons = ({ project, tokenId }: Props): React.JSX.Element => {
-  const { contractAddress, sansaSlug } = project;
+  const { contractAddress } = project;
 
   // need this since zero is falsy
   const isToken = tokenId !== undefined;
@@ -25,9 +25,9 @@ const MarketIcons = ({ project, tokenId }: Props): React.JSX.Element => {
     <div className="relative mb-1 flex items-center gap-2">
       {icons.map((icon) => {
         // skip etherscan for token version
-        if (icon.market === Market.Etherscan && isToken) return null;
-        // skip sansa if no slug
-        if (icon.market === Market.Sansa && !sansaSlug) return null;
+        if (icon.market === Market.Etherscan && isToken) {
+          return null;
+        }
 
         const {
           altCollection,
@@ -46,7 +46,6 @@ const MarketIcons = ({ project, tokenId }: Props): React.JSX.Element => {
           : getProjectMarketLink({
               address: contractAddress,
               icon,
-              sansaSlug,
             });
 
         return (
@@ -58,6 +57,7 @@ const MarketIcons = ({ project, tokenId }: Props): React.JSX.Element => {
             />
 
             <Tooltip
+              // eslint-disable-next-line @typescript-eslint/no-deprecated
               anchorId={id}
               content={tooltip}
               place={isToken ? "top" : "bottom"}

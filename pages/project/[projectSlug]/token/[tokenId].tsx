@@ -1,14 +1,12 @@
 import type { NextPage } from "next";
-
-import Head from "next/head";
-import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
-
 import type { ProjectSlug } from "services/azureApi/types";
 
 import TokenPage from "components/TokenPage/TokenPage";
 import { projects } from "data/projects";
 import { useCurrentSupply } from "hooks/useCurrentSupply";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 
 const Home: NextPage = () => {
   const { projectSlug, tokenId: tokenIdQuery } = useRouter().query;
@@ -21,7 +19,9 @@ const Home: NextPage = () => {
 
   // this useEffect validates the token id query param as a valid number
   useEffect(() => {
-    if (!project) return;
+    if (!project) {
+      return;
+    }
     // no need to validate token id if project is not found
 
     if (tokenIdQuery === "0") {
@@ -42,7 +42,9 @@ const Home: NextPage = () => {
   const currentSupply = useCurrentSupply(projectSlug as ProjectSlug);
   // this useEffect validates that the token id is within the project's range
   useEffect(() => {
-    if (!project || tokenId === null) return;
+    if (!project || tokenId === null) {
+      return;
+    }
     // no need to validate token id if project is not found
     const { isZeroIndexed, maxSupply } = project;
 
@@ -78,7 +80,7 @@ const Home: NextPage = () => {
     setIsTokenIdValid(true);
   }, [tokenId, project, currentSupply]);
 
-  const renderTokenPage = (): JSX.Element => {
+  const renderTokenPage = (): React.JSX.Element => {
     if (project && tokenId !== null && isTokenIdValid) {
       return <TokenPage project={project} tokenId={tokenId} />;
     }

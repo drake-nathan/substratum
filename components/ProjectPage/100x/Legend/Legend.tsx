@@ -2,8 +2,8 @@ import { clsx } from "clsx";
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa";
 
-import LegendCard from "./LegendCard";
 import st from "./legend.module.css";
+import LegendCard from "./LegendCard";
 
 export class VisibilityMatrix {
   cut = false;
@@ -27,7 +27,9 @@ const Legend = () => {
       <h3
         className="flex cursor-pointer items-center justify-between border-b border-black pb-1 dark:border-white"
         id="legend-title"
-        onClick={() => toggleMatrixProp("legend")}
+        onClick={() => {
+          toggleMatrixProp("legend");
+        }}
       >
         Legend
         <FaPlus

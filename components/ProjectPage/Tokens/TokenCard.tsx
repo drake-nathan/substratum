@@ -1,13 +1,13 @@
-import Link from "next/link";
-
 import type { TokenAbbr } from "services/azureApi/types";
+
+import Link from "next/link";
 
 interface Props {
   isTokenIdInTitle: boolean;
   token: TokenAbbr;
 }
 
-const TokenCard = ({ isTokenIdInTitle, token }: Props): JSX.Element => {
+const TokenCard = ({ isTokenIdInTitle, token }: Props): React.JSX.Element => {
   const {
     image,
     image_mid: imageMid,

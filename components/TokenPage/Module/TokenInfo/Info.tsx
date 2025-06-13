@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
-import { Tooltip } from "react-tooltip";
-
-import type { InfoTab } from "./types";
 import type { IAttribute } from "services/azureApi/types";
 
-import { formatNewLines, shortenTrait } from "./utils";
-import { useWindowSize } from "hooks/useWindowSize";
+import { Tooltip } from "react-tooltip";
 import { isString } from "utils/helpers";
+
+import type { InfoTab } from "./types";
+
+import { formatNewLines, shortenTrait } from "./utils";
 
 interface Props {
   additionalDescription: string | undefined;
@@ -24,18 +23,11 @@ const Info = ({
   projectSlug,
   tab,
   traits,
-}: Props): JSX.Element => {
-  const { windowWidth } = useWindowSize();
+}: Props): React.JSX.Element => {
+  // TODO: re-check responsiveness here
+  const maxTraitLength = 20;
 
-  const [maxTraitLength, setMaxTraitLength] = useState<number>(22);
-
-  useEffect(() => {
-    if (windowWidth > 450) setMaxTraitLength(22);
-    else if (windowWidth <= 450 && windowWidth > 400) setMaxTraitLength(20);
-    else setMaxTraitLength(18);
-  }, [windowWidth]);
-
-  const infoSection: Record<InfoTab, JSX.Element> = {
+  const infoSection: Record<InfoTab, React.JSX.Element> = {
     description: (
       <p className="mb-4 text-justify max-md:text-sm">
         {projectSlug === "haiku" && poem ? formatNewLines(poem) : description}
@@ -85,13 +77,14 @@ const Info = ({
                 </div>
               }
 
-              {isTraitShortened && (
+              {isTraitShortened ?
                 <Tooltip
+                  // eslint-disable-next-line @typescript-eslint/no-deprecated
                   anchorId={name}
                   content={value.toString()}
                   positionStrategy="fixed"
                 />
-              )}
+              : null}
             </div>
           );
         })}

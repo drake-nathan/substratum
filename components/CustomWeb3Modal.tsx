@@ -1,9 +1,8 @@
 import { createWeb3Modal, useWeb3ModalTheme } from "@web3modal/wagmi/react";
+import { useTheme } from "contexts/ThemeProvider";
 import React, { useEffect } from "react";
-import { useTheme } from "styled-components";
-import { WagmiProvider } from "wagmi";
-
 import { wagmiConfig } from "services/wagmi";
+import { WagmiProvider } from "wagmi";
 
 const projectId = process.env.NEXT_PUBLIC_W3M_PROJECT_ID;
 
@@ -21,7 +20,7 @@ const Web3Modal = ({
   children,
 }: {
   children: React.ReactNode;
-}): JSX.Element => {
+}): React.JSX.Element => {
   const { isDark } = useTheme();
   const { setThemeMode } = useWeb3ModalTheme();
 

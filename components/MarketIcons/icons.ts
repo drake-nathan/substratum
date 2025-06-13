@@ -1,7 +1,6 @@
 import EtherscanLogo from "public/icons/EtherscanLogo.svg";
 import FirstMateLogo from "public/icons/FirstMateLogo.svg";
 import MagicEdenLogo from "public/icons/MagicEdenLogo.svg";
-import SansaLogo from "public/icons/SansaLogo.svg";
 import X2y2Logo from "public/icons/X2y2Logo.svg";
 
 export enum Market {
@@ -9,20 +8,17 @@ export enum Market {
   FirstMate,
   MagicEden,
   X2y2,
-  Sansa,
 }
 
 enum UrlParam {
   openseaSlug,
   address,
-  sansaSlug,
 }
 
 const MarketRootsCollection = {
   [Market.Etherscan]: "https://etherscan.io/address",
   [Market.FirstMate]: "https://market.substratum.art/1/collections",
   [Market.MagicEden]: "https://magiceden.io/collections/ethereum",
-  [Market.Sansa]: "https://sansa.xyz/collections",
   [Market.X2y2]: "https://x2y2.io/collection",
 } satisfies Record<Market, string>;
 
@@ -30,7 +26,6 @@ const MarketRootsToken = {
   [Market.Etherscan]: "",
   [Market.FirstMate]: "https://market.substratum.art/1",
   [Market.MagicEden]: "https://magiceden.io/item-details/ethereum",
-  [Market.Sansa]: "https://sansa.xyz/asset",
   [Market.X2y2]: "https://x2y2.io/eth",
 } satisfies Record<Market, string>;
 
@@ -49,15 +44,13 @@ interface Icon {
 
 export const getProjectMarketLink = ({
   address,
-  icon: { market, urlParam },
-  sansaSlug,
+  icon: { market },
 }: {
   address: string;
   icon: Icon;
-  sansaSlug: string | undefined;
 }): string => {
   const root = MarketRootsCollection[market];
-  const param = urlParam === UrlParam.sansaSlug ? sansaSlug : address;
+  const param = address;
 
   return `${root}/${param}`;
 };
@@ -106,16 +99,6 @@ export const icons: Icon[] = [
     tooltipCollection: "MagicEden collection page",
     tooltipToken: "MagicEden token page",
     urlParam: UrlParam.address,
-  },
-  {
-    altCollection: "Sansa external collection link.",
-    altToken: "Sansa token link.",
-    id: "Sansa",
-    market: Market.Sansa,
-    src: SansaLogo,
-    tooltipCollection: "Sansa collection page",
-    tooltipToken: "Sansa token page",
-    urlParam: UrlParam.sansaSlug,
   },
   {
     altCollection: "X2y2 external collection link.",

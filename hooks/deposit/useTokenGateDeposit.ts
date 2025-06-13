@@ -35,11 +35,12 @@ export const useTokenGateDeposit = ({
     ready: !error && data?.request,
     write:
       data ?
-        () =>
+        () => {
           writeContract(data.request, {
             onError: handleError,
             onSuccess: handleSuccess,
-          })
+          });
+        }
       : null,
   };
 };

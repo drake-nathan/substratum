@@ -1,17 +1,16 @@
-import { MdMobileFriendly, MdOutlinePhoto } from "react-icons/md";
-import { Tooltip } from "react-tooltip";
-
 import type { Project } from "data/projects";
 import type { IToken } from "services/azureApi/types";
 
 import MarketIcons from "components/MarketIcons/MarketIcons";
+import { MdMobileFriendly, MdOutlinePhoto } from "react-icons/md";
+import { Tooltip } from "react-tooltip";
 
 interface Props {
   project: Project;
   token: IToken;
 }
 
-const TokenIcons = ({ project, token }: Props): JSX.Element => {
+const TokenIcons = ({ project, token }: Props): React.JSX.Element => {
   const {
     generator_url: generatorUrl,
     image,
@@ -29,35 +28,39 @@ const TokenIcons = ({ project, token }: Props): JSX.Element => {
 
   const mobileUrl = generatorUrl ? new URL(generatorUrl) : null;
 
-  if (mobileUrl) mobileUrl.searchParams.set("mobile", "true");
+  if (mobileUrl) {
+    mobileUrl.searchParams.set("mobile", "true");
+  }
 
   return (
     <div className="flex items-baseline justify-between gap-2">
       <MarketIcons project={project} tokenId={tokenId} />
 
-      {fullScreenUrl && (
+      {fullScreenUrl ?
         <a href={fullScreenUrl} rel="noreferrer" target="_blank">
           <MdOutlinePhoto className="text-2xl" id="fullscreen" />
 
           <Tooltip
+            // eslint-disable-next-line @typescript-eslint/no-deprecated
             anchorId="fullscreen"
             content="View full screen"
             positionStrategy="fixed"
           />
         </a>
-      )}
+      : null}
 
-      {isMobileControls && mobileUrl && (
+      {isMobileControls && mobileUrl ?
         <a href={mobileUrl.toString()} rel="noreferrer" target="_blank">
           <MdMobileFriendly className="text-2xl" id="mobile" />
 
           <Tooltip
+            // eslint-disable-next-line @typescript-eslint/no-deprecated
             anchorId="mobile"
             content="Launch generator with mobile controls"
             positionStrategy="fixed"
           />
         </a>
-      )}
+      : null}
     </div>
   );
 };

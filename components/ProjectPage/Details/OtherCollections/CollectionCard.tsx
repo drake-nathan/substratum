@@ -1,15 +1,14 @@
-import Link from "next/link";
-
 import type { Project } from "data/projects";
 
 import { useCurrentSupply } from "hooks/useCurrentSupply";
+import Link from "next/link";
 import { intlNumberFormat } from "utils/helpers";
 
 interface Props {
   project: Project;
 }
 
-const Card = ({ project }: Props): JSX.Element => {
+const Card = ({ project }: Props): React.JSX.Element => {
   const {
     artist,
     externalUrl,

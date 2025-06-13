@@ -1,3 +1,8 @@
+import type { SetState } from "utils/types";
+
+import TransactionModal from "components/Modals/TransactionModal";
+import { useCancelDeposit } from "hooks/deposit/useCancelDeposit";
+import { useModal } from "hooks/useModal";
 import React, { useEffect, useState } from "react";
 import {
   ContractFunctionExecutionError,
@@ -5,12 +10,6 @@ import {
   TransactionExecutionError,
 } from "viem";
 import { useWaitForTransactionReceipt } from "wagmi";
-
-import type { SetState } from "utils/types";
-
-import TransactionModal from "components/Modals/TransactionModal";
-import { useCancelDeposit } from "hooks/deposit/useCancelDeposit";
-import { useModal } from "hooks/useModal";
 
 interface Props {
   setShowModal: SetState<boolean>;

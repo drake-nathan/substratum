@@ -1,10 +1,7 @@
-import type { ConfigOptions } from "@web3modal/wagmi/dist/types/src/utils/defaultWagmiCoreConfig";
-
+import { getInfuraUrl } from "utils/helpers";
 import { createConfig, http } from "wagmi";
 import { goerli, mainnet, sepolia } from "wagmi/chains";
 import { coinbaseWallet, injected, walletConnect } from "wagmi/connectors";
-
-import { getInfuraUrl } from "utils/helpers";
 
 const projectId = process.env.NEXT_PUBLIC_W3M_PROJECT_ID;
 const infuraKey = process.env.NEXT_PUBLIC_INFURA_KEY;
@@ -16,7 +13,7 @@ if (!projectId || !infuraKey || !chainEnv) {
 
 export const chains = chainEnv === "goerli" ? [goerli, sepolia] : [mainnet];
 
-const metadata: ConfigOptions["metadata"] = {
+const metadata = {
   description: "Web3Modal Example",
   icons: ["https://avatars.githubusercontent.com/u/37784886"],
   name: "Web3Modal",

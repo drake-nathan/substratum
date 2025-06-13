@@ -1,8 +1,9 @@
+import type { IAttribute } from "services/azureApi/types";
+
 import { clsx } from "clsx";
 import { parseAsStringEnum, useQueryState } from "next-usequerystate";
 
 import type { InfoTab } from "./types";
-import type { IAttribute } from "services/azureApi/types";
 
 import Info from "./Info";
 
@@ -20,7 +21,7 @@ const TokenInfo = ({
   poem,
   projectSlug,
   traits,
-}: Props): JSX.Element => {
+}: Props): React.JSX.Element => {
   const [tab, setTab] = useQueryState(
     "tab",
     parseAsStringEnum<InfoTab>([
@@ -39,31 +40,34 @@ const TokenInfo = ({
               "border-b-2 border-black dark:border-white",
           )}
           onClick={() => void setTab("description")}
+          type="button"
         >
           <h3 className="max-md:text-lg">
             {projectSlug === "haiku" ? "Poem" : "Description"}
           </h3>
         </button>
 
-        {additionalDescription && (
+        {additionalDescription ?
           <button
             className={clsx(
               tab === "more-info" &&
                 "border-b-2 border-black dark:border-white",
             )}
             onClick={() => void setTab("more-info")}
+            type="button"
           >
             <h3 className="max-md:text-lg">
               {projectSlug === "haiku" ? "AI Analysis" : "More Info"}
             </h3>
           </button>
-        )}
+        : null}
 
         <button
           className={clsx(
             tab === "traits" && "border-b-2 border-black dark:border-white",
           )}
           onClick={() => void setTab("traits")}
+          type="button"
         >
           <h3 className="max-md:text-lg">Traits</h3>
         </button>

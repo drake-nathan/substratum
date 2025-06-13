@@ -1,13 +1,13 @@
+import BigButton from "components/BigButton";
+import { useMethodFees } from "hooks/100x/useMethodFees";
+import { useModal } from "hooks/useModal";
 import React, { useState } from "react";
 import { isAddress } from "viem";
 import { useAccount } from "wagmi";
 
 import { useReadOneHundredXShuffleable } from "../../../../wagmi/generated";
-import TopModal from "./TopModal";
 import { type Method, methods } from "./methods";
-import BigButton from "components/BigButton";
-import { useMethodFees } from "hooks/100x/useMethodFees";
-import { useModal } from "hooks/useModal";
+import TopModal from "./TopModal";
 
 interface Props {
   tokenId: string | undefined;
@@ -68,19 +68,21 @@ const TopButton = ({ tokenId, vault }: Props): React.JSX.Element => {
         {method}
       </BigButton>
 
-      {address &&
+      {(
+        address &&
         methodFees &&
         showTopModal &&
         tokenId &&
-        (vault === "" || isAddress(vault)) && (
-          <TopModal
-            address={address}
-            methodFee={methodFees[methodId]}
-            setShowModal={setShowTopModal}
-            tokenId={Number(tokenId)}
-            vault={vault || undefined}
-          />
-        )}
+        (vault === "" || isAddress(vault))
+      ) ?
+        <TopModal
+          address={address}
+          methodFee={methodFees[methodId]}
+          setShowModal={setShowTopModal}
+          tokenId={Number(tokenId)}
+          vault={vault || undefined}
+        />
+      : null}
     </>
   );
 };

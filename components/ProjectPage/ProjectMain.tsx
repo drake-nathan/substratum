@@ -1,6 +1,6 @@
-import React from "react";
-
 import type { Project } from "data/projects";
+
+import React from "react";
 
 import DepositMain from "./Deposit/DepositMain";
 import Details from "./Details/Details";

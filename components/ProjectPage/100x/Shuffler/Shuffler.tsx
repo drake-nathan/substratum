@@ -1,19 +1,19 @@
+import type { SetState } from "utils/types";
+
 import { clsx } from "clsx";
+import { useTheme } from "contexts/ThemeProvider";
+import { useModal } from "hooks/useModal";
 import React, { useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { Tooltip } from "react-tooltip";
-import { useTheme } from "styled-components";
 import { useAccount } from "wagmi";
 
-import type { SetState } from "utils/types";
-
+import { methodDescriptions } from "./methods";
 import ShuffleButton from "./ShuffleButton";
+import st from "./shuffler.module.css";
 import TokenOwnerOfModal from "./TokenOwnerOfModal";
 import TopButton from "./TopButton";
 import VaultInput from "./VaultInput";
-import { methodDescriptions } from "./methods";
-import st from "./shuffler.module.css";
-import { useModal } from "hooks/useModal";
 
 const Shuffler = ({
   setImageTokenId,
@@ -64,7 +64,9 @@ const Shuffler = ({
             aria-label="Token ID for Top method"
             className="shrink grow basis-full border-none bg-offset p-4 font-sans outline-none dark:text-black"
             max="100"
-            onChange={(e) => setTokenId(e.target.value)}
+            onChange={(e) => {
+              setTokenId(e.target.value);
+            }}
             placeholder="Token ID to Top"
             step="1"
             type="number"
@@ -75,6 +77,7 @@ const Shuffler = ({
             className="flex h-full w-[50px] justify-center bg-icon-light hover:bg-icon-dark"
             id="view-token-owner"
             onClick={handleViewClick}
+            type="button"
           >
             <a
               className="self-center"
@@ -143,13 +146,13 @@ const Shuffler = ({
 
       <VaultInput setVault={setVault} vault={vault} />
 
-      {address && tokenModal && (
+      {address && tokenModal ?
         <TokenOwnerOfModal
           address={address}
           setShowModal={setTokenModal}
           tokenId={tokenId}
         />
-      )}
+      : null}
     </div>
   );
 };
